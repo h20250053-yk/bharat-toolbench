@@ -1,0 +1,9 @@
+model,items_with_recovery,rules
+Qwen2.5-3B,3,"{""requested_passengers_shape"": 1, ""closing_tag_missing"": 1, ""extra_args_dropped"": 1}"
+Llama-3.2-3B,162,"{""extra_args_dropped"": 79, ""args_json_string"": 51, ""trailing_text_ignored"": 41, ""time_format"": 14, ""closing_tag_missing"": 13, ""requested_passengers_shape"": 4, ""booking_ids_shape"": 3, ""closing_braces_appended"": 3, ""text_tool_call"": 3, ""integer_form"": 3, ""passenger_punctuation"": 1, ""untagged_json"": 1}"
+Llama-3.1-8B,65,"{""extra_args_dropped"": 63, ""closing_braces_appended"": 18, ""text_tool_call"": 18}"
+DeepSeek-R1-8B (distill),20,"{""trailing_text_ignored"": 20}"
+Qwen2.5-14B,12,"{""extra_args_dropped"": 12}"
+gpt-oss-20B,0,{}
+Gemma-4-26B-A4B,0,{}
+Mistral-Small-3.2-24B †,1,"{""extra_args_dropped"": 1}"

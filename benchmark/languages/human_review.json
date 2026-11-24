@@ -1,0 +1,1210 @@
+{
+  "description": "Human review of non-English language items. query_sha256 pins the exact text that was reviewed; an edit to a reviewed query makes validate_tasks report the review as stale.",
+  "scope": {
+    "mr": "T01-T75 (75 items)",
+    "gu": "T01-T75 (75 items)"
+  },
+  "not_covered": "en (source text), hinglish and hi (not recorded as reviewed in this file)",
+  "items": [
+    {
+      "task_id": "T01_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0bd29a40a255806641d8e99e39e5b6ffbcab771b1d2e87b4d475bf458b0431c9"
+    },
+    {
+      "task_id": "T02_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a6ed22b987b45eb55805fd7993ac17244821146dcdb8322c2b234dde9809d591"
+    },
+    {
+      "task_id": "T03_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "21e7dff25430c428bc748d474c7638ebdd9e0c9e978cd9063bccc895fb0f18b5"
+    },
+    {
+      "task_id": "T04_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "bc9ad4a884f8bcc3b91ed880c7e72896c0ccc904bb479c1ed872c3e2614b5371"
+    },
+    {
+      "task_id": "T05_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "818262d9200fe491c0b8d238e3db95c3103ca45451d0dd03afb065bb74690e3c"
+    },
+    {
+      "task_id": "T06_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e60d604d3964857025dc2ed865c0061f143a28775733a36a0a5c3edf9fabd62c"
+    },
+    {
+      "task_id": "T07_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "7401abfa21fd7d4c40b8f245a83eed7798b7ab37fd17d3eecb92ed7295572c50"
+    },
+    {
+      "task_id": "T08_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e60612f424f7c38602100b1d6b88aa763daf8114be1f2311afa516f0990b6865"
+    },
+    {
+      "task_id": "T09_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "53d756cb617f807411a9b824b1a374467efab811145aa07b837da70051f23002"
+    },
+    {
+      "task_id": "T10_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "ac45d237d7c92204e655e2031f0ec1e0346c88a0c4e464cb9712af31a858a099"
+    },
+    {
+      "task_id": "T11_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b74253be83df1398c0f37a22902732ed5e9ab7cb3c7ba142a9da7cf9690d1b8c"
+    },
+    {
+      "task_id": "T12_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c3cdb7cbe8e410caa396d70d04103c21f7609e176ea343452271cf62a503004a"
+    },
+    {
+      "task_id": "T13_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "cd4333c0917a9d1a85e4f843ffd1130ae573f3a5192d880d3373d6ad6e53bd53"
+    },
+    {
+      "task_id": "T14_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "173578d8ce2e4e68cb6dedf1064ebc72169f25cadc1c3b0b999827268e3fc0ce"
+    },
+    {
+      "task_id": "T15_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "efeee9a7487acf3c0f8a32438535de937f938a5dd91838ecc2694e30e970bae6"
+    },
+    {
+      "task_id": "T16_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c687693187e08946aba656a36c7b819901697b9a2b36092794b81be6483a8684"
+    },
+    {
+      "task_id": "T17_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "796054feecdbfc4355811d5ddd66c7399502ae30b839c458cc53ab1aa7337993"
+    },
+    {
+      "task_id": "T18_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a7dca936b10da1b977274b27d5e313fbf6074fd906a56e0dadf3325628c34ca7"
+    },
+    {
+      "task_id": "T19_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4e4eb53a3bd645b7117792bb9616d763f7ee5fc9ac1017643bf4755f32fa85a7"
+    },
+    {
+      "task_id": "T20_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6878ecf5ea7eea52df598f897d4955f81e3a5c09c7cc56eb988137b0ae5c5bc4"
+    },
+    {
+      "task_id": "T21_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "093f9794b4314de20926f30f3ccafc7b908ed67c6ade8dc9e4b244032a0fe0a3"
+    },
+    {
+      "task_id": "T22_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e6b4670247cb47d3753d1f2653de28703d35c48316a297dc8eb99649a44517d7"
+    },
+    {
+      "task_id": "T23_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5b53beea907c3db1f9bd36880e345cfe720f5d76fd201e224d57723dc0ef89e1"
+    },
+    {
+      "task_id": "T24_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "3485c4949ed2f5e457b79921b92fd2a8a823a73b795745add20d7aaa5acca755"
+    },
+    {
+      "task_id": "T25_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6907325096ed181c17b1dd13d8521e6bf1bc1e11767a95874b711f58fb2b03bb"
+    },
+    {
+      "task_id": "T26_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e74eddfd98011c59cbb113ea006e607a9ff9f8e6a41423ef97fb2137250500fc"
+    },
+    {
+      "task_id": "T27_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "446f5bfe7f26a3265b5cc7d359562528306c7a7f600af35642ec8e339557c275"
+    },
+    {
+      "task_id": "T28_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5138c695f3111964b82ef214bffe6bee0dbc8bfd71a1305d3e9d8c756d2dcf4b"
+    },
+    {
+      "task_id": "T29_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b3ee6c5516326835031dbc7ca3c19d7c6f235373066825885b65a6eaf1d04038"
+    },
+    {
+      "task_id": "T30_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c3472a24a23173465cb7bf82460b40cc39ab583433566da882bc294342175379"
+    },
+    {
+      "task_id": "T31_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4d8808aa9159237af7379b48f3411060279c1fb5b5c6d7c3bd352dc8728f13f8"
+    },
+    {
+      "task_id": "T32_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6dac68918975c6ea4609e03628f25e51e66824d0c1428d8142c39a298d6b1db6"
+    },
+    {
+      "task_id": "T33_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e8c1f53769d410d5ba8076aeef27fc089a8874388b9dc41c624b87b42249e206"
+    },
+    {
+      "task_id": "T34_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d96631e86faf27ef52fc0b08cad3c920af421e7a280004fff7df0719b6c0ccbc"
+    },
+    {
+      "task_id": "T35_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0bc6087c104ad22763a423b44c9c7ee23d917337c43890a2e0fa49c8e0a89377"
+    },
+    {
+      "task_id": "T36_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c2a02101213d0f284cec9eeb46b95671df9f915b760c05cf3bd25d06c915702e"
+    },
+    {
+      "task_id": "T37_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a0cd5fbe8d25434c7affc2a87213a4bf006642720ee9c8078d9daa7fadc9d36d"
+    },
+    {
+      "task_id": "T38_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "3bee806e5f9203db18a2095676348c92f844d56873593f4444b8f48e204aeff4"
+    },
+    {
+      "task_id": "T39_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a3e9e172260e5a58b1a1c3610e67f143b28cc986a6a36f802538f7cd9d0d45df"
+    },
+    {
+      "task_id": "T40_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "daa86100c736b9f3d516cd3f62d7830805efb5196f5335a70c95ef0751a52eb3"
+    },
+    {
+      "task_id": "T41_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5790393ca973ad9a15d57e53f1a1f2b47773e424842ca3d6cad8213c7c4ffeaa"
+    },
+    {
+      "task_id": "T42_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "03d98fff5873310da4c5b2ed198b8da21ba7dc813ce2fd7f248f4536c6c44f7a"
+    },
+    {
+      "task_id": "T43_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a2320b63c85f07dc5d5d6e99ea6e6b4b03e6980614bc8dec73f0a90a88235c78"
+    },
+    {
+      "task_id": "T44_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "acc1c6656a7a12f3f0b43166b1c03ed06aeae774ef4c134eaa6ade80047a9e74"
+    },
+    {
+      "task_id": "T45_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "fd28eced5278ec1d1f0126d67c3f2ee39d3a416b7f113c4e4fefe96e04e49891"
+    },
+    {
+      "task_id": "T46_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b67c4a7405c94f6d3e05dbeb8b8dd73aadfce175b0078b20ad7b8d9051b115b4"
+    },
+    {
+      "task_id": "T47_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "64906ce1ff0c9de678ff454e9a0109b76223f6f11c244eab574ed230dc2f5ade"
+    },
+    {
+      "task_id": "T48_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "ee90528ec9e7ae6d4f965b7a02017a78e91ba934741114174ac5ea9c3309841e"
+    },
+    {
+      "task_id": "T49_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a0dfbc8bececf99465d388cea367439c96f37f9f90ff21711732e240d6f8ec82"
+    },
+    {
+      "task_id": "T50_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "494aaef4cada4fd5fe4d6c9290637a0bc1fb945c7ed127c11feb3f5f55a11862"
+    },
+    {
+      "task_id": "T51_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d6486542f46ef497e53f8da5e82222f7b49283edfb8cd0d1cb4f175d72ac8b42"
+    },
+    {
+      "task_id": "T52_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "aae30c8ab4625f5fa649e9765cf34895ae0d54b3f5416df99ba89813385dae4b"
+    },
+    {
+      "task_id": "T53_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "609a94639f745f89a0e7f1fa59970355a512d640a3cb8a11b1800e75ee448490"
+    },
+    {
+      "task_id": "T54_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "082441ff289f9122579ef5a2fe61326c0a752414c4e5511dcf7ad59b30a46bfe"
+    },
+    {
+      "task_id": "T55_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "ea9030e9b1a26fe2683149552a5a31f13f0afad2e9bcb72fcea30cbee2a944c2"
+    },
+    {
+      "task_id": "T56_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "bbaa3d5c681e6a4094bd8f7238b5ef260a8c55125937000decd4db0ffa4565ce"
+    },
+    {
+      "task_id": "T57_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4ebb40fc123d2af3de6c4c1e058ca8ed681ef77ecdb397a08ceebb3a04d1ea8a"
+    },
+    {
+      "task_id": "T58_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0a7bb3badfd68c0abda7a03a3a60ca44c032e8691a6e2a79f3dda7b9b76a2871"
+    },
+    {
+      "task_id": "T59_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b54e25b37110d32399776ee50f669302588b1fe3a024525375e187cff09c551d"
+    },
+    {
+      "task_id": "T60_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6469a6d51e668e003e279ef5e1a806ed91ba02cef630d25bf0cd923611f6ad30"
+    },
+    {
+      "task_id": "T61_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "dbf5bca03a148fd062a6a8c43faf53c7b75421f2890efb0f033a1fb1da928029"
+    },
+    {
+      "task_id": "T62_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a73e3151edbc4cb0401aeae83fe31a514d6b7209a7e7e46fab5762b300ee918c"
+    },
+    {
+      "task_id": "T63_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "449b26f0e1b08b3cf04604b9973041b622440f6ed9b0324f4a671ed8c7bbc4f3"
+    },
+    {
+      "task_id": "T64_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0d2b242c081e2a9c1cac07d2a3f58ad2f931324b58d52016c1e1b9c4782a1fd7"
+    },
+    {
+      "task_id": "T65_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "df817284e208be84afbf92025c806f1a557c6187f49898843f159d20f15ec455"
+    },
+    {
+      "task_id": "T66_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e325eee844a848761a8635a466e7959df8db548ad936d03c78196a1e2f87fc02"
+    },
+    {
+      "task_id": "T67_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "cd59dcab9e05f117d55a28c10c0f8b5d4e9b6ce21a492c3e569a79e5dc4a73e1"
+    },
+    {
+      "task_id": "T68_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a61257ee1be0c3cb4bed17bd98e1551cbec32a54ba6b0abccc9f9f12c0357281"
+    },
+    {
+      "task_id": "T69_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5837138b9c615bfe5aef98191667a9e3507c38748bc295421999237dd4f2e8f9"
+    },
+    {
+      "task_id": "T70_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "a8606734a0e70193dbe625c4acc0050ecedbd930b0f3354a173281bad3ea9b33"
+    },
+    {
+      "task_id": "T71_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e7c0d770e7eae0758dd7175d1c34cf8863b7caafb4e658debffd46a55bb73b3f"
+    },
+    {
+      "task_id": "T72_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "dd8beffb507d2ea23b906844aaa35537cd010603930d593add2764e10a561962"
+    },
+    {
+      "task_id": "T73_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "ab7cf92058b1cef3e97426f7ba2395aecb4ad6e7ed95f3529c86fd43d1d80be5"
+    },
+    {
+      "task_id": "T74_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5f2b0336dbf70b164d480db015424cffb79dcf58eb2d5391c2fcb861402fd7d1"
+    },
+    {
+      "task_id": "T75_mr",
+      "language": "mr",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "67c07d495c3506dc0b2e6a3aa5b0f47d851bfdbe1f4c39e207c8deeb27b8ab0b"
+    },
+    {
+      "task_id": "T01_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d026d6bd441ba415e2d9881c10c1bf5ac02a82ce198f653ca2247a81cf097147"
+    },
+    {
+      "task_id": "T02_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "261ef2434fa57e27b6fb4b6cf6ea921e1b56f8099cd07a91fcb6d63d11f1588e"
+    },
+    {
+      "task_id": "T03_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "75a2e833ea9f4f202d7c882d48539a877d3d4da76f9cf8dd612eec73b7b5bc81"
+    },
+    {
+      "task_id": "T04_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4d25cae01ad02d993b9b7015754b8125554ad09b85accf233a3ec37cc6d29d3c"
+    },
+    {
+      "task_id": "T05_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "701c16bad18bb4406285de194832fd9e45aa2450eec55ce4d1cb40add0d6d690"
+    },
+    {
+      "task_id": "T06_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0d1576b9b4c57055393d5a4e5bcc622da267f022d3b7a36d207b5546920e91cf"
+    },
+    {
+      "task_id": "T07_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "8928f52b284f8af0b4f8ab314a9cb82e227891e92663b484a5cd45022f92cf6d"
+    },
+    {
+      "task_id": "T08_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "56bbf14b1e8770e5a39abf3f214f94fe8af4e70cafbcbeaefedcf1883f24bb04"
+    },
+    {
+      "task_id": "T09_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "17b4e5d86b683e016e39c66c1e5c56c81978e8a63bbe06d04a6222b7d78d1b43"
+    },
+    {
+      "task_id": "T10_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "3e81bb25b6f3be265175cb4dbe23d229df5a68999d2a4be288ca6074f9a05d03"
+    },
+    {
+      "task_id": "T11_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "dabb1b5372c194420bef3250e6ac68115a4a2439966f1b54fe763297f2d294b2"
+    },
+    {
+      "task_id": "T12_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "e843e81d9d22b37d72c98186dae6128efb4a52637f5f6a0f9a2782351dfeeb0f"
+    },
+    {
+      "task_id": "T13_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d6a1a57d5fcc4b030bb147e9bdf32a4705c8a18aeaf863843da4dac57a44d606"
+    },
+    {
+      "task_id": "T14_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4095281adc4600d10b525fa4fcd2e793699b233aaac8032598d4585a2dd74dcf"
+    },
+    {
+      "task_id": "T15_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "5110638749c080db95b14a89ec475408dc2aef7f1840f19f676676f1da0f0d89"
+    },
+    {
+      "task_id": "T16_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "318fbbe0332912bd8062429c6a09b43f5643c5292ac4519131989a5cce2ca9a2"
+    },
+    {
+      "task_id": "T17_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4325a8e04306ab689e389bfdb4fa8df613bd23d4f5cb379a6f6626bc83d4de5e"
+    },
+    {
+      "task_id": "T18_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b223d35ce9cafee65ac1cfeb5a273fec2ae7c3187ac293e1a04643c2df52e311"
+    },
+    {
+      "task_id": "T19_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "341e90aa06728e87d63dfc2eb08565e4fc65657cf94642e308c082853c0cb21b"
+    },
+    {
+      "task_id": "T20_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4cbd451ca1e8b37b965d4e9945342f4112fe2037991121d6a67464ca1fd41704"
+    },
+    {
+      "task_id": "T21_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "7fe107d1841e2c8435eba94d556b5ccd8e600012453ddda793dbc98899e5bdac"
+    },
+    {
+      "task_id": "T22_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "51e346c50069b11a11a069ebb65852426e66f6d815d9c9c8e0f1fa455ba891a1"
+    },
+    {
+      "task_id": "T23_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "40158d0e968d335b191914f8ea8158085b511a97f6ceabfd99c54236f13f2353"
+    },
+    {
+      "task_id": "T24_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "322896a80a1771d763ff4af2546fc2f84c9b480d1cd4d463ec103dc3ee35b7c0"
+    },
+    {
+      "task_id": "T25_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "bb92965a4917381764eb3630b72f7ee0ed0faf76d35b240fd707cf5e752d87cc"
+    },
+    {
+      "task_id": "T26_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "10f7ee7681c191b65b147da0e620bd486c96f6e51c47a77bbbda4060b7036798"
+    },
+    {
+      "task_id": "T27_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6e0122d8d9ed3a6dd4883e1dd51e92f8eda49ae7cf0cf7e6f274e14dcc28f666"
+    },
+    {
+      "task_id": "T28_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "9697bcffb9b4a5996e0436664752692d494305cb704099bf527b8f49d85032db"
+    },
+    {
+      "task_id": "T29_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "651022219e36c8aaa6dd960a6e781fa1e923f67618368f14d94c15b939b91a83"
+    },
+    {
+      "task_id": "T30_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "f78bd4801397275e0b595fef39e77ebe94a838a248d9e58be33f5b5512b5f05d"
+    },
+    {
+      "task_id": "T31_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4e7a3d9e8bb787ca588256993abb77ddb45de707bed0e0d7b5dfb008348b5fcd"
+    },
+    {
+      "task_id": "T32_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "704d8d5e21b3f8adcb8b8b69785df164d9668d30f83ee527b9d4cdd2e46de406"
+    },
+    {
+      "task_id": "T33_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "99b787f3c9f1cea355e503816a2da9422ae3b1a57e79eae21bddaab61f90ade7"
+    },
+    {
+      "task_id": "T34_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "23c57da2547ada710b8cf47cbcaef027a73b49ad0a3cd042f1d68e614052e9a2"
+    },
+    {
+      "task_id": "T35_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0620472304b9abf6bc6865beec832c59f6dfef01ef97d14ed869a4c9121c16a8"
+    },
+    {
+      "task_id": "T36_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c81fa0aa468aad7a71c0ff9fef4e89a14efb91534c7b7b51d173865964fd5ca7"
+    },
+    {
+      "task_id": "T37_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d3e49d50ea91cfdf3a66122a222177267c897653d218f16e9787afdeb04fa766"
+    },
+    {
+      "task_id": "T38_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "6af46aa9b47366e43a952e01ccc470d85e0d471e37259ba480f16a9c53c52656"
+    },
+    {
+      "task_id": "T39_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "08aef0443a7d658d05e2ce7682146bb29d0af32bb380fcebaabfc9fb7f877164"
+    },
+    {
+      "task_id": "T40_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "4359580789a32d01dd04d0059649055a0d73a08b70027993efae7cc907a24490"
+    },
+    {
+      "task_id": "T41_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "96533daccb10cc1c60f1fd7305c59a5ac4a0bf1a58345a9d9482fbf40a6c545f"
+    },
+    {
+      "task_id": "T42_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "06acb033403ff3437cb719729d3ce5d761142f7230450b56c107898103d933e7"
+    },
+    {
+      "task_id": "T43_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "48f16045039fb3c241e941f8cdffb74537bd6b55baace1017b004d29870d8649"
+    },
+    {
+      "task_id": "T44_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "cfd9764179d46fd5589761276fe505fa41fed6ddcea623ee05ff7cf5c9b2d521"
+    },
+    {
+      "task_id": "T45_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "9c8fc47b48ceba8592d0285a1bfa3931ac1b6b0994bb6545e695597c2ddbab1b"
+    },
+    {
+      "task_id": "T46_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "738dc8872de6602a30ae0fc7a98cc16bf80bbba2bbdcdca93fcc9fc42f8f739e"
+    },
+    {
+      "task_id": "T47_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "fc994fd8c6654cdcc4623e1a7327025605490aa767d0ba355ddb919d3f30004c"
+    },
+    {
+      "task_id": "T48_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "c3e137644196fc44e20f83dabf0a9b4c68bef322d9d737a2486e8b7290ba9d66"
+    },
+    {
+      "task_id": "T49_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "9dc645e95d1f214be5d59d85ff78929799229e17ca68d96e16a10810dbb57ac1"
+    },
+    {
+      "task_id": "T50_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "3c711f9235c4d55f8bfaadac1697108f0937f69d5380729e3f4db45ed5118e41"
+    },
+    {
+      "task_id": "T51_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "753ba7308fbe51090a623ab31ec4e7f414be941e4086bf10fff9b6f5bf4ba4f9"
+    },
+    {
+      "task_id": "T52_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "bfb7fa3f0fc06a25d736871b3eef31c0d88d2f9492b96033ef0122cd003e192e"
+    },
+    {
+      "task_id": "T53_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "165118e419b892f4e30e536c16bd3b4760aad6b18fdc625f16234b5bf61afb5b"
+    },
+    {
+      "task_id": "T54_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "500a1697a0d1e374fd3047592d535c863a9d6e13c7ce7f4c1caabb71107d0b78"
+    },
+    {
+      "task_id": "T55_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "401ac1119539ea8ff9bd93297f74bc4530868ce579dec02a6ee1d82559d30ffb"
+    },
+    {
+      "task_id": "T56_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b9e6a4297002321dbc7aa2e930d1abb2b433bea0b36aa7d795466f236098d332"
+    },
+    {
+      "task_id": "T57_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "b810b7fd944793f37eda83c0e6624267d9321a2275ea45ba027ed2ca8fe01d73"
+    },
+    {
+      "task_id": "T58_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "737148aae17a9360cf9107d6504ebd5f4c0bf42766c1f2380e4756b30069df05"
+    },
+    {
+      "task_id": "T59_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "f94e01911c3a507a36d74c9d1bcd37a7d817617ebe23197510bf49f87b873673"
+    },
+    {
+      "task_id": "T60_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "d6b0880b70c1619cbb3de0ccc873496f3ed892c267756813a97130dae22f1920"
+    },
+    {
+      "task_id": "T61_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "99db4722c8d5000c17c4f51b962487c38d6259935b0c317563fd80d455a98d9d"
+    },
+    {
+      "task_id": "T62_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "02642acaf7187ed12c9208629678ee7a4a822bde8b80ae4f74ec938bc8e74e08"
+    },
+    {
+      "task_id": "T63_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "7e71b5225e421fcfe3d0ad73e279592870d5d84ce4fd3762e8dd9958426dcfc9"
+    },
+    {
+      "task_id": "T64_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "08c546d4846d3082401b5a882cfe0d12e147e9ecc8dd11f7cf8a4b014bc32fb4"
+    },
+    {
+      "task_id": "T65_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "78ba654b3a681a7ed1c9ed7080d19346c33d2e2e55b6387dd231e4f37b899fdd"
+    },
+    {
+      "task_id": "T66_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "f8648f02aaeaa9f7a96457c84d4741bc929610a01ce3d9c3ecafeb3af3b64957"
+    },
+    {
+      "task_id": "T67_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "52224694f811a7de64d7ac785f531b5e4d15dbdac92414fd212187ecba302078"
+    },
+    {
+      "task_id": "T68_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "37b4d608e844ff2c5bed5e5b5213bd156603a41a584c9f5ff863772df6d02a88"
+    },
+    {
+      "task_id": "T69_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "0905798aa35617a5efd771123a1374bbf4d9e3b41fa0112a48551e42290b76ad"
+    },
+    {
+      "task_id": "T70_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "fae03d2c6289fa32a26bb9e6d052675998db6e75301384343c8064cb81f43c9d"
+    },
+    {
+      "task_id": "T71_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "fab19d9ed27b228ecea8c62762f44ac261ef8e817f4a1c8621ca431ec385c69e"
+    },
+    {
+      "task_id": "T72_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "14307fe5887a29f9e85e43053f2e78b06a0bfda030c1e2cfb126e0f1930939c9"
+    },
+    {
+      "task_id": "T73_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "49d9e05b7825b967e65ca004fba2cc3936d5562b94b0308ac0b362d0afcd9ee8"
+    },
+    {
+      "task_id": "T74_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "db9e6b0dbffe00e16b27e230c831b39ad4b4f9f07b6b1fb3c60413d72ccd75b9"
+    },
+    {
+      "task_id": "T75_gu",
+      "language": "gu",
+      "reviewer": "BharatToolBench project author",
+      "review_date": "2026-11-24",
+      "review_status": "reviewed",
+      "query_sha256": "8f92f8b2706f3cab21d02f82b2ff6bf7ce46d3ab1574b2bf00134074badbd51d"
+    }
+  ]
+}

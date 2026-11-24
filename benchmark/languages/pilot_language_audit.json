@@ -1,0 +1,765 @@
+{
+  "_meta": {
+    "stage": "pilot_language_draft",
+    "items": 20,
+    "note": "Checks are automated keyword presence tests, NOT human verification. All review fields are pending_human_review. For fixed-train tasks (T01, T05) 'route_preserved' tests the explicit train id. 'not_applicable' = the task has no such constraint.",
+    "back_translation": "not used as evidence"
+  },
+  "records": [
+    {
+      "semantic_task_id": "T01",
+      "language": "en",
+      "task_id": "T01_en",
+      "query": "What is the fare for 2A class on train BTB103?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T01",
+      "language": "hinglish",
+      "task_id": "T01_hinglish",
+      "query": "Train BTB103 mein 2A class ka fare kitna hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'fare' and 'class' kept as English loanwords, as is typical in Hinglish."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T01",
+      "language": "hi",
+      "task_id": "T01_hi",
+      "query": "ट्रेन BTB103 में 2A क्लास का किराया कितना है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ट्रेन BTB103' (loanword) chosen over the more formal 'गाड़ी संख्या BTB103'; 'क्लास' vs 'श्रेणी'. Reviewer to confirm register."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Train id and '2A' kept in Latin/digits."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T01",
+      "language": "mr",
+      "task_id": "T01_mr",
+      "query": "ट्रेन BTB103 मध्ये 2A क्लासचे भाडे किती आहे?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ट्रेन' vs 'गाडी', 'भाडे' vs 'तिकीट दर': register choice for a native Marathi reviewer."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'2A क्लासचे' attaches a Marathi suffix to a Latin token; fine for readers, may tokenise oddly."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T02",
+      "language": "en",
+      "task_id": "T02_en",
+      "query": "Is there a 3A seat available on the only train from Nagpur to Pune on 7 October 2026? Also tell me the fare.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T02",
+      "language": "hinglish",
+      "task_id": "T02_hinglish",
+      "query": "7 October 2026 ko Nagpur se Pune jaane wali ek hi train mein 3A ki seat available hai kya? Saath hi 3A ka fare bhi bata dijiye.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ek hi train' renders English 'the only train'; gold relies on exactly one Nagpur->Pune train. Reviewer to confirm it reads as 'the only train' and not as an emphasis on 'just one'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Fare question is split into a second sentence ('Saath hi 3A ka fare...'), mirroring English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T02",
+      "language": "hi",
+      "task_id": "T02_hi",
+      "query": "7 अक्टूबर 2026 को नागपुर से पुणे जाने वाली एकमात्र ट्रेन में 3A की सीट उपलब्ध है या नहीं? साथ ही 3A का किराया भी बताइए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'एकमात्र ट्रेन' = 'the only train' (matches English); reviewer to confirm the register is natural."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'उपलब्ध है या नहीं?' is slightly formal; colloquial speakers may say 'मिल सकती है क्या?'."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'3A का किराया' used instead of a pronoun to avoid an ambiguous referent."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T02",
+      "language": "mr",
+      "task_id": "T02_mr",
+      "query": "7 ऑक्टोबर 2026 रोजी नागपूरहून पुण्याला जाणाऱ्या एकमेव ट्रेनमध्ये 3A सीट उपलब्ध आहे का? भाडेही सांगा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'एकमेव ट्रेन' = 'the only train' (matches English); reviewer to confirm the register is natural."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'रोजी' (on the date) is formal/written register; 'ट्रेनमध्ये' fuses postposition."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'3A चे भाडे किती आहे ते सांगा' avoids a gendered pronoun for train/seat."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T03",
+      "language": "en",
+      "task_id": "T03_en",
+      "query": "I need a 3A ticket from Jaipur to Ahmedabad on 8 October 2026. I want to leave at or after 6 PM, pay no more than ₹3,000, and have seats available. Which train fits? Don't book anything, just tell me the train.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T03",
+      "language": "hinglish",
+      "task_id": "T03_hinglish",
+      "query": "Mujhe 8 October 2026 ko Jaipur se Ahmedabad ka 3A ticket chahiye. Mujhe shaam 6 baje ya uske baad nikalna hai, ₹3,000 se zyada nahi lagna chahiye, aur seats available honi chahiye. Kaun si train sahi rahegi? Kuch bhi book mat karna, bas train bata do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'₹3,000 se zyada nahi lagna chahiye' = fare <= 3000 (intended); confirm it is not read as 'around 3000'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'Kuch bhi book mat karna' is a casual imperative; fine for chat, informal for a service."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Inclusive bound rendered as 'shaam 6 baje ya uske baad' (= at or after 6 PM). The words shaam/शाम/संध्याकाळी ('evening') were added next to '6' only to make 6 PM unambiguous vs 6 AM; they are not a new constraint, but a reviewer should confirm they do not read as a window ('in the evening'). Availability (seats > 0) is stated explicitly in all four variants ('have seats available' and its equivalent), matching the gold constraint; a reviewer should confirm it reads as a requirement on the recommended train."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "Highest-risk item: time inclusivity, budget bound, seats-available requirement and no-booking all live in one query."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T03",
+      "language": "hi",
+      "task_id": "T03_hi",
+      "query": "मुझे 8 अक्टूबर 2026 को जयपुर से अहमदाबाद के लिए 3A का टिकट चाहिए। मुझे शाम 6 बजे या उसके बाद निकलना है, किराया ₹3,000 से ज़्यादा नहीं होना चाहिए, और सीटें उपलब्ध होनी चाहिए। कौन-सी ट्रेन ठीक रहेगी? कुछ भी बुक मत कीजिए, बस ट्रेन बता दीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'किराया ₹3,000 से ज़्यादा नहीं होना चाहिए' = fare <= 3000 (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "'शाम 6 बजे या उसके बाद' = at or after 6 PM. The words shaam/शाम/संध्याकाळी ('evening') were added next to '6' only to make 6 PM unambiguous vs 6 AM; they are not a new constraint, but a reviewer should confirm they do not read as a window ('in the evening'). Availability (seats > 0) is stated explicitly in all four variants ('have seats available' and its equivalent), matching the gold constraint; a reviewer should confirm it reads as a requirement on the recommended train."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "'कौन-सी ट्रेन' singular, mirroring 'Which train'. 'कुछ भी बुक मत कीजिए' covers the no-booking prohibition."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T03",
+      "language": "mr",
+      "task_id": "T03_mr",
+      "query": "मला 8 ऑक्टोबर 2026 रोजी जयपूरहून अहमदाबादला जाण्यासाठी 3A चे तिकीट हवे आहे. मला संध्याकाळी 6 वाजता किंवा त्यानंतर निघायचे आहे, भाडे ₹3,000 पेक्षा जास्त नसावे आणि सीट उपलब्ध असावी. या अटी पूर्ण करणारी ट्रेन कोणती? काहीही बुक करू नका; फक्त ट्रेन सांगा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'भाडे ₹3,000 पेक्षा जास्त नसावे' = fare <= 3000 (intended)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'प्रवासासाठी' and 'निघायचे आहे' are natural but the sentence is long; reviewer to confirm."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "'संध्याकाळी 6 वाजता किंवा त्यानंतर' = at or after 6 PM. The words shaam/शाम/संध्याकाळी ('evening') were added next to '6' only to make 6 PM unambiguous vs 6 AM; they are not a new constraint, but a reviewer should confirm they do not read as a window ('in the evening'). Availability (seats > 0) is stated explicitly in all four variants ('have seats available' and its equivalent), matching the gold constraint; a reviewer should confirm it reads as a requirement on the recommended train."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "Highest-risk item (see Hinglish). 'काहीही बुक करू नका' covers the no-booking prohibition."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T04",
+      "language": "en",
+      "task_id": "T04_en",
+      "query": "Book the cheapest sleeper (SL) ticket from Mumbai to Pune on 7 October 2026 for Ananya Kulkarni.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T04",
+      "language": "hinglish",
+      "task_id": "T04_hinglish",
+      "query": "7 October 2026 ko Mumbai se Pune ke liye sabse sasta sleeper (SL) ticket Ananya Kulkarni ke naam par book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'sabse sasta' = lowest SL fare (intended), not 'best value'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger name stays Latin; 'ke naam par book kar do'."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T04",
+      "language": "hi",
+      "task_id": "T04_hi",
+      "query": "7 अक्टूबर 2026 को मुंबई से पुणे के लिए सबसे सस्ता स्लीपर (SL) टिकट Ananya Kulkarni के नाम से बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'सबसे सस्ता' = lowest SL fare (intended)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Latin-script name inside a Devanagari sentence (required by the environment's Latin-only passenger rule); 'के नाम से' is natural."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'स्लीपर (SL)' keeps both the word and the class code."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T04",
+      "language": "mr",
+      "task_id": "T04_mr",
+      "query": "7 ऑक्टोबर 2026 रोजी मुंबईहून पुण्याला जाणारे सर्वात स्वस्त स्लीपर (SL) तिकीट Ananya Kulkarni यांच्या नावाने बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'सर्वात स्वस्त' = lowest SL fare (intended)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'यांच्या नावाने' adds an honorific absent in English; reviewer to confirm it is neutral."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Booking verb 'बुक करा' is an imperative request to book exactly one ticket."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T05",
+      "language": "en",
+      "task_id": "T05_en",
+      "query": "Please book a 3A ticket on train BTB103 for Vikram Singh, but only if seats are available. If it is sold out, don't book any other class or train, just tell me.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T05",
+      "language": "hinglish",
+      "task_id": "T05_hinglish",
+      "query": "Train BTB103 mein Vikram Singh ke liye 3A ticket book karo, lekin sirf tab jab seats available hon. Agar 3A sold out ho, to kisi aur class ya kisi aur train mein book mat karna, bas mujhe bata dena.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "English 'If it is sold out' became 'Agar 3A sold out ho' (referent made explicit)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Three coupled conditions: book only if seats; if sold out do not book another class/train; just tell me. 'kisi aur class ya kisi aur train' must be read as neither."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "'sirf tab jab' encodes 'only if'."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T05",
+      "language": "hi",
+      "task_id": "T05_hi",
+      "query": "ट्रेन BTB103 में Vikram Singh के लिए 3A का टिकट बुक कीजिए, लेकिन केवल तभी जब सीटें उपलब्ध हों। अगर 3A सोल्ड आउट हो, तो किसी दूसरी क्लास या दूसरी ट्रेन में बुक मत कीजिए, बस मुझे बता दीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'दूसरी क्लास या दूसरी ट्रेन में बुक मत कीजिए': 'या' must be read as neither (same as English 'any other class or train')."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'सोल्ड आउट' is a transliterated loanword; 'केवल तभी जब' is slightly formal."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Three coupled conditions (see Hinglish). Referent '3A' made explicit vs English 'it'."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "Highest-risk item with T03."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T05",
+      "language": "mr",
+      "task_id": "T05_mr",
+      "query": "ट्रेन BTB103 मध्ये Vikram Singh यांच्यासाठी 3A चे तिकीट फक्त सीट उपलब्ध असेल तरच बुक करा. 3A सीट उपलब्ध नसतील, तर दुसऱ्या कोणत्याही क्लासमध्ये किंवा दुसऱ्या ट्रेनमध्ये तिकीट बुक करू नका; फक्त मला सांगा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'दुसऱ्या क्लासमध्ये किंवा दुसऱ्या ट्रेनमध्ये बुक करू नका' must be read as neither class nor train."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'सीट' (loanword) chosen over 'जागा' for consistency with T02; 'सोल्ड आउट' loanword vs 'संपले'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Three coupled conditions (see Hinglish). 'तरच' strongly encodes 'only if'."
+        },
+        "notes": {
+          "flag": true,
+          "detail": "Highest-risk item with T03."
+        }
+      }
+    }
+  ]
+}

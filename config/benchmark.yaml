@@ -1,0 +1,25 @@
+# BharatToolBench benchmark configuration (provider-neutral).
+benchmark_version: "2.1.0"   # 75 tasks x 5 languages = 375 items, all frozen (git tags v2.0-data, v2.0.1-data, v2.0.2-data, v2.1.0-data); 0.1.0-foundation = the 200-item mid-sem runs
+reference_datetime: "2026-10-05T09:00:00+05:30"   # pinned "now" (IST). NEVER use the system clock.
+timezone: "IST (UTC+05:30)"
+canonical_formats:
+  date: "YYYY-MM-DD"
+  time: "HH:MM (24-hour)"
+languages: [en, hinglish, hi, mr, gu]
+environment:
+  station_count: 10
+  train_count: 30
+  travel_classes: [3A, 2A, SL, CC]
+  tools:
+    - resolve_station
+    - search_trains
+    - get_train_details
+    - check_availability
+    - get_fare
+    - book_ticket
+# Named time windows used when authoring tasks (tools themselves take explicit HH:MM ranges).
+named_time_windows:
+  morning:   {start: "05:00", end: "11:59"}
+  afternoon: {start: "12:00", end: "16:59"}
+  evening:   {start: "17:00", end: "20:59"}
+  night:     {start: "21:00", end: "04:59"}   # wraps past midnight

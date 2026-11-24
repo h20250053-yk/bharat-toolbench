@@ -1,0 +1,753 @@
+Model: local_mistral_small32_24b | split: full | languages: en,hinglish,hi,mr,gu | items: 375
+Run file: runs/local_mistral_small32_24b_full_20261124T105853Z.jsonl | max turns per item: 8
+Pre-flight OK: 5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b capabilities=['completion', 'vision', 'tools'] think=None
+[1/375] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2704
+[2/375] RUN T01_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2712
+[3/375] RUN T01_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2741
+[4/375] RUN T01_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2752
+[5/375] RUN T01_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2754
+[6/375] RUN T02_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[7/375] RUN T02_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1778
+[8/375] RUN T02_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[9/375] RUN T02_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[10/375] RUN T02_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[11/375] RUN T03_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[12/375] RUN T03_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[13/375] RUN T03_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[14/375] RUN T03_mr
+    status=output_truncated task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[15/375] RUN T03_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[16/375] RUN T04_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[17/375] RUN T04_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1620
+[18/375] RUN T04_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[19/375] RUN T04_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1634
+[20/375] RUN T04_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[21/375] RUN T05_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2801
+[22/375] RUN T05_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1689
+[23/375] RUN T05_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2907
+[24/375] RUN T05_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=4153
+[25/375] RUN T05_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=4103
+[26/375] RUN T06_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2911
+[27/375] RUN T06_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3080
+[28/375] RUN T06_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2998
+[29/375] RUN T06_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3048
+[30/375] RUN T06_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3036
+[31/375] RUN T07_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1673
+[32/375] RUN T07_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1619
+[33/375] RUN T07_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1734
+[34/375] RUN T07_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1834
+[35/375] RUN T07_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[36/375] RUN T08_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[37/375] RUN T08_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[38/375] RUN T08_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[39/375] RUN T08_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[40/375] RUN T08_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[41/375] RUN T09_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[42/375] RUN T09_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1607
+[43/375] RUN T09_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[44/375] RUN T09_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[45/375] RUN T09_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[46/375] RUN T10_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4142
+[47/375] RUN T10_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1737
+[48/375] RUN T10_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4252
+[49/375] RUN T10_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1677
+[50/375] RUN T10_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[51/375] RUN T11_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3030
+[52/375] RUN T11_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2779
+[53/375] RUN T11_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2856
+[54/375] RUN T11_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3124
+[55/375] RUN T11_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3124
+[56/375] RUN T12_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[57/375] RUN T12_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[58/375] RUN T12_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[59/375] RUN T12_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[60/375] RUN T12_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[61/375] RUN T13_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[62/375] RUN T13_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1658
+[63/375] RUN T13_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[64/375] RUN T13_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1661
+[65/375] RUN T13_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[66/375] RUN T14_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3770
+[67/375] RUN T14_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 1) attempts=1 tokens=7482
+[68/375] RUN T14_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[69/375] RUN T14_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[70/375] RUN T14_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[71/375] RUN T15_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[72/375] RUN T15_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2932
+[73/375] RUN T15_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3226
+[74/375] RUN T15_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1741
+[75/375] RUN T15_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[76/375] RUN T16_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1614
+[77/375] RUN T16_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1686
+[78/375] RUN T16_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1707
+[79/375] RUN T16_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1708
+[80/375] RUN T16_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[81/375] RUN T17_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1659
+[82/375] RUN T17_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1622
+[83/375] RUN T17_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1647
+[84/375] RUN T17_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1659
+[85/375] RUN T17_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1658
+[86/375] RUN T18_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[87/375] RUN T18_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3752
+[88/375] RUN T18_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=2675
+[89/375] RUN T18_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=2687
+[90/375] RUN T18_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=2687
+[91/375] RUN T19_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[92/375] RUN T19_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2851
+[93/375] RUN T19_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[94/375] RUN T19_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[95/375] RUN T19_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[96/375] RUN T20_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[97/375] RUN T20_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1585
+[98/375] RUN T20_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[99/375] RUN T20_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1623
+[100/375] RUN T20_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[101/375] RUN T21_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[102/375] RUN T21_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2866
+[103/375] RUN T21_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[104/375] RUN T21_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[105/375] RUN T21_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[106/375] RUN T22_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[107/375] RUN T22_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1731
+[108/375] RUN T22_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[109/375] RUN T22_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1674
+[110/375] RUN T22_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[111/375] RUN T23_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[112/375] RUN T23_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1651
+[113/375] RUN T23_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[114/375] RUN T23_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[115/375] RUN T23_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[116/375] RUN T24_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[117/375] RUN T24_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1679
+[118/375] RUN T24_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1688
+[119/375] RUN T24_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1697
+[120/375] RUN T24_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[121/375] RUN T25_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[122/375] RUN T25_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[123/375] RUN T25_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[124/375] RUN T25_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[125/375] RUN T25_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[126/375] RUN T26_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2709
+[127/375] RUN T26_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2718
+[128/375] RUN T26_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1597
+[129/375] RUN T26_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2745
+[130/375] RUN T26_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2744
+[131/375] RUN T27_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[132/375] RUN T27_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2844
+[133/375] RUN T27_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[134/375] RUN T27_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[135/375] RUN T27_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2928
+[136/375] RUN T28_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2678
+[137/375] RUN T28_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2676
+[138/375] RUN T28_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2697
+[139/375] RUN T28_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2705
+[140/375] RUN T28_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2710
+[141/375] RUN T29_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[142/375] RUN T29_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1676
+[143/375] RUN T29_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[144/375] RUN T29_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[145/375] RUN T29_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[146/375] RUN T30_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[147/375] RUN T30_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2746
+[148/375] RUN T30_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[149/375] RUN T30_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1622
+[150/375] RUN T30_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[151/375] RUN T31_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[152/375] RUN T31_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[153/375] RUN T31_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1637
+[154/375] RUN T31_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[155/375] RUN T31_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[156/375] RUN T32_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[157/375] RUN T32_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3108
+[158/375] RUN T32_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[159/375] RUN T32_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1696
+[160/375] RUN T32_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[161/375] RUN T33_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[162/375] RUN T33_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1641
+[163/375] RUN T33_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[164/375] RUN T33_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2027
+[165/375] RUN T33_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[166/375] RUN T34_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1689
+[167/375] RUN T34_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[168/375] RUN T34_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[169/375] RUN T34_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1690
+[170/375] RUN T34_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[171/375] RUN T35_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[172/375] RUN T35_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1665
+[173/375] RUN T35_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1621
+[174/375] RUN T35_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[175/375] RUN T35_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[176/375] RUN T36_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[177/375] RUN T36_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1610
+[178/375] RUN T36_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[179/375] RUN T36_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1633
+[180/375] RUN T36_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[181/375] RUN T37_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[182/375] RUN T37_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[183/375] RUN T37_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[184/375] RUN T37_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[185/375] RUN T37_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[186/375] RUN T38_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[187/375] RUN T38_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1652
+[188/375] RUN T38_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[189/375] RUN T38_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1717
+[190/375] RUN T38_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[191/375] RUN T39_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[192/375] RUN T39_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[193/375] RUN T39_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[194/375] RUN T39_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[195/375] RUN T39_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[196/375] RUN T40_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[197/375] RUN T40_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1660
+[198/375] RUN T40_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1745
+[199/375] RUN T40_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[200/375] RUN T40_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[201/375] RUN T41_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3048
+[202/375] RUN T41_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3235
+[203/375] RUN T41_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3281
+[204/375] RUN T41_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[205/375] RUN T41_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[206/375] RUN T42_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[207/375] RUN T42_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[208/375] RUN T42_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[209/375] RUN T42_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[210/375] RUN T42_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[211/375] RUN T43_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[212/375] RUN T43_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1654
+[213/375] RUN T43_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[214/375] RUN T43_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1852
+[215/375] RUN T43_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[216/375] RUN T44_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[217/375] RUN T44_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1698
+[218/375] RUN T44_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1685
+[219/375] RUN T44_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=4056
+[220/375] RUN T44_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[221/375] RUN T45_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1637
+[222/375] RUN T45_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1633
+[223/375] RUN T45_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2800
+[224/375] RUN T45_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2792
+[225/375] RUN T45_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2806
+[226/375] RUN T46_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[227/375] RUN T46_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1669
+[228/375] RUN T46_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[229/375] RUN T46_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[230/375] RUN T46_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[231/375] RUN T47_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[232/375] RUN T47_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2875
+[233/375] RUN T47_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[234/375] RUN T47_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[235/375] RUN T47_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[236/375] RUN T48_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[237/375] RUN T48_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3007
+[238/375] RUN T48_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[239/375] RUN T48_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1710
+[240/375] RUN T48_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[241/375] RUN T49_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[242/375] RUN T49_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1708
+[243/375] RUN T49_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[244/375] RUN T49_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1689
+[245/375] RUN T49_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[246/375] RUN T50_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3193
+[247/375] RUN T50_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1705
+[248/375] RUN T50_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1808
+[249/375] RUN T50_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1914
+[250/375] RUN T50_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=2964
+[251/375] RUN T51_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[252/375] RUN T51_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[253/375] RUN T51_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[254/375] RUN T51_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[255/375] RUN T51_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[256/375] RUN T52_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[257/375] RUN T52_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[258/375] RUN T52_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[259/375] RUN T52_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[260/375] RUN T52_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[261/375] RUN T53_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[262/375] RUN T53_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1737
+[263/375] RUN T53_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[264/375] RUN T53_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1716
+[265/375] RUN T53_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[266/375] RUN T54_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[267/375] RUN T54_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[268/375] RUN T54_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[269/375] RUN T54_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[270/375] RUN T54_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[271/375] RUN T55_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3122
+[272/375] RUN T55_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1652
+[273/375] RUN T55_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3255
+[274/375] RUN T55_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[275/375] RUN T55_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=1659
+[276/375] RUN T56_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[277/375] RUN T56_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[278/375] RUN T56_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[279/375] RUN T56_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[280/375] RUN T56_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[281/375] RUN T57_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[282/375] RUN T57_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[283/375] RUN T57_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[284/375] RUN T57_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[285/375] RUN T57_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[286/375] RUN T58_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2840
+[287/375] RUN T58_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3058
+[288/375] RUN T58_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3184
+[289/375] RUN T58_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3315
+[290/375] RUN T58_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3198
+[291/375] RUN T59_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2785
+[292/375] RUN T59_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2801
+[293/375] RUN T59_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2890
+[294/375] RUN T59_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[295/375] RUN T59_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2919
+[296/375] RUN T60_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[297/375] RUN T60_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1762
+[298/375] RUN T60_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[299/375] RUN T60_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[300/375] RUN T60_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[301/375] RUN T61_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[302/375] RUN T61_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1716
+[303/375] RUN T61_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[304/375] RUN T61_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1698
+[305/375] RUN T61_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[306/375] RUN T62_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[307/375] RUN T62_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1650
+[308/375] RUN T62_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[309/375] RUN T62_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[310/375] RUN T62_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[311/375] RUN T63_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[312/375] RUN T63_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1607
+[313/375] RUN T63_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[314/375] RUN T63_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1682
+[315/375] RUN T63_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[316/375] RUN T64_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[317/375] RUN T64_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[318/375] RUN T64_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[319/375] RUN T64_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[320/375] RUN T64_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[321/375] RUN T65_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[322/375] RUN T65_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[323/375] RUN T65_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[324/375] RUN T65_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1712
+[325/375] RUN T65_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[326/375] RUN T66_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[327/375] RUN T66_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[328/375] RUN T66_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[329/375] RUN T66_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[330/375] RUN T66_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[331/375] RUN T67_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[332/375] RUN T67_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2768
+[333/375] RUN T67_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[334/375] RUN T67_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[335/375] RUN T67_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[336/375] RUN T68_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[337/375] RUN T68_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3131
+[338/375] RUN T68_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[339/375] RUN T68_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1688
+[340/375] RUN T68_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[341/375] RUN T69_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[342/375] RUN T69_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1617
+[343/375] RUN T69_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[344/375] RUN T69_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1624
+[345/375] RUN T69_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[346/375] RUN T70_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[347/375] RUN T70_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1648
+[348/375] RUN T70_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[349/375] RUN T70_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[350/375] RUN T70_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[351/375] RUN T71_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[352/375] RUN T71_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1646
+[353/375] RUN T71_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[354/375] RUN T71_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[355/375] RUN T71_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[356/375] RUN T72_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[357/375] RUN T72_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1806
+[358/375] RUN T72_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[359/375] RUN T72_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1707
+[360/375] RUN T72_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[361/375] RUN T73_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[362/375] RUN T73_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1654
+[363/375] RUN T73_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=1777
+[364/375] RUN T73_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1694
+[365/375] RUN T73_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[366/375] RUN T74_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2758
+[367/375] RUN T74_hinglish
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[368/375] RUN T74_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[369/375] RUN T74_mr
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[370/375] RUN T74_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[371/375] RUN T75_en
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[372/375] RUN T75_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1719
+[373/375] RUN T75_hi
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0
+[374/375] RUN T75_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3070
+[375/375] RUN T75_gu
+    status=malformed_output task_success=False (strict False, recoveries 0) attempts=1 tokens=0

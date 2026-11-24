@@ -1,0 +1,9 @@
+model,format_only,malformed_model_output,missing_booking,missing_required_call,output_truncated,step_limit,success,tool_argument_error,unsafe_action,wrong_answer
+Qwen2.5-3B,77,44,73,3,19,1,13,92,42,11
+Llama-3.2-3B,52,0,83,18,19,1,28,127,34,13
+Llama-3.1-8B,29,0,93,45,20,0,42,95,28,23
+DeepSeek-R1-8B (distill),0,0,92,154,84,0,24,0,0,21
+Qwen2.5-14B,13,0,44,55,8,3,101,51,56,44
+gpt-oss-20B,20,0,12,34,0,27,213,4,21,44
+Gemma-4-26B-A4B,3,0,6,18,0,7,286,2,22,31
+Mistral-Small-3.2-24B †,32,229,35,44,1,0,19,2,6,7

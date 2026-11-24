@@ -1,0 +1,53 @@
+Model: local_llama32_3b | split: pilot | languages: en,hinglish,hi,mr,gu | items: 25
+Run file: runs/local_llama32_3b_pilot_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72 capabilities=['completion', 'tools'] think=None
+[1/25] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2652
+[2/25] RUN T01_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2652
+[3/25] RUN T01_hi
+    status=completed task_success=True (strict False, recoveries 1) attempts=1 tokens=2744
+[4/25] RUN T01_mr
+    status=completed task_success=False (strict False, recoveries 1) attempts=1 tokens=2815
+[5/25] RUN T01_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2990
+[6/25] RUN T02_en
+    status=completed task_success=False (strict False, recoveries 2) attempts=1 tokens=2857
+[7/25] RUN T02_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2972
+[8/25] RUN T02_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3033
+[9/25] RUN T02_mr
+    status=completed task_success=False (strict False, recoveries 2) attempts=1 tokens=2888
+[10/25] RUN T02_gu
+    status=completed task_success=False (strict False, recoveries 3) attempts=1 tokens=3572
+[11/25] RUN T03_en
+    status=completed task_success=False (strict False, recoveries 3) attempts=1 tokens=2836
+[12/25] RUN T03_hinglish
+    status=completed task_success=False (strict False, recoveries 2) attempts=1 tokens=3018
+[13/25] RUN T03_hi
+    status=completed task_success=False (strict False, recoveries 3) attempts=1 tokens=3064
+[14/25] RUN T03_mr
+    status=completed task_success=False (strict False, recoveries 2) attempts=1 tokens=3215
+[15/25] RUN T03_gu
+    status=output_truncated task_success=False (strict False, recoveries 0) attempts=1 tokens=1982
+[16/25] RUN T04_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2747
+[17/25] RUN T04_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3015
+[18/25] RUN T04_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2986
+[19/25] RUN T04_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2892
+[20/25] RUN T04_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3301
+[21/25] RUN T05_en
+    status=completed task_success=False (strict False, recoveries 1) attempts=1 tokens=2784
+[22/25] RUN T05_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2789
+[23/25] RUN T05_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2888
+[24/25] RUN T05_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2946
+[25/25] RUN T05_gu
+    status=completed task_success=False (strict False, recoveries 1) attempts=1 tokens=3524

@@ -1,0 +1,2 @@
+NAME           ID              SIZE     PROCESSOR    CONTEXT    RUNNER      UNTIL              
+gpt-oss:20b    f38aa0c53da5    12 GB    100% GPU     16384      llamacpp    9 minutes from now    

@@ -1,0 +1,8 @@
+expected \ called,resolve_station,search_trains,get_train_details,check_availability,get_fare,book_ticket,(not called)
+resolve_station,370,0,0,0,0,0,0
+search_trains,0,195,0,0,0,0,5
+get_train_details,10,0,54,1,0,0,0
+check_availability,0,0,0,110,0,0,5
+get_fare,0,0,0,0,158,0,7
+book_ticket,0,0,0,0,0,162,3
+(not required),309,51,5,134,9,41,0

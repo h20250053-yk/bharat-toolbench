@@ -1,0 +1,82 @@
+{
+ "fig1_overall_success": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 1424,
+  "min_font_px_on_390px_phone": 4.9
+ },
+ "fig2_model_language_heatmap": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 1564,
+  "min_font_px_on_390px_phone": 4.5
+ },
+ "fig3_score_vs_size": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 1522,
+  "min_font_px_on_390px_phone": 4.6
+ },
+ "fig4_english_gap": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 2150,
+  "min_font_px_on_390px_phone": 3.3
+ },
+ "fig5_failure_types": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 2238,
+  "min_font_px_on_390px_phone": 3.1
+ },
+ "fig6_unwanted_bookings": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 1463,
+  "min_font_px_on_390px_phone": 4.8
+ },
+ "fig7_tool_funnel": {
+  "min_font_pt": 7.0,
+  "width_px_at_2x": 2345,
+  "min_font_px_on_390px_phone": 3.2
+ },
+ "fig8_selection_vs_size": {
+  "min_font_pt": 6.5,
+  "width_px_at_2x": 1522,
+  "min_font_px_on_390px_phone": 4.6
+ },
+ "fig9_selection_heatmap": {
+  "min_font_pt": 8.0,
+  "width_px_at_2x": 1451,
+  "min_font_px_on_390px_phone": 6.0
+ },
+ "fig10_selection_vs_argument_errors": {
+  "min_font_pt": 8.0,
+  "width_px_at_2x": 2448,
+  "min_font_px_on_390px_phone": 3.5
+ },
+ "fig11_language_focus": {
+  "min_font_pt": 7.0,
+  "width_px_at_2x": 1346,
+  "min_font_px_on_390px_phone": 5.6
+ },
+ "fig7_blog_funnel": {
+  "min_font_pt": 12.5,
+  "width_px_at_2x": 1146,
+  "min_font_px_on_390px_phone": 11.8
+ },
+ "fig10_blog_selection_vs_arguments": {
+  "min_font_pt": 12.5,
+  "width_px_at_2x": 1061,
+  "min_font_px_on_390px_phone": 12.8
+ },
+ "fig1_blog_overall_success": {
+  "min_font_pt": 13.0,
+  "width_px_at_2x": 1256,
+  "min_font_px_on_390px_phone": 11.2
+ },
+ "fig6_blog_unwanted_bookings": {
+  "min_font_pt": 13.0,
+  "width_px_at_2x": 1260,
+  "min_font_px_on_390px_phone": 11.2
+ },
+ "fig11_blog_language_focus": {
+  "min_font_pt": 11.5,
+  "width_px_at_2x": 1027,
+  "min_font_px_on_390px_phone": 12.1
+ }
+}

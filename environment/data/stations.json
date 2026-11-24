@@ -1,0 +1,295 @@
+{
+  "stations": [
+    {
+      "code": "NDLS",
+      "name": "New Delhi",
+      "city": "Delhi",
+      "state": "Delhi",
+      "aliases": {
+        "en": [
+          "New Delhi",
+          "Delhi",
+          "NDLS"
+        ],
+        "hinglish": [
+          "Nai Dilli",
+          "Dilli",
+          "New Delhi",
+          "Delhi"
+        ],
+        "hi": [
+          "नई दिल्ली",
+          "दिल्ली"
+        ],
+        "mr": [
+          "नवी दिल्ली",
+          "दिल्ली"
+        ],
+        "gu": [
+          "નવી દિલ્હી",
+          "દિલ્હી"
+        ]
+      }
+    },
+    {
+      "code": "NZM",
+      "name": "Hazrat Nizamuddin",
+      "city": "Delhi",
+      "state": "Delhi",
+      "aliases": {
+        "en": [
+          "Hazrat Nizamuddin",
+          "Nizamuddin",
+          "Delhi",
+          "NZM"
+        ],
+        "hinglish": [
+          "Hazrat Nizamuddin",
+          "Nizamuddin",
+          "Dilli"
+        ],
+        "hi": [
+          "हज़रत निज़ामुद्दीन",
+          "निज़ामुद्दीन",
+          "दिल्ली"
+        ],
+        "mr": [
+          "हजरत निजामुद्दीन",
+          "निजामुद्दीन",
+          "दिल्ली"
+        ],
+        "gu": [
+          "હઝરત નિઝામુદ્દીન",
+          "નિઝામુદ્દીન",
+          "દિલ્હી"
+        ]
+      }
+    },
+    {
+      "code": "JP",
+      "name": "Jaipur Junction",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "aliases": {
+        "en": [
+          "Jaipur",
+          "Jaipur Junction",
+          "JP"
+        ],
+        "hinglish": [
+          "Jaipur",
+          "Gulabi Shehar"
+        ],
+        "hi": [
+          "जयपुर"
+        ],
+        "mr": [
+          "जयपूर",
+          "जयपुर"
+        ],
+        "gu": [
+          "જયપુર"
+        ]
+      }
+    },
+    {
+      "code": "ADI",
+      "name": "Ahmedabad Junction",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "aliases": {
+        "en": [
+          "Ahmedabad",
+          "Ahmadabad",
+          "ADI"
+        ],
+        "hinglish": [
+          "Ahmedabad",
+          "Amdavad"
+        ],
+        "hi": [
+          "अहमदाबाद"
+        ],
+        "mr": [
+          "अहमदाबाद"
+        ],
+        "gu": [
+          "અમદાવાદ",
+          "અહમદાબાદ"
+        ]
+      }
+    },
+    {
+      "code": "MMCT",
+      "name": "Mumbai Central",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "aliases": {
+        "en": [
+          "Mumbai",
+          "Mumbai Central",
+          "Bombay",
+          "MMCT"
+        ],
+        "hinglish": [
+          "Mumbai",
+          "Bombay"
+        ],
+        "hi": [
+          "मुंबई",
+          "मुंबई सेंट्रल"
+        ],
+        "mr": [
+          "मुंबई",
+          "मुंबई सेंट्रल"
+        ],
+        "gu": [
+          "મુંબઈ",
+          "મુંબઈ સેન્ટ્રલ"
+        ]
+      }
+    },
+    {
+      "code": "PUNE",
+      "name": "Pune Junction",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "aliases": {
+        "en": [
+          "Pune",
+          "Poona",
+          "Pune Junction"
+        ],
+        "hinglish": [
+          "Pune",
+          "Poona"
+        ],
+        "hi": [
+          "पुणे"
+        ],
+        "mr": [
+          "पुणे"
+        ],
+        "gu": [
+          "પુણે"
+        ]
+      }
+    },
+    {
+      "code": "NGP",
+      "name": "Nagpur Junction",
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "aliases": {
+        "en": [
+          "Nagpur",
+          "Nagpur Junction",
+          "NGP"
+        ],
+        "hinglish": [
+          "Nagpur"
+        ],
+        "hi": [
+          "नागपुर"
+        ],
+        "mr": [
+          "नागपूर",
+          "नागपुर"
+        ],
+        "gu": [
+          "નાગપુર"
+        ]
+      }
+    },
+    {
+      "code": "SBC",
+      "name": "KSR Bengaluru City",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "aliases": {
+        "en": [
+          "Bengaluru",
+          "Bangalore",
+          "SBC"
+        ],
+        "hinglish": [
+          "Bengaluru",
+          "Bangalore"
+        ],
+        "hi": [
+          "बेंगलुरु",
+          "बंगलौर",
+          "बैंगलोर"
+        ],
+        "mr": [
+          "बेंगळुरू",
+          "बंगलोर",
+          "बेंगलुरू"
+        ],
+        "gu": [
+          "બેંગલુરુ",
+          "બેંગ્લોર",
+          "બેંગલોર"
+        ]
+      }
+    },
+    {
+      "code": "LKO",
+      "name": "Lucknow Charbagh",
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "aliases": {
+        "en": [
+          "Lucknow",
+          "Lucknow Charbagh",
+          "LKO"
+        ],
+        "hinglish": [
+          "Lucknow"
+        ],
+        "hi": [
+          "लखनऊ"
+        ],
+        "mr": [
+          "लखनौ",
+          "लखनऊ"
+        ],
+        "gu": [
+          "લખનઉ",
+          "લખનૌ"
+        ]
+      }
+    },
+    {
+      "code": "HWH",
+      "name": "Howrah Junction",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "aliases": {
+        "en": [
+          "Kolkata",
+          "Howrah",
+          "Calcutta",
+          "HWH"
+        ],
+        "hinglish": [
+          "Kolkata",
+          "Howrah",
+          "Calcutta"
+        ],
+        "hi": [
+          "कोलकाता",
+          "हावड़ा"
+        ],
+        "mr": [
+          "कोलकाता",
+          "हावडा"
+        ],
+        "gu": [
+          "કોલકાતા",
+          "હાવડા"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+prerun -> runs/local_qwen25_3b_pilot_20261124T102758Z.prerun.json (commit 521aaea, model digest 357c53fb659c, expected items 25)

@@ -1,0 +1,753 @@
+Model: local_gpt_oss_20b | split: full | languages: en,hinglish,hi,mr,gu | items: 375
+Run file: runs/local_gpt_oss_20b_full_20261124T105853Z.jsonl | max turns per item: 8
+Pre-flight OK: f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe capabilities=['completion', 'tools', 'thinking'] think=low
+[1/375] RUN T01_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2852
+[2/375] RUN T01_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2854
+[3/375] RUN T01_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2865
+[4/375] RUN T01_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2871
+[5/375] RUN T01_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2870
+[6/375] RUN T02_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12350
+[7/375] RUN T02_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10128
+[8/375] RUN T02_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12588
+[9/375] RUN T02_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12624
+[10/375] RUN T02_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12610
+[11/375] RUN T03_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15155
+[12/375] RUN T03_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13115
+[13/375] RUN T03_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12895
+[14/375] RUN T03_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15356
+[15/375] RUN T03_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13174
+[16/375] RUN T04_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15104
+[17/375] RUN T04_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15167
+[18/375] RUN T04_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=16175
+[19/375] RUN T04_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15368
+[20/375] RUN T04_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15275
+[21/375] RUN T05_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2969
+[22/375] RUN T05_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3036
+[23/375] RUN T05_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3052
+[24/375] RUN T05_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3035
+[25/375] RUN T05_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3013
+[26/375] RUN T06_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3100
+[27/375] RUN T06_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3101
+[28/375] RUN T06_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3083
+[29/375] RUN T06_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3136
+[30/375] RUN T06_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4658
+[31/375] RUN T07_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10402
+[32/375] RUN T07_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1624
+[33/375] RUN T07_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8717
+[34/375] RUN T07_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=5080
+[35/375] RUN T07_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=9023
+[36/375] RUN T08_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8411
+[37/375] RUN T08_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12652
+[38/375] RUN T08_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12672
+[39/375] RUN T08_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8744
+[40/375] RUN T08_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8612
+[41/375] RUN T09_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2941
+[42/375] RUN T09_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10699
+[43/375] RUN T09_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10830
+[44/375] RUN T09_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2982
+[45/375] RUN T09_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10893
+[46/375] RUN T10_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12509
+[47/375] RUN T10_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8108
+[48/375] RUN T10_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10069
+[49/375] RUN T10_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12947
+[50/375] RUN T10_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6677
+[51/375] RUN T11_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3050
+[52/375] RUN T11_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=4679
+[53/375] RUN T11_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3087
+[54/375] RUN T11_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=4688
+[55/375] RUN T11_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3097
+[56/375] RUN T12_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6883
+[57/375] RUN T12_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6907
+[58/375] RUN T12_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8711
+[59/375] RUN T12_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=7128
+[60/375] RUN T12_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6752
+[61/375] RUN T13_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12545
+[62/375] RUN T13_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12551
+[63/375] RUN T13_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12538
+[64/375] RUN T13_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12715
+[65/375] RUN T13_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12620
+[66/375] RUN T14_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12894
+[67/375] RUN T14_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=14839
+[68/375] RUN T14_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=14879
+[69/375] RUN T14_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15255
+[70/375] RUN T14_gu
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15167
+[71/375] RUN T15_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6435
+[72/375] RUN T15_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8589
+[73/375] RUN T15_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6522
+[74/375] RUN T15_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6573
+[75/375] RUN T15_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6531
+[76/375] RUN T16_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2850
+[77/375] RUN T16_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2857
+[78/375] RUN T16_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2859
+[79/375] RUN T16_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2858
+[80/375] RUN T16_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4394
+[81/375] RUN T17_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3044
+[82/375] RUN T17_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1434
+[83/375] RUN T17_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1390
+[84/375] RUN T17_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=3052
+[85/375] RUN T17_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1398
+[86/375] RUN T18_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=4370
+[87/375] RUN T18_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=5931
+[88/375] RUN T18_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=9395
+[89/375] RUN T18_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11348
+[90/375] RUN T18_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=7895
+[91/375] RUN T19_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8049
+[92/375] RUN T19_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8035
+[93/375] RUN T19_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6193
+[94/375] RUN T19_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4505
+[95/375] RUN T19_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8099
+[96/375] RUN T20_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6252
+[97/375] RUN T20_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6201
+[98/375] RUN T20_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6161
+[99/375] RUN T20_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6296
+[100/375] RUN T20_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6288
+[101/375] RUN T21_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6418
+[102/375] RUN T21_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8008
+[103/375] RUN T21_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1537
+[104/375] RUN T21_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6520
+[105/375] RUN T21_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8120
+[106/375] RUN T22_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13268
+[107/375] RUN T22_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13411
+[108/375] RUN T22_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13515
+[109/375] RUN T22_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13462
+[110/375] RUN T22_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13337
+[111/375] RUN T23_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=14944
+[112/375] RUN T23_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=14960
+[113/375] RUN T23_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15114
+[114/375] RUN T23_mr
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15280
+[115/375] RUN T23_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1573
+[116/375] RUN T24_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10461
+[117/375] RUN T24_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10627
+[118/375] RUN T24_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10462
+[119/375] RUN T24_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10606
+[120/375] RUN T24_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10589
+[121/375] RUN T25_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6514
+[122/375] RUN T25_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8406
+[123/375] RUN T25_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1589
+[124/375] RUN T25_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6696
+[125/375] RUN T25_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6696
+[126/375] RUN T26_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2897
+[127/375] RUN T26_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2882
+[128/375] RUN T26_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2886
+[129/375] RUN T26_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2915
+[130/375] RUN T26_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2871
+[131/375] RUN T27_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8004
+[132/375] RUN T27_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8034
+[133/375] RUN T27_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8054
+[134/375] RUN T27_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8122
+[135/375] RUN T27_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8084
+[136/375] RUN T28_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2799
+[137/375] RUN T28_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2920
+[138/375] RUN T28_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2819
+[139/375] RUN T28_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2866
+[140/375] RUN T28_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2869
+[141/375] RUN T29_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1403
+[142/375] RUN T29_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1432
+[143/375] RUN T29_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1515
+[144/375] RUN T29_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1503
+[145/375] RUN T29_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1498
+[146/375] RUN T30_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6081
+[147/375] RUN T30_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1521
+[148/375] RUN T30_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6164
+[149/375] RUN T30_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1516
+[150/375] RUN T30_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6272
+[151/375] RUN T31_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8190
+[152/375] RUN T31_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8154
+[153/375] RUN T31_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8160
+[154/375] RUN T31_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10055
+[155/375] RUN T31_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8244
+[156/375] RUN T32_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=14965
+[157/375] RUN T32_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12208
+[158/375] RUN T32_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12042
+[159/375] RUN T32_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12854
+[160/375] RUN T32_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12337
+[161/375] RUN T33_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15398
+[162/375] RUN T33_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15394
+[163/375] RUN T33_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15807
+[164/375] RUN T33_mr
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15606
+[165/375] RUN T33_gu
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15666
+[166/375] RUN T34_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15422
+[167/375] RUN T34_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15667
+[168/375] RUN T34_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15802
+[169/375] RUN T34_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15935
+[170/375] RUN T34_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=16005
+[171/375] RUN T35_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6365
+[172/375] RUN T35_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10713
+[173/375] RUN T35_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6431
+[174/375] RUN T35_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6471
+[175/375] RUN T35_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6374
+[176/375] RUN T36_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1408
+[177/375] RUN T36_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1521
+[178/375] RUN T36_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6216
+[179/375] RUN T36_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8283
+[180/375] RUN T36_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1501
+[181/375] RUN T37_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10431
+[182/375] RUN T37_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10360
+[183/375] RUN T37_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8050
+[184/375] RUN T37_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10375
+[185/375] RUN T37_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2979
+[186/375] RUN T38_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13311
+[187/375] RUN T38_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15872
+[188/375] RUN T38_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15796
+[189/375] RUN T38_mr
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15904
+[190/375] RUN T38_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=16274
+[191/375] RUN T39_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6389
+[192/375] RUN T39_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10621
+[193/375] RUN T39_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10659
+[194/375] RUN T39_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6572
+[195/375] RUN T39_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10656
+[196/375] RUN T40_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10729
+[197/375] RUN T40_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11314
+[198/375] RUN T40_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10971
+[199/375] RUN T40_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11099
+[200/375] RUN T40_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6218
+[201/375] RUN T41_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10193
+[202/375] RUN T41_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10401
+[203/375] RUN T41_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15169
+[204/375] RUN T41_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10635
+[205/375] RUN T41_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10263
+[206/375] RUN T42_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=14520
+[207/375] RUN T42_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=14642
+[208/375] RUN T42_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=14732
+[209/375] RUN T42_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=14809
+[210/375] RUN T42_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=14580
+[211/375] RUN T43_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15889
+[212/375] RUN T43_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6875
+[213/375] RUN T43_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13603
+[214/375] RUN T43_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=16904
+[215/375] RUN T43_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13481
+[216/375] RUN T44_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6441
+[217/375] RUN T44_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8344
+[218/375] RUN T44_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6421
+[219/375] RUN T44_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6534
+[220/375] RUN T44_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6399
+[221/375] RUN T45_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1345
+[222/375] RUN T45_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1415
+[223/375] RUN T45_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1431
+[224/375] RUN T45_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1424
+[225/375] RUN T45_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1423
+[226/375] RUN T46_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8173
+[227/375] RUN T46_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11954
+[228/375] RUN T46_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10076
+[229/375] RUN T46_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=12159
+[230/375] RUN T46_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1565
+[231/375] RUN T47_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2992
+[232/375] RUN T47_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10497
+[233/375] RUN T47_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6599
+[234/375] RUN T47_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6602
+[235/375] RUN T47_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8258
+[236/375] RUN T48_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8178
+[237/375] RUN T48_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=11002
+[238/375] RUN T48_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4866
+[239/375] RUN T48_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8303
+[240/375] RUN T48_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8423
+[241/375] RUN T49_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13459
+[242/375] RUN T49_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15811
+[243/375] RUN T49_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13610
+[244/375] RUN T49_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15594
+[245/375] RUN T49_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13658
+[246/375] RUN T50_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15341
+[247/375] RUN T50_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=14655
+[248/375] RUN T50_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15704
+[249/375] RUN T50_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=14836
+[250/375] RUN T50_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=14683
+[251/375] RUN T51_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8751
+[252/375] RUN T51_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8738
+[253/375] RUN T51_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8774
+[254/375] RUN T51_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8765
+[255/375] RUN T51_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8811
+[256/375] RUN T52_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8236
+[257/375] RUN T52_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6488
+[258/375] RUN T52_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6515
+[259/375] RUN T52_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8512
+[260/375] RUN T52_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8410
+[261/375] RUN T53_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13020
+[262/375] RUN T53_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13034
+[263/375] RUN T53_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=12955
+[264/375] RUN T53_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13238
+[265/375] RUN T53_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10741
+[266/375] RUN T54_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10693
+[267/375] RUN T54_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10699
+[268/375] RUN T54_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10856
+[269/375] RUN T54_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10934
+[270/375] RUN T54_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8667
+[271/375] RUN T55_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=5043
+[272/375] RUN T55_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8402
+[273/375] RUN T55_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8350
+[274/375] RUN T55_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8439
+[275/375] RUN T55_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=5090
+[276/375] RUN T56_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12582
+[277/375] RUN T56_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10711
+[278/375] RUN T56_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10710
+[279/375] RUN T56_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10693
+[280/375] RUN T56_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10806
+[281/375] RUN T57_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6454
+[282/375] RUN T57_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1472
+[283/375] RUN T57_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6540
+[284/375] RUN T57_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6817
+[285/375] RUN T57_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6920
+[286/375] RUN T58_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15570
+[287/375] RUN T58_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10218
+[288/375] RUN T58_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4965
+[289/375] RUN T58_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10702
+[290/375] RUN T58_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8245
+[291/375] RUN T59_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8095
+[292/375] RUN T59_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8122
+[293/375] RUN T59_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8228
+[294/375] RUN T59_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8274
+[295/375] RUN T59_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8266
+[296/375] RUN T60_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=11009
+[297/375] RUN T60_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15503
+[298/375] RUN T60_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10956
+[299/375] RUN T60_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=11043
+[300/375] RUN T60_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=15725
+[301/375] RUN T61_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10464
+[302/375] RUN T61_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10579
+[303/375] RUN T61_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10485
+[304/375] RUN T61_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12836
+[305/375] RUN T61_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12908
+[306/375] RUN T62_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8243
+[307/375] RUN T62_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8422
+[308/375] RUN T62_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8411
+[309/375] RUN T62_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10885
+[310/375] RUN T62_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8493
+[311/375] RUN T63_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6490
+[312/375] RUN T63_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8301
+[313/375] RUN T63_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8677
+[314/375] RUN T63_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6525
+[315/375] RUN T63_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6467
+[316/375] RUN T64_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13287
+[317/375] RUN T64_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=13370
+[318/375] RUN T64_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13375
+[319/375] RUN T64_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11247
+[320/375] RUN T64_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11135
+[321/375] RUN T65_en
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15775
+[322/375] RUN T65_hinglish
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=15935
+[323/375] RUN T65_hi
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=16116
+[324/375] RUN T65_mr
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=16153
+[325/375] RUN T65_gu
+    status=step_limit_exceeded task_success=False (strict False, recoveries 0) attempts=1 tokens=16014
+[326/375] RUN T66_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8562
+[327/375] RUN T66_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10890
+[328/375] RUN T66_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10695
+[329/375] RUN T66_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=11037
+[330/375] RUN T66_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=10979
+[331/375] RUN T67_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1376
+[332/375] RUN T67_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1381
+[333/375] RUN T67_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=1487
+[334/375] RUN T67_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1455
+[335/375] RUN T67_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=7936
+[336/375] RUN T68_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10134
+[337/375] RUN T68_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4584
+[338/375] RUN T68_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10154
+[339/375] RUN T68_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12796
+[340/375] RUN T68_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4745
+[341/375] RUN T69_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=9846
+[342/375] RUN T69_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4632
+[343/375] RUN T69_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3126
+[344/375] RUN T69_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=2959
+[345/375] RUN T69_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=4722
+[346/375] RUN T70_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6257
+[347/375] RUN T70_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6411
+[348/375] RUN T70_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6440
+[349/375] RUN T70_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=8632
+[350/375] RUN T70_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6395
+[351/375] RUN T71_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15403
+[352/375] RUN T71_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=12438
+[353/375] RUN T71_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=12241
+[354/375] RUN T71_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=15770
+[355/375] RUN T71_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=12217
+[356/375] RUN T72_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10548
+[357/375] RUN T72_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10600
+[358/375] RUN T72_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10671
+[359/375] RUN T72_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10738
+[360/375] RUN T72_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10765
+[361/375] RUN T73_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12663
+[362/375] RUN T73_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12734
+[363/375] RUN T73_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12931
+[364/375] RUN T73_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13087
+[365/375] RUN T73_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=13089
+[366/375] RUN T74_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=6321
+[367/375] RUN T74_hinglish
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6250
+[368/375] RUN T74_hi
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=8106
+[369/375] RUN T74_mr
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6338
+[370/375] RUN T74_gu
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=6160
+[371/375] RUN T75_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10653
+[372/375] RUN T75_hinglish
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10364
+[373/375] RUN T75_hi
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=12570
+[374/375] RUN T75_mr
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10952
+[375/375] RUN T75_gu
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=10390

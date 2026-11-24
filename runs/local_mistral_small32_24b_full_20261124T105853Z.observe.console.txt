@@ -1,0 +1,1 @@
+items=375 (expected 375, complete=True) task_success=19/375 parse_ok=40 -> analysis/results/local_mistral_small32_24b_full_20261124T105853Z

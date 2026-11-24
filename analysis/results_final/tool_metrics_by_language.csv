@@ -1,0 +1,91 @@
+language,metric,value_pct,ci_lo_pct,ci_hi_pct,n
+en,tool-use rate,81.92,78.09,85.21,448
+en,selection recall,59.24,55.22,63.33,448
+en,selection precision,69.13,65.54,72.60,367
+en,selection F1,50.09,46.69,53.53,448
+en,first-call accuracy,39.06,34.66,43.66,448
+en,first-call exactness,37.95,33.57,42.52,448
+en,argument validity (calls),73.09,66.30,79.45,525
+en,argument accuracy,71.95,67.41,76.48,336
+en,sequence accuracy,99.15,97.88,100.00,118
+en,dependency edges respected,99.56,98.81,100.00,118
+en,over-call rate,36.84,33.30,40.39,418
+en,items with over-calling,45.09,40.54,49.72,448
+en,repeated-call rate,18.10,11.28,24.49,418
+en,tool use on no-tool tasks,66.23,55.12,75.80,77
+en,unwanted booking (items),9.52,6.90,13.01,357
+en,prohibited booking attempted (items),25.00,15.52,37.69,56
+en,selection-error rate,50.89,46.28,55.49,448
+en,argument-error rate,5.13,3.45,7.59,448
+hinglish,tool-use rate,77.23,73.13,80.87,448
+hinglish,selection recall,52.65,48.54,56.78,448
+hinglish,selection precision,68.31,64.53,71.99,346
+hinglish,selection F1,46.00,42.56,49.49,448
+hinglish,first-call accuracy,34.38,30.13,38.89,448
+hinglish,first-call exactness,33.26,29.05,37.75,448
+hinglish,argument validity (calls),72.62,64.32,79.27,525
+hinglish,argument accuracy,68.88,64.03,73.65,308
+hinglish,sequence accuracy,98.99,97.47,100.00,99
+hinglish,dependency edges respected,99.44,98.49,100.00,99
+hinglish,over-call rate,37.67,33.92,41.54,392
+hinglish,items with over-calling,42.86,38.35,47.48,448
+hinglish,repeated-call rate,13.06,5.88,21.62,392
+hinglish,tool use on no-tool tasks,59.74,48.58,69.98,77
+hinglish,unwanted booking (items),7.56,5.25,10.78,357
+hinglish,prohibited booking attempted (items),17.86,10.00,29.84,56
+hinglish,selection-error rate,58.71,54.09,63.17,448
+hinglish,argument-error rate,4.69,3.09,7.06,448
+hi,tool-use rate,77.46,73.36,81.08,448
+hi,selection recall,56.82,52.75,60.83,448
+hi,selection precision,70.46,66.93,73.84,347
+hi,selection F1,49.23,45.79,52.66,448
+hi,first-call accuracy,36.61,32.28,41.16,448
+hi,first-call exactness,34.38,30.13,38.89,448
+hi,argument validity (calls),72.63,64.54,79.85,525
+hi,argument accuracy,70.12,65.26,74.79,320
+hi,sequence accuracy,98.66,96.43,100.00,112
+hi,dependency edges respected,99.23,97.86,100.00,112
+hi,over-call rate,35.73,32.13,39.35,393
+hi,items with over-calling,43.08,38.57,47.71,448
+hi,repeated-call rate,8.50,3.50,15.65,393
+hi,tool use on no-tool tasks,59.74,48.58,69.98,77
+hi,unwanted booking (items),8.68,6.18,12.06,357
+hi,prohibited booking attempted (items),28.57,18.42,41.48,56
+hi,selection-error rate,55.58,50.95,60.11,448
+hi,argument-error rate,5.58,3.81,8.11,448
+mr,tool-use rate,77.90,73.83,81.50,448
+mr,selection recall,54.39,50.34,58.44,448
+mr,selection precision,68.77,65.23,72.44,349
+mr,selection F1,47.32,43.89,50.74,448
+mr,first-call accuracy,35.27,30.99,39.80,448
+mr,first-call exactness,29.02,25.01,33.38,448
+mr,argument validity (calls),69.48,60.66,77.64,525
+mr,argument accuracy,64.57,59.59,69.50,317
+mr,sequence accuracy,98.40,96.28,100.00,94
+mr,dependency edges respected,98.83,97.18,100.00,94
+mr,over-call rate,38.53,34.90,42.19,404
+mr,items with over-calling,43.97,39.45,48.60,448
+mr,repeated-call rate,16.88,7.00,27.48,404
+mr,tool use on no-tool tasks,71.43,60.51,80.31,77
+mr,unwanted booking (items),8.40,5.95,11.74,357
+mr,prohibited booking attempted (items),21.43,12.71,33.82,56
+mr,selection-error rate,59.38,54.77,63.82,448
+mr,argument-error rate,4.69,3.09,7.06,448
+gu,tool-use rate,75.45,71.26,79.20,448
+gu,selection recall,49.87,45.76,53.95,448
+gu,selection precision,68.69,64.87,72.45,338
+gu,selection F1,45.00,41.43,48.46,448
+gu,first-call accuracy,37.72,33.36,42.30,448
+gu,first-call exactness,33.71,29.48,38.20,448
+gu,argument validity (calls),81.98,77.60,85.83,525
+gu,argument accuracy,70.88,65.97,75.59,295
+gu,sequence accuracy,98.47,95.92,100.00,98
+gu,dependency edges respected,99.44,98.48,100.00,98
+gu,over-call rate,38.52,34.73,42.57,388
+gu,items with over-calling,41.07,36.61,45.68,448
+gu,repeated-call rate,15.00,6.37,24.77,388
+gu,tool use on no-tool tasks,64.94,53.80,74.65,77
+gu,unwanted booking (items),7.84,5.48,11.10,357
+gu,prohibited booking attempted (items),26.79,16.96,39.59,56
+gu,selection-error rate,61.83,57.25,66.21,448
+gu,argument-error rate,3.79,2.38,5.99,448

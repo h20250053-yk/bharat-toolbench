@@ -1,0 +1,1428 @@
+{
+  "generated_by": "analysis/observe_run.py",
+  "analysis_git_commit": "abf8e87f88ce87f67a6bbbd18887cf68946086c1",
+  "inputs": [
+    {
+      "file": "runs/local_qwen25_3b_full_20261124T105853Z.jsonl",
+      "sha256": "2d1025be63797923fa7a979d17e28f700d1db52efd1d96fd2f355ff80370f70f",
+      "rows": 375,
+      "bytes": 14370146
+    }
+  ],
+  "integrity": {
+    "rows_read": 375,
+    "model_key": "local_qwen25_3b",
+    "expected_items": 375,
+    "unique_items_selected": 375,
+    "items_with_multiple_rows": [],
+    "missing_items": [],
+    "unexpected_items": [],
+    "complete": true
+  },
+  "ollama_versions": [
+    "0.40.18"
+  ],
+  "model_key": "local_qwen25_3b",
+  "decoding_settings": [
+    {
+      "max_tokens": 2048,
+      "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "num_ctx": 16384,
+      "seed": 42,
+      "temperature": 0
+    }
+  ],
+  "benchmark_version": [
+    "2.1.0"
+  ],
+  "system_prompt_sha256": [
+    "e4648e4bbd5c1da729244465f5c4ad9a9de4b449e0bb040421956616de9617ed"
+  ],
+  "tool_schema_sha256": [
+    "dc74b083396d4cabce684ea4c61b00db063363e06343d058eeb4cd9b2dea0079"
+  ],
+  "dataset_sha256": {
+    "benchmark/semantic_tasks.json": "d81e5a65beb0efd116766e8b5a9d2e2d928553d0177cc3a6964a75d05dd1ed84",
+    "benchmark/gold_labels.json": "47612cd2eddb7ff3cd4ce552bd0942c60a02d381a2ccc8c4056fac6ded710b2d",
+    "benchmark/languages/en.jsonl": "2369800d9bfa0bfd9072de07951df87db0c342ae88059446f06efa5a3d85acec",
+    "benchmark/languages/hinglish.jsonl": "d2e338e3539f94c5584a2400db8bae111b0be500ab61a0c528a9207f77236db2",
+    "benchmark/languages/hi.jsonl": "ebcf80c4818fcc25bb2e91ce5f89411451a676217bec173f7998cd49a400999d",
+    "benchmark/languages/mr.jsonl": "382e9ef7fcfd281aed92f63992ac8dab2ef4aa57f63a7c5880de69c266ec6fa3",
+    "benchmark/languages/gu.jsonl": "d99b8763b703eeebb2080faaed54f886f25aa2ef8539859e7842403efb9ca3ea",
+    "benchmark/languages/human_review.json": "3589a29af429b95c0dd9c2e24844370942f8ccc51e623e8800293d12483468a6",
+    "config/models.yaml": "1d5ff0907821103ed18338d1db9d6203acb31ab89e4148ac9051298e7ebc0159",
+    "evaluation/runner.py": "ebca9d4f0c37db380a8c763007b54d2545b9393de142e6785de2b5a8aa4b5434",
+    "evaluation/scorer.py": "829ffd2795ac594c7eb99ac79179c5cccf308fa5d443fd4054fd44715c7563c4",
+    "evaluation/final_answer.py": "b079fc3b95819aca25261b47323d2f830fbbe382965b1018753f47433562c709",
+    "evaluation/canonical.py": "bf191be0f448ed1cc6d37a4ea7444bf0d1ea572f8c0ace23d06ac6d66abc8226",
+    "evaluation/tolerance.py": "a5d6f2efce2d66ae2a01e7a0545f12891a7a9e4e902cf0a3e5b01d077f259f11",
+    "agents/ollama_adapter.py": "e3f108c9d8842a00bb7c752ee35d68b3cb0698b130d1bc6f03e615c47a7441f2",
+    "evaluation/run_pilot.py": "ae7ead30c864de30c7dabdc33ef6e27824ecc8c4e917ff17bc444fbe368d90f0"
+  },
+  "official": {
+    "items": 375,
+    "scored": 375,
+    "not_scored": 0,
+    "task_success": 13,
+    "status": {
+      "completed": 311,
+      "malformed_output": 44,
+      "output_truncated": 19,
+      "step_limit_exceeded": 1
+    },
+    "failure_label_families": {
+      "process:missing_required_call": 791,
+      "final_answer:missing_block": 307,
+      "process:prohibited_action": 170,
+      "state:bookings_mismatch": 128,
+      "run:malformed_output": 44,
+      "run:output_truncated": 19,
+      "status:expected_needs_clarification_got_success": 12,
+      "final_answer:booking_ids_do_not_match_state": 10,
+      "status:expected_success_got_cannot_complete": 9,
+      "status:expected_cannot_complete_got_success": 8,
+      "answer_value:missing": 5,
+      "final_answer:booking_ids_invalid": 5,
+      "final_answer:wrong_selected_train": 3,
+      "final_answer:wrong_selected_class": 2,
+      "final_answer:wrong_requested_passengers": 2,
+      "process:dependency_violation": 2,
+      "value:fare_inr=1460_not_stated": 1,
+      "value:segment_distance_km=838_not_stated": 1,
+      "status:expected_success_got_needs_clarification": 1,
+      "final_answer:malformed_json": 1,
+      "answer_value:wrong": 1,
+      "final_answer:selected_train_invalid": 1,
+      "value:resolved_date=2026-10-10_not_stated": 1,
+      "run:step_limit_exceeded": 1
+    }
+  },
+  "rates": {
+    "parse_ok": 67,
+    "process_success": 126,
+    "state_success": 247,
+    "tool_calls": 2290,
+    "tool_calls_ok": 1158,
+    "top_tool_error_codes": {
+      "INVALID_TRAIN": 359,
+      "INVALID_STATION": 316,
+      "STATION_NOT_FOUND": 287,
+      "SOLD_OUT": 69,
+      "DUPLICATE_BOOKING": 52,
+      "CLASS_NOT_OFFERED": 22,
+      "INVALID_ARGUMENTS": 16,
+      "INVALID_PASSENGER": 4,
+      "INVALID_DATE": 3,
+      "PAST_DATE": 2
+    }
+  },
+  "null_baseline": {
+    "tool_required_tasks": {
+      "scored": 320,
+      "task_success": 12,
+      "rate": 0.0375
+    },
+    "no_tool_tasks": {
+      "scored": 55,
+      "task_success": 1,
+      "rate": 0.0182
+    },
+    "always_needs_clarification_baseline": {
+      "task_ids": [
+        "T09",
+        "T19",
+        "T36",
+        "T37",
+        "T46",
+        "T67",
+        "T69",
+        "T71",
+        "T74"
+      ],
+      "passes_per_language": 9,
+      "rate_all_tasks": 0.12,
+      "languages_in_run": 5
+    }
+  },
+  "strict_vs_lenient": {
+    "definition": "lenient = scorer after recorded format recoveries (headline); strict = original scorer, lower bound when a run-time recovery was used",
+    "has_strict_scores": true,
+    "lenient": {
+      "scored": 375,
+      "task_success": 13
+    },
+    "strict": {
+      "scored": 375,
+      "task_success": 13
+    },
+    "items_with_recovery": 3,
+    "recovery_rules": {
+      "requested_passengers_shape": 1,
+      "closing_tag_missing": 1,
+      "extra_args_dropped": 1
+    },
+    "items_with_recovery_by_language": {
+      "en": 2,
+      "gu": 1
+    },
+    "unparsed_model_output": {
+      "total": 44,
+      "by_language": {
+        "hinglish": 13,
+        "hi": 9,
+        "mr": 10,
+        "gu": 7,
+        "en": 5
+      }
+    }
+  },
+  "by_language": {
+    "en": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 4,
+      "parse_ok": 21,
+      "process_success": 33,
+      "state_success": 49,
+      "primary_failure": {
+        "format_only": 17,
+        "unsafe_action": 12,
+        "tool_argument_error": 18,
+        "missing_booking": 13,
+        "output_truncated": 1,
+        "malformed_model_output": 5,
+        "success": 4,
+        "wrong_answer": 5
+      }
+    },
+    "gu": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 1,
+      "parse_ok": 9,
+      "process_success": 21,
+      "state_success": 49,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "tool_argument_error": 18,
+        "output_truncated": 11,
+        "unsafe_action": 6,
+        "malformed_model_output": 7,
+        "format_only": 14,
+        "missing_booking": 15,
+        "wrong_answer": 2,
+        "success": 1
+      }
+    },
+    "hi": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 2,
+      "parse_ok": 12,
+      "process_success": 28,
+      "state_success": 51,
+      "primary_failure": {
+        "format_only": 19,
+        "tool_argument_error": 14,
+        "malformed_model_output": 9,
+        "missing_booking": 15,
+        "unsafe_action": 7,
+        "wrong_answer": 3,
+        "output_truncated": 4,
+        "missing_required_call": 1,
+        "success": 2,
+        "step_limit": 1
+      }
+    },
+    "hinglish": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 3,
+      "parse_ok": 10,
+      "process_success": 22,
+      "state_success": 50,
+      "primary_failure": {
+        "format_only": 15,
+        "tool_argument_error": 23,
+        "malformed_model_output": 13,
+        "missing_booking": 14,
+        "success": 3,
+        "unsafe_action": 7
+      }
+    },
+    "mr": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 3,
+      "parse_ok": 15,
+      "process_success": 22,
+      "state_success": 48,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "tool_argument_error": 19,
+        "missing_booking": 16,
+        "unsafe_action": 10,
+        "malformed_model_output": 10,
+        "success": 3,
+        "format_only": 12,
+        "output_truncated": 3,
+        "wrong_answer": 1
+      }
+    }
+  },
+  "by_task": {
+    "T01": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "missing_required_call": 2
+      }
+    },
+    "T02": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 4,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "tool_argument_error": 4
+      }
+    },
+    "T03": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 2,
+        "malformed_model_output": 2,
+        "output_truncated": 1
+      }
+    },
+    "T04": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "unsafe_action": 1
+      }
+    },
+    "T05": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 3,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "tool_argument_error": 2
+      }
+    },
+    "T06": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "malformed_model_output": 2,
+        "wrong_answer": 1,
+        "tool_argument_error": 1
+      }
+    },
+    "T07": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T08": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "output_truncated": 1,
+        "malformed_model_output": 4
+      }
+    },
+    "T09": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "success": 1
+      }
+    },
+    "T10": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 1,
+        "success": 1,
+        "output_truncated": 1,
+        "tool_argument_error": 1,
+        "missing_booking": 1
+      }
+    },
+    "T11": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T12": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 1,
+        "malformed_model_output": 4
+      }
+    },
+    "T13": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "malformed_model_output": 1,
+        "missing_booking": 4
+      }
+    },
+    "T14": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 1,
+        "tool_argument_error": 3,
+        "format_only": 1
+      }
+    },
+    "T15": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 5
+      }
+    },
+    "T16": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T17": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "format_only": 2,
+        "output_truncated": 2
+      }
+    },
+    "T18": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "format_only": 2
+      }
+    },
+    "T19": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 3,
+      "process_success": 5,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "format_only": 2
+      }
+    },
+    "T20": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "tool_argument_error": 3
+      }
+    },
+    "T21": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 4,
+      "state_success": 3,
+      "primary_failure": {
+        "format_only": 2,
+        "unsafe_action": 2,
+        "tool_argument_error": 1
+      }
+    },
+    "T22": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T23": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "malformed_model_output": 1
+      }
+    },
+    "T24": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T25": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "malformed_model_output": 5
+      }
+    },
+    "T26": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "wrong_answer": 1,
+        "output_truncated": 1
+      }
+    },
+    "T27": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 3,
+      "primary_failure": {
+        "success": 2,
+        "output_truncated": 1,
+        "missing_booking": 2
+      }
+    },
+    "T28": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "tool_argument_error": 2
+      }
+    },
+    "T29": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T30": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "malformed_model_output": 1,
+        "format_only": 4
+      }
+    },
+    "T31": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T32": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T33": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T34": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T35": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T36": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 5,
+      "state_success": 3,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "format_only": 3
+      }
+    },
+    "T37": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 5,
+      "state_success": 2,
+      "primary_failure": {
+        "format_only": 2,
+        "unsafe_action": 3
+      }
+    },
+    "T38": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "unsafe_action": 1
+      }
+    },
+    "T39": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 4,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "unsafe_action": 4,
+        "format_only": 1
+      }
+    },
+    "T40": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "malformed_model_output": 2
+      }
+    },
+    "T41": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 1,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "tool_argument_error": 1,
+        "format_only": 1,
+        "output_truncated": 1
+      }
+    },
+    "T42": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 3,
+      "process_success": 3,
+      "state_success": 3,
+      "primary_failure": {
+        "success": 1,
+        "format_only": 1,
+        "missing_booking": 2,
+        "wrong_answer": 1
+      }
+    },
+    "T43": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "missing_booking": 3,
+        "output_truncated": 1
+      }
+    },
+    "T44": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 1,
+        "malformed_model_output": 2,
+        "missing_required_call": 1,
+        "output_truncated": 1
+      }
+    },
+    "T45": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "malformed_model_output": 1,
+        "format_only": 3,
+        "output_truncated": 1
+      }
+    },
+    "T46": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 3,
+      "process_success": 5,
+      "state_success": 1,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "format_only": 1,
+        "output_truncated": 1
+      }
+    },
+    "T47": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 4,
+      "parse_ok": 4,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "success": 4
+      }
+    },
+    "T48": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "malformed_model_output": 1,
+        "missing_booking": 2,
+        "format_only": 1
+      }
+    },
+    "T49": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "malformed_model_output": 1
+      }
+    },
+    "T50": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 0,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 4,
+        "tool_argument_error": 1
+      }
+    },
+    "T51": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T52": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "malformed_model_output": 2
+      }
+    },
+    "T53": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "malformed_model_output": 2
+      }
+    },
+    "T54": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T55": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 3,
+      "process_success": 5,
+      "state_success": 3,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "unsafe_action": 2,
+        "success": 1,
+        "format_only": 1
+      }
+    },
+    "T56": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "malformed_model_output": 4,
+        "tool_argument_error": 1
+      }
+    },
+    "T57": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T58": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 1,
+        "tool_argument_error": 2,
+        "output_truncated": 1,
+        "wrong_answer": 1
+      }
+    },
+    "T59": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 1,
+      "state_success": 3,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "tool_argument_error": 1,
+        "output_truncated": 1,
+        "unsafe_action": 2
+      }
+    },
+    "T60": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "malformed_model_output": 2
+      }
+    },
+    "T61": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T62": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 4,
+        "malformed_model_output": 1
+      }
+    },
+    "T63": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 1,
+        "malformed_model_output": 4
+      }
+    },
+    "T64": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T65": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T66": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 4,
+        "wrong_answer": 1
+      }
+    },
+    "T67": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T68": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "tool_argument_error": 4
+      }
+    },
+    "T69": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T70": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 3,
+      "process_success": 4,
+      "state_success": 1,
+      "primary_failure": {
+        "unsafe_action": 4,
+        "tool_argument_error": 1
+      }
+    },
+    "T71": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 2,
+      "process_success": 3,
+      "state_success": 3,
+      "primary_failure": {
+        "success": 1,
+        "missing_booking": 1,
+        "format_only": 1,
+        "wrong_answer": 1,
+        "output_truncated": 1
+      }
+    },
+    "T72": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "missing_booking": 2,
+        "step_limit": 1,
+        "output_truncated": 1
+      }
+    },
+    "T73": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 3,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "malformed_model_output": 1,
+        "missing_booking": 3
+      }
+    },
+    "T74": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "malformed_model_output": 1
+      }
+    },
+    "T75": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 3,
+      "state_success": 3,
+      "primary_failure": {
+        "missing_booking": 1,
+        "unsafe_action": 1,
+        "format_only": 2,
+        "success": 1
+      }
+    }
+  },
+  "by_category": {
+    "booking": {
+      "items": 75,
+      "scored": 75,
+      "task_success": 8,
+      "parse_ok": 23,
+      "process_success": 18,
+      "state_success": 22,
+      "primary_failure": {
+        "missing_booking": 45,
+        "unsafe_action": 1,
+        "malformed_model_output": 3,
+        "success": 8,
+        "output_truncated": 5,
+        "format_only": 5,
+        "wrong_answer": 5,
+        "tool_argument_error": 3
+      }
+    },
+    "clarification": {
+      "items": 45,
+      "scored": 45,
+      "task_success": 1,
+      "parse_ok": 13,
+      "process_success": 44,
+      "state_success": 31,
+      "primary_failure": {
+        "format_only": 28,
+        "success": 1,
+        "unsafe_action": 13,
+        "tool_argument_error": 1,
+        "output_truncated": 1,
+        "malformed_model_output": 1
+      }
+    },
+    "constraint": {
+      "items": 90,
+      "scored": 90,
+      "task_success": 0,
+      "parse_ok": 13,
+      "process_success": 7,
+      "state_success": 52,
+      "primary_failure": {
+        "tool_argument_error": 28,
+        "malformed_model_output": 19,
+        "output_truncated": 5,
+        "unsafe_action": 19,
+        "missing_booking": 15,
+        "format_only": 2,
+        "wrong_answer": 1,
+        "step_limit": 1
+      }
+    },
+    "invalid_input": {
+      "items": 30,
+      "scored": 30,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 24,
+      "state_success": 30,
+      "primary_failure": {
+        "format_only": 21,
+        "output_truncated": 2,
+        "tool_argument_error": 5,
+        "malformed_model_output": 2
+      }
+    },
+    "recovery": {
+      "items": 40,
+      "scored": 40,
+      "task_success": 2,
+      "parse_ok": 8,
+      "process_success": 7,
+      "state_success": 25,
+      "primary_failure": {
+        "unsafe_action": 6,
+        "tool_argument_error": 11,
+        "output_truncated": 2,
+        "malformed_model_output": 5,
+        "format_only": 5,
+        "success": 2,
+        "missing_booking": 9
+      }
+    },
+    "sequential": {
+      "items": 65,
+      "scored": 65,
+      "task_success": 2,
+      "parse_ok": 6,
+      "process_success": 8,
+      "state_success": 57,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "tool_argument_error": 39,
+        "success": 2,
+        "format_only": 2,
+        "malformed_model_output": 12,
+        "missing_required_call": 1,
+        "output_truncated": 1,
+        "missing_booking": 4,
+        "wrong_answer": 1
+      }
+    },
+    "single_tool": {
+      "items": 30,
+      "scored": 30,
+      "task_success": 0,
+      "parse_ok": 4,
+      "process_success": 18,
+      "state_success": 30,
+      "primary_failure": {
+        "format_only": 14,
+        "missing_required_call": 2,
+        "malformed_model_output": 2,
+        "wrong_answer": 4,
+        "tool_argument_error": 5,
+        "output_truncated": 3
+      }
+    }
+  },
+  "diagnostic": {
+    "primary_failure": {
+      "success": 13,
+      "output_truncated": 19,
+      "malformed_model_output": 44,
+      "step_limit": 1,
+      "unsafe_action": 42,
+      "missing_booking": 73,
+      "tool_argument_error": 92,
+      "missing_required_call": 3,
+      "wrong_answer": 11,
+      "format_only": 77
+    },
+    "secondary_tags": {
+      "no_final_block": 307,
+      "guessed_station_code": 248,
+      "reply_language_mismatch": 172,
+      "missing_expected_booking": 90,
+      "invalid_train_id_format": 75,
+      "unresolvable_station_name": 73,
+      "empty_final_text": 63,
+      "unexpected_booking": 45,
+      "kind:unparsed_model_output": 44,
+      "repetition_or_truncation": 2,
+      "ungrounded_train_id": 1,
+      "parallel_dependent_calls": 1
+    },
+    "format_only_items": [
+      "T01_en",
+      "T01_hi",
+      "T01_hinglish",
+      "T06_en",
+      "T09_en",
+      "T09_gu",
+      "T09_hi",
+      "T09_hinglish",
+      "T10_en",
+      "T11_en",
+      "T11_hi",
+      "T11_hinglish",
+      "T11_mr",
+      "T14_gu",
+      "T16_en",
+      "T16_gu",
+      "T16_hi",
+      "T16_hinglish",
+      "T16_mr",
+      "T17_hi",
+      "T17_hinglish",
+      "T18_hi",
+      "T18_mr",
+      "T19_gu",
+      "T19_hi",
+      "T20_en",
+      "T20_hi",
+      "T21_en",
+      "T21_gu",
+      "T26_en",
+      "T26_hinglish",
+      "T26_mr",
+      "T28_en",
+      "T28_gu",
+      "T28_hi",
+      "T29_en",
+      "T29_gu",
+      "T29_hi",
+      "T29_hinglish",
+      "T29_mr",
+      "T30_gu",
+      "T30_hi",
+      "T30_hinglish",
+      "T30_mr",
+      "T36_gu",
+      "T36_hi",
+      "T36_mr",
+      "T37_en",
+      "T37_hinglish",
+      "T39_hi",
+      "T41_mr",
+      "T42_hinglish",
+      "T45_gu",
+      "T45_hi",
+      "T45_hinglish",
+      "T46_hinglish",
+      "T47_en",
+      "T48_mr",
+      "T55_gu",
+      "T58_en",
+      "T67_en",
+      "T67_gu",
+      "T67_hi",
+      "T67_hinglish",
+      "T67_mr",
+      "T69_en",
+      "T69_gu",
+      "T69_hi",
+      "T69_hinglish",
+      "T69_mr",
+      "T71_hi",
+      "T74_en",
+      "T74_hi",
+      "T74_hinglish",
+      "T74_mr",
+      "T75_gu",
+      "T75_hi"
+    ]
+  },
+  "cost": {
+    "input_tokens": 1991127,
+    "output_tokens": 158313,
+    "cached_input_tokens": 1741346,
+    "attempts_gt_1": 0,
+    "sum_item_seconds": 1434.1,
+    "wall_seconds_first_start_to_last_finish": 1434.5
+  }
+}

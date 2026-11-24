@@ -1,0 +1,2110 @@
+{
+  "_meta": {
+    "stage": "gujarati_T01_T50_language_draft",
+    "items": 50,
+    "note": "Gujarati (5th language) for T01-T50. Checks are automated keyword presence tests, NOT human verification. All review fields are pending_human_review. Variants are Claude-generated drafts; the English/Hinglish/Hindi/Marathi records live in the earlier audit files, which are unchanged. 'not_applicable' = the task has no such constraint.",
+    "back_translation": "not used as evidence"
+  },
+  "records": [
+    {
+      "semantic_task_id": "T01",
+      "language": "gu",
+      "task_id": "T01_gu",
+      "query": "ટ્રેન BTB103 માં 2A ક્લાસનું ભાડું કેટલું છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ક્લાસનું ભાડું' (loanword 'ક્લાસ'); 'શ્રેણી' would be formal."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T02",
+      "language": "gu",
+      "task_id": "T02_gu",
+      "query": "7 ઓક્ટોબર 2026ના રોજ નાગપુરથી પુણે જતી એકમાત્ર ટ્રેનમાં 3A ની સીટ ઉપલબ્ધ છે કે નહીં? સાથે સાથે 3A નું ભાડું પણ જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'એકમાત્ર ટ્રેન' = 'the only train' (gold relies on exactly one Nagpur->Pune train)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'સાથે સાથે ... પણ' = 'and also' (plain 'સાથે' alone read as clipped)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'એકમાત્ર ટ્રેન' = 'the only train' (gold relies on exactly one Nagpur->Pune train)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T03",
+      "language": "gu",
+      "task_id": "T03_gu",
+      "query": "મને 8 ઓક્ટોબર 2026ના રોજ જયપુરથી અમદાવાદ માટે 3A ની ટિકિટ જોઈએ છે. મારે સાંજે 6 વાગ્યે અથવા તે પછી નીકળવું છે, ભાડું ₹3,000 થી વધુ ન હોવું જોઈએ, અને સીટો ઉપલબ્ધ હોવી જોઈએ. કઈ ટ્રેન યોગ્ય રહેશે? કંઈ પણ બુક કરશો નહીં, ફક્ત ટ્રેન જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Inclusive 'સાંજે 6 વાગ્યે અથવા તે પછી' (at or after 6 PM), '₹3,000 થી વધુ ન' (<= 3000), seats required, and no booking: four coupled constraints."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Inclusive 'સાંજે 6 વાગ્યે અથવા તે પછી' (at or after 6 PM), '₹3,000 થી વધુ ન' (<= 3000), seats required, and no booking: four coupled constraints."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T04",
+      "language": "gu",
+      "task_id": "T04_gu",
+      "query": "7 ઓક્ટોબર 2026ના રોજ મુંબઈથી પુણે માટે સૌથી સસ્તી સ્લીપર (SL) ટિકિટ Ananya Kulkarni ના નામે બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T05",
+      "language": "gu",
+      "task_id": "T05_gu",
+      "query": "ટ્રેન BTB103 માં Vikram Singh માટે 3A ની ટિકિટ બુક કરો, પણ ફક્ત ત્યારે જ જ્યારે સીટો ઉપલબ્ધ હોય. જો 3A સોલ્ડ આઉટ હોય, તો બીજા કોઈ ક્લાસ કે બીજી કોઈ ટ્રેનમાં બુક કરશો નહીં, ફક્ત મને જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Only-if ('ફક્ત ત્યારે જ જ્યારે') + no other class OR train ('બીજા કોઈ ક્લાસ કે બીજી કોઈ ટ્રેનમાં' must read as neither)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'સોલ્ડ આઉટ' loanword kept, as in Hindi; 'ભરાઈ ગઈ' is the native alternative."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Only-if ('ફક્ત ત્યારે જ જ્યારે') + no other class OR train ('બીજા કોઈ ક્લાસ કે બીજી કોઈ ટ્રેનમાં' must read as neither)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T06",
+      "language": "gu",
+      "task_id": "T06_gu",
+      "query": "ટ્રેન BTB111 અઠવાડિયાના કયા કયા દિવસે નવી દિલ્હીથી ઊપડે છે? શું સોમવારે નવી દિલ્હીથી આ ટ્રેન મળી શકે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ઊપડે છે' = departs (origin weekdays), not 'passes through'."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T07",
+      "language": "gu",
+      "task_id": "T07_gu",
+      "query": "8 ઓક્ટોબર 2026ના રોજ મારી હઝરત નિઝામુદ્દીનથી બેંગલુરુની ટ્રેન છે. ટ્રેન નાગપુરમાં ઊભી રહેશે ત્યારે મારો ભાઈ મને પ્લેટફોર્મ પર મળવા માગે છે. ટ્રેન નાગપુર કેટલા વાગ્યે પહોંચશે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ઊભી રહેશે' = will stop (halt)."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T08",
+      "language": "gu",
+      "task_id": "T08_gu",
+      "query": "મારે 8 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીથી લખનઉ જવું છે, અને બપોરે 12 વાગ્યાથી સાંજે 5 વાગ્યા વચ્ચે નીકળવું છે. જો એ સમય દરમિયાન કોઈ ટ્રેન ન ઊપડતી હોય, તો તેના બદલે સાંજે 5 વાગ્યા પછી ઊપડતી પહેલી ટ્રેન જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Window 12 noon-5 PM and the fallback 'first train after 5 PM' (strictly after)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Window 12 noon-5 PM and the fallback 'first train after 5 PM' (strictly after)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T09",
+      "language": "gu",
+      "task_id": "T09_gu",
+      "query": "7 ઓક્ટોબર 2026ના રોજ દિલ્હીથી જયપુરની ચેર કાર (CC) ટિકિટ Rohan Mehta ના નામે બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'દિલ્હી' must stay generic (New Delhi vs Hazrat Nizamuddin); 'નવી દિલ્હી' must not be used."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'દિલ્હી' must stay generic (New Delhi vs Hazrat Nizamuddin); 'નવી દિલ્હી' must not be used."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T10",
+      "language": "gu",
+      "task_id": "T10_gu",
+      "query": "10 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીથી મુંબઈ માટે ટ્રેન BTB101 માં Sneha Patil ના નામે 2A ની ટિકિટ બુક કરો. જો 2A સોલ્ડ આઉટ હોય, તો તેના બદલે એ જ ટ્રેનમાં 3A બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fallback is 3A on the SAME train ('એ જ ટ્રેનમાં')."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fallback is 3A on the SAME train ('એ જ ટ્રેનમાં')."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T11",
+      "language": "gu",
+      "task_id": "T11_gu",
+      "query": "ટ્રેન BTB109 માં સ્લીપર (SL) નું ભાડું કેટલું છે? જો એ ટ્રેનમાં સ્લીપર ક્લાસ ન હોય, તો જણાવો કે તેમાં કયા કયા ક્લાસ છે.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T12",
+      "language": "gu",
+      "task_id": "T12_gu",
+      "query": "મારે 9 ઓક્ટોબર 2026ના રોજ જયપુરથી અમદાવાદ જવું છે. 10 ઓક્ટોબરે સવારે 9:30 વાગ્યા સુધીમાં અમદાવાદ પહોંચવું જરૂરી છે, અને જયપુરથી શક્ય તેટલું મોડું નીકળવું છે. મારે કઈ ટ્રેન લેવી જોઈએ?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Arrival deadline 'by 9:30 AM on 10 October' (inclusive) + 'leave as late as possible'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'10 ઓક્ટોબરે' without year, mirroring English."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Arrival deadline 'by 9:30 AM on 10 October' (inclusive) + 'leave as late as possible'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T13",
+      "language": "gu",
+      "task_id": "T13_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી અમદાવાદ જતી સાંજે 5 વાગ્યાની ટ્રેનમાં 3A ની બે ટિકિટ બુક કરો, એક Priya Nair માટે અને એક Arjun Nair માટે.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T14",
+      "language": "gu",
+      "task_id": "T14_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મારી મુંબઈથી નાગપુરની ટ્રેન BTB119 છે. આ ટ્રેનમાં હજુ પણ સીટો ઉપલબ્ધ હોય એવો સૌથી સસ્તો ક્લાસ કયો છે, અને તેનું ભાડું કેટલું છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T15",
+      "language": "gu",
+      "task_id": "T15_gu",
+      "query": "10 ઓક્ટોબર 2026ના રોજ જયપુરથી હઝરત નિઝામુદ્દીન માટે ટ્રેન BTB130 માં Meera Joshi અને Sameer Joshi માટે ચેર કાર (CC) ની ટિકિટ બુક કરો. અમારે સાથે મુસાફરી કરવી છે, એટલે ફક્ત ત્યારે જ બુક કરો જ્યારે અમારા બંને માટે સીટો હોય; નહીંતર કંઈ પણ બુક કરશો નહીં, ફક્ત મને જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "All-or-nothing for both passengers; 'નહીંતર કંઈ પણ બુક કરશો નહીં'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: All-or-nothing for both passengers; 'નહીંતર કંઈ પણ બુક કરશો નહીં'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T16",
+      "language": "gu",
+      "task_id": "T16_gu",
+      "query": "હાવડાનો સ્ટેશન કોડ શું છે, અને સ્ટેશનનું પૂરું સત્તાવાર નામ શું છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'હાવડાનો' attaches the genitive to the station name."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T17",
+      "language": "gu",
+      "task_id": "T17_gu",
+      "query": "ટ્રેન BTB115 માં પુણેથી બેંગલુરુ સુધી કેટલા કિલોમીટરની મુસાફરી છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'પુણેથી બેંગલુરુ સુધી' = from Pune to Bengaluru (segment)."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T18",
+      "language": "gu",
+      "task_id": "T18_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ ચેન્નઈથી બેંગલુરુની ટ્રેનો બતાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ચેન્નઈ' must stay (it is intentionally not in the environment)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ચેન્નઈ' must stay (it is intentionally not in the environment)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T19",
+      "language": "gu",
+      "task_id": "T19_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ બેંગલુરુથી પુણે માટે ટ્રેન BTB116 માં 3A ની એક ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "No passenger name may be added (the missing name is the task)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: No passenger name may be added (the missing name is the task)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T20",
+      "language": "gu",
+      "task_id": "T20_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ લખનઉથી પુણે માટે Neha Shah ના નામે સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T21",
+      "language": "gu",
+      "task_id": "T21_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ અમદાવાદથી જયપુર માટે ટ્રેન BTB107 માં Farhan Ali ના નામે સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T22",
+      "language": "gu",
+      "task_id": "T22_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ અમદાવાદથી મુંબઈ માટે Karan Malhotra ના નામે 2A ની ટિકિટ બુક કરો — જે ટ્રેનોમાં હજુ પણ 2A ની સીટો ઉપલબ્ધ છે તેમાંથી સૌથી પહેલાં ઊપડતી ટ્રેનમાં.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'સૌથી પહેલાં ઊપડતી' = earliest-DEPARTING among trains that still have 2A seats."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'સૌથી પહેલાં ઊપડતી' = earliest-DEPARTING among trains that still have 2A seats."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T23",
+      "language": "gu",
+      "task_id": "T23_gu",
+      "query": "Ishaan Desai માટે સ્લીપર (SL) માં જવા-આવવાની ટિકિટ બુક કરો: 8 ઓક્ટોબર 2026ના રોજ પુણેથી નાગપુર, અને 10 ઓક્ટોબર 2026ના રોજ નાગપુરથી પુણે પરત.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both dates and the return direction must survive."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'જવા-આવવાની ટિકિટ' = round-trip ticket (the usual order); 'પરત' = return."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both dates and the return direction must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T24",
+      "language": "gu",
+      "task_id": "T24_gu",
+      "query": "મને 9 ઓક્ટોબર 2026ના રોજ કોલકાતાથી લખનઉની 2A ટિકિટ જોઈએ છે, જેનું ભાડું ₹3,500 થી વધુ ન હોય. કઈ ટ્રેન મળી શકે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T25",
+      "language": "gu",
+      "task_id": "T25_gu",
+      "query": "9 ઓક્ટોબર 2026ની રાત્રે 11 વાગ્યાથી 10 ઓક્ટોબરની સવારે 5 વાગ્યા વચ્ચે લખનઉથી કોલકાતા જવા માટે કઈ કઈ ટ્રેનો ઊપડે છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Window crosses midnight (11 PM on 9 Oct to 5 AM on 10 Oct)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Window crosses midnight (11 PM on 9 Oct to 5 AM on 10 Oct)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T26",
+      "language": "gu",
+      "task_id": "T26_gu",
+      "query": "ટ્રેન BTB102 માં 3A ની કેટલી સીટો બાકી છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T27",
+      "language": "gu",
+      "task_id": "T27_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ પુણેથી મુંબઈ માટે ટ્રેન BTB124 માં Aditi Rao ના નામે સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T28",
+      "language": "gu",
+      "task_id": "T28_gu",
+      "query": "ટ્રેન BTB150 કયા કયા સ્ટેશનો પર ઊભી રહે છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Train id BTB150 must stay unchanged (intentionally invalid)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Train id BTB150 must stay unchanged (intentionally invalid)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T29",
+      "language": "gu",
+      "task_id": "T29_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ કોલકાતાથી નવી દિલ્હી માટે ટ્રેન BTB110 માં Suresh Menon ના નામે ફર્સ્ટ એસી (1A) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ફર્સ્ટ એસી (1A)' must not become an existing class."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ફર્સ્ટ એસી (1A)' must not become an existing class."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T30",
+      "language": "gu",
+      "task_id": "T30_gu",
+      "query": "2 ઓક્ટોબર 2026ના રોજ પુણેથી નાગપુર માટે Rohit Pawar ના નામે સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The past date (2 October) must be kept."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The past date (2 October) must be kept."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T31",
+      "language": "gu",
+      "task_id": "T31_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ બૉમ્બે સેન્ટ્રલથી અમદાવાદની સૌથી પહેલી ટ્રેન કઈ છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'બૉમ્બે સેન્ટ્રલ' must stay as the user's (unresolvable) name; 'મુંબઈ સેન્ટ્રલ' would remove the recovery step."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Spelt 'બૉમ્બે' with the open-o sign, as commonly written."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'બૉમ્બે સેન્ટ્રલ' must stay as the user's (unresolvable) name; 'મુંબઈ સેન્ટ્રલ' would remove the recovery step."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T32",
+      "language": "gu",
+      "task_id": "T32_gu",
+      "query": "8 ઓક્ટોબર 2026ના રોજ નાગપુરથી પુણે માટે ટ્રેન BTB128 માં Kiran Rao ના નામે 2A ની ટિકિટ બુક કરો, જો 2A નું ભાડું ₹2,000 થી ઓછું હોય; નહીંતર એ જ ટ્રેનમાં 3A બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Strict '₹2,000 થી ઓછું' (under) and the else-branch ('નહીંતર એ જ ટ્રેનમાં 3A')."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Strict '₹2,000 થી ઓછું' (under) and the else-branch ('નહીંતર એ જ ટ્રેનમાં 3A')."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T33",
+      "language": "gu",
+      "task_id": "T33_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી પુણે માટે Anil Joshi, Sunita Joshi અને Rohan Joshi ની ટિકિટ બુક કરો. અમે ત્રણેય એક જ ટ્રેન અને એક જ ક્લાસમાં સાથે મુસાફરી કરીશું, એટલે કોઈ પણ ક્લાસમાં એવો સૌથી સસ્તો વિકલ્પ પસંદ કરો જેમાં અમારા ત્રણેય માટે સીટો હોય.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Three passengers, same train AND class, cheapest option in ANY class with seats for all three."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Three passengers, same train AND class, cheapest option in ANY class with seats for all three."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T34",
+      "language": "gu",
+      "task_id": "T34_gu",
+      "query": "10 ઓક્ટોબર 2026ના રોજ અમદાવાદથી મુંબઈ જતી જે ટ્રેનોનું 3A ભાડું ₹3,000 કે તેથી ઓછું છે, તેમાંથી કઈ ટ્રેનની મુસાફરી સૌથી ઓછા સમયની છે? શું તેમાં 3A ની સીટો ઉપલબ્ધ છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fare ceiling '₹3,000 કે તેથી ઓછું' (inclusive) + shortest journey + seat question."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fare ceiling '₹3,000 કે તેથી ઓછું' (inclusive) + shortest journey + seat question."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T35",
+      "language": "gu",
+      "task_id": "T35_gu",
+      "query": "આ શનિવારે નવી દિલ્હીથી લખનઉ માટે Deepak Yadav ના નામે સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'આ શનિવારે' must stay relative (no date added); 'આવતા શનિવારે' could mean the 17th."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'આ શનિવારે' = this Saturday."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'આ શનિવારે' must stay relative (no date added); 'આવતા શનિવારે' could mean the 17th."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T36",
+      "language": "gu",
+      "task_id": "T36_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ કોલકાતાથી લખનઉ માટે ટ્રેન BTB112 માં Pooja Sen ના નામે એસી ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'એસી' must stay unspecific (not 3A/2A)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'એસી' must stay unspecific (not 3A/2A)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T37",
+      "language": "gu",
+      "task_id": "T37_gu",
+      "query": "Rahul Verma, BTB110, 2A, કોલકાતાથી નવી દિલ્હી, 9 ઓક્ટોબર 2026.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "No verb may be added; the intent ambiguity is the task."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: No verb may be added; the intent ambiguity is the task."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T38",
+      "language": "gu",
+      "task_id": "T38_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ અમદાવાદથી મુંબઈ માટે ટ્રેન BTB103 માં Nikhil Bose ના નામે 3A ની ટિકિટ બુક કરો. જો તે ભરાઈ ગઈ હોય, તો તેના બદલે એ જ દિવસે એ જ રૂટ પરની બીજી ટ્રેનોમાંથી સૌથી સસ્તી ટ્રેનમાં 3A બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Cheapest OTHER train, same route, same day, same class. Wording avoids 'બીજી સૌથી સસ્તી' (= second-cheapest)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'બીજી ટ્રેનોમાંથી સૌથી સસ્તી' = cheapest among the other trains."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Cheapest OTHER train, same route, same day, same class. Wording avoids 'બીજી સૌથી સસ્તી' (= second-cheapest)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T39",
+      "language": "gu",
+      "task_id": "T39_gu",
+      "query": "7 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીથી લખનઉ માટે ટ્રેન BTB111 માં Meera Nair ના નામે 2A ની ટિકિટ બુક કરો, પણ ફક્ત ત્યારે જ જ્યારે એ દિવસે ટ્રેન ચાલતી હોય.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ફક્ત ત્યારે જ જ્યારે એ દિવસે ટ્રેન ચાલતી હોય' is the binding condition."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ફક્ત ત્યારે જ જ્યારે એ દિવસે ટ્રેન ચાલતી હોય' is the binding condition."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T40",
+      "language": "gu",
+      "task_id": "T40_gu",
+      "query": "લખનઉથી જયપુરની કોઈ સીધી ટ્રેન નથી, એટલે 9 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીમાં ટ્રેન બદલવી પડશે. ટ્રેન બદલવા માટે ઓછામાં ઓછો 1 કલાક જોઈએ, અને જયપુર શક્ય તેટલું વહેલું પહોંચવું છે. કઈ બે ટ્રેનો લેવી જોઈએ?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "At least 1 hour to change (inclusive), earliest arrival, change at New Delhi; no booking verb."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: At least 1 hour to change (inclusive), earliest arrival, change at New Delhi; no booking verb."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T41",
+      "language": "gu",
+      "task_id": "T41_gu",
+      "query": "Sameer Khan માટે આ બે ભાગવાળી મુસાફરી બુક કરો: 9 ઓક્ટોબર 2026ના રોજ મુંબઈથી નાગપુર ટ્રેન BTB119 માં 3A, અને પછી 11 ઓક્ટોબર 2026ના રોજ નાગપુરથી બેંગલુરુ ટ્રેન BTB121 માં 2A. મને બંને ભાગ જોઈએ છે, એટલે જો કોઈ પણ એક ભાગ બુક ન થઈ શકે, તો કંઈ પણ બુક કરશો નહીં.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "All-or-nothing over both legs."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: All-or-nothing over both legs."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T42",
+      "language": "gu",
+      "task_id": "T42_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ બેંગલુરુથી નાગપુર માટે ટ્રેન BTB122 માં મારા પિતાજી Ramesh Gupta માટે 2A અને મારા (Ajay Gupta) માટે 3A બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Class-to-passenger binding (father 2A, speaker 3A) must not be swapped."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'મારા (Ajay Gupta) માટે' keeps the name next to 'for me'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Class-to-passenger binding (father 2A, speaker 3A) must not be swapped."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T43",
+      "language": "gu",
+      "task_id": "T43_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી અમદાવાદ માટે Tanvi Shah ના નામે 3A ની ટિકિટ બુક કરો. ટ્રેન 10 ઓક્ટોબરે સવારે 7 વાગ્યા સુધીમાં અમદાવાદ પહોંચી જવી જોઈએ, અને 3A નું ભાડું ₹3,000 કે તેથી ઓછું હોવું જોઈએ.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Arrival 'by 7 AM on 10 October' (inclusive) and fare at most ₹3,000."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Arrival 'by 7 AM on 10 October' (inclusive) and fare at most ₹3,000."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T44",
+      "language": "gu",
+      "task_id": "T44_gu",
+      "query": "જો 9 ઓક્ટોબર 2026ના રોજ સાંજે 5:20 વાગ્યે નવી દિલ્હીથી ઊપડતી કોલકાતાની ટ્રેન લઈએ, તો કોલકાતા કઈ તારીખે અને કેટલા વાગ્યે પહોંચીશું?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Departure 5:20 PM on 9 October; the question asks for the arrival DATE and time."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'લઈએ ... પહોંચીશું' (we) keeps the speaker gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Departure 5:20 PM on 9 October; the question asks for the arrival DATE and time."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T45",
+      "language": "gu",
+      "task_id": "T45_gu",
+      "query": "કૃપા કરીને બુકિંગ આઈડી BK0042 વાળી મારી ટિકિટ રદ કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Cancellation must stay a cancellation; BK0042 unchanged."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'કૃપા કરીને' = please; 'રદ કરો' = cancel."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Cancellation must stay a cancellation; BK0042 unchanged."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T46",
+      "language": "gu",
+      "task_id": "T46_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ નાગપુરથી મુંબઈ માટે ટ્રેન BTB120 માં Asha Iyer અને Vikram Iyer માટે સ્લીપર (SL) ની ત્રણ ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ત્રણ ટિકિટ' vs two names: the count must not be corrected."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ત્રણ ટિકિટ' vs two names: the count must not be corrected."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T47",
+      "language": "gu",
+      "task_id": "T47_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ દિલ્હીથી જયપુર માટે ટ્રેન BTB129 માં Kavita Joshi ના નામે ચેર કાર (CC) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'દિલ્હી' must stay generic (the train id resolves it)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'દિલ્હી' must stay generic (the train id resolves it)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T48",
+      "language": "gu",
+      "task_id": "T48_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ જયપુરથી નવી દિલ્હી માટે ટ્રેન BTB104 માં Leela Das, Arjun Das અને Maya Das માટે સ્લીપર (SL) ટિકિટ બુક કરો. જો બધા માટે સીટો ન હોય, તો મેં જે ક્રમમાં નામ લખ્યાં છે એ જ ક્રમમાં શક્ય હોય એટલી ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Partial booking allowed, in the listed order."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'મેં જે ક્રમમાં નામ લખ્યાં છે એ જ ક્રમમાં' = in exactly the order I wrote the names."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Partial booking allowed, in the listed order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T49",
+      "language": "gu",
+      "task_id": "T49_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી પુણે માટે Farah Khan ના નામે 3A ની ટિકિટ બુક કરો, એવી ટ્રેનમાં જે આગળ બેંગલુરુ સુધી જાય છે.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'આગળ બેંગલુરુ સુધી જાય' = the train continues beyond Pune to Bengaluru."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'આગળ બેંગલુરુ સુધી જાય' = the train continues beyond Pune to Bengaluru."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T50",
+      "language": "gu",
+      "task_id": "T50_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી પુણે માટે ટ્રેન BTB117 માં Imran Sheikh ના નામે ચેર કાર (CC) ટિકિટ બુક કરો. તે પછી, જો CC ની કોઈ સીટ હજુ પણ બાકી હોય, તો Zoya Ali માટે પણ એક ટિકિટ બુક કરો. પછી જણાવો કે CC ની કેટલી સીટો બાકી છે.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Order (Imran, then conditionally Zoya) and the final 'seats left' question."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Order (Imran, then conditionally Zoya) and the final 'seats left' question."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes, amounts and dates use Latin letters / ASCII digits, separated from Gujarati suffixes by a space (e.g. 'BTB103 માં'); station names use the frozen Gujarati aliases."
+        }
+      }
+    }
+  ]
+}

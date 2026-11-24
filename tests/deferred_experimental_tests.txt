@@ -1,0 +1,51 @@
+# Tests skipped on purpose (audit M-01): experimental NVIDIA Nemotron / OpenRouter API work that is not used.
+# They fail on the committed baseline: the experimental_nemotron config entry, the nvidia provider in agents/registry.py,
+# OpenRouterAdapter extra_body/api_key_env and run_smoke(model_key=...) were removed; primary_b.reasoning is 'low', not 'minimal'.
+# One pytest node id per line. Un-skip by deleting the line (and restoring the missing code/config).
+tests/test_eval_nemotron.py::test_cli_model_selection[argv0-experimental_inkling-thinkingmachines/inkling:free-https://openrouter.ai/api/v1-OPENROUTER_API_KEY]
+tests/test_eval_nemotron.py::test_cli_model_selection[argv1-experimental_inkling-thinkingmachines/inkling:free-https://openrouter.ai/api/v1-OPENROUTER_API_KEY]
+tests/test_eval_nemotron.py::test_cli_model_selection[argv2-experimental_nemotron-nvidia/nemotron-3-super-120b-a12b-https://integrate.api.nvidia.com/v1-NVIDIA_API_KEY]
+tests/test_eval_nemotron.py::test_cli_separate_files_and_resume
+tests/test_eval_nemotron.py::test_config_entry_and_existing_models_unchanged
+tests/test_eval_nemotron.py::test_error_body_with_200_labelled_nvidia
+tests/test_eval_nemotron.py::test_error_classification[exc0-auth-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc1-insufficient_credits-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc10-server-True-None]
+tests/test_eval_nemotron.py::test_error_classification[exc11-timeout-True-None]
+tests/test_eval_nemotron.py::test_error_classification[exc12-connection-True-None]
+tests/test_eval_nemotron.py::test_error_classification[exc2-forbidden-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc3-not_found-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc4-bad_request-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc5-http_error-False-None]
+tests/test_eval_nemotron.py::test_error_classification[exc6-timeout-True-None]
+tests/test_eval_nemotron.py::test_error_classification[exc7-rate_limit-True-30.0]
+tests/test_eval_nemotron.py::test_error_classification[exc8-server-True-None]
+tests/test_eval_nemotron.py::test_error_classification[exc9-server-True-None]
+tests/test_eval_nemotron.py::test_extra_body_not_shared_between_requests_or_adapters
+tests/test_eval_nemotron.py::test_inkling_adapter_unchanged_by_refactor
+tests/test_eval_nemotron.py::test_malformed_arguments_flagged_not_raised[[1]]
+tests/test_eval_nemotron.py::test_malformed_arguments_flagged_not_raised[nope]
+tests/test_eval_nemotron.py::test_malformed_arguments_flagged_not_raised[{"train_id": "BTB103",]
+tests/test_eval_nemotron.py::test_missing_key_raises_and_other_keys_not_used
+tests/test_eval_nemotron.py::test_nvidia_key_redacted_in_errors_and_rows
+tests/test_eval_nemotron.py::test_real_client_endpoint_timeout_no_retries
+tests/test_eval_nemotron.py::test_reasoning_content_is_not_answer_text
+tests/test_eval_nemotron.py::test_registry_builds_nvidia_adapter
+tests/test_eval_nemotron.py::test_request_format
+tests/test_eval_nemotron.py::test_runner_does_not_retry_non_retryable_and_does_not_score
+tests/test_eval_nemotron.py::test_runner_end_to_end_scores_t01
+tests/test_eval_nemotron.py::test_smoke_dry_run_and_cli
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[401]
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[403]
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[404]
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[429]
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[500]
+tests/test_eval_nemotron.py::test_smoke_errors_single_request_no_retry[503]
+tests/test_eval_nemotron.py::test_smoke_existing_report_not_overwritten
+tests/test_eval_nemotron.py::test_smoke_missing_nvidia_key_sends_nothing_even_with_openrouter_key
+tests/test_eval_nemotron.py::test_smoke_redirect_blocked
+tests/test_eval_nemotron.py::test_smoke_tool_call_one_request_to_nvidia
+tests/test_eval_nemotron.py::test_tool_call_round_trip_role_tool
+tests/test_eval_nemotron.py::test_tool_call_written_into_content_is_not_executed
+tests/test_eval_nemotron.py::test_usage_normalised_and_missing_usage_safe
+tests/test_eval_openrouter.py::test_existing_model_configs_are_unchanged

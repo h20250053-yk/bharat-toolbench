@@ -1,0 +1,1 @@
+items=25 (expected 25, complete=True) task_success=18/25 parse_ok=25 -> analysis/results/local_gemma4_26b_pilot_20261124T102758Z

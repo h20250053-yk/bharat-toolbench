@@ -1,0 +1,1 @@
+items=25 (expected 25, complete=True) task_success=11/25 parse_ok=23 -> analysis/results/local_qwen25_14b_pilot_20261124T102758Z

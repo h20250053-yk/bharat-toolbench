@@ -1,0 +1,7 @@
+pydantic>=2.5
+pyyaml>=6.0
+pytest>=8.0
+# Model SDKs pinned to the versions the adapters were tested against offline (tests/test_eval_adapters.py).
+# google-genai 2.x: Part.from_function_response has no `id`; the adapter builds types.FunctionResponse(id=...) directly.
+openai==3.24.0
+google-genai==2.28.0

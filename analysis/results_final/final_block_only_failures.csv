@@ -1,0 +1,9 @@
+model,failed_items,failed_with_missing_keys,failed_only_because_of_missing_keys,share_of_failures_pct,missing_keys
+Qwen2.5-3B,362,0,0,0.0,{}
+Llama-3.2-3B,347,4,1,0.3,"{""selected_train"": 1, ""selected_class"": 1, ""booking_ids"": 1}"
+Llama-3.1-8B,333,22,3,0.9,"{""selected_train"": 3, ""selected_class"": 3, ""booking_ids"": 3, ""requested_passengers"": 3, ""notes"": 3}"
+DeepSeek-R1-8B (distill),351,1,0,0.0,{}
+Qwen2.5-14B,274,14,8,2.9,"{""selected_class"": 8, ""booking_ids"": 8, ""requested_passengers"": 8, ""notes"": 3, ""selected_train"": 1}"
+gpt-oss-20B,162,0,0,0.0,{}
+Gemma-4-26B-A4B,89,0,0,0.0,{}
+Mistral-Small-3.2-24B †,356,18,18,5.1,"{""booking_ids"": 18, ""requested_passengers"": 9, ""notes"": 5, ""selected_class"": 4}"

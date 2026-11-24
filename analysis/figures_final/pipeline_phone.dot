@@ -1,0 +1,12 @@
+digraph G { rankdir=TB; bgcolor="white"; fontname="DejaVu Sans"; nodesep=0.4; ranksep=0.5; pad=0.1;
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=19, color="#37474F", fillcolor="#ECEFF1", penwidth=1.8, margin="0.15,0.12", width=3.3];
+ edge [fontname="DejaVu Sans", fontsize=17, color="#37474F", penwidth=1.8];
+ Q [label="1  User request\nen / hinglish / hi / mr / gu", fillcolor="#E3F2FD"];
+ R [label="2  Runner\nprompt + 6 tool schemas", fillcolor="#FFF8E1"];
+ M [label="3  Model (local)\nchooses a tool or answers", fillcolor="#E8F5E9"];
+ E [label="4  Railway environment\nsynthetic, deterministic", fillcolor="#F3E5F5"];
+ S [label="5  Scorer (no LLM judge)\nstate + answer + process", fillcolor="#FFEBEE"];
+ G [label="Gold\n(solvers)", fillcolor="#FFFFFF", style="rounded,dashed", width=1.2];
+ O [label="6  Result\nsuccess 0/1 + failure labels", fillcolor="#E0F2F1"];
+ Q -> R; R -> M; M -> E [dir=both, label="  ↓ tool call\l  ↑ reply\l"]; E -> S [label=" final state"]; M -> S [label="  answer  ", constraint=false]; G -> S [style=dashed, constraint=false]; S -> O;
+ {rank=same; S; G} }

@@ -1,0 +1,89 @@
+{
+  "captured_at": "2026-11-24T10:49:56.949465+00:00",
+  "git_commit": "521aaeafe61bbdbd82271a283c4b9045fd4237d8",
+  "git_tracked_changes": "",
+  "command": "-m evaluation.run_pilot --model local_mistral_small32_24b --split pilot --max-attempts 2 --run-file runs/local_mistral_small32_24b_pilot_20261124T102758Z.jsonl",
+  "model_key": "local_mistral_small32_24b",
+  "model_config": {
+    "provider": "ollama",
+    "model": "mistral-small3.2:24b",
+    "base_url": "http://127.0.0.1:11434",
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 2048,
+    "num_ctx": 16384,
+    "timeout_seconds": 300,
+    "keep_alive": "10m",
+    "think": false
+  },
+  "ollama_version": "0.40.18",
+  "ollama_min_version": "0.40.18",
+  "model_digest": "5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b",
+  "model_details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "mistral3",
+    "families": [
+      "mistral3"
+    ],
+    "parameter_size": "24.0B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 131072,
+    "embedding_length": 5120,
+    "runner": "ggml"
+  },
+  "capabilities": [
+    "completion",
+    "vision",
+    "tools"
+  ],
+  "thinking_capable": false,
+  "think_config": false,
+  "think_effective": null,
+  "split": "pilot",
+  "languages": [
+    "en",
+    "hinglish",
+    "hi",
+    "mr",
+    "gu"
+  ],
+  "expected_items": 25,
+  "run_file": "runs/local_mistral_small32_24b_pilot_20261124T102758Z.jsonl",
+  "benchmark_version": "2.1.0",
+  "system_prompt_sha256": "e4648e4bbd5c1da729244465f5c4ad9a9de4b449e0bb040421956616de9617ed",
+  "tool_schema_sha256": "dc74b083396d4cabce684ea4c61b00db063363e06343d058eeb4cd9b2dea0079",
+  "server_env": {
+    "log": "/home/kalp/FreeModel/ollama-serve.log",
+    "logged_at": "2026-11-24T15:57:13.818+05:30",
+    "OLLAMA_NUM_PARALLEL": "1",
+    "OLLAMA_MAX_LOADED_MODELS": "1",
+    "OLLAMA_FLASH_ATTENTION": "false",
+    "OLLAMA_KV_CACHE_TYPE": "",
+    "OLLAMA_CONTEXT_LENGTH": "0",
+    "OLLAMA_KEEP_ALIVE": "5m0s",
+    "OLLAMA_GPU_OVERHEAD": "0",
+    "OLLAMA_MAX_QUEUE": "512",
+    "planned_ok": true
+  },
+  "file_sha256": {
+    "benchmark/semantic_tasks.json": "d81e5a65beb0efd116766e8b5a9d2e2d928553d0177cc3a6964a75d05dd1ed84",
+    "benchmark/gold_labels.json": "47612cd2eddb7ff3cd4ce552bd0942c60a02d381a2ccc8c4056fac6ded710b2d",
+    "benchmark/languages/en.jsonl": "2369800d9bfa0bfd9072de07951df87db0c342ae88059446f06efa5a3d85acec",
+    "benchmark/languages/hinglish.jsonl": "d2e338e3539f94c5584a2400db8bae111b0be500ab61a0c528a9207f77236db2",
+    "benchmark/languages/hi.jsonl": "ebcf80c4818fcc25bb2e91ce5f89411451a676217bec173f7998cd49a400999d",
+    "benchmark/languages/mr.jsonl": "382e9ef7fcfd281aed92f63992ac8dab2ef4aa57f63a7c5880de69c266ec6fa3",
+    "benchmark/languages/gu.jsonl": "d99b8763b703eeebb2080faaed54f886f25aa2ef8539859e7842403efb9ca3ea",
+    "benchmark/languages/human_review.json": "3589a29af429b95c0dd9c2e24844370942f8ccc51e623e8800293d12483468a6",
+    "config/models.yaml": "1d5ff0907821103ed18338d1db9d6203acb31ab89e4148ac9051298e7ebc0159",
+    "evaluation/runner.py": "ebca9d4f0c37db380a8c763007b54d2545b9393de142e6785de2b5a8aa4b5434",
+    "evaluation/scorer.py": "829ffd2795ac594c7eb99ac79179c5cccf308fa5d443fd4054fd44715c7563c4",
+    "evaluation/final_answer.py": "b079fc3b95819aca25261b47323d2f830fbbe382965b1018753f47433562c709",
+    "evaluation/canonical.py": "bf191be0f448ed1cc6d37a4ea7444bf0d1ea572f8c0ace23d06ac6d66abc8226",
+    "evaluation/tolerance.py": "a5d6f2efce2d66ae2a01e7a0545f12891a7a9e4e902cf0a3e5b01d077f259f11",
+    "agents/ollama_adapter.py": "e3f108c9d8842a00bb7c752ee35d68b3cb0698b130d1bc6f03e615c47a7441f2",
+    "evaluation/run_pilot.py": "ae7ead30c864de30c7dabdc33ef6e27824ecc8c4e917ff17bc444fbe368d90f0"
+  },
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+}

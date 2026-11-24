@@ -1,0 +1,6 @@
+Model: local_gemma4_26b | split: pilot | languages: en | items: 5
+Run file: runs/local_gemma4_26b_smoke_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: 001e5dafc3c77684c2307ebc6ab8e336e10c9b18eca52acf547d72fc83c3ca8c capabilities=['completion', 'vision', 'tools', 'thinking'] think=False
+[1/5] RUN T01_en
+    status=completed task_success=True (strict True, recoveries 0) attempts=1 tokens=3267
+STOP: request cap reached (2/1); resume later with --resume

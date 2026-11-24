@@ -1,0 +1,1 @@
+prerun -> runs/local_mistral_small32_24b_smoke_20261124T102758Z.prerun.json (commit 521aaea, model digest 5a408ab55df5, expected items 25)

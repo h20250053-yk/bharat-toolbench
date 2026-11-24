@@ -1,0 +1,29 @@
+model_a,model_b,only_a,only_b,p,p_holm
+Qwen2.5-3B,Llama-3.2-3B,10,25,0.01667,0.1334
+Qwen2.5-3B,Llama-3.1-8B,12,41,8.171e-05,0.0008171
+Qwen2.5-3B,DeepSeek-R1-8B (distill),12,23,0.08953,0.5217
+Qwen2.5-3B,Qwen2.5-14B,4,92,8.758e-23,1.489e-21
+Qwen2.5-3B,gpt-oss-20B,4,204,3.756e-55,8.639e-54
+Qwen2.5-3B,Gemma-4-26B-A4B,4,277,1.328e-76,3.585e-75
+Qwen2.5-3B,Mistral-Small-3.2-24B †,12,18,0.3616,1
+Llama-3.2-3B,Llama-3.1-8B,22,36,0.08695,0.5217
+Llama-3.2-3B,DeepSeek-R1-8B (distill),17,13,0.5847,1
+Llama-3.2-3B,Qwen2.5-14B,16,89,1.871e-13,2.433e-12
+Llama-3.2-3B,gpt-oss-20B,12,197,2.719e-44,5.438e-43
+Llama-3.2-3B,Gemma-4-26B-A4B,13,271,6.419e-64,1.541e-62
+Llama-3.2-3B,Mistral-Small-3.2-24B †,25,16,0.211,0.8441
+Llama-3.1-8B,DeepSeek-R1-8B (distill),40,22,0.03002,0.2101
+Llama-3.1-8B,Qwen2.5-14B,23,82,5.957e-09,6.552e-08
+Llama-3.1-8B,gpt-oss-20B,7,178,5.567e-44,1.058e-42
+Llama-3.1-8B,Gemma-4-26B-A4B,7,251,6.176e-65,1.606e-63
+Llama-3.1-8B,Mistral-Small-3.2-24B †,35,12,0.001089,0.009797
+DeepSeek-R1-8B (distill),Qwen2.5-14B,18,95,7.97e-14,1.116e-12
+DeepSeek-R1-8B (distill),gpt-oss-20B,13,202,9.438e-45,1.982e-43
+DeepSeek-R1-8B (distill),Gemma-4-26B-A4B,14,276,2.627e-64,6.568e-63
+DeepSeek-R1-8B (distill),Mistral-Small-3.2-24B †,23,18,0.5327,1
+Qwen2.5-14B,gpt-oss-20B,29,141,7.243e-19,1.159e-17
+Qwen2.5-14B,Gemma-4-26B-A4B,13,198,1.176e-43,2.117e-42
+Qwen2.5-14B,Mistral-Small-3.2-24B †,91,9,3.322e-18,4.983e-17
+gpt-oss-20B,Gemma-4-26B-A4B,30,103,1.452e-10,1.742e-09
+gpt-oss-20B,Mistral-Small-3.2-24B †,202,8,1.037e-49,2.281e-48
+Gemma-4-26B-A4B,Mistral-Small-3.2-24B †,267,0,8.434e-81,2.361e-79

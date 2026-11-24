@@ -1,0 +1,57 @@
+model,field,pct,ci_lo_pct,ci_hi_pct,n_gold_args
+Qwen2.5-3B,class,44.49,39.94,49.14,445
+Qwen2.5-3B,date,62.50,55.61,68.91,200
+Qwen2.5-3B,passenger,54.55,46.93,61.95,165
+Qwen2.5-3B,station code,20.50,16.83,24.73,400
+Qwen2.5-3B,station name (resolve),40.27,35.40,45.34,370
+Qwen2.5-3B,time window,12.00,4.17,29.96,25
+Qwen2.5-3B,train id,28.63,24.88,32.70,510
+Llama-3.2-3B,class,40.22,35.77,44.85,445
+Llama-3.2-3B,date,73.50,66.98,79.13,200
+Llama-3.2-3B,passenger,46.67,39.22,54.27,165
+Llama-3.2-3B,station code,15.25,12.06,19.10,400
+Llama-3.2-3B,station name (resolve),3.24,1.86,5.58,370
+Llama-3.2-3B,time window,36.00,20.25,55.48,25
+Llama-3.2-3B,train id,20.98,17.67,24.72,510
+Llama-3.1-8B,class,23.15,19.47,27.28,445
+Llama-3.1-8B,date,61.50,54.60,67.97,200
+Llama-3.1-8B,passenger,33.33,26.59,40.83,165
+Llama-3.1-8B,station code,14.25,11.16,18.02,400
+Llama-3.1-8B,station name (resolve),3.78,2.27,6.25,370
+Llama-3.1-8B,time window,28.00,14.28,47.58,25
+Llama-3.1-8B,train id,14.12,11.36,17.41,510
+DeepSeek-R1-8B (distill),class,0.00,0.00,0.86,445
+DeepSeek-R1-8B (distill),date,0.00,0.00,1.88,200
+DeepSeek-R1-8B (distill),passenger,0.00,0.00,2.28,165
+DeepSeek-R1-8B (distill),station code,0.00,0.00,0.95,400
+DeepSeek-R1-8B (distill),station name (resolve),0.00,0.00,1.03,370
+DeepSeek-R1-8B (distill),time window,0.00,0.00,13.32,25
+DeepSeek-R1-8B (distill),train id,0.00,0.00,0.75,510
+Qwen2.5-14B,class,68.54,64.08,72.68,445
+Qwen2.5-14B,date,78.00,71.76,83.18,200
+Qwen2.5-14B,passenger,78.79,71.93,84.33,165
+Qwen2.5-14B,station code,65.50,60.71,69.99,400
+Qwen2.5-14B,station name (resolve),66.76,61.81,71.36,370
+Qwen2.5-14B,time window,44.00,26.67,62.93,25
+Qwen2.5-14B,train id,46.86,42.57,51.20,510
+gpt-oss-20B,class,85.62,82.05,88.57,445
+gpt-oss-20B,date,91.00,86.22,94.23,200
+gpt-oss-20B,passenger,78.18,71.28,83.80,165
+gpt-oss-20B,station code,96.00,93.60,97.52,400
+gpt-oss-20B,station name (resolve),96.76,94.42,98.14,370
+gpt-oss-20B,time window,60.00,40.74,76.60,25
+gpt-oss-20B,train id,80.78,77.14,83.97,510
+Gemma-4-26B-A4B,class,96.63,94.51,97.95,445
+Gemma-4-26B-A4B,date,97.50,94.28,98.93,200
+Gemma-4-26B-A4B,passenger,96.36,92.29,98.32,165
+Gemma-4-26B-A4B,station code,99.75,98.60,99.96,400
+Gemma-4-26B-A4B,station name (resolve),100.00,98.97,100.00,370
+Gemma-4-26B-A4B,time window,64.00,44.52,79.75,25
+Gemma-4-26B-A4B,train id,94.90,92.64,96.50,510
+Mistral-Small-3.2-24B †,class,10.56,8.04,13.76,445
+Mistral-Small-3.2-24B †,date,1.00,0.27,3.57,200
+Mistral-Small-3.2-24B †,passenger,7.88,4.66,13.01,165
+Mistral-Small-3.2-24B †,station code,0.75,0.26,2.18,400
+Mistral-Small-3.2-24B †,station name (resolve),0.00,0.00,1.03,370
+Mistral-Small-3.2-24B †,time window,0.00,0.00,13.32,25
+Mistral-Small-3.2-24B †,train id,12.75,10.13,15.92,510

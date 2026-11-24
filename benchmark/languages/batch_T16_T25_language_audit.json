@@ -1,0 +1,1520 @@
+{
+  "_meta": {
+    "stage": "batch_T16_T25_language_draft",
+    "items": 40,
+    "note": "Checks are automated keyword presence tests, NOT human verification. All review fields are pending_human_review. Non-English variants are Claude-generated drafts. For T19 'passenger_preserved' tests that the missing passenger name stays ABSENT. 'not_applicable' = the task has no such constraint.",
+    "back_translation": "not used as evidence"
+  },
+  "records": [
+    {
+      "semantic_task_id": "T16",
+      "language": "en",
+      "task_id": "T16_en",
+      "query": "What is the station code for Howrah, and what is the station's full official name?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T16",
+      "language": "hinglish",
+      "task_id": "T16_hinglish",
+      "query": "Howrah ka station code kya hai, aur station ka poora official naam kya hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'official naam' kept as a loanword, common in Hinglish."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T16",
+      "language": "hi",
+      "task_id": "T16_hi",
+      "query": "हावड़ा का स्टेशन कोड क्या है, और स्टेशन का पूरा आधिकारिक नाम क्या है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'आधिकारिक नाम' is formal; 'पूरा नाम' alone is more colloquial but weaker than 'official'."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Uses the decomposed-nukta alias exactly as in stations.json."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T16",
+      "language": "mr",
+      "task_id": "T16_mr",
+      "query": "हावडा स्टेशनचा कोड काय आहे आणि त्या स्टेशनचे पूर्ण अधिकृत नाव काय आहे?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'स्टेशनचा कोड' (loanword) vs 'स्थानकाचा संकेतांक' (formal); loanword chosen."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T17",
+      "language": "en",
+      "task_id": "T17_en",
+      "query": "On train BTB115, how many kilometres is it from Pune to Bengaluru?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T17",
+      "language": "hinglish",
+      "task_id": "T17_hinglish",
+      "query": "Train BTB115 mein Pune se Bengaluru tak kitne kilometre ka safar hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'kitne kilometre ka safar' = segment distance Pune->Bengaluru, not the full train route."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T17",
+      "language": "hi",
+      "task_id": "T17_hi",
+      "query": "ट्रेन BTB115 में पुणे से बेंगलुरु तक कितने किलोमीटर का सफ़र है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'पुणे से बेंगलुरु तक' must bound the segment (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T17",
+      "language": "mr",
+      "task_id": "T17_mr",
+      "query": "ट्रेन BTB115 च्या मार्गावर पुणे ते बेंगळुरू अंतर किती किलोमीटर आहे?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'पुणे ते बेंगळुरू हे अंतर' = the Pune-Bengaluru distance (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T18",
+      "language": "en",
+      "task_id": "T18_en",
+      "query": "Show me the trains from Chennai to Bengaluru on 9 October 2026.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T18",
+      "language": "hinglish",
+      "task_id": "T18_hinglish",
+      "query": "9 October 2026 ko Chennai se Bengaluru ki trains dikha do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Chennai must stay Chennai (not 'Madras' or a nearby station); both are absent from the network anyway."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T18",
+      "language": "hi",
+      "task_id": "T18_hi",
+      "query": "9 अक्टूबर 2026 को चेन्नई से बेंगलुरु की ट्रेनें दिखाइए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "'चेन्नई' must not be replaced by a station that exists."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T18",
+      "language": "mr",
+      "task_id": "T18_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी चेन्नईहून बेंगळुरूला जाणाऱ्या ट्रेन दाखवा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ट्रेन दाखवा' (singular form used for plural) is natural colloquially."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T19",
+      "language": "en",
+      "task_id": "T19_en",
+      "query": "Book a 3A ticket on train BTB116 from Bengaluru to Pune on 9 October 2026.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T19",
+      "language": "hinglish",
+      "task_id": "T19_hinglish",
+      "query": "9 October 2026 ko Bengaluru se Pune ke liye train BTB116 mein ek 3A ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Clarification task: the variant must NOT add the missing information (a reviewer must not 'fix' the prompt). No passenger name anywhere."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "'ek' renders English 'a' (one ticket)."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T19",
+      "language": "hi",
+      "task_id": "T19_hi",
+      "query": "9 अक्टूबर 2026 को बेंगलुरु से पुणे के लिए ट्रेन BTB116 में 3A का एक टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Clarification task: the variant must NOT add the missing information (a reviewer must not 'fix' the prompt)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T19",
+      "language": "mr",
+      "task_id": "T19_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी बेंगळुरूहून पुण्याला जाण्यासाठी ट्रेन BTB116 मध्ये 3A चे एक तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Clarification task: the variant must NOT add the missing information (a reviewer must not 'fix' the prompt)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T20",
+      "language": "en",
+      "task_id": "T20_en",
+      "query": "Book a sleeper (SL) ticket from Lucknow to Pune on 9 October 2026 for Neha Shah.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T20",
+      "language": "hinglish",
+      "task_id": "T20_hinglish",
+      "query": "9 October 2026 ko Lucknow se Pune ke liye Neha Shah ke naam par sleeper (SL) ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Route must stay Lucknow -> Pune; a 'helpful' change of city would create a bookable task."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T20",
+      "language": "hi",
+      "task_id": "T20_hi",
+      "query": "9 अक्टूबर 2026 को लखनऊ से पुणे के लिए Neha Shah के नाम से स्लीपर (SL) टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Route must stay लखनऊ -> पुणे."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T20",
+      "language": "mr",
+      "task_id": "T20_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी लखनौहून पुण्याला जाण्यासाठी Neha Shah यांच्या नावाने स्लीपर (SL) तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Route must stay लखनौ -> पुणे."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T21",
+      "language": "en",
+      "task_id": "T21_en",
+      "query": "Book a sleeper (SL) ticket on train BTB107 from Ahmedabad to Jaipur on 9 October 2026 for Farhan Ali.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T21",
+      "language": "hinglish",
+      "task_id": "T21_hinglish",
+      "query": "9 October 2026 ko Ahmedabad se Jaipur ke liye train BTB107 mein Farhan Ali ke naam par sleeper (SL) ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Both the train id and the stated direction (Ahmedabad se Jaipur) must survive; the conflict is the task."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T21",
+      "language": "hi",
+      "task_id": "T21_hi",
+      "query": "9 अक्टूबर 2026 को अहमदाबाद से जयपुर के लिए ट्रेन BTB107 में Farhan Ali के नाम से स्लीपर (SL) टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Direction 'अहमदाबाद से जयपुर' must be kept in this order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T21",
+      "language": "mr",
+      "task_id": "T21_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी अहमदाबादहून जयपूरला जाण्यासाठी ट्रेन BTB107 मध्ये Farhan Ali यांच्या नावाने स्लीपर (SL) तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Direction 'अहमदाबाद ते जयपूर' must be kept in this order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T22",
+      "language": "en",
+      "task_id": "T22_en",
+      "query": "Book a 2A ticket from Ahmedabad to Mumbai on 9 October 2026 for Karan Malhotra, on the earliest-departing train that still has 2A seats available.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T22",
+      "language": "hinglish",
+      "task_id": "T22_hinglish",
+      "query": "9 October 2026 ko Ahmedabad se Mumbai ke liye Karan Malhotra ke naam par 2A ticket book kar do, un trains mein se jinmein abhi bhi 2A seats available hain, sabse pehle nikalne wali train mein.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Restructured as 'among trains that still have 2A seats, the one that leaves first' to avoid the reading 'the first train overall, which must also have seats'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Long trailing clause; a reviewer may prefer two sentences."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Earliest-with-seats is the scored reasoning; 'sabse pehle' alone would be wrong."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T22",
+      "language": "hi",
+      "task_id": "T22_hi",
+      "query": "9 अक्टूबर 2026 को अहमदाबाद से मुंबई के लिए Karan Malhotra के नाम से 2A का टिकट बुक कीजिए — उन ट्रेनों में से जिनमें अभी भी 2A की सीटें उपलब्ध हैं, सबसे पहले निकलने वाली ट्रेन में।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'उन ट्रेनों में से जिनमें ... सबसे पहले निकलने वाली' scopes 'earliest' over trains with seats (intended)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Dash + trailing clause is written register."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Same as Hinglish."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T22",
+      "language": "mr",
+      "task_id": "T22_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी अहमदाबादहून मुंबईला जाणाऱ्या आणि 2A सीट उपलब्ध असलेल्या ट्रेनपैकी सर्वात आधी सुटणाऱ्या ट्रेनमध्ये Karan Malhotra यांच्या नावाने 2A चे तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ज्या ट्रेनमध्ये ... त्यांपैकी सर्वात आधी सुटणाऱ्या' scopes 'earliest' over trains with seats (intended)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Correlative 'ज्या ... त्यांपैकी' is natural but long."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Same as Hinglish."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T23",
+      "language": "en",
+      "task_id": "T23_en",
+      "query": "Book a sleeper (SL) round trip for Ishaan Desai: from Pune to Nagpur on 8 October 2026, and back from Nagpur to Pune on 10 October 2026.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T23",
+      "language": "hinglish",
+      "task_id": "T23_hinglish",
+      "query": "Ishaan Desai ke liye sleeper (SL) mein aane-jaane ka ticket book kar do: 8 October 2026 ko Pune se Nagpur, aur 10 October 2026 ko Nagpur se Pune wapas.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'aane-jaane ka ticket' = round trip; the two legs and dates are then spelled out, as in English."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T23",
+      "language": "hi",
+      "task_id": "T23_hi",
+      "query": "Ishaan Desai के लिए स्लीपर (SL) में आने-जाने का टिकट बुक कीजिए: 8 अक्टूबर 2026 को पुणे से नागपुर, और 10 अक्टूबर 2026 को नागपुर से पुणे वापसी।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'आने-जाने का टिकट' (one noun) for two bookings; the legs are listed explicitly."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T23",
+      "language": "mr",
+      "task_id": "T23_mr",
+      "query": "Ishaan Desai यांच्यासाठी स्लीपर (SL) मध्ये जाण्या-येण्याची तिकिटे बुक करा: 8 ऑक्टोबर 2026 रोजी पुणे ते नागपूर आणि 10 ऑक्टोबर 2026 रोजी नागपूर ते पुणे परतीचा प्रवास.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'जाण्या-येण्याचे तिकीट' + 'परतीचा प्रवास'; a reviewer may prefer 'परतीचे तिकीट'."
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T24",
+      "language": "en",
+      "task_id": "T24_en",
+      "query": "I need a 2A ticket from Kolkata to Lucknow on 9 October 2026 that costs no more than ₹3,500. Which train can I take?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T24",
+      "language": "hinglish",
+      "task_id": "T24_hinglish",
+      "query": "Mujhe 9 October 2026 ko Kolkata se Lucknow ka 2A ticket chahiye jo ₹3,500 se zyada ka na ho. Kaun si train mil sakti hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'₹3,500 se zyada ka na ho' = fare <= 3500 (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "English 'Which train can I take?' rendered impersonally ('mil sakti hai') for gender neutrality."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T24",
+      "language": "hi",
+      "task_id": "T24_hi",
+      "query": "मुझे 9 अक्टूबर 2026 को कोलकाता से लखनऊ का 2A टिकट चाहिए, जिसका किराया ₹3,500 से ज़्यादा न हो। कौन-सी ट्रेन मिल सकती है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'₹3,500 से ज़्यादा न हो' = fare <= 3500."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T24",
+      "language": "mr",
+      "task_id": "T24_mr",
+      "query": "मला 9 ऑक्टोबर 2026 रोजी कोलकात्याहून लखनौला जाण्यासाठी 2A चे तिकीट हवे आहे, ज्याचे भाडे ₹3,500 पेक्षा जास्त नसावे. कोणती ट्रेन घेता येईल?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'₹3,500 पेक्षा जास्त नसावे' = fare <= 3500 (same wording as pilot T03)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T25",
+      "language": "en",
+      "task_id": "T25_en",
+      "query": "Which trains leave Lucknow for Kolkata between 11 PM on 9 October 2026 and 5 AM on 10 October?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T25",
+      "language": "hinglish",
+      "task_id": "T25_hinglish",
+      "query": "9 October 2026 ki raat 11 baje se 10 October ki subah 5 baje ke beech Lucknow se Kolkata ke liye kaun-kaun si trains nikalti hain?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'9 ki raat 11 baje se 10 ki subah 5 baje ke beech' spans two dates (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Both dates must survive; dropping '10 October' would turn this into a same-date window."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T25",
+      "language": "hi",
+      "task_id": "T25_hi",
+      "query": "9 अक्टूबर 2026 की रात 11 बजे से 10 अक्टूबर की सुबह 5 बजे के बीच लखनऊ से कोलकाता के लिए कौन-कौन सी ट्रेनें निकलती हैं?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'की रात 11 बजे से ... की सुबह 5 बजे के बीच' spans two dates (intended)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Both dates must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T25",
+      "language": "mr",
+      "task_id": "T25_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी रात्री 11 वाजल्यापासून 10 ऑक्टोबर रोजी सकाळी 5 वाजेपर्यंत लखनौहून कोलकात्याला जाणाऱ्या कोणकोणत्या ट्रेन सुटतात?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two-date window stated explicitly."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'कोलकाता येथे जाण्यासाठी' chosen over the inflected 'कोलकात्याला' to keep the frozen alias form."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Both dates must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        }
+      }
+    }
+  ]
+}

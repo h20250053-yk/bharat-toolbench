@@ -1,0 +1,9 @@
+model,think_config,think_effective,requests_by_think_value,responses,responses_with_thinking_field,responses_with_think_tag_in_content,thinking_chars_total
+Qwen2.5-3B,False,,"{""null"": 976}",976,0,0,0
+Llama-3.2-3B,False,,"{""null"": 738}",738,0,0,0
+Llama-3.1-8B,False,,"{""null"": 637}",637,0,0,0
+DeepSeek-R1-8B (distill),False,False,"{""false"": 291}",291,291,0,507626
+Qwen2.5-14B,False,,"{""null"": 944}",944,0,0,0
+gpt-oss-20B,False,low,"{""\""low\"""": 1902}",1902,1532,0,102549
+Gemma-4-26B-A4B,False,False,"{""false"": 1498}",1498,0,0,0
+Mistral-Small-3.2-24B †,False,,"{""null"": 232}",232,0,0,0

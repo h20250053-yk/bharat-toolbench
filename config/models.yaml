@@ -1,0 +1,132 @@
+﻿# Model configuration. Model IDs live ONLY here (adapters: agents/groq_adapter.py, agents/gemini_adapter.py).
+models:
+  primary_a:
+    provider: groq
+    model: "openai/gpt-oss-120b"
+    reasoning: low
+    temperature: 0
+    max_tokens: 1024
+    parallel_tool_calls: false   # plan: gpt-oss-120b has no parallel tool use
+    timeout_seconds: 60
+  primary_b:
+    provider: google
+    model: "gemini-3.8-flash"
+    reasoning: low
+    temperature: 0
+    max_tokens: 1024
+    timeout_seconds: 90          # reasoning 'minimal' -> ThinkingConfig(thinking_level=MINIMAL)
+  fallback_b:           # used ONLY if the pre-declared fallback rule triggers; never mixed with primary_b
+    provider: groq
+    model: "qwen/qwen3.8-27b"
+    reasoning: low
+    temperature: 0
+    max_tokens: 1024
+    timeout_seconds: 60
+  experimental_inkling:  # EXPERIMENTAL (OpenRouter). Separate run/quota files; never mixed with primary_*/fallback_b results
+    provider: openrouter   # key from OPENROUTER_API_KEY only; base URL https://openrouter.ai/api/v1 (agents/openrouter_adapter.py)
+    model: "thinkingmachines/inkling:free"
+    temperature: 0
+    max_tokens: 1024       # same per-response budget as primary_a/primary_b; on OpenRouter it covers reasoning + output
+    timeout_seconds: 90
+    # reasoning / parallel_tool_calls intentionally NOT set: endpoint support is unverified, so neither is sent
+
+
+  local_qwen25_3b:       # LOCAL (Ollama, native /api/chat; agents/ollama_adapter.py). No API key. Separate run/quota files.
+    provider: ollama
+    model: "qwen2.5:3b"   # verified installed: digest 357c53fb659c..., Q4_K_M, 3.1B, tools capability
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42             # fixed sampling seed (with temperature 0 decoding is greedy)
+    max_tokens: 2048     # same per-response budget as the other models (Ollama options.num_predict)
+    num_ctx: 16384        # explicit context window; adapter rejects a turn if prompt + max_tokens would exceed it
+    timeout_seconds: 300 # per HTTP request; covers cold model load on CPU/GPU
+    keep_alive: "10m"    # keep the model loaded between items
+    think: false         # thinking OFF where the model allows it; the lowest level where it cannot be turned off (gpt-oss)
+  local_llama32_3b:      # LOCAL (Ollama, native /api/chat; agents/ollama_adapter.py). Same decoding settings as local_qwen25_3b.
+    provider: ollama
+    model: "llama3.2:3b"  # verified installed: digest a80c4f17acd5..., Q4_K_M, 3.2B, tools capability
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false         # thinking OFF where the model allows it; the lowest level where it cannot be turned off (gpt-oss)
+  local_qwen25_7b:      # LOCAL (Ollama). Same decoding settings as local_qwen25_3b (enforced by tests/test_eval_ollama.py).
+    provider: ollama
+    model: "qwen2.5:7b"   # digest + quantization are recorded in the pre-run snapshot after `ollama pull`
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false         # thinking OFF where the model allows it; the lowest level where it cannot be turned off (gpt-oss)
+  local_qwen25_14b:      # LOCAL (Ollama). Same decoding settings as local_qwen25_3b (enforced by tests/test_eval_ollama.py).
+    provider: ollama
+    model: "qwen2.5:14b"   # digest + quantization are recorded in the pre-run snapshot after `ollama pull`
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false         # thinking OFF where the model allows it; the lowest level where it cannot be turned off (gpt-oss)
+  local_llama31_8b:      # LOCAL (Ollama). Same decoding settings as local_qwen25_3b (enforced by tests/test_eval_ollama.py).
+    provider: ollama
+    model: "llama3.1:8b"   # digest + quantization are recorded in the pre-run snapshot after `ollama pull`
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false         # thinking OFF where the model allows it; the lowest level where it cannot be turned off (gpt-oss)
+  local_deepseek_r1_8b:      # DeepSeek-R1-0528 distilled into Qwen3-8B (MIT); report as a distill. think:false must be confirmed by the smoke test (MODEL_PLAN.md).
+    provider: ollama
+    model: "deepseek-r1:8b"
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false
+  local_gpt_oss_20b:      # OpenAI gpt-oss-20b (Apache 2.0). Reasoning cannot be disabled: think:false resolves to the lowest level (low), recorded as think_effective.
+    provider: ollama
+    model: "gpt-oss:20b"
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false
+  local_gemma4_26b:      # Google Gemma 4 26B-A4B (MoE). Needs `ollama ps` = 100% GPU at num_ctx 16384; fallback: gemma4:12b.
+    provider: ollama
+    model: "gemma4:26b"
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false
+  local_mistral_small32_24b:      # Mistral Small 3.2 24B (substitute for the Groq slot in MODEL_PLAN.md).
+    provider: ollama
+    model: "mistral-small3.2:24b"
+    base_url: "http://127.0.0.1:11434"
+    temperature: 0
+    seed: 42
+    max_tokens: 2048
+    num_ctx: 16384
+    timeout_seconds: 300
+    keep_alive: "10m"
+    think: false

@@ -1,0 +1,6 @@
+Model: local_deepseek_r1_8b | split: pilot | languages: en | items: 5
+Run file: runs/local_deepseek_r1_8b_smoke_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: 6995872bfe4c521a67b32da386cd21d5c6e819b6e0d62f79f64ec83be99f5763 capabilities=['tools', 'thinking', 'completion'] think=False
+[1/5] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1398
+STOP: request cap reached (1/1); resume later with --resume

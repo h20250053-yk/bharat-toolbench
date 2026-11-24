@@ -1,0 +1,6 @@
+Model: local_mistral_small32_24b | split: pilot | languages: en | items: 5
+Run file: runs/local_mistral_small32_24b_smoke_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: 5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b capabilities=['completion', 'vision', 'tools'] think=None
+[1/5] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2704
+STOP: request cap reached (2/1); resume later with --resume

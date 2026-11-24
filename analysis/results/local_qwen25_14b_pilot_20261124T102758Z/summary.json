@@ -1,0 +1,369 @@
+{
+  "generated_by": "analysis/observe_run.py",
+  "analysis_git_commit": "521aaeafe61bbdbd82271a283c4b9045fd4237d8",
+  "inputs": [
+    {
+      "file": "runs/local_qwen25_14b_pilot_20261124T102758Z.jsonl",
+      "sha256": "24fb33c3093b7fc7beeeb4b980d4b6cb7ed7350baf1fcaa75c3a16fd56ed66bb",
+      "rows": 25,
+      "bytes": 995164
+    }
+  ],
+  "integrity": {
+    "rows_read": 25,
+    "model_key": "local_qwen25_14b",
+    "expected_items": 25,
+    "unique_items_selected": 25,
+    "items_with_multiple_rows": [],
+    "missing_items": [],
+    "unexpected_items": [],
+    "complete": true
+  },
+  "ollama_versions": [
+    "0.40.18"
+  ],
+  "model_key": "local_qwen25_14b",
+  "decoding_settings": [
+    {
+      "max_tokens": 2048,
+      "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+      "num_ctx": 16384,
+      "seed": 42,
+      "temperature": 0
+    }
+  ],
+  "benchmark_version": [
+    "2.1.0"
+  ],
+  "system_prompt_sha256": [
+    "e4648e4bbd5c1da729244465f5c4ad9a9de4b449e0bb040421956616de9617ed"
+  ],
+  "tool_schema_sha256": [
+    "dc74b083396d4cabce684ea4c61b00db063363e06343d058eeb4cd9b2dea0079"
+  ],
+  "dataset_sha256": {
+    "benchmark/semantic_tasks.json": "d81e5a65beb0efd116766e8b5a9d2e2d928553d0177cc3a6964a75d05dd1ed84",
+    "benchmark/gold_labels.json": "47612cd2eddb7ff3cd4ce552bd0942c60a02d381a2ccc8c4056fac6ded710b2d",
+    "benchmark/languages/en.jsonl": "2369800d9bfa0bfd9072de07951df87db0c342ae88059446f06efa5a3d85acec",
+    "benchmark/languages/hinglish.jsonl": "d2e338e3539f94c5584a2400db8bae111b0be500ab61a0c528a9207f77236db2",
+    "benchmark/languages/hi.jsonl": "ebcf80c4818fcc25bb2e91ce5f89411451a676217bec173f7998cd49a400999d",
+    "benchmark/languages/mr.jsonl": "382e9ef7fcfd281aed92f63992ac8dab2ef4aa57f63a7c5880de69c266ec6fa3",
+    "benchmark/languages/gu.jsonl": "d99b8763b703eeebb2080faaed54f886f25aa2ef8539859e7842403efb9ca3ea",
+    "benchmark/languages/human_review.json": "3589a29af429b95c0dd9c2e24844370942f8ccc51e623e8800293d12483468a6",
+    "config/models.yaml": "1d5ff0907821103ed18338d1db9d6203acb31ab89e4148ac9051298e7ebc0159",
+    "evaluation/runner.py": "ebca9d4f0c37db380a8c763007b54d2545b9393de142e6785de2b5a8aa4b5434",
+    "evaluation/scorer.py": "829ffd2795ac594c7eb99ac79179c5cccf308fa5d443fd4054fd44715c7563c4",
+    "evaluation/final_answer.py": "b079fc3b95819aca25261b47323d2f830fbbe382965b1018753f47433562c709",
+    "evaluation/canonical.py": "bf191be0f448ed1cc6d37a4ea7444bf0d1ea572f8c0ace23d06ac6d66abc8226",
+    "evaluation/tolerance.py": "a5d6f2efce2d66ae2a01e7a0545f12891a7a9e4e902cf0a3e5b01d077f259f11",
+    "agents/ollama_adapter.py": "e3f108c9d8842a00bb7c752ee35d68b3cb0698b130d1bc6f03e615c47a7441f2",
+    "evaluation/run_pilot.py": "ae7ead30c864de30c7dabdc33ef6e27824ecc8c4e917ff17bc444fbe368d90f0"
+  },
+  "official": {
+    "items": 25,
+    "scored": 25,
+    "not_scored": 0,
+    "task_success": 11,
+    "status": {
+      "completed": 25
+    },
+    "failure_label_families": {
+      "process:missing_required_call": 40,
+      "final_answer:wrong_selected_train": 4,
+      "process:prohibited_action": 4,
+      "value:fare_inr=1035_not_stated": 3,
+      "state:bookings_mismatch": 3,
+      "status:expected_success_got_cannot_complete": 2,
+      "final_answer:wrong_selected_class": 2,
+      "value:fare_inr=450_not_stated": 2,
+      "value:fare_inr=3565_not_stated": 1,
+      "final_answer:missing_block": 1,
+      "value:fare_inr=1540_not_stated": 1,
+      "answer_value:wrong": 1,
+      "final_answer:selected_train_invalid": 1,
+      "final_answer:missing_keys": 1
+    }
+  },
+  "rates": {
+    "parse_ok": 23,
+    "process_success": 11,
+    "state_success": 22,
+    "tool_calls": 169,
+    "tool_calls_ok": 70,
+    "top_tool_error_codes": {
+      "INVALID_TRAIN": 90,
+      "INVALID_STATION": 7,
+      "SOLD_OUT": 2
+    }
+  },
+  "null_baseline": {
+    "tool_required_tasks": {
+      "scored": 25,
+      "task_success": 11,
+      "rate": 0.44
+    },
+    "no_tool_tasks": {
+      "scored": 0,
+      "task_success": 0,
+      "rate": null
+    },
+    "always_needs_clarification_baseline": {
+      "task_ids": [
+        "T09",
+        "T19",
+        "T36",
+        "T37",
+        "T46",
+        "T67",
+        "T69",
+        "T71",
+        "T74"
+      ],
+      "passes_per_language": 9,
+      "rate_all_tasks": 0.12,
+      "languages_in_run": 5
+    }
+  },
+  "strict_vs_lenient": {
+    "definition": "lenient = scorer after recorded format recoveries (headline); strict = original scorer, lower bound when a run-time recovery was used",
+    "has_strict_scores": true,
+    "lenient": {
+      "scored": 25,
+      "task_success": 11
+    },
+    "strict": {
+      "scored": 25,
+      "task_success": 11
+    },
+    "items_with_recovery": 0,
+    "recovery_rules": {},
+    "items_with_recovery_by_language": {},
+    "unparsed_model_output": {
+      "total": 0,
+      "by_language": {}
+    }
+  },
+  "by_language": {
+    "en": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 5,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "success": 2,
+        "unsafe_action": 2
+      }
+    },
+    "gu": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 3,
+      "parse_ok": 4,
+      "process_success": 3,
+      "state_success": 4,
+      "primary_failure": {
+        "success": 3,
+        "tool_argument_error": 1,
+        "missing_booking": 1
+      }
+    },
+    "hi": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 5,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 2,
+        "tool_argument_error": 2,
+        "unsafe_action": 1
+      }
+    },
+    "hinglish": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 3,
+      "parse_ok": 4,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 3,
+        "tool_argument_error": 2
+      }
+    },
+    "mr": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 5,
+      "process_success": 1,
+      "state_success": 4,
+      "primary_failure": {
+        "success": 1,
+        "tool_argument_error": 1,
+        "missing_required_call": 2,
+        "unsafe_action": 1
+      }
+    }
+  },
+  "by_task": {
+    "T01": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 4,
+      "parse_ok": 5,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "success": 4
+      }
+    },
+    "T02": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 4,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 2,
+        "tool_argument_error": 3
+      }
+    },
+    "T03": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 5,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 1,
+        "tool_argument_error": 3,
+        "missing_required_call": 1
+      }
+    },
+    "T04": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 4,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "success": 2,
+        "missing_booking": 1
+      }
+    },
+    "T05": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 5,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "success": 2,
+        "missing_required_call": 1
+      }
+    }
+  },
+  "by_category": {
+    "booking": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 4,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "success": 2,
+        "missing_booking": 1
+      }
+    },
+    "constraint": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 5,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 1,
+        "tool_argument_error": 3,
+        "missing_required_call": 1
+      }
+    },
+    "recovery": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 5,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "success": 2,
+        "missing_required_call": 1
+      }
+    },
+    "sequential": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 2,
+      "parse_ok": 4,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "success": 2,
+        "tool_argument_error": 3
+      }
+    },
+    "single_tool": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 4,
+      "parse_ok": 5,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "success": 4
+      }
+    }
+  },
+  "diagnostic": {
+    "primary_failure": {
+      "success": 11,
+      "unsafe_action": 4,
+      "missing_booking": 1,
+      "tool_argument_error": 6,
+      "missing_required_call": 3
+    },
+    "secondary_tags": {
+      "reply_language_mismatch": 14,
+      "invalid_train_id_format": 11,
+      "guessed_station_code": 7,
+      "missing_expected_booking": 3,
+      "unexpected_booking": 2,
+      "no_final_block": 1
+    },
+    "format_only_items": []
+  },
+  "cost": {
+    "input_tokens": 126830,
+    "output_tokens": 14573,
+    "cached_input_tokens": 111474,
+    "attempts_gt_1": 0,
+    "sum_item_seconds": 323.6,
+    "wall_seconds_first_start_to_last_finish": 323.7
+  }
+}

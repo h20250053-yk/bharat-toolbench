@@ -1,0 +1,6 @@
+Model: local_llama32_3b | split: pilot | languages: en | items: 5
+Run file: runs/local_llama32_3b_smoke_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72 capabilities=['completion', 'tools'] think=None
+[1/5] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=2652
+STOP: request cap reached (2/1); resume later with --resume

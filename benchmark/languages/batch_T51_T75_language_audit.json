@@ -1,0 +1,3785 @@
+{
+  "_meta": {
+    "stage": "batch_T51_T75_language_draft",
+    "items": 100,
+    "note": "Checks are automated keyword presence tests, NOT human verification. All review fields are pending_human_review. Non-English variants are Claude-generated drafts. End-sem batch: 17 failure-targeted tasks + 8 language-feature tasks (T54, T57, T62, T64, T67, T69, T71, T72). For T54 hi/mr 'passenger_preserved' tests the declared Devanagari name (and that the Latin form is absent); for T69 'route_preserved' tests that both station names survive. 'not_applicable' = the task has no such constraint.",
+    "back_translation": "not used as evidence"
+  },
+  "records": [
+    {
+      "semantic_task_id": "T51",
+      "language": "en",
+      "task_id": "T51_en",
+      "query": "How many direct trains run from Mumbai to Ahmedabad on 9 October 2026? Which of them leaves Mumbai last, and does it have 3A seats available?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T51",
+      "language": "hinglish",
+      "task_id": "T51_hinglish",
+      "query": "9 October 2026 ko Mumbai se Ahmedabad ki kitni direct trains hain? Unmein se Mumbai se sabse aakhir mein kaun si train chhootti hai, aur kya usmein 3A seats available hain?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T51",
+      "language": "hi",
+      "task_id": "T51_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से अहमदाबाद के लिए कितनी सीधी ट्रेनें हैं? उनमें से मुंबई से सबसे आख़िर में कौन-सी ट्रेन छूटती है, और क्या उसमें 3A की सीटें उपलब्ध हैं?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T51",
+      "language": "mr",
+      "task_id": "T51_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून अहमदाबादला किती थेट ट्रेन आहेत? त्यांपैकी मुंबईहून सर्वात शेवटी कोणती ट्रेन सुटते आणि त्या ट्रेनमध्ये 3A सीट उपलब्ध आहेत का?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'त्यांपैकी ... सर्वात शेवटी कोणती ट्रेन सुटते' = which of them leaves last."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two questions (count, then the last train) plus the seat question; 'direct' must not be dropped."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T52",
+      "language": "en",
+      "task_id": "T52_en",
+      "query": "I want to leave Ahmedabad for Jaipur on 9 October 2026 at or after 6 PM. Which train gets me to Jaipur earliest, and at what time does it arrive?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T52",
+      "language": "hinglish",
+      "task_id": "T52_hinglish",
+      "query": "Mujhe 9 October 2026 ko shaam 6 baje ya uske baad Ahmedabad se Jaipur ke liye nikalna hai. Kaun si train Jaipur sabse jaldi pahunchati hai, aur woh kitne baje pahunchti hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'Jaipur sabse jaldi pahunchati hai' = gets to Jaipur earliest; speaker kept neutral with 'Mujhe ... nikalna hai'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T52",
+      "language": "hi",
+      "task_id": "T52_hi",
+      "query": "मुझे 9 अक्टूबर 2026 को शाम 6 बजे या उसके बाद अहमदाबाद से जयपुर के लिए निकलना है। कौन-सी ट्रेन जयपुर सबसे जल्दी पहुँचाती है, और वह कितने बजे पहुँचती है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T52",
+      "language": "mr",
+      "task_id": "T52_mr",
+      "query": "मला 9 ऑक्टोबर 2026 रोजी संध्याकाळी 6 वाजता किंवा त्यानंतर अहमदाबादहून जयपूरला निघायचे आहे. कोणती ट्रेन जयपूरला सर्वात लवकर पोहोचते आणि ती किती वाजता पोहोचते?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Inclusive 'at or after 6 PM' + objective 'reaches Jaipur EARLIEST' (arrival, not departure)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T53",
+      "language": "en",
+      "task_id": "T53_en",
+      "query": "From Kolkata to Lucknow on 9 October 2026, which is cheaper in 3A: the train that leaves at 4:55 PM or the one that leaves at 7:30 PM? By how much?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T53",
+      "language": "hinglish",
+      "task_id": "T53_hinglish",
+      "query": "9 October 2026 ko Kolkata se Lucknow ke liye 3A mein kaun si train sasti hai: shaam 4:55 baje wali ya shaam 7:30 baje wali? Kitni sasti hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T53",
+      "language": "hi",
+      "task_id": "T53_hi",
+      "query": "9 अक्टूबर 2026 को कोलकाता से लखनऊ के लिए 3A में कौन-सी ट्रेन सस्ती है: शाम 4:55 बजे वाली या शाम 7:30 बजे वाली? कितनी सस्ती है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T53",
+      "language": "mr",
+      "task_id": "T53_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी कोलकात्याहून लखनौला जाण्यासाठी 3A मध्ये कोणती ट्रेन स्वस्त आहे: संध्याकाळी 4:55 वाजता सुटणारी की संध्याकाळी 7:30 वाजता सुटणारी? किती रुपयांनी स्वस्त आहे?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'... सुटणारी की ... सुटणारी' (or-question); 'किती रुपयांनी' = by how many rupees."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both clock times (4:55 PM, 7:30 PM) and the 'by how much' question must survive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T54",
+      "language": "en",
+      "task_id": "T54_en",
+      "query": "Book a chair car (CC) ticket from Mumbai to Ahmedabad on 9 October 2026 for Ravi Patel.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T54",
+      "language": "hinglish",
+      "task_id": "T54_hinglish",
+      "query": "9 October 2026 ko Mumbai se Ahmedabad ke liye Ravi Patel ke naam par chair car (CC) ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Romanised script: the name is naturally Latin, so the transliteration trap does not apply in Hinglish (by design)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T54",
+      "language": "hi",
+      "task_id": "T54_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से अहमदाबाद के लिए रवि पटेल के नाम से चेयर कार (CC) टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Name written 'रवि पटेल' on purpose (the trap); environment accepts Latin names only."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger name in Devanagari BY DESIGN; train ids and class codes kept identical."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T54",
+      "language": "mr",
+      "task_id": "T54_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून अहमदाबादला जाण्यासाठी रवी पटेल यांच्या नावाने चेअर कार (CC) तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Name written 'रवी पटेल' (common Marathi spelling with long ई) on purpose."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: hi/mr deliberately write the passenger name in Devanagari (रवि/रवी पटेल); a reviewer must NOT romanise it. Hinglish keeps Latin."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger name in Devanagari BY DESIGN; train ids and class codes kept identical."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T55",
+      "language": "en",
+      "task_id": "T55_en",
+      "query": "I will board train BTB110 at Lucknow on 10 October 2026 to go to New Delhi. At what time will I reach New Delhi, and are 3A seats available?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T55",
+      "language": "hinglish",
+      "task_id": "T55_hinglish",
+      "query": "10 October 2026 ko Lucknow se New Delhi jaane ke liye train BTB110 pakadni hai. New Delhi kitne baje pahunchenge, aur kya 3A seats available hain?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Impersonal 'pakadni hai ... pahunchenge' keeps the speaker gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T55",
+      "language": "hi",
+      "task_id": "T55_hi",
+      "query": "10 अक्टूबर 2026 को लखनऊ से नई दिल्ली जाने के लिए ट्रेन BTB110 पकड़नी है। नई दिल्ली कितने बजे पहुँचेंगे, और क्या 3A की सीटें उपलब्ध हैं?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T55",
+      "language": "mr",
+      "task_id": "T55_mr",
+      "query": "10 ऑक्टोबर 2026 रोजी लखनौहून नवी दिल्लीला जाण्यासाठी ट्रेन BTB110 पकडायची आहे. नवी दिल्लीला किती वाजता पोहोचू आणि 3A सीट उपलब्ध आहेत का?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'पोहोचू' (1st person plural/neutral) avoids a gendered verb."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Boarding at Lucknow on 10 October (not the train's start date); the date must stay 10 October."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T56",
+      "language": "en",
+      "task_id": "T56_en",
+      "query": "List all trains that leave Pune on 9 October 2026 at or after 6 PM for either Mumbai or Nagpur, with their departure times.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T56",
+      "language": "hinglish",
+      "task_id": "T56_hinglish",
+      "query": "9 October 2026 ko shaam 6 baje ya uske baad Pune se Mumbai ya Nagpur jaane wali saari trains unke chhootne ke time ke saath batao.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T56",
+      "language": "hi",
+      "task_id": "T56_hi",
+      "query": "9 अक्टूबर 2026 को शाम 6 बजे या उसके बाद पुणे से मुंबई या नागपुर जाने वाली सभी ट्रेनें उनके छूटने के समय के साथ बताइए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T56",
+      "language": "mr",
+      "task_id": "T56_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी संध्याकाळी 6 वाजता किंवा त्यानंतर पुण्याहून मुंबई किंवा नागपूरला जाणाऱ्या सर्व ट्रेन त्यांच्या सुटण्याच्या वेळेसह सांगा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'पुण्याहून मुंबई किंवा नागपूरला' attaches the ending to the second destination only (natural for coordinated nouns)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two destinations ('Mumbai OR Nagpur'), one inclusive time bound; 'all trains' must stay exhaustive."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T57",
+      "language": "en",
+      "task_id": "T57_en",
+      "query": "Which is the last train from Ahmedabad to Jaipur the day after tomorrow that has sleeper (SL) class, and when does it leave?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T57",
+      "language": "hinglish",
+      "task_id": "T57_hinglish",
+      "query": "Parso Ahmedabad se Jaipur ki sabse aakhri train kaun si hai jismein sleeper (SL) class ho, aur woh kitne baje chhootti hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'Parso' is the common romanisation; 'parson' also occurs."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T57",
+      "language": "hi",
+      "task_id": "T57_hi",
+      "query": "परसों अहमदाबाद से जयपुर की वह आख़िरी ट्रेन कौन-सी है जिसमें स्लीपर (SL) क्लास हो, और वह कितने बजे छूटती है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T57",
+      "language": "mr",
+      "task_id": "T57_mr",
+      "query": "परवा अहमदाबादहून जयपूरला जाणारी, स्लीपर (SL) क्लास असलेली शेवटची ट्रेन कोणती आणि ती किती वाजता सुटते?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'परवा' = day after tomorrow (can also mean 'the other day' in past contexts)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'day after tomorrow' must stay relative (परसों/परवा/Parso); no date may be added. Hindi परसों is two-way (future/past): context is future."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T58",
+      "language": "en",
+      "task_id": "T58_en",
+      "query": "Two things: tell me how many chair car (CC) seats are left on train BTB117, and book a 3A ticket on train BTB123 from Ahmedabad to Pune on 9 October 2026 for Manav Trivedi.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T58",
+      "language": "hinglish",
+      "task_id": "T58_hinglish",
+      "query": "Do kaam hain: train BTB117 mein chair car (CC) ki kitni seats bachi hain yeh batao, aur 9 October 2026 ko Ahmedabad se Pune ke liye train BTB123 mein Manav Trivedi ke naam par 3A ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T58",
+      "language": "hi",
+      "task_id": "T58_hi",
+      "query": "दो काम हैं: ट्रेन BTB117 में चेयर कार (CC) की कितनी सीटें बची हैं, यह बताइए, और 9 अक्टूबर 2026 को अहमदाबाद से पुणे के लिए ट्रेन BTB123 में Manav Trivedi के नाम से 3A का टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T58",
+      "language": "mr",
+      "task_id": "T58_mr",
+      "query": "दोन कामे आहेत: ट्रेन BTB117 मध्ये चेअर कार (CC) च्या किती सीट शिल्लक आहेत ते सांगा, आणि 9 ऑक्टोबर 2026 रोजी अहमदाबादहून पुण्याला जाण्यासाठी ट्रेन BTB123 मध्ये Manav Trivedi यांच्या नावाने 3A चे तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both intents must survive: the BTB117 CC seat question AND the BTB123 booking."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T59",
+      "language": "en",
+      "task_id": "T59_en",
+      "query": "Book a chair car (CC) ticket on train BTB118 from Pune to Mumbai on 9 October 2026 for Ritu Chawla — actually no, don't book it; just tell me the CC fare.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T59",
+      "language": "hinglish",
+      "task_id": "T59_hinglish",
+      "query": "9 October 2026 ko Pune se Mumbai ke liye train BTB118 mein Ritu Chawla ke naam par chair car (CC) ticket book kar do — nahi, rehne do, book mat karna; bas CC ka fare bata do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'nahi, rehne do' = no, leave it; 'book mat karna' added to make the retraction explicit (as English 'don't book it')."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T59",
+      "language": "hi",
+      "task_id": "T59_hi",
+      "query": "9 अक्टूबर 2026 को पुणे से मुंबई के लिए ट्रेन BTB118 में Ritu Chawla के नाम से चेयर कार (CC) टिकट बुक कीजिए — नहीं, रहने दीजिए, बुक मत कीजिए; बस CC का किराया बता दीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T59",
+      "language": "mr",
+      "task_id": "T59_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी पुण्याहून मुंबईला जाण्यासाठी ट्रेन BTB118 मध्ये Ritu Chawla यांच्या नावाने चेअर कार (CC) तिकीट बुक करा — नाही, राहू द्या, बुक करू नका; फक्त CC चे भाडे सांगा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The retraction ('actually no, don't book it') must clearly cancel the booking request."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T60",
+      "language": "en",
+      "task_id": "T60_en",
+      "query": "I'm going from Pune to Mumbai on 9 October 2026 and must reach Mumbai before 10 PM. I'll take 3A or 2A, whichever is cheaper. Which train and class should I take, and what is the fare? Don't book anything.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T60",
+      "language": "hinglish",
+      "task_id": "T60_hinglish",
+      "query": "9 October 2026 ko Pune se Mumbai jaana hai aur raat 10 baje se pehle Mumbai pahunchna zaroori hai. 3A ya 2A, jo bhi sasta ho, le lenge. Kaun si train aur kaun si class leni chahiye, aur fare kitna hai? Kuch bhi book mat karna.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'le lenge' (we'll take) keeps the speaker gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T60",
+      "language": "hi",
+      "task_id": "T60_hi",
+      "query": "9 अक्टूबर 2026 को पुणे से मुंबई जाना है और रात 10 बजे से पहले मुंबई पहुँचना ज़रूरी है। 3A या 2A, जो भी सस्ता हो, ले लेंगे। कौन-सी ट्रेन और कौन-सी क्लास लेनी चाहिए, और किराया कितना है? कुछ भी बुक मत कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T60",
+      "language": "mr",
+      "task_id": "T60_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी पुण्याहून मुंबईला जायचे आहे आणि रात्री 10 वाजण्यापूर्वी मुंबईला पोहोचणे आवश्यक आहे. 3A किंवा 2A, जे स्वस्त असेल ते घेऊ. कोणती ट्रेन आणि कोणता क्लास घ्यावा, आणि भाडे किती आहे? काहीही बुक करू नका.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Strict 'before 10 PM', the choice between 3A and 2A by fare, and 'don't book anything'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T61",
+      "language": "en",
+      "task_id": "T61_en",
+      "query": "Book three sleeper (SL) tickets from Pune to Nagpur on 9 October 2026 for Sagar Pawar, Swati Pawar and Om Pawar, but only if the total for all three is no more than ₹1,800.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T61",
+      "language": "hinglish",
+      "task_id": "T61_hinglish",
+      "query": "9 October 2026 ko Pune se Nagpur ke liye Sagar Pawar, Swati Pawar aur Om Pawar ke liye teen sleeper (SL) tickets book kar do, lekin sirf tab jab teeno ka total ₹1,800 se zyada na ho.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T61",
+      "language": "hi",
+      "task_id": "T61_hi",
+      "query": "9 अक्टूबर 2026 को पुणे से नागपुर के लिए Sagar Pawar, Swati Pawar और Om Pawar के लिए स्लीपर (SL) के तीन टिकट बुक कीजिए, लेकिन केवल तभी जब तीनों का कुल किराया ₹1,800 से ज़्यादा न हो।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T61",
+      "language": "mr",
+      "task_id": "T61_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी पुण्याहून नागपूरला जाण्यासाठी Sagar Pawar, Swati Pawar आणि Om Pawar यांच्यासाठी स्लीपर (SL) ची तीन तिकिटे बुक करा, पण तिघांचे एकूण भाडे ₹1,800 पेक्षा जास्त नसेल तरच.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'... नसेल तरच' = only if it is not more than (inclusive ≤)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The budget applies to the TOTAL for all three (₹1,800), not to one ticket."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T62",
+      "language": "en",
+      "task_id": "T62_en",
+      "query": "On 9 October 2026, what is the chair car (CC) fare on the train from Mumbai to Pune that leaves at quarter past seven in the morning?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T62",
+      "language": "hinglish",
+      "task_id": "T62_hinglish",
+      "query": "9 October 2026 ko Mumbai se Pune ke liye subah sawa saat baje chhootne wali train mein chair car (CC) ka fare kitna hai?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T62",
+      "language": "hi",
+      "task_id": "T62_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से पुणे के लिए सुबह सवा सात बजे छूटने वाली ट्रेन में चेयर कार (CC) का किराया कितना है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'सवा सात' = 7:15 (quarter past seven); not 'साढ़े सात' (7:30) or 'पौने सात' (6:45)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T62",
+      "language": "mr",
+      "task_id": "T62_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून पुण्याला सकाळी सव्वा सात वाजता सुटणाऱ्या ट्रेनमध्ये चेअर कार (CC) चे भाडे किती आहे?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'सव्वा सात' is the Marathi spelling of सवा."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The departure time must stay in SPOKEN form (quarter past seven / सवा सात / सव्वा सात), never '7:15'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T63",
+      "language": "en",
+      "task_id": "T63_en",
+      "query": "I'm leaving New Delhi for Kolkata on 9 October 2026 and must reach Kolkata by 8 PM on 10 October. I want 3A. Which train can I take?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T63",
+      "language": "hinglish",
+      "task_id": "T63_hinglish",
+      "query": "9 October 2026 ko New Delhi se Kolkata jaana hai aur 10 October ko raat 8 baje tak Kolkata pahunchna hai. Mujhe 3A chahiye. Kaun si train le sakte hain?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'raat 8 baje' for 8 PM; 'shaam 8 baje' would also be heard."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T63",
+      "language": "hi",
+      "task_id": "T63_hi",
+      "query": "9 अक्टूबर 2026 को नई दिल्ली से कोलकाता जाना है और 10 अक्टूबर को रात 8 बजे तक कोलकाता पहुँचना है। मुझे 3A चाहिए। कौन-सी ट्रेन ली जा सकती है?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T63",
+      "language": "mr",
+      "task_id": "T63_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी नवी दिल्लीहून कोलकात्याला जायचे आहे आणि 10 ऑक्टोबर रोजी रात्री 8 वाजेपर्यंत कोलकात्याला पोहोचायचे आहे. मला 3A हवे आहे. कोणती ट्रेन घेता येईल?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": true,
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Arrival deadline 'by 8 PM on 10 October' (inclusive) and class 3A."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T64",
+      "language": "en",
+      "task_id": "T64_en",
+      "query": "Which is the earliest train from Mumbai to Ahmedabad on 9 October 2026 whose 3A fare is under two and a half thousand rupees?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T64",
+      "language": "hinglish",
+      "task_id": "T64_hinglish",
+      "query": "9 October 2026 ko Mumbai se Ahmedabad ki sabse pehli train kaun si hai jiska 3A fare dhai hazaar rupaye se kam ho?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T64",
+      "language": "hi",
+      "task_id": "T64_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से अहमदाबाद की सबसे पहली ऐसी ट्रेन कौन-सी है जिसका 3A किराया ढाई हज़ार रुपये से कम हो?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'ढाई हज़ार' = 2,500; a reader who maps ढाई to 2 would answer a different train (the trap)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T64",
+      "language": "mr",
+      "task_id": "T64_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून अहमदाबादला जाणारी, 3A भाडे अडीच हजार रुपयांपेक्षा कमी असलेली सर्वात पहिली ट्रेन कोणती?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'अडीच हजार' = 2,500."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The amount must stay in WORDS (two and a half thousand / ढाई हज़ार / अडीच हजार), never '₹2,500'; 'under' is strict."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T65",
+      "language": "en",
+      "task_id": "T65_en",
+      "query": "Book 3A tickets from Mumbai to Ahmedabad on 9 October 2026 for Kunal Mehta, Rina Mehta and Dev Mehta, all on the same train: the earliest train that has 3A seats for all three of us.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T65",
+      "language": "hinglish",
+      "task_id": "T65_hinglish",
+      "query": "9 October 2026 ko Mumbai se Ahmedabad ke liye Kunal Mehta, Rina Mehta aur Dev Mehta ke 3A tickets book kar do, teeno ek hi train mein: sabse pehli train jismein hum teeno ke liye 3A seats hon.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T65",
+      "language": "hi",
+      "task_id": "T65_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से अहमदाबाद के लिए Kunal Mehta, Rina Mehta और Dev Mehta के 3A टिकट बुक कीजिए, तीनों एक ही ट्रेन में: सबसे पहली ट्रेन जिसमें हम तीनों के लिए 3A की सीटें हों।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T65",
+      "language": "mr",
+      "task_id": "T65_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून अहमदाबादला जाण्यासाठी Kunal Mehta, Rina Mehta आणि Dev Mehta यांची 3A तिकिटे बुक करा, तिघेही एकाच ट्रेनमध्ये: आम्हा तिघांसाठी 3A सीट असलेली सर्वात पहिली ट्रेन.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Same train for all three, earliest train with enough 3A seats for ALL three."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T66",
+      "language": "en",
+      "task_id": "T66_en",
+      "query": "Book a 3A ticket on train BTB111 from New Delhi to Lucknow for Gaurav Saxena on the first day after 9 October 2026 that the train runs.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T66",
+      "language": "hinglish",
+      "task_id": "T66_hinglish",
+      "query": "Train BTB111 mein New Delhi se Lucknow ke liye Gaurav Saxena ke naam par 3A ticket book kar do, 9 October 2026 ke baad jis pehle din yeh train chalti ho, us din ke liye.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T66",
+      "language": "hi",
+      "task_id": "T66_hi",
+      "query": "ट्रेन BTB111 में नई दिल्ली से लखनऊ के लिए Gaurav Saxena के नाम से 3A का टिकट बुक कीजिए, 9 अक्टूबर 2026 के बाद जिस पहले दिन यह ट्रेन चलती हो, उस दिन के लिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T66",
+      "language": "mr",
+      "task_id": "T66_mr",
+      "query": "9 ऑक्टोबर 2026 नंतर ट्रेन BTB111 ज्या पहिल्या दिवशी धावते, त्या दिवसासाठी नवी दिल्लीहून लखनौला Gaurav Saxena यांच्या नावाने 3A चे तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Clause order changed (date clause first) for natural Marathi."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'first day after 9 October that the train runs' must not become 'on 9 October'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T67",
+      "language": "en",
+      "task_id": "T67_en",
+      "query": "Book a sleeper (SL) ticket from Pune to Nagpur on 31 November 2026 for Neha Kulkarni.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T67",
+      "language": "hinglish",
+      "task_id": "T67_hinglish",
+      "query": "31 November 2026 ko Pune se Nagpur ke liye Neha Kulkarni ke naam par sleeper (SL) ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T67",
+      "language": "hi",
+      "task_id": "T67_hi",
+      "query": "31 नवंबर 2026 को पुणे से नागपुर के लिए Neha Kulkarni के नाम से स्लीपर (SL) टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T67",
+      "language": "mr",
+      "task_id": "T67_mr",
+      "query": "31 नोव्हेंबर 2026 रोजी पुण्याहून नागपूरला जाण्यासाठी Neha Kulkarni यांच्या नावाने स्लीपर (SL) तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The impossible date '31 November' must be kept; a reviewer must not 'fix' it."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T68",
+      "language": "en",
+      "task_id": "T68_en",
+      "query": "If I booked 2A for my father and 3A for myself on train BTB120 from Nagpur to Mumbai on 9 October 2026, what would the two tickets cost in total?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T68",
+      "language": "hinglish",
+      "task_id": "T68_hinglish",
+      "query": "Agar 9 October 2026 ko Nagpur se Mumbai ke liye train BTB120 mein main apne papa ke liye 2A aur apne liye 3A book karoon, to dono tickets ka total kitna hoga?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'karoon' (subjunctive) carries the hypothetical; it is gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T68",
+      "language": "hi",
+      "task_id": "T68_hi",
+      "query": "अगर 9 अक्टूबर 2026 को नागपुर से मुंबई के लिए ट्रेन BTB120 में मैं अपने पिताजी के लिए 2A और अपने लिए 3A बुक करूँ, तो दोनों टिकटों का कुल किराया कितना होगा?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T68",
+      "language": "mr",
+      "task_id": "T68_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी नागपूरहून मुंबईला जाणाऱ्या ट्रेन BTB120 मध्ये मी माझ्या वडिलांसाठी 2A आणि माझ्यासाठी 3A बुक केले, तर दोन्ही तिकिटांचे एकूण भाडे किती होईल?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'बुक केले, तर ... किती होईल' = if (I) booked, what would it be; Marathi has no separate subjunctive here."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The conditional/hypothetical mood ('If I booked ... what would ... cost') must not become an order."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T69",
+      "language": "en",
+      "task_id": "T69_en",
+      "query": "Book a 3A ticket from Howrah to Kolkata on 9 October 2026 for Arpita Ghosh.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T69",
+      "language": "hinglish",
+      "task_id": "T69_hinglish",
+      "query": "9 October 2026 ko Howrah se Kolkata ke liye Arpita Ghosh ke naam par 3A ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T69",
+      "language": "hi",
+      "task_id": "T69_hi",
+      "query": "9 अक्टूबर 2026 को हावड़ा से कोलकाता के लिए Arpita Ghosh के नाम से 3A का टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'हावड़ा' and 'कोलकाता' are both aliases of HWH."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T69",
+      "language": "mr",
+      "task_id": "T69_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी हावड्याहून कोलकात्याला जाण्यासाठी Arpita Ghosh यांच्या नावाने 3A चे तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'हावड्याहून' is the ablative of 'हावडा'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both station names (Howrah AND Kolkata) must be kept as written, even though they are the same station."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T70",
+      "language": "en",
+      "task_id": "T70_en",
+      "query": "Book one sleeper (SL) ticket on train BTB104 from Mumbai to Jaipur on 9 October 2026 for Yash Kapoor, but only if at least 5 SL seats are left — my friends may join later.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T70",
+      "language": "hinglish",
+      "task_id": "T70_hinglish",
+      "query": "9 October 2026 ko Mumbai se Jaipur ke liye train BTB104 mein Yash Kapoor ke naam par ek sleeper (SL) ticket book kar do, lekin sirf tab jab kam se kam 5 SL seats bachi hon — mere dost baad mein saath aa sakte hain.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T70",
+      "language": "hi",
+      "task_id": "T70_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से जयपुर के लिए ट्रेन BTB104 में Yash Kapoor के नाम से स्लीपर (SL) का एक टिकट बुक कीजिए, लेकिन केवल तभी जब कम से कम 5 SL सीटें बची हों — मेरे दोस्त बाद में साथ आ सकते हैं।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T70",
+      "language": "mr",
+      "task_id": "T70_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून जयपूरला जाण्यासाठी ट्रेन BTB104 मध्ये Yash Kapoor यांच्या नावाने स्लीपर (SL) चे एक तिकीट बुक करा, पण किमान 5 SL सीट शिल्लक असतील तरच — माझे मित्र नंतर सोबत येऊ शकतात.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'at least 5 SL seats left' threshold (inclusive) must survive; only ONE ticket is requested."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T71",
+      "language": "en",
+      "task_id": "T71_en",
+      "query": "Book 3A tickets on train BTB115 from Mumbai to Pune on 9 October 2026 for these passengers: Anjali Rao, Sunil Rao, Anjali Rao.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T71",
+      "language": "hinglish",
+      "task_id": "T71_hinglish",
+      "query": "9 October 2026 ko Mumbai se Pune ke liye train BTB115 mein in passengers ke 3A tickets book kar do: Anjali Rao, Sunil Rao, Anjali Rao.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T71",
+      "language": "hi",
+      "task_id": "T71_hi",
+      "query": "9 अक्टूबर 2026 को मुंबई से पुणे के लिए ट्रेन BTB115 में इन यात्रियों के 3A टिकट बुक कीजिए: Anjali Rao, Sunil Rao, Anjali Rao।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "List kept verbatim after the colon, including the repeated name."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T71",
+      "language": "mr",
+      "task_id": "T71_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी मुंबईहून पुण्याला जाण्यासाठी ट्रेन BTB115 मध्ये या प्रवाशांची 3A तिकिटे बुक करा: Anjali Rao, Sunil Rao, Anjali Rao.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The repeated name in the list must be kept (Anjali Rao twice); a reviewer must not remove the duplicate."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T72",
+      "language": "en",
+      "task_id": "T72_en",
+      "query": "Book a 3A ticket from Kolkata to New Delhi on 9 October 2026 for Arjun Sen on any train except BTB110.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T72",
+      "language": "hinglish",
+      "task_id": "T72_hinglish",
+      "query": "9 October 2026 ko Kolkata se New Delhi ke liye Arjun Sen ke naam par 3A ticket book kar do, BTB110 ko chhodkar kisi bhi train mein.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'BTB110 ko chhodkar' = except BTB110."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T72",
+      "language": "hi",
+      "task_id": "T72_hi",
+      "query": "9 अक्टूबर 2026 को कोलकाता से नई दिल्ली के लिए Arjun Sen के नाम से 3A का टिकट बुक कीजिए, BTB110 को छोड़कर किसी भी ट्रेन में।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T72",
+      "language": "mr",
+      "task_id": "T72_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी कोलकात्याहून नवी दिल्लीला जाण्यासाठी Arjun Sen यांच्या नावाने 3A चे तिकीट बुक करा, BTB110 सोडून कोणत्याही ट्रेनमध्ये.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'BTB110 सोडून' = except BTB110."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The exclusion ('except BTB110' / को छोड़कर / सोडून) must keep its negative meaning."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T73",
+      "language": "en",
+      "task_id": "T73_en",
+      "query": "Book a 2A ticket on train BTB101 from New Delhi to Ahmedabad on 9 October 2026 for Varun Bhatt. If 2A is full on that train, book 2A on the next train after it that day.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T73",
+      "language": "hinglish",
+      "task_id": "T73_hinglish",
+      "query": "9 October 2026 ko New Delhi se Ahmedabad ke liye train BTB101 mein Varun Bhatt ke naam par 2A ticket book kar do. Agar us train mein 2A full ho, to usi din uske baad wali agli train mein 2A book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T73",
+      "language": "hi",
+      "task_id": "T73_hi",
+      "query": "9 अक्टूबर 2026 को नई दिल्ली से अहमदाबाद के लिए ट्रेन BTB101 में Varun Bhatt के नाम से 2A का टिकट बुक कीजिए। अगर उस ट्रेन में 2A भरा हुआ हो, तो उसी दिन उसके बाद वाली अगली ट्रेन में 2A बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'भरा हुआ' (full) mirrors English 'full'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T73",
+      "language": "mr",
+      "task_id": "T73_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी नवी दिल्लीहून अहमदाबादला जाण्यासाठी ट्रेन BTB101 मध्ये Varun Bhatt यांच्या नावाने 2A चे तिकीट बुक करा. त्या ट्रेनमध्ये 2A भरलेले असेल, तर त्याच दिवशी त्यानंतरच्या पुढच्या ट्रेनमध्ये 2A बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fallback = the NEXT later train the same day, same class (not the cheapest, not another class)."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T74",
+      "language": "en",
+      "task_id": "T74_en",
+      "query": "Book a 2A ticket on train BTB1O3 from New Delhi to Mumbai on 9 October 2026 for Ravi Shankar.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T74",
+      "language": "hinglish",
+      "task_id": "T74_hinglish",
+      "query": "9 October 2026 ko New Delhi se Mumbai ke liye train BTB1O3 mein Ravi Shankar ke naam par 2A ticket book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T74",
+      "language": "hi",
+      "task_id": "T74_hi",
+      "query": "9 अक्टूबर 2026 को नई दिल्ली से मुंबई के लिए ट्रेन BTB1O3 में Ravi Shankar के नाम से 2A का टिकट बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T74",
+      "language": "mr",
+      "task_id": "T74_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी नवी दिल्लीहून मुंबईला जाण्यासाठी ट्रेन BTB1O3 मध्ये Ravi Shankar यांच्या नावाने 2A चे तिकीट बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The typo 'BTB1O3' (letter O) must be kept exactly; a reviewer must not correct it to BTB103."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T75",
+      "language": "en",
+      "task_id": "T75_en",
+      "query": "Book a sleeper (SL) ticket on train BTB105 from New Delhi to Jaipur on 9 October 2026 for Sonal Bhatia. If that train has no sleeper class, book whatever class it does have.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": "not_applicable (frozen English source)"
+    },
+    {
+      "semantic_task_id": "T75",
+      "language": "hinglish",
+      "task_id": "T75_hinglish",
+      "query": "9 October 2026 ko New Delhi se Jaipur ke liye train BTB105 mein Sonal Bhatia ke naam par sleeper (SL) ticket book kar do. Agar us train mein sleeper class nahi hai, to jo bhi class hai usi mein book kar do.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T75",
+      "language": "hi",
+      "task_id": "T75_hi",
+      "query": "9 अक्टूबर 2026 को नई दिल्ली से जयपुर के लिए ट्रेन BTB105 में Sonal Bhatia के नाम से स्लीपर (SL) टिकट बुक कीजिए। अगर उस ट्रेन में स्लीपर क्लास नहीं है, तो जो भी क्लास है, उसी में बुक कीजिए।",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T75",
+      "language": "mr",
+      "task_id": "T75_mr",
+      "query": "9 ऑक्टोबर 2026 रोजी नवी दिल्लीहून जयपूरला जाण्यासाठी ट्रेन BTB105 मध्ये Sonal Bhatia यांच्या नावाने स्लीपर (SL) तिकीट बुक करा. त्या ट्रेनमध्ये स्लीपर क्लास नसेल, तर जो क्लास असेल त्यातच बुक करा.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'जो क्लास असेल त्यातच' = in whichever class it has."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Explicit permission to take whatever class the train has, after SL is not offered."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "Passenger names, train ids, class codes and amounts kept identical to English."
+        }
+      }
+    }
+  ]
+}

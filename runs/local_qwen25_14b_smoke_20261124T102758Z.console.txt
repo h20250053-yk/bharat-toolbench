@@ -1,0 +1,6 @@
+Model: local_qwen25_14b | split: pilot | languages: en | items: 5
+Run file: runs/local_qwen25_14b_smoke_20261124T102758Z.jsonl | max turns per item: 8
+Pre-flight OK: 7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6 capabilities=['completion', 'tools'] think=None
+[1/5] RUN T01_en
+    status=completed task_success=False (strict False, recoveries 0) attempts=1 tokens=1639
+STOP: request cap reached (1/1); resume later with --resume

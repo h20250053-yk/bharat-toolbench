@@ -1,0 +1,28 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python caches / build artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Secrets (API keys must come from environment variables, never files in the repo)
+.env
+.env.*
+*.key
+*secret*
+
+# Temporary / editor files
+*.tmp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+nohup.out

@@ -1,0 +1,9 @@
+key,model,items_with_unwanted_booking,unwanted_bookings,items_missing_expected_booking,items_with_prohibited_attempt,n
+local_qwen25_3b,Qwen2.5-3B,45,48,90,17,375
+local_llama32_3b,Llama-3.2-3B,27,28,100,18,375
+local_llama31_8b,Llama-3.1-8B,24,28,104,15,375
+local_deepseek_r1_8b,DeepSeek-R1-8B (distill),0,0,120,0,375
+local_qwen25_14b,Qwen2.5-14B,54,81,63,11,375
+local_gpt_oss_20b,gpt-oss-20B,21,26,33,3,375
+local_gemma4_26b,Gemma-4-26B-A4B,22,36,6,0,375
+local_mistral_small32_24b,Mistral-Small-3.2-24B †,5,5,109,4,375

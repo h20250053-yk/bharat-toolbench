@@ -1,0 +1,29 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Yash Kothari
+
+The BharatToolBench data is licensed under the Creative Commons Attribution 4.0
+International License. You are free to share (copy and redistribute the material
+in any medium or format) and adapt (remix, transform, and build upon the material)
+for any purpose, even commercially, provided you give appropriate credit, provide a
+link to the license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+This license covers the data, not the code:
+
+  - benchmark/semantic_tasks.json     the 75 task specifications
+  - benchmark/languages/              the queries in English, Hinglish, Hindi, Marathi, Gujarati
+                                      and the human-review records
+  - benchmark/gold_labels.json        the generated gold answers
+  - environment/data/                 the synthetic railway world (stations, trains, fares, availability)
+  - runs/                             the run logs of the eight evaluated models, their manifests
+                                      and pre-run snapshots
+  - analysis/results/ and analysis/results_final/
+                                      result tables and summaries derived from the run logs
+
+All code (Python files, scripts, tests, configuration) is under the MIT License, see LICENSE.
+Station names are real place names; all trains, schedules, fares and availability are synthetic.
+
+Suggested attribution: "BharatToolBench v2.1.0 (Yash Kothari, 2026), CC BY 4.0".

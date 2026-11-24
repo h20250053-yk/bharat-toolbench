@@ -1,0 +1,17 @@
+{
+  "requests": 2,
+  "input_tokens": 2604,
+  "output_tokens": 48,
+  "total_tokens": 2652,
+  "retries": 0,
+  "provider_errors": 0,
+  "by_provider": {
+    "ollama": {
+      "requests": 2,
+      "input_tokens": 2604,
+      "output_tokens": 48,
+      "total_tokens": 2652
+    }
+  },
+  "updated_at": "2026-11-24T10:30:37.825502+00:00"
+}

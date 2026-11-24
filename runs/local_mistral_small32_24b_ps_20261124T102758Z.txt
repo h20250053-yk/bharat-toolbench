@@ -1,0 +1,2 @@
+NAME                    ID              SIZE     PROCESSOR    CONTEXT    RUNNER      UNTIL              
+mistral-small3.2:24b    5a408ab55df5    17 GB    100% GPU     16384      llamacpp    9 minutes from now    

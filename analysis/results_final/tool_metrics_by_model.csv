@@ -1,0 +1,185 @@
+model,metric,value_pct,ci_lo_pct,ci_hi_pct,n
+Qwen2.5-3B,tool-use rate,87.50,83.43,90.68,320
+Qwen2.5-3B,selection recall,56.87,52.17,61.40,320
+Qwen2.5-3B,selection precision,49.67,45.48,53.78,280
+Qwen2.5-3B,selection F1,40.42,37.01,43.75,320
+Qwen2.5-3B,first-call accuracy,34.38,29.38,39.74,320
+Qwen2.5-3B,first-call exactness,28.75,24.07,33.94,320
+Qwen2.5-3B,argument validity (calls),70.40,64.35,75.41,375
+Qwen2.5-3B,argument accuracy,60.01,54.60,65.21,241
+Qwen2.5-3B,sequence accuracy,95.45,87.88,100.00,33
+Qwen2.5-3B,dependency edges respected,96.49,90.74,100.00,33
+Qwen2.5-3B,over-call rate,56.41,52.50,60.23,334
+Qwen2.5-3B,items with over-calling,65.62,60.26,70.62,320
+Qwen2.5-3B,repeated-call rate,32.87,23.78,41.10,334
+Qwen2.5-3B,tool use on no-tool tasks,98.18,90.39,99.68,55
+Qwen2.5-3B,unwanted booking (items),14.51,10.71,19.36,255
+Qwen2.5-3B,prohibited booking attempted (items),50.00,35.20,64.80,40
+Qwen2.5-3B,selection-error rate,60.00,54.54,65.22,320
+Qwen2.5-3B,argument-error rate,11.88,8.78,15.88,320
+Llama-3.2-3B,tool-use rate,100.00,98.81,100.00,320
+Llama-3.2-3B,selection recall,37.70,34.03,41.44,320
+Llama-3.2-3B,selection precision,73.30,68.92,77.70,320
+Llama-3.2-3B,selection F1,44.13,40.71,47.52,320
+Llama-3.2-3B,first-call accuracy,16.88,13.17,21.37,320
+Llama-3.2-3B,first-call exactness,12.81,9.59,16.92,320
+Llama-3.2-3B,argument validity (calls),36.88,27.06,48.58,375
+Llama-3.2-3B,argument accuracy,24.11,18.97,29.45,253
+Llama-3.2-3B,sequence accuracy,80.00,60.00,100.00,5
+Llama-3.2-3B,dependency edges respected,75.00,55.56,100.00,5
+Llama-3.2-3B,over-call rate,36.40,31.93,41.04,373
+Llama-3.2-3B,items with over-calling,35.31,30.28,40.70,320
+Llama-3.2-3B,repeated-call rate,11.76,2.35,24.71,373
+Llama-3.2-3B,tool use on no-tool tasks,96.36,87.68,99.00,55
+Llama-3.2-3B,unwanted booking (items),7.84,5.13,11.80,255
+Llama-3.2-3B,prohibited booking attempted (items),45.00,30.71,60.17,40
+Llama-3.2-3B,selection-error rate,81.88,77.28,85.71,320
+Llama-3.2-3B,argument-error rate,4.69,2.86,7.59,320
+Llama-3.1-8B,tool-use rate,79.06,74.27,83.16,320
+Llama-3.1-8B,selection recall,31.66,27.85,35.53,320
+Llama-3.1-8B,selection precision,81.38,76.80,85.82,253
+Llama-3.1-8B,selection F1,37.51,33.71,41.41,320
+Llama-3.1-8B,first-call accuracy,21.25,17.12,26.06,320
+Llama-3.1-8B,first-call exactness,16.25,12.61,20.69,320
+Llama-3.1-8B,argument validity (calls),47.01,35.95,58.00,375
+Llama-3.1-8B,argument accuracy,35.64,29.37,42.23,210
+Llama-3.1-8B,sequence accuracy,n/a,n/a,n/a,0
+Llama-3.1-8B,dependency edges respected,n/a,n/a,n/a,0
+Llama-3.1-8B,over-call rate,24.95,20.23,29.88,281
+Llama-3.1-8B,items with over-calling,17.50,13.73,22.04,320
+Llama-3.1-8B,repeated-call rate,13.81,0.97,31.50,281
+Llama-3.1-8B,tool use on no-tool tasks,50.91,38.08,63.62,55
+Llama-3.1-8B,unwanted booking (items),7.45,4.82,11.34,255
+Llama-3.1-8B,prohibited booking attempted (items),37.50,24.22,52.97,40
+Llama-3.1-8B,selection-error rate,83.75,79.31,87.39,320
+Llama-3.1-8B,argument-error rate,1.56,0.67,3.60,320
+DeepSeek-R1-8B (distill),tool-use rate,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),selection recall,0.00,0.00,0.00,320
+DeepSeek-R1-8B (distill),selection precision,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),selection F1,0.00,0.00,0.00,320
+DeepSeek-R1-8B (distill),first-call accuracy,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),first-call exactness,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),argument validity (calls),n/a,n/a,n/a,375
+DeepSeek-R1-8B (distill),argument accuracy,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),sequence accuracy,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),dependency edges respected,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),over-call rate,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),items with over-calling,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),repeated-call rate,n/a,n/a,n/a,0
+DeepSeek-R1-8B (distill),tool use on no-tool tasks,0.00,0.00,6.53,55
+DeepSeek-R1-8B (distill),unwanted booking (items),0.00,0.00,1.48,255
+DeepSeek-R1-8B (distill),prohibited booking attempted (items),0.00,0.00,8.76,40
+DeepSeek-R1-8B (distill),selection-error rate,100.00,98.81,100.00,320
+DeepSeek-R1-8B (distill),argument-error rate,0.00,0.00,1.19,320
+Qwen2.5-14B,tool-use rate,84.06,79.65,87.67,320
+Qwen2.5-14B,selection recall,71.56,67.28,75.73,320
+Qwen2.5-14B,selection precision,62.31,58.78,65.81,269
+Qwen2.5-14B,selection F1,55.54,51.91,59.04,320
+Qwen2.5-14B,first-call accuracy,50.62,45.17,56.06,320
+Qwen2.5-14B,first-call exactness,48.44,43.01,53.90,320
+Qwen2.5-14B,argument validity (calls),58.47,50.37,67.24,375
+Qwen2.5-14B,argument accuracy,81.33,77.49,84.95,263
+Qwen2.5-14B,sequence accuracy,98.58,96.23,100.00,106
+Qwen2.5-14B,dependency edges respected,98.65,96.47,100.00,106
+Qwen2.5-14B,over-call rate,43.36,39.68,46.98,307
+Qwen2.5-14B,items with over-calling,60.62,55.18,65.82,320
+Qwen2.5-14B,repeated-call rate,14.09,8.09,20.62,307
+Qwen2.5-14B,tool use on no-tool tasks,69.09,55.97,79.72,55
+Qwen2.5-14B,unwanted booking (items),12.94,9.37,17.62,255
+Qwen2.5-14B,prohibited booking attempted (items),27.50,16.11,42.83,40
+Qwen2.5-14B,selection-error rate,45.62,40.25,51.10,320
+Qwen2.5-14B,argument-error rate,10.62,7.70,14.48,320
+gpt-oss-20B,tool-use rate,97.50,95.15,98.73,320
+gpt-oss-20B,selection recall,90.09,87.30,92.64,320
+gpt-oss-20B,selection precision,74.64,71.48,77.81,312
+gpt-oss-20B,selection F1,76.96,73.86,79.90,320
+gpt-oss-20B,first-call accuracy,65.94,60.58,70.91,320
+gpt-oss-20B,first-call exactness,63.75,58.35,68.83,320
+gpt-oss-20B,argument validity (calls),98.56,97.88,99.16,375
+gpt-oss-20B,argument accuracy,97.22,95.95,98.32,304
+gpt-oss-20B,sequence accuracy,98.62,97.24,99.72,181
+gpt-oss-20B,dependency edges respected,99.23,98.46,99.85,181
+gpt-oss-20B,over-call rate,29.80,26.42,33.16,347
+gpt-oss-20B,items with over-calling,56.56,51.09,61.88,320
+gpt-oss-20B,repeated-call rate,1.24,0.67,1.90,347
+gpt-oss-20B,tool use on no-tool tasks,63.64,50.42,75.07,55
+gpt-oss-20B,unwanted booking (items),7.45,4.82,11.34,255
+gpt-oss-20B,prohibited booking attempted (items),7.50,2.58,19.86,40
+gpt-oss-20B,selection-error rate,21.25,17.12,26.06,320
+gpt-oss-20B,argument-error rate,3.44,1.93,6.05,320
+Gemma-4-26B-A4B,tool-use rate,97.81,95.55,98.94,320
+Gemma-4-26B-A4B,selection recall,94.27,91.74,96.54,320
+Gemma-4-26B-A4B,selection precision,72.46,69.54,75.23,313
+Gemma-4-26B-A4B,selection F1,78.13,75.42,80.75,320
+Gemma-4-26B-A4B,first-call accuracy,67.19,61.87,72.10,320
+Gemma-4-26B-A4B,first-call exactness,65.62,60.26,70.62,320
+Gemma-4-26B-A4B,argument validity (calls),97.30,96.43,98.07,375
+Gemma-4-26B-A4B,argument accuracy,99.07,98.42,99.62,305
+Gemma-4-26B-A4B,sequence accuracy,100.00,100.00,100.00,196
+Gemma-4-26B-A4B,dependency edges respected,100.00,100.00,100.00,196
+Gemma-4-26B-A4B,over-call rate,32.97,30.00,35.98,353
+Gemma-4-26B-A4B,items with over-calling,66.88,61.54,71.80,320
+Gemma-4-26B-A4B,repeated-call rate,2.64,1.46,3.99,353
+Gemma-4-26B-A4B,tool use on no-tool tasks,72.73,59.77,82.72,55
+Gemma-4-26B-A4B,unwanted booking (items),8.63,5.77,12.72,255
+Gemma-4-26B-A4B,prohibited booking attempted (items),0.00,0.00,8.76,40
+Gemma-4-26B-A4B,selection-error rate,8.44,5.86,12.00,320
+Gemma-4-26B-A4B,argument-error rate,1.25,0.49,3.17,320
+Mistral-Small-3.2-24B †,tool-use rate,20.31,16.27,25.06,320
+Mistral-Small-3.2-24B †,selection recall,16.01,12.14,19.97,320
+Mistral-Small-3.2-24B †,selection precision,81.14,73.03,88.77,65
+Mistral-Small-3.2-24B †,selection F1,15.40,11.66,19.23,320
+Mistral-Small-3.2-24B †,first-call accuracy,12.50,9.32,16.57,320
+Mistral-Small-3.2-24B †,first-call exactness,12.19,9.04,16.23,320
+Mistral-Small-3.2-24B †,argument validity (calls),82.05,72.31,90.91,375
+Mistral-Small-3.2-24B †,argument accuracy,89.29,80.36,96.43,56
+Mistral-Small-3.2-24B †,sequence accuracy,83.33,50.00,100.00,3
+Mistral-Small-3.2-24B †,dependency edges respected,75.00,50.00,100.00,3
+Mistral-Small-3.2-24B †,over-call rate,23.97,15.51,32.95,72
+Mistral-Small-3.2-24B †,items with over-calling,5.62,3.59,8.72,320
+Mistral-Small-3.2-24B †,repeated-call rate,1.71,0.00,4.27,72
+Mistral-Small-3.2-24B †,tool use on no-tool tasks,12.73,6.30,24.02,55
+Mistral-Small-3.2-24B †,unwanted booking (items),1.96,0.84,4.51,255
+Mistral-Small-3.2-24B †,prohibited booking attempted (items),10.00,3.96,23.05,40
+Mistral-Small-3.2-24B †,selection-error rate,85.62,81.36,89.05,320
+Mistral-Small-3.2-24B †,argument-error rate,1.25,0.49,3.17,320
+Qwen2.5-3B,funnel stage 1: uses a tool,87.50,83.43,90.68,320
+Qwen2.5-3B,funnel stage 2: right tools,40.00,34.78,45.46,320
+Qwen2.5-3B,funnel stage 3: right arguments,28.12,23.48,33.29,320
+Qwen2.5-3B,funnel stage 4: right order,27.81,23.19,32.96,320
+Qwen2.5-3B,funnel stage 5: task success,3.75,2.16,6.44,320
+Llama-3.2-3B,funnel stage 1: uses a tool,100.00,98.81,100.00,320
+Llama-3.2-3B,funnel stage 2: right tools,18.12,14.29,22.72,320
+Llama-3.2-3B,funnel stage 3: right arguments,13.44,10.13,17.61,320
+Llama-3.2-3B,funnel stage 4: right order,12.81,9.59,16.92,320
+Llama-3.2-3B,funnel stage 5: task success,2.81,1.49,5.26,320
+Llama-3.1-8B,funnel stage 1: uses a tool,79.06,74.27,83.16,320
+Llama-3.1-8B,funnel stage 2: right tools,16.25,12.61,20.69,320
+Llama-3.1-8B,funnel stage 3: right arguments,14.69,11.23,18.98,320
+Llama-3.1-8B,funnel stage 4: right order,14.69,11.23,18.98,320
+Llama-3.1-8B,funnel stage 5: task success,9.06,6.38,12.71,320
+DeepSeek-R1-8B (distill),funnel stage 1: uses a tool,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),funnel stage 2: right tools,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),funnel stage 3: right arguments,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),funnel stage 4: right order,0.00,0.00,1.19,320
+DeepSeek-R1-8B (distill),funnel stage 5: task success,0.00,0.00,1.19,320
+Qwen2.5-14B,funnel stage 1: uses a tool,84.06,79.65,87.67,320
+Qwen2.5-14B,funnel stage 2: right tools,54.37,48.90,59.75,320
+Qwen2.5-14B,funnel stage 3: right arguments,43.75,38.42,49.23,320
+Qwen2.5-14B,funnel stage 4: right order,43.12,37.81,48.60,320
+Qwen2.5-14B,funnel stage 5: task success,26.88,22.31,31.99,320
+gpt-oss-20B,funnel stage 1: uses a tool,97.50,95.15,98.73,320
+gpt-oss-20B,funnel stage 2: right tools,78.75,73.94,82.88,320
+gpt-oss-20B,funnel stage 3: right arguments,75.31,70.31,79.72,320
+gpt-oss-20B,funnel stage 4: right order,73.75,68.67,78.27,320
+gpt-oss-20B,funnel stage 5: task success,58.13,52.65,63.40,320
+Gemma-4-26B-A4B,funnel stage 1: uses a tool,97.81,95.55,98.94,320
+Gemma-4-26B-A4B,funnel stage 2: right tools,91.56,88.00,94.14,320
+Gemma-4-26B-A4B,funnel stage 3: right arguments,90.31,86.58,93.09,320
+Gemma-4-26B-A4B,funnel stage 4: right order,90.31,86.58,93.09,320
+Gemma-4-26B-A4B,funnel stage 5: task success,79.38,74.61,83.45,320
+Mistral-Small-3.2-24B †,funnel stage 1: uses a tool,20.31,16.27,25.06,320
+Mistral-Small-3.2-24B †,funnel stage 2: right tools,14.37,10.95,18.64,320
+Mistral-Small-3.2-24B †,funnel stage 3: right arguments,13.12,9.86,17.27,320
+Mistral-Small-3.2-24B †,funnel stage 4: right order,12.81,9.59,16.92,320
+Mistral-Small-3.2-24B †,funnel stage 5: task success,4.38,2.62,7.21,320
