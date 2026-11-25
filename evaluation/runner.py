@@ -44,7 +44,7 @@ Current date and time: 2026-10-05 09:00 IST (Monday). Bookings are only for futu
 Rules: Use tools for facts; never invent train IDs, fares, availability or booking IDs.
 Station names may be in any language; use resolve_station when you need a code.
 If essential information is missing or ambiguous, ask the user instead of guessing.
-Only call book_ticket when the user asked you to book.
+Only call book_ticket, cancel_ticket or join_waitlist when the user asked for that action.
 Follow the user's constraints exactly. If a condition fails, do not substitute a different action unless the user explicitly allowed that fallback.
 """ + CONTRACT_PROMPT
 
@@ -59,6 +59,14 @@ TOOL_SCHEMA_SHA256 = sha256_text(json.dumps(tool_specs(), sort_keys=True, ensure
 
 def benchmark_version() -> str:
     return str(yaml.safe_load((ROOT / "config" / "benchmark.yaml").read_text(encoding="utf-8"))["benchmark_version"])
+
+
+def offered_tools(item: dict[str, Any]) -> list[str]:
+    """Tools the model is given for this item. Benchmark 3.0 (config offer_all_tools: true) gives EVERY item all twelve tools,
+    including the frozen T01-T75 items whose rows still list the six tools that existed when they were written: choosing among
+    all tools is part of the test. Older configs give exactly the item's allowed_tools."""
+    cfg = yaml.safe_load((ROOT / "config" / "benchmark.yaml").read_text(encoding="utf-8"))
+    return list(TOOL_NAMES) if cfg.get("offer_all_tools") else list(item["allowed_tools"])
 
 
 def _now() -> str:
@@ -157,7 +165,8 @@ def _conversation(item, adapter: ModelAdapter, env: RailwayEnv, cfg: RunnerConfi
                   trajectory: list[dict[str, Any]] | None = None, recoveries: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     """One attempt. Returns {status, trajectory, final_text}; raises ProviderError (classified) on provider failure.
     `trajectory` / `recoveries`, if given, are filled in place so the caller still holds them when this raises."""
-    tools = [t for t in tool_specs() if t["name"] in item["allowed_tools"]]
+    allowed = offered_tools(item)
+    tools = [t for t in tool_specs() if t["name"] in allowed]
     trajectory = [] if trajectory is None else trajectory
     recoveries = [] if recoveries is None else recoveries
     turns_info: list[dict[str, Any]] = []
@@ -180,7 +189,7 @@ def _conversation(item, adapter: ModelAdapter, env: RailwayEnv, cfg: RunnerConfi
         calls = list(turn.tool_calls)
         text = turn.text
         if not calls and text and getattr(adapter, "SUPPORTS_TEXT_TOOL_RECOVERY", False):
-            found, recs = extract_text_tool_calls(text, item["allowed_tools"])
+            found, recs = extract_text_tool_calls(text, allowed)
             if found:  # the whole reply is tool-call JSON the serving layer did not convert: execute it as the model's calls
                 calls = [ToolCall(id=f"recovered-{turn_no}-{i}", name=c["name"], arguments=c["arguments"], raw_arguments=json.dumps(c["arguments"], ensure_ascii=False))
                          for i, c in enumerate(found, 1)]
@@ -202,7 +211,7 @@ def _conversation(item, adapter: ModelAdapter, env: RailwayEnv, cfg: RunnerConfi
             return {"status": "step_limit_exceeded", "trajectory": trajectory, "final_text": text, "turns": turn_no}
         results: list[tuple[ToolCall, dict[str, Any]]] = []
         for call in calls:
-            obs, event = execute_tool_call(env, call, item["allowed_tools"], turn_no, log, attempt, recoveries)
+            obs, event = execute_tool_call(env, call, allowed, turn_no, log, attempt, recoveries)
             trajectory.append(event)
             results.append((call, obs))
         turn = model_call(adapter.continue_turn, results)

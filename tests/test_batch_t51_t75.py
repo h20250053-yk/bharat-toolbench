@@ -77,11 +77,12 @@ def run(tid, calls, **override):
 # ------------------------------------------------------------------ counts, status, determinism, preservation
 def test_final_counts_75_tasks_300_items_75_per_language():
     assert vt.validate() == []
-    assert [s.semantic_task_id for s in load_specs()] == [f"T{i:02d}" for i in range(1, 76)] == vt.ALL_IDS
+    # benchmark 3.0: T01-T75 stay frozen; T76-T100 follow them
+    assert [s.semantic_task_id for s in load_specs()] == [f"T{i:02d}" for i in range(1, 101)] == vt.ALL_IDS
     for l in LANGS:
-        assert [r["semantic_task_id"] for r in rows(l)] == vt.ALL_IDS and len({r["task_id"] for r in rows(l)}) == 75
-    assert sum(len(rows(l)) for l in LANGS) == 300
-    assert len(json.loads(GOLD_PATH.read_text(encoding="utf-8"))) - 1 == 75  # minus _meta
+        assert [r["semantic_task_id"] for r in rows(l)] == vt.ALL_IDS and len({r["task_id"] for r in rows(l)}) == 100
+    assert sum(len(rows(l)) for l in LANGS) == 400
+    assert len(json.loads(GOLD_PATH.read_text(encoding="utf-8"))) - 1 == 100  # minus _meta
 
 
 def test_batch_mix_matches_the_design():
@@ -265,7 +266,7 @@ def test_solver_guards_refuse_trivialised_variants():
 def test_no_semantic_duplicates_across_t01_t75():
     specs = {s.semantic_task_id: s for s in load_specs()}
     assert so.overlap_errors(specs, json.loads(GOLD_PATH.read_text(encoding="utf-8"))) == []
-    assert len({s.solver.kind for s in specs.values()}) == 75
+    assert len({s.solver.kind for s in specs.values()}) == 100  # 3.0: T01-T100
     res = so.analyse(specs, json.loads(GOLD_PATH.read_text(encoding="utf-8")))
     assert res["pairs"][0][0] < so.MAX_JACCARD
 
@@ -405,7 +406,7 @@ def test_run_pilot_splits():
 # ---- T71: a clarifying question (no booking) is an accepted alternative outcome
 def test_t71_clarification_without_booking_is_accepted_but_not_with_a_booking():
     from evaluation.scorer import ALTERNATIVE_OUTCOMES
-    assert "accepted_alternative_outcomes" in spec("T71").final_answer_requirements and set(ALTERNATIVE_OUTCOMES) == {"T71"}
+    assert "accepted_alternative_outcomes" in spec("T71").final_answer_requirements and set(ALTERNATIVE_OUTCOMES) == {"T71", "T45", "T82"}  # 3.0 added T45 (ask for the PNR) and T82
     s = run("T71", [], status="needs_clarification", selected_train=None, selected_class=None, requested_passengers=[])
     assert s["task_success"] and s["accepted_via_alternative_outcome"] == "needs_clarification"
     one = [("book_ticket", {"train_id": "BTB115", "travel_class": "3A", "passenger": "Sunil Rao"})]

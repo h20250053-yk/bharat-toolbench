@@ -1,4 +1,4 @@
-"""Validate the semantic tasks T01-T75 x 5 languages = 375 items (human review recorded in benchmark/human_review.py). Run:  python -m benchmark.validate_tasks
+"""Validate the semantic tasks T01-T100 x 5 languages = 500 items (human review recorded in benchmark/human_review.py). Run:  python -m benchmark.validate_tasks
 
 Checks (all model-independent):
   1. spec / language-file / gold coverage; spec and gold are language-independent (no language key)
@@ -16,6 +16,8 @@ Checks (all model-independent):
   9. batch T51-T75: independent oracle per new solver kind; T01-T50 frozen (spec, gold, first 50 lines of every language
      file, T26-T50 audit); language-feature exceptions are declared per task in the spec (T54: native-script passenger name)
  10. T51-T75 frozen too (benchmark 2.0.0): spec, gold, rows 51-75 of all five language files, both T51-T75 audits
+ 11. batch T76-T100 (benchmark 3.0, six new tools): independent oracle per new solver kind from the raw account/live/train JSON; cancellations
+     and waitlist entries checked like bookings; T01-T75 keep the six tools they were written for in their rows
 """
 from __future__ import annotations
 
@@ -33,6 +35,7 @@ from . import human_review as _hr
 from . import batch_t16_t25 as _b2
 from . import batch_t26_t50 as _b3
 from . import batch_t51_t75 as _b4
+from . import batch_t76_t100 as _b5
 from . import batch_gujarati as _gu
 import hashlib
 from .batch_t06_t15 import BATCH_IDS, EN_AUTHOR as BATCH_EN_AUTHOR, EN_ITEMS as BATCH_EN_ITEMS, QUERIES as BATCH_QUERIES
@@ -41,8 +44,9 @@ from .language_checks import CHECKS, EXTRA_LANGS, LANGS, NA, numeric_signature, 
 from .schemas import BenchmarkItem, GoldSpec
 
 LANG_DIR = Path(__file__).resolve().parent / "languages"
+V2_TOOLS = ("resolve_station", "search_trains", "get_train_details", "check_availability", "get_fare", "book_ticket")
 PILOT_IDS = ["T01", "T02", "T03", "T04", "T05"]
-BATCHES = [_b1, _b2, _b3, _b4]
+BATCHES = [_b1, _b2, _b3, _b4, _b5]
 BATCH3_AUDIT_PATH = LANG_DIR / "batch_T26_T50_language_audit.json"
 BATCH4_AUDIT_PATH = LANG_DIR / "batch_T51_T75_language_audit.json"
 # Freeze of T01-T50 when T51-T75 were added (end-sem batch): spec, gold, first 50 lines of each language file, T26-T50 audit.
@@ -443,6 +447,122 @@ class RawOracle:
             return {"train_ids": {g["train_id"] for g in got}, "answer": {"departures": got}}
         raise KeyError(kind)
 
+    def answer_batch5(self, kind: str, p: dict[str, Any]) -> dict[str, Any]:
+        """Batch T76-T100 (benchmark 3.0): recomputed from the raw fixture JSON only (account.json, live_status.json, trains.json);
+        no environment code and no solver. Rules restated here independently: refund = fare - charge (charge by class, or the
+        WAITLISTED charge); no cancellation once the train has left its origin; waitlist position = people already waiting + 1;
+        concession fare = fare * (100 - percent) / 100 rounded half up; a run's delay is constant; the run shown is the one in progress
+        now, else today's run, else 'not running today'."""
+        acct = json.loads((DATA_DIR / "account.json").read_text(encoding="utf-8"))
+        live = json.loads((DATA_DIR / "live_status.json").read_text(encoding="utf-8"))
+        A = {b["pnr"]: b for b in acct["account_bookings"]}
+        T = {t["train_id"]: t for t in self.trains}
+        now = (Date(2026, 10, 5).toordinal(), 9 * 60)  # pinned 'now' as (day ordinal, minutes)
+        now_abs = now[0] * 1440 + now[1]
+        refund = lambda b: b["fare_inr"] - acct["cancellation_charge_inr"]["WAITLISTED" if b["status"] == "WAITLISTED" else b["travel_class"]]  # noqa: E731
+        conc = lambda tid, cls, con: (T[tid]["classes"][cls]["fare_inr"] * (100 - acct["concession_percent"][con][cls]) + 50) // 100  # noqa: E731
+
+        def run_view(tid: str) -> dict[str, Any] | None:
+            t = T[tid]
+            best = None
+            for back in (1, 0):
+                start = now[0] - back
+                if WEEKDAYS[(start - 1) % 7] not in t["operating_days"]:
+                    continue
+                d = next((r["delay_minutes"] for r in live["runs"] if r["train_id"] == tid
+                          and Date.fromisoformat(r["run_start_date"]).toordinal() == start), 0)
+                ab = lambda day, hm_: (start + (day or 0)) * 1440 + self._m(hm_) + d  # noqa: E731
+                first = ab(t["stops"][0]["departure_day"], t["stops"][0]["departure"])
+                last = ab(t["stops"][-1]["arrival_day"], t["stops"][-1]["arrival"])
+                st = "NOT_STARTED" if now_abs < first else ("ARRIVED" if now_abs >= last else "RUNNING")
+                arr = {s["station"]: ab(s["arrival_day"], s["arrival"]) for s in t["stops"] if s["arrival"]}
+                if st == "RUNNING" or back == 0:
+                    best = best if (best and best["status"] == "RUNNING") else {"status": st, "delay": d, "arr": arr}
+            return best
+
+        if kind == "pnr_status_lookup":
+            b = A[p["pnr"]]
+            return {"train_ids": {b["train_id"]}, "answer": {"booking_status": b["status"], "waitlist_position": b["waitlist_position"]}}
+        if kind in ("refund_quote_no_cancel", "cancel_pnr"):
+            b = A[p["pnr"]]
+            assert b["status"] == "CONFIRMED"
+            return {"train_ids": {b["train_id"]}, "answer": {"refund_inr": refund(b)}, "cancellations": [p["pnr"]] if kind == "cancel_pnr" else []}
+        if kind in ("conditional_cancel_refund_too_low", "conditional_cancel_refund_enough"):
+            b = A[p["pnr"]]
+            ok = refund(b) >= p["min_refund_inr"]
+            assert ok == (kind == "conditional_cancel_refund_enough")
+            return {**({"train_ids": {b["train_id"]}} if ok else {}),
+                    "answer": {"refund_inr": refund(b), "status": "success" if ok else "cannot_complete"}, "cancellations": [p["pnr"]] if ok else []}
+        if kind == "pnr_not_found":
+            assert p["pnr"] not in A
+            return {"answer": {"status": "cannot_complete"}}
+        if kind == "cancel_already_cancelled":
+            assert A[p["pnr"]]["status"] == "CANCELLED"
+            return {"answer": {"status": "cannot_complete", "booking_status": "CANCELLED"}}
+        if kind == "cancel_after_departure":
+            b = A[p["pnr"]]
+            o = T[b["train_id"]]["stops"][0]
+            assert Date.fromisoformat(b["journey_date"]).toordinal() * 1440 + self._m(o["departure"]) <= now_abs
+            return {"answer": {"status": "cannot_complete"}}
+        if kind in ("waitlist_fallback_booking", "sold_out_no_waitlist", "waitlist_not_needed_booking"):
+            t = T[p["train_id"]]
+            seats = t["classes"][p["travel_class"]]["seats"]
+            if kind == "waitlist_not_needed_booking":
+                assert seats > 0
+                return {"train_ids": {t["train_id"]}, "answer": {"travel_class": p["travel_class"]},
+                        "bookings": [(t["train_id"], p["travel_class"], p["passenger"])]}
+            assert seats == 0
+            if kind == "sold_out_no_waitlist":
+                return {"answer": {"status": "cannot_complete"}}
+            pos = acct["waitlist_baseline"].get(f"{t['train_id']}|{p['travel_class']}", 0) + 1
+            return {"train_ids": {t["train_id"]}, "answer": {"waitlist_position": pos},
+                    "waitlist": [(t["train_id"], p["travel_class"], p["passenger"])]}
+        if kind in ("live_delay", "live_expected_arrival_intermediate", "live_connection_check", "live_running_today"):
+            v = run_view(p["train_id"])
+            if kind == "live_running_today":
+                assert v is None
+                return {"train_ids": {p["train_id"]}, "answer": {"runs_on_requested_weekday": False}}
+            assert v["status"] == "RUNNING"
+            if kind == "live_delay":
+                return {"train_ids": {p["train_id"]}, "answer": {"delay_minutes": v["delay"]}}
+            (code,) = self.codes_for(p["station_name"])
+            a = v["arr"][code] % 1440
+            out = {"expected_arrival": f"{a // 60:02d}:{a % 60:02d}", "delay_minutes": v["delay"]}
+            if kind == "live_connection_check":
+                out["makes_connection"] = a <= self._m(p["connection_time"])
+            return {"train_ids": {p["train_id"]}, "answer": out}
+        if kind in ("concession_fare", "concession_budget_check"):
+            c = conc(p["train_id"], p["travel_class"], p["concession"])
+            if kind == "concession_budget_check":
+                assert c <= p["budget_inr"] < T[p["train_id"]]["classes"][p["travel_class"]]["fare_inr"]
+            return {"train_ids": {p["train_id"]}, "answer": {"concession_fare_inr": c}}
+        if kind == "concession_party_total":
+            c = conc(p["train_id"], p["travel_class"], p["concession"])
+            return {"train_ids": {p["train_id"]}, "answer": {"total_fare_inr": c + p["regular_tickets"] * T[p["train_id"]]["classes"][p["travel_class"]]["fare_inr"]}}
+        if kind == "concession_not_available":
+            assert p["travel_class"] not in acct["concession_percent"][p["concession"]]
+            return {"answer": {"status": "cannot_complete"}}
+        if kind in ("cancel_and_rebook_class", "conditional_waitlisted_cancel_rebook"):
+            b = A[p["pnr"]]
+            assert (b["status"] == "WAITLISTED") == (kind == "conditional_waitlisted_cancel_rebook")
+            assert T[b["train_id"]]["classes"][p["new_class"]]["seats"] > 0
+            return {"train_ids": {b["train_id"]}, "answer": {"refund_inr": refund(b), "travel_class": p["new_class"]},
+                    "bookings": [(b["train_id"], p["new_class"], b["passenger"])], "cancellations": [p["pnr"]]}
+        if kind == "conditional_waitlisted_noop":
+            b = A[p["pnr"]]
+            assert b["status"] == "CONFIRMED"
+            return {"train_ids": {b["train_id"]}, "answer": {"booking_status": "CONFIRMED"}}
+        if kind == "cancel_without_pnr_clarification":
+            return {"answer": {"status": "needs_clarification"}}
+        if kind == "cancel_multiple_total_refund":
+            bs = [A[x] for x in p["pnrs"]]
+            assert all(b["status"] == "CONFIRMED" for b in bs) and len({b["train_id"] for b in bs}) == 1
+            return {"train_ids": {bs[0]["train_id"]}, "answer": {"refund_inr": sum(refund(b) for b in bs)}, "cancellations": list(p["pnrs"])}
+        if kind == "availability_and_concession":
+            return {"train_ids": {p["train_id"]}, "answer": {"seats_available": T[p["train_id"]]["classes"][p["travel_class"]]["seats"],
+                                                            "concession_fare_inr": conc(p["train_id"], p["travel_class"], p["concession"])}}
+        raise KeyError(kind)
+
     def answer_batch(self, kind: str, p: dict[str, Any]) -> dict[str, Any]:
         """Batch T06-T15: recomputed from raw fixture JSON only. `answer` = expected subset of the gold final_answer."""
         if kind in BATCH2_KINDS:
@@ -451,6 +571,8 @@ class RawOracle:
             return self.answer_batch3(kind, p)
         if kind in BATCH4_KINDS:
             return self.answer_batch4(kind, p)
+        if kind in BATCH5_KINDS:
+            return self.answer_batch5(kind, p)
         T = {t["train_id"]: t for t in self.trains}
         one = lambda n: next(iter(self.codes_for(n))) if len(self.codes_for(n)) == 1 else None  # noqa: E731
         if kind == "operating_days_lookup":
@@ -556,6 +678,12 @@ BATCH4_KINDS = {"route_count_latest_departure", "earliest_arrival_after_time", "
                 "next_running_day_booking", "impossible_date_clarification", "hypothetical_total_no_booking", "same_station_two_names",
                 "seat_threshold_conditional_booking", "duplicate_passenger_dedup", "excluded_train_booking", "sold_out_next_departure_booking",
                 "typo_train_id_clarification", "class_not_offered_take_offered"}
+BATCH5_KINDS = {"pnr_status_lookup", "refund_quote_no_cancel", "cancel_pnr", "conditional_cancel_refund_too_low", "conditional_cancel_refund_enough",
+                "pnr_not_found", "cancel_already_cancelled", "cancel_after_departure", "waitlist_fallback_booking", "sold_out_no_waitlist",
+                "waitlist_not_needed_booking", "live_delay", "live_expected_arrival_intermediate", "live_connection_check",
+                "live_running_today", "concession_fare", "concession_party_total", "concession_not_available", "concession_budget_check",
+                "cancel_and_rebook_class", "conditional_waitlisted_cancel_rebook", "conditional_waitlisted_noop",
+                "cancel_without_pnr_clarification", "cancel_multiple_total_refund", "availability_and_concession"}
 INTENTIONALLY_INVALID_KINDS = {"invalid_train_id", "unsupported_class", "past_date_booking"}  # prompts that must contain invalid values
 
 
@@ -577,6 +705,10 @@ def _parse_dates(text: str) -> list[str]:
     return out
 
 
+def _tnum(tid: str) -> int:
+    return int(tid[1:])
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     specs = {s.semantic_task_id: s for s in load_specs()}
@@ -584,8 +716,8 @@ def validate() -> list[str]:
     oracle, ref_date = RawOracle(), RailwayEnv().reference_datetime.date()
 
     # 1. coverage
-    _check(sorted(specs) == ALL_IDS, f"spec ids {sorted(specs)} != {ALL_IDS}", errors)
-    _check(sorted(k for k in gold_file if not k.startswith("_")) == ALL_IDS, "gold ids != task ids", errors)
+    _check(sorted(specs, key=_tnum) == ALL_IDS, f"spec ids {sorted(specs, key=_tnum)} != {ALL_IDS}", errors)
+    _check(sorted((k for k in gold_file if not k.startswith("_")), key=_tnum) == ALL_IDS, "gold ids != task ids", errors)
     langs = sorted(p.name for p in LANG_DIR.glob("*.jsonl"))
     _check(langs == sorted(f"{l}.jsonl" for l in LANGS + EXTRA_LANGS), f"expected exactly {[l + '.jsonl' for l in LANGS + EXTRA_LANGS]}, found {langs}", errors)
     items = [BenchmarkItem(**json.loads(l)) for l in (LANG_DIR / "en.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -617,7 +749,10 @@ def validate() -> list[str]:
         GoldSpec(**gold)  # schema-valid
         p, kind = spec.solver.params, spec.solver.kind
         _check(spec.category == item.category == EXPECTED_CATEGORY[tid], f"{tid}: category mismatch", errors)
-        _check(set(spec.allowed_tools) == set(TOOL_NAMES) and item.allowed_tools == spec.allowed_tools, f"{tid}: allowed_tools", errors)
+        # T01-T75 were written for the six tools of 2.x (their rows keep that list; the 3.0 runner offers all twelve, see
+        # evaluation/runner.offered_tools); tasks from T76 on list all twelve tools.
+        want_tools = V2_TOOLS if int(tid[1:]) <= 75 else TOOL_NAMES
+        _check(set(spec.allowed_tools) == set(want_tools) and item.allowed_tools == spec.allowed_tools, f"{tid}: allowed_tools", errors)
 
         # 3. initial state assumptions
         env = RailwayEnv()
@@ -660,8 +795,9 @@ def validate() -> list[str]:
         n_book = sum(1 for c in gold["required_calls"] if c["tool"] == "book_ticket" and not c.get("expected_error"))
         _check(len(gold["expected_env_diff"]["bookings"]) == n_book, f"{tid}: booking flag mismatch", errors)
         _check(len(gold["final_state"]["expected_bookings"]) == n_book, f"{tid}: expected_bookings count", errors)
-        _check(sum(-d for d in (b - a for a, b in gold["expected_env_diff"]["availability_changes"].values())) == n_book,
-               f"{tid}: seat decrement != number of bookings", errors)
+        freed = sum(1 for c in gold["expected_env_diff"].get("cancellations", []) if c["previous_status"] == "CONFIRMED")  # 3.0
+        _check(sum(-d for d in (b - a for a, b in gold["expected_env_diff"]["availability_changes"].values())) == n_book - freed,
+               f"{tid}: seat change != bookings - freed seats of cancelled confirmed tickets", errors)
 
         # 5. independent oracle
         o, fa = oracle.answer(kind, p), gold["final_answer"]
@@ -677,6 +813,12 @@ def validate() -> list[str]:
             _check((o["seats_available"] == 0) == (fa["status"] == "cannot_complete"), f"{tid}: sold-out/status mismatch", errors)
         for k, v in o.get("answer", {}).items():  # batch kinds: every oracle-derived answer field must equal gold
             _check(fa.get(k) == v, f"{tid}: oracle {k}={v!r} != gold {fa.get(k)!r}", errors)
+        if "cancellations" in o:  # 3.0
+            _check(sorted(o["cancellations"]) == sorted(gold["final_state"].get("expected_cancellations") or []),
+                   f"{tid}: oracle cancellations {o['cancellations']} != gold", errors)
+        if "waitlist" in o:
+            _check(sorted(o["waitlist"]) == sorted((w["train_id"], w["travel_class"], w["passenger"])
+                                                   for w in gold["final_state"].get("expected_waitlist") or []), f"{tid}: oracle waitlist != gold", errors)
         if "bookings" in o:
             _check(sorted(o["bookings"]) == sorted((b["train_id"], b["travel_class"], b["passenger"]) for b in gold["final_state"]["expected_bookings"]),
                    f"{tid}: oracle bookings {o['bookings']} != gold", errors)
@@ -1012,7 +1154,8 @@ def _validate_audit(path: Path, ids: list[str], flat: list[dict[str, Any]], erro
 
 
 EXPECT_PROHIBITIONS = {"T03", "T05", "T15", "T39", "T41",  # the only prompts (T01-T75) in which the user explicitly forbids something
-                       "T59", "T60", "T72"}
+                       "T59", "T60", "T72",
+                       "T77", "T85", "T92"}  # 3.0 batch: 'Don't cancel it yet', 'don't put him on the waitlist', 'Don't book anything yet'
 
 
 def norm_quotes(t: str) -> str:

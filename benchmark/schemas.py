@@ -44,6 +44,9 @@ class FinalStatePredicate(BaseModel):
     allowed_train_ids: Optional[list[str]] = None  # set-valued gold when several answers are correct
     travel_class: Optional[str] = None
     expected_bookings: list[dict[str, Any]] = Field(default_factory=list)  # [] => no booking may exist
+    # benchmark 3.0 (serialized only when set, so gold of tasks without them stays byte-identical):
+    expected_cancellations: Optional[list[str]] = None  # PNRs that must end CANCELLED; None/absent => nothing may be cancelled
+    expected_waitlist: Optional[list[dict[str, Any]]] = None  # waitlist entries (train, class, passenger); None/absent => none
 
 
 class ProhibitedAction(BaseModel):

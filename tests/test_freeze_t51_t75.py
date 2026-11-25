@@ -88,4 +88,4 @@ def test_t01_t50_freeze_is_untouched():
 def test_benchmark_version_2_1_0_everywhere():
     cfg = yaml.safe_load((vt.LANG_DIR.parent.parent / "config" / "benchmark.yaml").read_text(encoding="utf-8"))
     spec = json.loads(SPEC_PATH.read_text(encoding="utf-8"))
-    assert cfg["benchmark_version"] == spec["benchmark_version"] == GOLD["_meta"]["benchmark_version"] == "2.1.0"
+    assert cfg["benchmark_version"] == spec["benchmark_version"] == GOLD["_meta"]["benchmark_version"] == "3.0.0"  # 3.0: T76-T100 + six tools; T01-T75 stay frozen

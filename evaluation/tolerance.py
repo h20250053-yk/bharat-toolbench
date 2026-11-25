@@ -25,7 +25,7 @@ from .final_answer import ANSWER_VALUE_KEYS, REQUIRED_KEYS, STATUSES
 Recovery = dict[str, Any]
 CONTRACT_KEYS = REQUIRED_KEYS + ("answer_values",)
 _ZERO_WIDTH = dict.fromkeys(map(ord, "​‌‍⁠﻿"))
-TOOL_NAMES = ("resolve_station", "search_trains", "get_train_details", "check_availability", "get_fare", "book_ticket")
+from environment.railway_env import TOOL_NAMES  # noqa: E402  (all twelve tools of benchmark 3.0)
 
 
 def _rec(stage: str, rule: str, before: Any = None, after: Any = None) -> Recovery:
@@ -226,6 +226,7 @@ def _class_from_string(v: str) -> str | None:
 
 _SEAT_UNITS = r"(?:seats?|trains?|सीट(?:ें|ें|ा)?|ट्रेन(?:ें)?|गाड्या|गाड़ियाँ|ગાડીઓ|ટ્રેન(?:ો)?|સીટ(?:ો)?|સીટે)"
 _MINUTE_UNITS = r"(?:min(?:ute)?s?|मिनट|मिनिट(?:े|ं)?|મિનિટ)"
+_RUPEE_UNITS = r"(?:rs\.?|inr|rupees?|रुपये|रुपए|रुपया|रुपयांचे|રૂપિયા)"
 
 
 def _int_like(v: Any, units: str) -> int | None:
@@ -324,7 +325,12 @@ def normalize_answer(obj: dict[str, Any]) -> tuple[dict[str, Any], list[Recovery
                 if n is not None:
                     recs.append(_rec("final_answer", "integer_form", v, n))
                     v = n
-            elif k == "duration_minutes" and isinstance(v, (float, str)):
+            elif k in ("waitlist_position", "refund_inr", "concession_fare_inr", "total_fare_inr") and isinstance(v, (float, str)):  # 3.0
+                n = _int_like(re.sub(r"^\s*(?:₹|rs\.?|inr)\s*", "", v.replace(",", ""), flags=re.I) if isinstance(v, str) else v, _RUPEE_UNITS)
+                if n is not None:
+                    recs.append(_rec("final_answer", "integer_form", v, n))
+                    v = n
+            elif k in ("duration_minutes", "delay_minutes") and isinstance(v, (float, str)):
                 n = _int_like(v, _MINUTE_UNITS)
                 if n is not None:
                     recs.append(_rec("final_answer", "integer_form", v, n))
@@ -496,6 +502,12 @@ def normalize_arguments(tool: str, args: Any) -> tuple[Any, list[Recovery]]:
             iso = f"{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
             if iso != out["date"].strip():
                 change("date", iso, "date_format")
+    if isinstance(out.get("pnr"), str):                    # 3.0: '4518 203 967', '4518-203-967', native digits -> '4518203967'
+        p = re.sub(r"[\s\-]", "", digits_to_ascii(clean_text(out["pnr"])))
+        if re.fullmatch(r"\d{10}", p) and p != out["pnr"]:
+            change("pnr", p, "pnr_format")
+    elif isinstance(out.get("pnr"), int) and 0 <= out["pnr"] < 10**10:
+        change("pnr", f"{out['pnr']:010d}", "pnr_format")
     if isinstance(out.get("passenger"), str):
         name = re.sub(r"\s+", " ", out["passenger"]).strip().rstrip(".,;")
         if name != re.sub(r"\s+", " ", out["passenger"]).strip():

@@ -36,7 +36,7 @@ def mutate(tmp_path, monkeypatch, lang, tid, fn):
 def test_committed_pilot_is_valid_and_has_20_items():
     assert vt.validate() == []
     assert sum(1 for l in LANGS for r in rows(l) if r["semantic_task_id"] in IDS) == 20  # pilot slice unchanged
-    assert sum(len(rows(l)) for l in LANGS) == 300  # pilot 20 + T06-T15 40 + T16-T25 40 + T26-T50 100 + T51-T75 100
+    assert sum(len(rows(l)) for l in LANGS) == 400  # pilot 20 + T06-T15 40 + T16-T25 40 + T26-T50 100 + T51-T75 100 + T76-T100 100
 
 
 def test_every_task_has_four_variants_with_one_shared_spec_and_no_language_in_gold():
@@ -98,7 +98,7 @@ def test_non_english_variants_are_claude_drafts_reviewed_only_per_record():
     for l in LANGS[1:]:
         for r in rows(l):
             assert r["author"] == "Claude-generated draft" and (r["reviewer"], r["review_status"]) == hr.expected_review(r["language"], r["semantic_task_id"])
-            assert (r["review_status"] == "draft") == (l in ("hinglish", "hi"))
+            assert (r["review_status"] == "draft") == (l in ("hinglish", "hi") or int(r["semantic_task_id"][1:]) > 75)
 
 
 # ---- negative tests: the validator must catch semantic drift ----
@@ -144,7 +144,7 @@ def test_detects_changed_english_duplicate_ids_and_missing_variant(tmp_path, mon
     monkeypatch.setattr(vt, "LANG_DIR", d)
     monkeypatch.setattr(vt, "AUDIT_PATH", d / "pilot_language_audit.json")
     e = " | ".join(vt.validate())
-    assert "expected exactly 300" in e and "T05: variants" in e
+    assert "expected exactly 400" in e and "T05: variants" in e
 
 
 def test_detects_stale_audit(tmp_path, monkeypatch):

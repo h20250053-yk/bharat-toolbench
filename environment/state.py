@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .schemas import Booking, Station, Train
+from .schemas import AccountBooking, Booking, Cancellation, Station, Train, WaitlistEntry
 
 DATA_DIR = Path(__file__).parent / "data"
 
@@ -45,6 +45,18 @@ class EnvState:
     bookings: list[Booking] = field(default_factory=list)
     next_booking_seq: int = 1
     static_hash: str = ""
+    # benchmark 3.0: the user's earlier bookings, waitlists, live running status (immutable fixtures) ...
+    account_bookings: dict[str, AccountBooking] = field(default_factory=dict)  # pnr -> booking made before 'now'
+    waitlist_baseline: dict[tuple[str, str], int] = field(default_factory=dict)  # (train_id, class) -> people already waiting
+    cancellation_charge: dict[str, int] = field(default_factory=dict)
+    concession_percent: dict[str, dict[str, int]] = field(default_factory=dict)
+    live_delays: dict[tuple[str, str], int] = field(default_factory=dict)  # (train_id, run_start_date) -> delay minutes
+    live_as_of: str = ""
+    operations_hash: str = ""  # sha256 of account.json + live_status.json (static_hash keeps covering stations + trains only)
+    # ... and their mutable part
+    cancellations: list[Cancellation] = field(default_factory=list)
+    waitlist: list[WaitlistEntry] = field(default_factory=list)
+    next_waitlist_seq: int = 1
 
     @classmethod
     def load(cls, data_dir: Path = DATA_DIR) -> "EnvState":
@@ -64,8 +76,21 @@ class EnvState:
             for f in forms:
                 index.setdefault(normalize_name(f), set()).add(code)
         alias_index = {k: sorted(v) for k, v in index.items()}
+        acct = json.loads((data_dir / "account.json").read_text(encoding="utf-8"))
+        live = json.loads((data_dir / "live_status.json").read_text(encoding="utf-8"))
+        account = {b["pnr"]: AccountBooking(**b) for b in acct["account_bookings"]}
+        for b in account.values():
+            if b.train_id not in trains or b.travel_class not in trains[b.train_id].classes:
+                raise ValueError(f"account booking {b.pnr} references an unknown train/class")
         state = cls(stations=stations, trains=trains, alias_index=alias_index,
-                    static_hash=_sha(_canonical_json({"stations": raw_st, "trains": raw_tr})))
+                    static_hash=_sha(_canonical_json({"stations": raw_st, "trains": raw_tr})),
+                    operations_hash=_sha(_canonical_json({"account": acct, "live": live})),
+                    account_bookings=account,
+                    waitlist_baseline={tuple(k.split("|")): v for k, v in acct["waitlist_baseline"].items()},
+                    cancellation_charge=dict(acct["cancellation_charge_inr"]),
+                    concession_percent={k: dict(v) for k, v in acct["concession_percent"].items()},
+                    live_delays={(r["train_id"], r["run_start_date"]): r["delay_minutes"] for r in live["runs"]},
+                    live_as_of=live["as_of"])
         state.reset_mutable()
         return state
 
@@ -74,6 +99,9 @@ class EnvState:
         self.availability = {(t.train_id, c): info.seats for t in self.trains.values() for c, info in t.classes.items()}
         self.bookings = []
         self.next_booking_seq = 1
+        self.cancellations = []
+        self.waitlist = []
+        self.next_waitlist_seq = 1
 
     def snapshot(self) -> dict[str, Any]:
         """JSON-serializable view of the mutable state (for tests, debugging, gold state predicates)."""
@@ -81,6 +109,9 @@ class EnvState:
             "availability": {f"{t}|{c}": n for (t, c), n in sorted(self.availability.items())},
             "bookings": [b.model_dump() for b in self.bookings],
             "next_booking_seq": self.next_booking_seq,
+            "cancellations": [c.model_dump() for c in self.cancellations],
+            "waitlist": [w.model_dump() for w in self.waitlist],
+            "next_waitlist_seq": self.next_waitlist_seq,
         }
 
     def state_hash(self) -> str:

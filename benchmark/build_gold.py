@@ -903,10 +903,12 @@ def _solve_overnight_arrival_date(env, p, plan):
 
 
 def _solve_unsupported_action(env, p, plan):
-    from environment import TOOL_NAMES
-    if any("cancel" in t for t in TOOL_NAMES):
-        raise ValueError("a cancellation tool exists: the action would be supported")
-    # no tool can perform or even look up the booking: the correct trajectory has ZERO tool calls
+    # Benchmark 3.0 added cancel_ticket, which works on a 10-digit PNR. T45's reference is a booking ID ("BK0042") that exists
+    # neither as a PNR nor among the account's bookings, so the request still cannot be completed and the gold is unchanged
+    # (zero required calls; asking for the PNR is accepted as an alternative outcome in evaluation/scorer.py).
+    ids = {b.booking_id for b in env.state.account_bookings.values()} | {b.booking_id for b in env.state.bookings}
+    if p["booking_id"] in ids or env.call("get_booking_status", {"pnr": p["booking_id"]})["ok"]:
+        raise ValueError("the booking reference exists: the cancellation would be possible")
     return {"status": "cannot_complete", "selected_train_id": None, "reason": "unsupported_action",
             "requested_action": p["requested_action"]}, None, []
 
@@ -1516,11 +1518,319 @@ SOLVERS = {"fare_lookup": _solve_fare_lookup, "route_availability_fare": _solve_
            }
 
 
+# ----------------------------------------------------------------------------------------- benchmark 3.0 solvers (T76-T100)
+# They use the six tools added in 3.0 (booking status, refund quote, cancel, waitlist, live status, concession). Every value is
+# read from the environment; design conditions are asserted so a fixture change cannot silently change a task's meaning.
+def _status(env, pnr):
+    return _ok(env, "get_booking_status", {"pnr": pnr})
+
+
+def _quote(env, pnr):
+    return _ok(env, "get_cancellation_refund", {"pnr": pnr})
+
+
+def _err_code(env, tool, args):
+    r = env.call(tool, args)
+    return None if r["ok"] else r["error"]["code"]
+
+
+def _live(env, tid):
+    return _ok(env, "get_live_train_status", {"train_id": tid})
+
+
+def _concession(env, tid, cls, con):
+    return _ok(env, "get_concession_fare", {"train_id": tid, "travel_class": cls, "concession": con})
+
+
+def _cancel_effect(pnr):
+    return ("cancel_ticket", {"pnr": pnr})
+
+
+def _solve_pnr_status_lookup(env, p, plan):
+    st = _status(env, p["pnr"])
+    if st["status"] != p["expect_status"]:
+        raise ValueError(f"design: PNR {p['pnr']} must be {p['expect_status']}")
+    plan.add("get_booking_status", {"pnr": p["pnr"]})
+    return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": st["travel_class"], "pnr": p["pnr"],
+             "booking_status": st["status"], "waitlist_position": st["waitlist_position"]}, [st["train_id"]], [])
+
+
+def _solve_refund_quote_no_cancel(env, p, plan):
+    q, st = _quote(env, p["pnr"]), _status(env, p["pnr"])
+    plan.add("get_cancellation_refund", {"pnr": p["pnr"]})
+    return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": st["travel_class"], "pnr": p["pnr"],
+             "refund_inr": q["refund_inr"], "cancellation_charge_inr": q["cancellation_charge_inr"]}, [st["train_id"]], [])
+
+
+def _solve_cancel_pnr(env, p, plan):
+    q, st = _quote(env, p["pnr"]), _status(env, p["pnr"])
+    if st["status"] != "CONFIRMED":
+        raise ValueError("design: a confirmed ticket")
+    plan.add("cancel_ticket", {"pnr": p["pnr"]})
+    return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": st["travel_class"], "pnr": p["pnr"],
+             "refund_inr": q["refund_inr"], "booking_status": "CANCELLED"}, [st["train_id"]], [_cancel_effect(p["pnr"])])
+
+
+def _solve_conditional_cancel_min_refund(env, p, plan):
+    q, st = _quote(env, p["pnr"]), _status(env, p["pnr"])
+    c1 = plan.add("get_cancellation_refund", {"pnr": p["pnr"]})
+    if q["refund_inr"] >= p["min_refund_inr"]:
+        plan.add("cancel_ticket", {"pnr": p["pnr"]}, after=[c1])
+        return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": st["travel_class"], "pnr": p["pnr"],
+                 "refund_inr": q["refund_inr"], "min_refund_inr": p["min_refund_inr"], "booking_status": "CANCELLED"},
+                [st["train_id"]], [_cancel_effect(p["pnr"])])
+    return ({"status": "cannot_complete", "selected_train_id": None, "train_id": st["train_id"], "pnr": p["pnr"],
+             "refund_inr": q["refund_inr"], "min_refund_inr": p["min_refund_inr"], "reason": "refund_below_threshold"}, None, [])
+
+
+def _solve_conditional_cancel_refund_too_low(env, p, plan):
+    out = _solve_conditional_cancel_min_refund(env, p, plan)
+    if out[0]["status"] != "cannot_complete":
+        raise ValueError("design: the refund must be BELOW the threshold")
+    return out
+
+
+def _solve_conditional_cancel_refund_enough(env, p, plan):
+    out = _solve_conditional_cancel_min_refund(env, p, plan)
+    if out[0]["status"] != "success":
+        raise ValueError("design: the refund must reach the threshold")
+    return out
+
+
+def _solve_cancel_already_cancelled(env, p, plan):
+    return _solve_cancel_blocked(env, {**p, "expected_error": "ALREADY_CANCELLED"}, plan)
+
+
+def _solve_cancel_after_departure(env, p, plan):
+    return _solve_cancel_blocked(env, {**p, "expected_error": "JOURNEY_STARTED"}, plan)
+
+
+def _solve_live_connection_check(env, p, plan):
+    if "connection_time" not in p:
+        raise ValueError("design: a connection time")
+    return _solve_live_expected_arrival(env, p, plan)
+
+
+def _solve_live_expected_arrival_intermediate(env, p, plan):
+    out = _solve_live_expected_arrival(env, p, plan)
+    tr = _ok(env, "get_train_details", {"train_id": p["train_id"]})
+    if out[0]["station_code"] in (tr["source_station"], tr["destination_station"]):
+        raise ValueError("design: an intermediate stop")
+    return out
+
+
+def _solve_conditional_waitlisted_cancel_rebook(env, p, plan):
+    if not p.get("only_if_waitlisted"):
+        raise ValueError("design: conditional on the waitlist status")
+    return _solve_cancel_and_rebook_class(env, p, plan)
+
+
+def _solve_pnr_not_found(env, p, plan):
+    if _err_code(env, "get_booking_status", {"pnr": p["pnr"]}) != "PNR_NOT_FOUND":
+        raise ValueError("design: the PNR must not exist")
+    plan.add("get_booking_status", {"pnr": p["pnr"]}, expected_error="PNR_NOT_FOUND")
+    return {"status": "cannot_complete", "selected_train_id": None, "pnr": p["pnr"], "reason": "pnr_not_found"}, None, []
+
+
+def _solve_cancel_blocked(env, p, plan):
+    code = _err_code(env, "cancel_ticket", {"pnr": p["pnr"]})
+    if code != p["expected_error"]:
+        raise ValueError(f"design: cancelling must fail with {p['expected_error']}, got {code}")
+    st = _status(env, p["pnr"])
+    plan.add("cancel_ticket", {"pnr": p["pnr"]}, expected_error=code)  # equivalent observations: evaluation/scorer.EQUIVALENT_PATHS
+    return ({"status": "cannot_complete", "selected_train_id": None, "train_id": st["train_id"], "pnr": p["pnr"],
+             "booking_status": st["status"], "reason": code.lower()}, None, [])
+
+
+def _solve_waitlist_fallback_booking(env, p, plan):
+    _verify_train_serves(env, p)
+    tid, cls, pax = p["train_id"], p["travel_class"], p["passenger"]
+    if _seats(env, tid, cls) != 0:
+        raise ValueError("design: the class must be sold out")
+    c1 = plan.add("check_availability", {"train_id": tid, "travel_class": cls})
+    plan.add("join_waitlist", {"train_id": tid, "travel_class": cls, "passenger": pax}, after=[c1])
+    probe = RailwayEnv()
+    probe.reset()
+    wl = _ok(probe, "join_waitlist", {"train_id": tid, "travel_class": cls, "passenger": pax})
+    return ({"status": "success", "selected_train_id": tid, "travel_class": cls, "passenger": pax, "booking_status": "WAITLISTED",
+             "waitlist_position": wl["waitlist_position"]}, [tid], [("join_waitlist", {"train_id": tid, "travel_class": cls, "passenger": pax})])
+
+
+def _solve_sold_out_no_waitlist(env, p, plan):
+    _verify_train_serves(env, p)
+    tid, cls = p["train_id"], p["travel_class"]
+    if _seats(env, tid, cls) != 0:
+        raise ValueError("design: the class must be sold out")
+    plan.add("check_availability", {"train_id": tid, "travel_class": cls})
+    return ({"status": "cannot_complete", "selected_train_id": None, "train_id": tid, "travel_class": cls, "requested_status": "SOLD_OUT",
+             "reason": "sold_out_waitlist_refused"}, None, [])
+
+
+def _solve_waitlist_not_needed_booking(env, p, plan):
+    _verify_train_serves(env, p)
+    tid, cls, pax = p["train_id"], p["travel_class"], p["passenger"]
+    if _seats(env, tid, cls) <= 0:
+        raise ValueError("design: seats must be available, so the waitlist condition does not apply")
+    plan.add("book_ticket", {"train_id": tid, "travel_class": cls, "passenger": pax})
+    return ({"status": "success", "selected_train_id": tid, "travel_class": cls, "passenger": pax, "fare_inr": _fare(env, tid, cls),
+             "booking_id": None}, [tid], [_book_effect(tid, cls, pax)])
+
+
+def _solve_live_delay(env, p, plan):
+    lv = _live(env, p["train_id"])
+    if lv["status"] != "RUNNING" or not lv["delay_minutes"]:
+        raise ValueError("design: the train must be running late now")
+    plan.add("get_live_train_status", {"train_id": p["train_id"]})
+    return ({"status": "success", "selected_train_id": p["train_id"], "running_status": lv["status"],
+             "delay_minutes": lv["delay_minutes"]}, [p["train_id"]], [])
+
+
+def _solve_live_expected_arrival(env, p, plan):
+    lv = _live(env, p["train_id"])
+    code = _station_code(env, p["station_name"])
+    stop = next(s for s in lv["stops"] if s["station"] == code)
+    if lv["status"] != "RUNNING" or code in (lv["last_station"],) or stop["expected_arrival"] is None:
+        raise ValueError("design: a running train that has not reached the station yet")
+    plan.add("get_live_train_status", {"train_id": p["train_id"]})
+    out = {"status": "success", "selected_train_id": p["train_id"], "station_code": code, "expected_arrival": stop["expected_arrival"],
+           "expected_date": stop["expected_date"], "delay_minutes": lv["delay_minutes"]}
+    if "connection_time" in p:  # T90: does the train arrive before the connection leaves?
+        out["makes_connection"] = _mins(stop["expected_arrival"]) <= _mins(p["connection_time"])
+        if out["makes_connection"] or _mins(stop["scheduled_arrival"]) > _mins(p["connection_time"]):
+            raise ValueError("design: on time it would make the connection; the delay must break it")
+    return out, [p["train_id"]], []
+
+
+def _solve_live_running_today(env, p, plan):
+    lv = _live(env, p["train_id"])
+    if lv["status"] != "NOT_RUNNING_TODAY":
+        raise ValueError("design: the train must not run today")
+    plan.add("get_live_train_status", {"train_id": p["train_id"]}, alternatives=None)
+    return ({"status": "success", "selected_train_id": p["train_id"], "runs_on_requested_weekday": False}, [p["train_id"]], [])
+
+
+def _solve_concession_fare(env, p, plan):
+    c = _concession(env, p["train_id"], p["travel_class"], p["concession"])
+    plan.add("get_concession_fare", {"train_id": p["train_id"], "travel_class": p["travel_class"], "concession": p["concession"]})
+    return ({"status": "success", "selected_train_id": p["train_id"], "travel_class": p["travel_class"],
+             "concession_fare_inr": c["concession_fare_inr"], "base_fare_inr": c["base_fare_inr"]}, [p["train_id"]], [])
+
+
+def _solve_concession_party_total(env, p, plan):
+    _verify_train_serves(env, p)
+    c = _concession(env, p["train_id"], p["travel_class"], p["concession"])
+    plan.add("get_concession_fare", {"train_id": p["train_id"], "travel_class": p["travel_class"], "concession": p["concession"]})
+    plan.add("get_fare", {"train_id": p["train_id"], "travel_class": p["travel_class"]}, optional=True)  # the quote already has the base fare
+    total = c["concession_fare_inr"] + p["regular_tickets"] * c["base_fare_inr"]
+    return ({"status": "success", "selected_train_id": p["train_id"], "travel_class": p["travel_class"], "total_fare_inr": total,
+             "concession_fare_inr": c["concession_fare_inr"], "base_fare_inr": c["base_fare_inr"]}, [p["train_id"]], [])
+
+
+def _solve_concession_not_available(env, p, plan):
+    args = {"train_id": p["train_id"], "travel_class": p["travel_class"], "concession": p["concession"]}
+    if _err_code(env, "get_concession_fare", args) != "CONCESSION_NOT_AVAILABLE":
+        raise ValueError("design: the concession must not exist in that class")
+    plan.add("get_concession_fare", args, expected_error="CONCESSION_NOT_AVAILABLE")
+    return ({"status": "cannot_complete", "selected_train_id": None, "train_id": p["train_id"], "travel_class": p["travel_class"],
+             "reason": "concession_not_available"}, None, [])
+
+
+def _solve_concession_budget_check(env, p, plan):
+    c = _concession(env, p["train_id"], p["travel_class"], p["concession"])
+    if not (c["concession_fare_inr"] <= p["budget_inr"] < c["base_fare_inr"]):
+        raise ValueError("design: affordable only WITH the concession")
+    if p["budget_inr"] - c["concession_fare_inr"] > 20:
+        raise ValueError("design: the margin must be small, so a guessed discount gets it wrong")
+    plan.add("get_concession_fare", {"train_id": p["train_id"], "travel_class": p["travel_class"], "concession": p["concession"]})
+    return ({"status": "success", "selected_train_id": p["train_id"], "travel_class": p["travel_class"],
+             "concession_fare_inr": c["concession_fare_inr"], "affordable": True}, [p["train_id"]], [])
+
+
+def _solve_cancel_and_rebook_class(env, p, plan):
+    st, q = _status(env, p["pnr"]), _quote(env, p["pnr"])
+    if st["status"] != p["expect_status"] or st["passenger"] != p["booking_passenger"]:
+        raise ValueError("design: PNR status / passenger")
+    cls = p["new_class"]
+    if _seats(env, st["train_id"], cls) <= 0 or cls == st["travel_class"]:
+        raise ValueError("design: the new class must differ and have seats")
+    after = []
+    if p.get("only_if_waitlisted"):  # T96: the status decides
+        after = [plan.add("get_booking_status", {"pnr": p["pnr"]})]
+    else:
+        plan.add("get_booking_status", {"pnr": p["pnr"]}, optional=True)  # the cancellation reply already names train and passenger
+    c_cancel = plan.add("cancel_ticket", {"pnr": p["pnr"]}, after=after)
+    plan.add("book_ticket", {"train_id": st["train_id"], "travel_class": cls, "passenger": st["passenger"]},
+             {"train_id": f"{c_cancel}.train_id", "passenger": f"{c_cancel}.passenger"},
+             after=after)
+    return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": cls, "pnr": p["pnr"],
+             "previous_status": st["status"], "refund_inr": q["refund_inr"], "passenger": st["passenger"], "booking_id": None},
+            [st["train_id"]], [_cancel_effect(p["pnr"]), _book_effect(st["train_id"], cls, st["passenger"])])
+
+
+def _solve_conditional_waitlisted_noop(env, p, plan):
+    st = _status(env, p["pnr"])
+    if st["status"] != "CONFIRMED":
+        raise ValueError("design: the ticket must be confirmed, so nothing may be cancelled")
+    plan.add("get_booking_status", {"pnr": p["pnr"]})
+    return ({"status": "success", "selected_train_id": st["train_id"], "travel_class": st["travel_class"], "pnr": p["pnr"],
+             "booking_status": "CONFIRMED"}, [st["train_id"]], [])
+
+
+def _solve_cancel_without_pnr_clarification(env, p, plan):
+    # no tool lists a user's bookings and every booking tool needs a PNR: ask for it, call nothing, cancel nothing
+    return {"status": "needs_clarification", "selected_train_id": None, "missing": "pnr"}, None, []
+
+
+def _solve_cancel_multiple_total_refund(env, p, plan):
+    sts = [_status(env, x) for x in p["pnrs"]]
+    if any(s["status"] != "CONFIRMED" for s in sts) or len({(s["train_id"], s["travel_class"]) for s in sts}) != 1:
+        raise ValueError("design: confirmed tickets on one train and class")
+    total = sum(_quote(env, x)["refund_inr"] for x in p["pnrs"])
+    for x in p["pnrs"]:
+        plan.add("cancel_ticket", {"pnr": x})
+    return ({"status": "success", "selected_train_id": sts[0]["train_id"], "travel_class": sts[0]["travel_class"], "pnrs": p["pnrs"],
+             "refund_inr": total}, [sts[0]["train_id"]], [_cancel_effect(x) for x in p["pnrs"]])
+
+
+def _solve_availability_and_concession(env, p, plan):
+    tid, cls = p["train_id"], p["travel_class"]
+    seats = _seats(env, tid, cls)
+    c = _concession(env, tid, cls, p["concession"])
+    plan.add("check_availability", {"train_id": tid, "travel_class": cls})
+    plan.add("get_concession_fare", {"train_id": tid, "travel_class": cls, "concession": p["concession"]})
+    return ({"status": "success", "selected_train_id": tid, "travel_class": cls, "seats_available": seats,
+             "concession_fare_inr": c["concession_fare_inr"]}, [tid], [])
+
+
+SOLVERS_V3 = {
+    "pnr_status_lookup": _solve_pnr_status_lookup, "refund_quote_no_cancel": _solve_refund_quote_no_cancel,
+    "cancel_pnr": _solve_cancel_pnr, "conditional_cancel_refund_too_low": _solve_conditional_cancel_refund_too_low,
+    "conditional_cancel_refund_enough": _solve_conditional_cancel_refund_enough,
+    "pnr_not_found": _solve_pnr_not_found, "cancel_already_cancelled": _solve_cancel_already_cancelled,
+    "cancel_after_departure": _solve_cancel_after_departure,
+    "waitlist_fallback_booking": _solve_waitlist_fallback_booking, "sold_out_no_waitlist": _solve_sold_out_no_waitlist,
+    "waitlist_not_needed_booking": _solve_waitlist_not_needed_booking, "live_delay": _solve_live_delay,
+    "live_expected_arrival_intermediate": _solve_live_expected_arrival_intermediate,
+    "live_connection_check": _solve_live_connection_check, "live_running_today": _solve_live_running_today,
+    "concession_fare": _solve_concession_fare, "concession_party_total": _solve_concession_party_total,
+    "concession_not_available": _solve_concession_not_available, "concession_budget_check": _solve_concession_budget_check,
+    "cancel_and_rebook_class": _solve_cancel_and_rebook_class, "conditional_waitlisted_noop": _solve_conditional_waitlisted_noop,
+    "conditional_waitlisted_cancel_rebook": _solve_conditional_waitlisted_cancel_rebook,
+    "cancel_without_pnr_clarification": _solve_cancel_without_pnr_clarification,
+    "cancel_multiple_total_refund": _solve_cancel_multiple_total_refund, "availability_and_concession": _solve_availability_and_concession,
+}
+SOLVERS.update(SOLVERS_V3)
+
+
 # ----------------------------------------------------------------------------------------- driver
 def env_diff(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
     changes = {k: [before["availability"][k], after["availability"][k]]
                for k in before["availability"] if before["availability"][k] != after["availability"][k]}
-    return {"bookings": after["bookings"], "availability_changes": changes}
+    out = {"bookings": after["bookings"], "availability_changes": changes}
+    for key in ("cancellations", "waitlist"):  # 3.0: only when something happened (keeps earlier gold byte-identical)
+        if after.get(key):
+            out[key] = after[key]
+    return out
 
 
 def build_task_gold(spec: SemanticTaskSpec) -> dict[str, Any]:
@@ -1545,7 +1855,10 @@ def build_task_gold(spec: SemanticTaskSpec) -> dict[str, Any]:
     gold = GoldSpec(
         semantic_task_id=spec.semantic_task_id, required_calls=plan.calls, dependency_edges=plan.edges,
         final_state=FinalStatePredicate(status=answer["status"], allowed_train_ids=allowed,
-                                        travel_class=answer.get("travel_class"), expected_bookings=bookings),
+                                        travel_class=answer.get("travel_class"), expected_bookings=bookings,
+                                        expected_cancellations=[c["pnr"] for c in diff.get("cancellations", [])] or None,
+                                        expected_waitlist=[{k: w[k] for k in ("train_id", "travel_class", "passenger")}
+                                                           for w in diff.get("waitlist", [])] or None),
         min_calls=sum(1 for c in plan.calls if not c.optional), final_answer=answer, expected_env_diff=diff,
         forbidden_tools=sorted({a.tool for a in spec.prohibited_actions if not a.match}),
         prohibited_actions=spec.prohibited_actions)
@@ -1554,6 +1867,9 @@ def build_task_gold(spec: SemanticTaskSpec) -> dict[str, Any]:
             if c.tool == a.tool and all(c.required_args.get(k) == v for k, v in a.match.items()):
                 raise ValueError(f"{spec.semantic_task_id}: gold call {c.call_id} violates prohibition {a.tool}{a.match}")
     out = gold.model_dump(mode="json")
+    for k in ("expected_cancellations", "expected_waitlist"):  # 3.0 fields: serialized only when set
+        if out["final_state"][k] is None:
+            del out["final_state"][k]
     for c in out["required_calls"]:  # serialize expected_error only when set (keeps earlier gold byte-identical)
         if c["expected_error"] is None:
             del c["expected_error"]

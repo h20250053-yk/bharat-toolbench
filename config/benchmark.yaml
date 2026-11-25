@@ -1,5 +1,6 @@
 # BharatToolBench benchmark configuration (provider-neutral).
-benchmark_version: "2.1.0"   # 75 tasks x 5 languages = 375 items, all frozen (git tags v2.0-data, v2.0.1-data, v2.0.2-data, v2.1.0-data); 0.1.0-foundation = the 200-item mid-sem runs
+benchmark_version: "3.0.0"   # 100 tasks x 5 languages = 500 items, 12 tools. 2.1.0 = 75 tasks x 5 = 375 items, 6 tools (git tag v2.1.0-data); 0.1.0-foundation = the 200-item mid-sem runs
+offer_all_tools: true        # 3.0: every item is offered all twelve tools (T01-T75 rows keep listing the six they were written for)
 reference_datetime: "2026-10-05T09:00:00+05:30"   # pinned "now" (IST). NEVER use the system clock.
 timezone: "IST (UTC+05:30)"
 canonical_formats:
@@ -17,6 +18,12 @@ environment:
     - check_availability
     - get_fare
     - book_ticket
+    - get_booking_status       # 3.0
+    - get_cancellation_refund  # 3.0
+    - cancel_ticket            # 3.0
+    - join_waitlist            # 3.0
+    - get_live_train_status    # 3.0
+    - get_concession_fare      # 3.0
 # Named time windows used when authoring tasks (tools themselves take explicit HH:MM ranges).
 named_time_windows:
   morning:   {start: "05:00", end: "11:59"}

@@ -38,8 +38,8 @@ def mutate(tmp_path, monkeypatch, lang, tid, fn, record_fn=None):
 
 def test_scope_is_marathi_and_gujarati_all_75():
     assert hr.REVIEWED == {"mr": ALL, "gu": ALL}
-    for lang in ("mr", "gu"):
-        assert all(r["review_status"] == "reviewed" and r["reviewer"] == hr.REVIEWER for r in rows(lang))
+    for lang in ("mr", "gu"):  # T01-T75 reviewed; the 3.0 batch T76-T100 is still a draft in every language
+        assert all((r["review_status"] == "reviewed" and r["reviewer"] == hr.REVIEWER) == (r["semantic_task_id"] in ALL) for r in rows(lang))
     for lang in ("en", "hinglish", "hi"):
         assert all(r["review_status"] == "draft" and r["reviewer"] is None for r in rows(lang))
 

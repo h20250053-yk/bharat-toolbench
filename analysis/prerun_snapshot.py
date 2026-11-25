@@ -111,7 +111,7 @@ def build(model_key: str, split: str, run_file: Path, command: str, client: Any 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--model", required=True)
-    ap.add_argument("--split", required=True, choices=["pilot", "midsem", "full"])
+    ap.add_argument("--split", required=True, choices=["pilot", "midsem", "v2", "full"])
     ap.add_argument("--languages", nargs="+", default=["en", "hinglish", "hi", "mr", "gu"], choices=["en", "hinglish", "hi", "mr", "gu"])
     ap.add_argument("--run-file", type=Path, required=True)
     ap.add_argument("--command", required=True)

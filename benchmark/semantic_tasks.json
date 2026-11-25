@@ -1,6 +1,6 @@
 {
-  "benchmark_version": "2.1.0",
-  "stage": "frozen_T01_T75_five_languages",
+  "benchmark_version": "3.0.0",
+  "stage": "frozen_T01_T75_plus_draft_T76_T100_five_languages",
   "tasks": [
     {
       "semantic_task_id": "T01",
@@ -6299,6 +6299,1725 @@
             "classes": [
               "CC"
             ]
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T76",
+      "category": "single_tool",
+      "playbook_note": "3.0 batch. Read-only status lookup of a waitlisted PNR. Selection: get_booking_status, not a cancellation or a refund quote.",
+      "task_goal": "Report status and waitlist position of PNR 7302958146.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "booking_status_and_waitlist_position"
+        },
+        {
+          "kind": "pnr",
+          "value": "7302958146"
+        },
+        {
+          "kind": "no_state_change"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "pnr_status_lookup",
+        "params": {
+          "pnr": "7302958146",
+          "expect_status": "WAITLISTED"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "status WAITLISTED",
+          "waitlist position"
+        ],
+        "must_not": [
+          "cancel or book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 7302958146: BTB101 2A, Arjun Malhotra, journey 2026-10-07, WAITLISTED at position 3."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "7302958146"
+          },
+          "expect": {
+            "status": "WAITLISTED",
+            "waitlist_position": 3
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T77",
+      "category": "single_tool",
+      "playbook_note": "3.0 batch. Refund QUOTE with an explicit 'don't cancel yet'. Selection trap: cancel_ticket also reports the refund but is irreversible; only get_cancellation_refund answers the question.",
+      "task_goal": "Quote the refund of PNR 4518203967 without cancelling.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "refund_quote_without_action"
+        },
+        {
+          "kind": "pnr",
+          "value": "4518203967"
+        },
+        {
+          "kind": "no_cancellation"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "refund_quote_no_cancel",
+        "params": {
+          "pnr": "4518203967"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "refund_inr"
+        ],
+        "must_not": [
+          "cancel the ticket"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 4518203967: BTB115 3A, Meera Iyer, journey 2026-10-08, CONFIRMED, fare 1800; 3A charge 180."
+      ],
+      "prohibited_actions": [
+        {
+          "tool": "cancel_ticket",
+          "match": {},
+          "prompt_phrase": "Don't cancel it yet",
+          "reason": "The user only asks how much would come back and explicitly says not to cancel yet."
+        }
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "4518203967"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T78",
+      "category": "booking",
+      "playbook_note": "3.0 batch. Plain cancellation by PNR, refund reported from the cancellation.",
+      "task_goal": "Cancel PNR 9157364820 and report the refund.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_and_report_refund"
+        },
+        {
+          "kind": "pnr",
+          "value": "9157364820"
+        },
+        {
+          "kind": "cancel"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_pnr",
+        "params": {
+          "pnr": "9157364820"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "cancelled",
+          "refund_inr"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 9157364820: BTB120 3A, Sanjay Kulkarni, journey 2026-10-10, CONFIRMED, fare 1460; 3A charge 180."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "9157364820"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T79",
+      "category": "constraint",
+      "playbook_note": "3.0 batch. Conditional cancellation; the condition FAILS (refund 7360 < 7400), so the quote must come first and nothing may be cancelled. Cancelling first and reading the refund afterwards is the irreversible mistake.",
+      "task_goal": "Cancel PNR 5079318462 only if the refund is >= 7400.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_only_if_refund_reaches_threshold"
+        },
+        {
+          "kind": "pnr",
+          "value": "5079318462"
+        },
+        {
+          "kind": "min_refund_inr",
+          "value": 7400
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "conditional_cancel_refund_too_low",
+        "params": {
+          "pnr": "5079318462",
+          "min_refund_inr": 7400
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "refund_inr 7360 is below 7400",
+          "not cancelled"
+        ],
+        "must_not": [
+          "cancel the ticket"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 5079318462: BTB122 2A, Lakshmi Narayan, journey 2026-10-12, CONFIRMED, fare 7560; 2A charge 200 -> refund 7360."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "5079318462"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T80",
+      "category": "constraint",
+      "playbook_note": "3.0 batch. Same condition shape as T79 but it HOLDS (495 >= 450): quote first, then cancel.",
+      "task_goal": "Cancel PNR 6720483915 if the refund is >= 450.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_only_if_refund_reaches_threshold"
+        },
+        {
+          "kind": "pnr",
+          "value": "6720483915"
+        },
+        {
+          "kind": "min_refund_inr",
+          "value": 450
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "conditional_cancel_refund_enough",
+        "params": {
+          "pnr": "6720483915",
+          "min_refund_inr": 450
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "refund_inr 495",
+          "cancelled"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 6720483915: BTB127 SL, Vikram Rao, journey 2026-10-08, CONFIRMED, fare 615; SL charge 120 -> refund 495."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "6720483915"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T81",
+      "category": "invalid_input",
+      "playbook_note": "3.0 batch. Unknown PNR: the lookup returns PNR_NOT_FOUND; nothing else is possible.",
+      "task_goal": "Status of a PNR that does not exist.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "status_of_unknown_pnr"
+        },
+        {
+          "kind": "pnr",
+          "value": "5551234567"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "pnr_not_found",
+        "params": {
+          "pnr": "5551234567"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "no booking with this PNR"
+        ],
+        "must_not": [
+          "invent a status"
+        ],
+        "equivalent_observations": [
+          "A get_cancellation_refund or cancel_ticket call returning PNR_NOT_FOUND for 5551234567 grounds the answer as well."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "No booking has PNR 5551234567."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T82",
+      "category": "recovery",
+      "playbook_note": "3.0 batch. The ticket was already cancelled before 'now': cancel_ticket returns ALREADY_CANCELLED (or the status shows it). Reporting that it is already cancelled as a completed request is accepted too.",
+      "task_goal": "Cancel PNR 2894017356, which is already cancelled.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_request_on_cancelled_ticket"
+        },
+        {
+          "kind": "pnr",
+          "value": "2894017356"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_already_cancelled",
+        "params": {
+          "pnr": "2894017356",
+          "expected_error": "ALREADY_CANCELLED"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "already cancelled"
+        ],
+        "must_not": [
+          "claim a new cancellation or refund"
+        ],
+        "accepted_alternative_outcomes": [
+          "success with nothing changed: telling the user the ticket is already cancelled is also correct."
+        ],
+        "equivalent_observations": [
+          "get_booking_status(2894017356) showing status CANCELLED, or get_cancellation_refund returning ALREADY_CANCELLED, grounds the answer as well as cancel_ticket."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 2894017356: BTB104 2A, Rohit Bansal, journey 2026-10-09, already CANCELLED."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "2894017356"
+          },
+          "expect": {
+            "status": "CANCELLED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T83",
+      "category": "recovery",
+      "playbook_note": "3.0 batch. Today's train has already left its origin (BTB125 left Ahmedabad at 06:20; now is 09:00): the ticket can no longer be cancelled (JOURNEY_STARTED).",
+      "task_goal": "Cancel PNR 8803164527 for a train that has already left.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_request_after_departure"
+        },
+        {
+          "kind": "pnr",
+          "value": "8803164527"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_after_departure",
+        "params": {
+          "pnr": "8803164527",
+          "expected_error": "JOURNEY_STARTED"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "cannot be cancelled after departure"
+        ],
+        "must_not": [
+          "claim a refund"
+        ],
+        "equivalent_observations": [
+          "get_cancellation_refund(8803164527) returning JOURNEY_STARTED grounds the answer as well as cancel_ticket."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 8803164527: BTB125 CC, Harsh Vora, journey 2026-10-05 (today), CONFIRMED; BTB125 left ADI at 06:20."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "8803164527"
+          },
+          "expect": {
+            "status": "CONFIRMED",
+            "journey_date": "2026-10-05"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T84",
+      "category": "booking",
+      "playbook_note": "3.0 batch. Booking with an explicit waitlist fallback. 2A on BTB101 is sold out (3 already waiting): join the waitlist (position 4), not another class or train.",
+      "task_goal": "Book 2A on BTB101 NDLS->MMCT on 2026-10-08 for Kiran Desai; if full, waitlist.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "book_else_waitlist"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB101"
+        },
+        {
+          "kind": "route",
+          "source": "New Delhi",
+          "destination": "Mumbai"
+        },
+        {
+          "kind": "date",
+          "value": "2026-10-08"
+        },
+        {
+          "kind": "travel_class",
+          "value": "2A"
+        },
+        {
+          "kind": "passenger",
+          "value": "Kiran Desai"
+        },
+        {
+          "kind": "fallback",
+          "value": "waitlist"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "waitlist_fallback_booking",
+        "params": {
+          "train_id": "BTB101",
+          "source_name": "New Delhi",
+          "destination_name": "Mumbai",
+          "date": "2026-10-08",
+          "travel_class": "2A",
+          "passenger": "Kiran Desai"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "waitlisted",
+          "waitlist position 4"
+        ],
+        "must_not": [
+          "book another class or train",
+          "claim a confirmed booking"
+        ],
+        "equivalent_observations": [
+          "A rejected book_ticket(BTB101, 2A) returning SOLD_OUT grounds the fallback as well as check_availability."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB101 2A has 0 seats; 3 people already on its waitlist."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "check_availability",
+          "args": {
+            "train_id": "BTB101",
+            "travel_class": "2A"
+          },
+          "expect": {
+            "seats_available": 0
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T85",
+      "category": "constraint",
+      "playbook_note": "3.0 batch. Same situation shape as T84 (sold out) but the user REFUSES the waitlist: report, change nothing.",
+      "task_goal": "Book 3A on BTB109 NDLS->LKO on 2026-10-07 for Imran Qureshi; no waitlist.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "book_else_report_no_waitlist"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB109"
+        },
+        {
+          "kind": "route",
+          "source": "New Delhi",
+          "destination": "Lucknow"
+        },
+        {
+          "kind": "date",
+          "value": "2026-10-07"
+        },
+        {
+          "kind": "travel_class",
+          "value": "3A"
+        },
+        {
+          "kind": "passenger",
+          "value": "Imran Qureshi"
+        },
+        {
+          "kind": "no_waitlist"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "sold_out_no_waitlist",
+        "params": {
+          "train_id": "BTB109",
+          "source_name": "New Delhi",
+          "destination_name": "Lucknow",
+          "date": "2026-10-07",
+          "travel_class": "3A",
+          "passenger": "Imran Qureshi"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "3A sold out",
+          "not waitlisted"
+        ],
+        "must_not": [
+          "join the waitlist",
+          "book another class or train"
+        ],
+        "equivalent_observations": [
+          "A rejected book_ticket(BTB109, 3A) returning SOLD_OUT grounds the answer as well as check_availability."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB109 3A has 0 seats."
+      ],
+      "prohibited_actions": [
+        {
+          "tool": "join_waitlist",
+          "match": {},
+          "prompt_phrase": "don't put him on the waitlist",
+          "reason": "The user explicitly refuses the waitlist."
+        }
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "check_availability",
+          "args": {
+            "train_id": "BTB109",
+            "travel_class": "3A"
+          },
+          "expect": {
+            "seats_available": 0
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T86",
+      "category": "booking",
+      "playbook_note": "3.0 batch. The waitlist is offered as a fallback, but the condition does not hold (1 SL seat left): just book. Joining the waitlist would fail (SEATS_AVAILABLE) and is not what was asked.",
+      "task_goal": "Book SL on BTB104 MMCT->NDLS on 2026-10-09 for Asha Menon (waitlist only if sold out).",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "book_else_waitlist"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB104"
+        },
+        {
+          "kind": "route",
+          "source": "Mumbai",
+          "destination": "New Delhi"
+        },
+        {
+          "kind": "date",
+          "value": "2026-10-09"
+        },
+        {
+          "kind": "travel_class",
+          "value": "SL"
+        },
+        {
+          "kind": "passenger",
+          "value": "Asha Menon"
+        },
+        {
+          "kind": "fallback",
+          "value": "waitlist"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "waitlist_not_needed_booking",
+        "params": {
+          "train_id": "BTB104",
+          "source_name": "Mumbai",
+          "destination_name": "New Delhi",
+          "date": "2026-10-09",
+          "travel_class": "SL",
+          "passenger": "Asha Menon"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "selected_train_id BTB104",
+          "booking_id"
+        ],
+        "must_not": [
+          "join the waitlist"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB104 SL has 1 seat."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "check_availability",
+          "args": {
+            "train_id": "BTB104",
+            "travel_class": "SL"
+          },
+          "expect": {
+            "seats_available": 1
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T87",
+      "category": "single_tool",
+      "playbook_note": "3.0 batch. Live delay of a train running now. Selection: get_live_train_status, not the timetable (get_train_details).",
+      "task_goal": "How late is BTB105 now?",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "current_delay_minutes"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB105"
+        },
+        {
+          "kind": "now"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "live_delay",
+        "params": {
+          "train_id": "BTB105"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "delay_minutes 25"
+        ],
+        "must_not": [
+          "report the timetable as the live status"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB105 left NDLS 25 min late today (live_status.json)."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T88",
+      "category": "sequential",
+      "playbook_note": "3.0 batch. Expected arrival at an INTERMEDIATE stop of the run that started yesterday (scheduled 11:30 + 120 min = 13:30).",
+      "task_goal": "Expected arrival of BTB103 (yesterday's run) at Ahmedabad.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "expected_arrival_at_intermediate_stop"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB103"
+        },
+        {
+          "kind": "station",
+          "value": "Ahmedabad"
+        },
+        {
+          "kind": "now"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "live_expected_arrival_intermediate",
+        "params": {
+          "train_id": "BTB103",
+          "station_name": "Ahmedabad"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "expected_arrival 13:30"
+        ],
+        "must_not": [
+          "give the scheduled 11:30 as the expected time"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB103 run of 2026-10-04 is 120 min late (live_status.json); ADI scheduled 11:30."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T89",
+      "category": "single_tool",
+      "playbook_note": "3.0 batch. BTB111 runs TUE/THU/SAT; today is Monday: NOT running today.",
+      "task_goal": "Does BTB111 run today, and how late?",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "runs_today"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB111"
+        },
+        {
+          "kind": "today"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "live_running_today",
+        "params": {
+          "train_id": "BTB111"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "not running today"
+        ],
+        "must_not": [
+          "invent a delay"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB111 operating days TUE, THU, SAT; 2026-10-05 is a Monday."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T90",
+      "category": "sequential",
+      "playbook_note": "3.0 batch. Connection check: BTB125 is scheduled at Mumbai 13:45 (would make 14:05) but runs 70 min late (14:55): no.",
+      "task_goal": "Will BTB125 reach Mumbai before 14:05 today?",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "arrives_before_connection"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB125"
+        },
+        {
+          "kind": "station",
+          "value": "Mumbai"
+        },
+        {
+          "kind": "connection_time",
+          "value": "14:05"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "live_connection_check",
+        "params": {
+          "train_id": "BTB125",
+          "station_name": "Mumbai",
+          "connection_time": "14:05"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "expected_arrival 14:55",
+          "will miss the 14:05 train"
+        ],
+        "must_not": [
+          "answer from the timetable (13:45)"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB125 run of 2026-10-05 is 70 min late; MMCT scheduled 13:45."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T91",
+      "category": "single_tool",
+      "playbook_note": "3.0 batch. Concession fare lookup. Selection: get_concession_fare, not get_fare plus a guessed discount.",
+      "task_goal": "Senior citizen 3A fare on BTB115.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "concession_fare"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB115"
+        },
+        {
+          "kind": "travel_class",
+          "value": "3A"
+        },
+        {
+          "kind": "concession",
+          "value": "senior_citizen"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "concession_fare",
+        "params": {
+          "train_id": "BTB115",
+          "travel_class": "3A",
+          "concession": "senior_citizen"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "concession_fare_inr 1080"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB115 3A fare 1800; senior citizen 40% in 3A."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T92",
+      "category": "sequential",
+      "playbook_note": "3.0 batch. One senior + one normal SL ticket: total = 369 + 615 = 984. No booking ('Don't book anything yet').",
+      "task_goal": "Total of one senior-citizen and one normal SL ticket on BTB127 PUNE->NGP on 2026-10-09; no booking.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "party_total_with_one_concession"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB127"
+        },
+        {
+          "kind": "route",
+          "source": "Pune",
+          "destination": "Nagpur"
+        },
+        {
+          "kind": "date",
+          "value": "2026-10-09"
+        },
+        {
+          "kind": "travel_class",
+          "value": "SL"
+        },
+        {
+          "kind": "concession",
+          "value": "senior_citizen"
+        },
+        {
+          "kind": "no_booking"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "concession_party_total",
+        "params": {
+          "train_id": "BTB127",
+          "source_name": "Pune",
+          "destination_name": "Nagpur",
+          "date": "2026-10-09",
+          "travel_class": "SL",
+          "concession": "senior_citizen",
+          "regular_tickets": 1
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "total_fare_inr 984"
+        ],
+        "must_not": [
+          "book anything",
+          "apply the concession to both tickets"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB127 SL fare 615; senior citizen 40% in SL -> 369."
+      ],
+      "prohibited_actions": [
+        {
+          "tool": "book_ticket",
+          "match": {},
+          "prompt_phrase": "Don't book anything yet",
+          "reason": "The user asks for a price only."
+        }
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T93",
+      "category": "invalid_input",
+      "playbook_note": "3.0 batch. No student concession in chair car: CONCESSION_NOT_AVAILABLE.",
+      "task_goal": "Student CC fare on BTB117 (not offered).",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "concession_fare"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB117"
+        },
+        {
+          "kind": "travel_class",
+          "value": "CC"
+        },
+        {
+          "kind": "concession",
+          "value": "student"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "concession_not_available",
+        "params": {
+          "train_id": "BTB117",
+          "travel_class": "CC",
+          "concession": "student"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "cannot_complete",
+        "must_state": [
+          "no student concession in CC"
+        ],
+        "must_not": [
+          "quote a guessed discount"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "Student concession exists only in 3A and SL."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T94",
+      "category": "constraint",
+      "playbook_note": "3.0 batch. Budget check with a small margin: student 3A on BTB120 = 1095 <= 1100 (normal fare 1460 is not affordable).",
+      "task_goal": "Can a student afford 3A on BTB120 with ₹1,100?",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "affordable_with_concession"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB120"
+        },
+        {
+          "kind": "travel_class",
+          "value": "3A"
+        },
+        {
+          "kind": "concession",
+          "value": "student"
+        },
+        {
+          "kind": "budget_inr",
+          "value": 1100
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "concession_budget_check",
+        "params": {
+          "train_id": "BTB120",
+          "travel_class": "3A",
+          "concession": "student",
+          "budget_inr": 1100
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "yes, concession_fare_inr 1095"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB120 3A fare 1460; student 25% -> 1095."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T95",
+      "category": "booking",
+      "playbook_note": "3.0 batch. Cancel, then rebook the SAME passenger on the SAME train in SL. Train and passenger come from the booking (cancel_ticket returns them); the user gives no name.",
+      "task_goal": "Cancel PNR 4073819256 and book its passenger in SL on the same train.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_then_rebook_other_class"
+        },
+        {
+          "kind": "pnr",
+          "value": "4073819256"
+        },
+        {
+          "kind": "cancel"
+        },
+        {
+          "kind": "travel_class",
+          "value": "SL"
+        },
+        {
+          "kind": "same_passenger_same_train"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_and_rebook_class",
+        "params": {
+          "pnr": "4073819256",
+          "expect_status": "CONFIRMED",
+          "booking_passenger": "Anita Das",
+          "new_class": "SL"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "cancelled",
+          "new booking_id",
+          "refund_inr"
+        ],
+        "must_not": [
+          "book another passenger or train"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 4073819256: BTB112 3A, Anita Das, journey 2026-10-11, CONFIRMED; BTB112 SL has 36 seats."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "4073819256"
+          },
+          "expect": {
+            "status": "CONFIRMED",
+            "passenger": "Anita Das"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T96",
+      "category": "booking",
+      "playbook_note": "3.0 batch. Status-conditional cancel + rebook: the ticket IS still waitlisted, so check, cancel and book SL on the same train.",
+      "task_goal": "If PNR 1385672049 is waitlisted, cancel it and book SL on the same train for its passenger.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "if_waitlisted_cancel_then_rebook"
+        },
+        {
+          "kind": "pnr",
+          "value": "1385672049"
+        },
+        {
+          "kind": "condition",
+          "value": "waitlisted"
+        },
+        {
+          "kind": "travel_class",
+          "value": "SL"
+        },
+        {
+          "kind": "same_passenger_same_train"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "conditional_waitlisted_cancel_rebook",
+        "params": {
+          "pnr": "1385672049",
+          "expect_status": "WAITLISTED",
+          "booking_passenger": "Pooja Sharma",
+          "new_class": "SL",
+          "only_if_waitlisted": true
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "was waitlisted",
+          "cancelled",
+          "new booking_id"
+        ],
+        "must_not": [
+          "book another passenger or train"
+        ],
+        "equivalent_observations": [
+          "get_cancellation_refund(1385672049) showing status WAITLISTED grounds the condition as well as get_booking_status."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 1385672049: BTB103 3A, Pooja Sharma, journey 2026-10-06, WAITLISTED at 2; BTB103 SL has 9 seats."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "1385672049"
+          },
+          "expect": {
+            "status": "WAITLISTED",
+            "passenger": "Pooja Sharma"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T97",
+      "category": "constraint",
+      "playbook_note": "3.0 batch. Status-conditional cancel whose condition FAILS (CONFIRMED): leave it; the request is completed by checking.",
+      "task_goal": "If PNR 6043721985 is waitlisted cancel it, if confirmed leave it.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "if_waitlisted_cancel_else_keep"
+        },
+        {
+          "kind": "pnr",
+          "value": "6043721985"
+        },
+        {
+          "kind": "condition",
+          "value": "waitlisted"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "conditional_waitlisted_noop",
+        "params": {
+          "pnr": "6043721985"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "status CONFIRMED",
+          "left as it is"
+        ],
+        "must_not": [
+          "cancel the ticket"
+        ],
+        "equivalent_observations": [
+          "get_cancellation_refund(6043721985) showing status CONFIRMED grounds the answer as well as get_booking_status."
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "PNR 6043721985: BTB111 SL, Kavita Joshi, journey 2026-10-06, CONFIRMED."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "6043721985"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T98",
+      "category": "clarification",
+      "playbook_note": "3.0 batch. Cancellation without a PNR: no tool can list the user's bookings, so ask for the PNR; call nothing, cancel nothing.",
+      "task_goal": "Cancel 'my ticket for tomorrow' (no PNR).",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_without_reference"
+        },
+        {
+          "kind": "missing",
+          "value": "pnr"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_without_pnr_clarification",
+        "params": {
+          "missing": "pnr"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "needs_clarification",
+        "must_state": [
+          "asks for the PNR"
+        ],
+        "must_not": [
+          "cancel any ticket",
+          "guess a PNR"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "No tool lists bookings; every booking tool needs a PNR."
+      ],
+      "initial_state_checks": []
+    },
+    {
+      "semantic_task_id": "T99",
+      "category": "booking",
+      "playbook_note": "3.0 batch. Two cancellations and a total refund (600 + 600 = 1200).",
+      "task_goal": "Cancel PNRs 2951847306 and 2951847314; total refund.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "cancel_several_total_refund"
+        },
+        {
+          "kind": "pnrs",
+          "value": [
+            "2951847306",
+            "2951847314"
+          ]
+        },
+        {
+          "kind": "cancel"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "cancel_multiple_total_refund",
+        "params": {
+          "pnrs": [
+            "2951847306",
+            "2951847314"
+          ]
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "both cancelled",
+          "refund_inr 1200"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "Both PNRs: BTB116 SL, journey 2026-10-09, CONFIRMED, fare 720; SL charge 120."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "2951847306"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        },
+        {
+          "tool": "get_booking_status",
+          "args": {
+            "pnr": "2951847314"
+          },
+          "expect": {
+            "status": "CONFIRMED"
+          }
+        }
+      ]
+    },
+    {
+      "semantic_task_id": "T100",
+      "category": "sequential",
+      "playbook_note": "3.0 batch. Two read-only intents on one train: 3A availability AND the senior citizen 3A fare.",
+      "task_goal": "3A seats on BTB120 and senior citizen 3A fare.",
+      "constraints": [
+        {
+          "kind": "objective",
+          "value": "availability_and_concession_fare"
+        },
+        {
+          "kind": "train_id",
+          "value": "BTB120"
+        },
+        {
+          "kind": "travel_class",
+          "value": "3A"
+        },
+        {
+          "kind": "concession",
+          "value": "senior_citizen"
+        }
+      ],
+      "allowed_tools": [
+        "resolve_station",
+        "search_trains",
+        "get_train_details",
+        "check_availability",
+        "get_fare",
+        "book_ticket",
+        "get_booking_status",
+        "get_cancellation_refund",
+        "cancel_ticket",
+        "join_waitlist",
+        "get_live_train_status",
+        "get_concession_fare"
+      ],
+      "solver": {
+        "kind": "availability_and_concession",
+        "params": {
+          "train_id": "BTB120",
+          "travel_class": "3A",
+          "concession": "senior_citizen"
+        }
+      },
+      "final_answer_requirements": {
+        "expected_status": "success",
+        "must_state": [
+          "seats_available 33",
+          "concession_fare_inr 876"
+        ],
+        "must_not": [
+          "book anything"
+        ]
+      },
+      "initial_state_assumptions": [
+        "Baseline state: no new bookings, no cancellations, no new waitlist entries.",
+        "BTB120 3A: 33 seats, fare 1460; senior 40% -> 876."
+      ],
+      "initial_state_checks": [
+        {
+          "tool": "check_availability",
+          "args": {
+            "train_id": "BTB120",
+            "travel_class": "3A"
+          },
+          "expect": {
+            "seats_available": 33
           }
         }
       ]

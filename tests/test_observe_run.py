@@ -324,7 +324,7 @@ def test_expected_items_cover_all_375_items_and_the_old_200():
     from analysis.observe_run import LANGUAGES
     assert LANGUAGES == ["en", "hinglish", "hi", "mr", "gu"]
     full = expected_items("full", LANGUAGES)
-    assert len(full) == 375 and full[0] == "T01_en" and full[-1] == "T75_gu" and "T75_gu" in full
+    assert len(full) == 500 and full[0] == "T01_en" and full[-1] == "T100_gu" and "T75_gu" in full  # 3.0: 100 tasks
     old = expected_items("midsem", ["en", "hinglish", "hi", "mr"])  # the historical 200-item runs
     assert len(old) == 200 and old[-1] == "T50_mr"
 
@@ -341,7 +341,7 @@ def test_prerun_snapshot_counts_languages_and_hashes_gujarati(tmp_path):
         return httpx.Response(200, json={"models": [{"name": "llama3.2:3b", "digest": "a80c", "details": {}}]})
     client = httpx.Client(transport=httpx.MockTransport(handler))
     snap = prerun_snapshot.build("local_llama32_3b", "full", tmp_path / "x.jsonl", "cmd", client=client)
-    assert snap["expected_items"] == 375 and snap["languages"] == ["en", "hinglish", "hi", "mr", "gu"]
+    assert snap["expected_items"] == 500 and snap["languages"] == ["en", "hinglish", "hi", "mr", "gu"]
     assert "benchmark/languages/gu.jsonl" in snap["file_sha256"] and "benchmark/languages/human_review.json" in snap["file_sha256"]
 
 

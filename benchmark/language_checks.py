@@ -17,6 +17,7 @@ from .batch_t06_t15 import MARKERS as _BATCH_MARKERS
 from .batch_t16_t25 import MARKERS as _BATCH2_MARKERS
 from .batch_t26_t50 import MARKERS as _BATCH3_MARKERS
 from .batch_t51_t75 import MARKERS as _BATCH4_MARKERS
+from .batch_t76_t100 import MARKERS as _BATCH5_MARKERS
 from .batch_gujarati import MARKERS as _GU_MARKERS, MONTH_WORDS as _GU_MONTHS
 
 LANGS = ["en", "hinglish", "hi", "mr"]
@@ -76,6 +77,7 @@ _M.update(_BATCH_MARKERS)  # batch T06-T15 markers live next to the batch querie
 _M.update(_BATCH2_MARKERS)  # batch T16-T25 (benchmark/batch_t16_t25.py)
 _M.update(_BATCH3_MARKERS)  # batch T26-T50 (benchmark/batch_t26_t50.py)
 _M.update(_BATCH4_MARKERS)  # batch T51-T75 (benchmark/batch_t51_t75.py)
+_M.update(_BATCH5_MARKERS)  # batch T76-T100, benchmark 3.0 (benchmark/batch_t76_t100.py)
 for _t, _keys in _GU_MARKERS.items():  # Gujarati (benchmark/batch_gujarati.py): add a 'gu' entry to each existing marker (copy, never mutate)
     for _k, _rx in _keys.items():
         if not isinstance(_M[_t].get(_k), dict):

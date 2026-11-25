@@ -43,7 +43,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--model", required=True, choices=sorted(load_model_config()), help="a key of config/models.yaml")
     ap.add_argument("--split", default="pilot", choices=list(SPLITS))
     ap.add_argument("--languages", nargs="+", default=ALL_LANGUAGES, choices=ALL_LANGUAGES,
-                    help="default: all five languages (75 tasks x 5 = 375 items for --split full); pass the four old ones for the mid-sem runs")
+                    help="default: all five languages (100 tasks x 5 = 500 items for --split full); pass the four old ones for the mid-sem runs")
     ap.add_argument("--run-file", type=Path)
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--max-attempts", type=int, default=5, help="attempts per item for RETRYABLE provider failures only")

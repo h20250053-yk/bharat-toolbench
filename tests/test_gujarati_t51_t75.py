@@ -47,9 +47,9 @@ def test_375_items_75_tasks_in_5_languages():
     assert gu.GU_IDS == vt.ALL_IDS and gu.GU_IDS_T51_T75 == IDS
     for l in LANGS5:
         assert [r["semantic_task_id"] for r in rows(l)] == vt.ALL_IDS
-    assert sum(len(rows(l)) for l in LANGS5) == 375
+    assert sum(len(rows(l)) for l in LANGS5) == 500  # 3.0: 100 tasks x 5 languages
     items = load_items(vt.LANG_DIR, LANGS5, task_ids("full"))
-    assert len(items) == 375 and {i["language"] for i in items} == set(LANGS5)
+    assert len(items) == 500 and {i["language"] for i in items} == set(LANGS5)
 
 
 def test_gujarati_t01_t50_rows_and_audit_are_frozen():
@@ -60,7 +60,7 @@ def test_gujarati_t01_t50_rows_and_audit_are_frozen():
 
 def test_new_gujarati_items_are_reviewed_with_shared_fields():
     en = {r["semantic_task_id"]: r for r in rows("en")}
-    for r in rows("gu")[50:]:
+    for r in rows("gu")[50:75]:  # T51-T75 (T76-T100 are 3.0 drafts, not reviewed yet)
         e = en[r["semantic_task_id"]]
         assert r["review_status"] == "reviewed" and r["reviewer"] == hr.REVIEWER and r["author"] == "Claude-generated draft"
         assert (r["category"], r["allowed_tools"], r["tags"]) == (e["category"], e["allowed_tools"], [*e["tags"], "gujarati"])

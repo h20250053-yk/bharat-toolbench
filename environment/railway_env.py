@@ -1,4 +1,4 @@
-"""Deterministic simulated railway environment with six tools.
+"""Deterministic simulated railway environment with twelve tools (six since benchmark 1.0, six more since 3.0).
 
 No LLM, no network, no randomness, no wall-clock: all date logic uses the pinned reference datetime.
 Tools never raise to the caller; they return a `ToolResult` envelope (`ok`, `data`, `error`).
@@ -6,7 +6,11 @@ Tools never raise to the caller; they return a `ToolResult` envelope (`ok`, `dat
 Simplifications forced by the frozen tool signatures (document in the report):
   * check_availability / book_ticket take no date -> availability and bookings are per (train, class), not per date.
   * get_fare takes no source/destination -> fare is fixed per (train, class) for the train's whole journey.
-Date handling lives only in search_trains.
+Date handling lives only in search_trains (and, since 3.0, in get_live_train_status and the departed-train check of
+cancel_ticket / get_cancellation_refund, which read the pinned 'now').
+Benchmark 3.0 simplifications (documented): cancelling a CONFIRMED ticket returns one seat to its (train, class) pool;
+waitlists are never promoted automatically and positions never move; account bookings were made before 'now' and are
+already counted in the baseline seats.
 """
 from __future__ import annotations
 
@@ -21,9 +25,10 @@ import yaml
 from pydantic import BaseModel, ValidationError
 
 from .schemas import (
-    TOOL_DESCRIPTIONS, TOOL_INPUT_MODELS, TRAVEL_CLASSES, WEEKDAYS,
-    AvailabilityOutput, Booking, BookTicketOutput, FareOutput, ResolveStationOutput, SearchTrainsOutput,
-    StationCandidate, StopDetail, TimeWindow, ToolError, ToolResult, TrainDetailsOutput, TrainSummary,
+    CONCESSIONS, TOOL_DESCRIPTIONS, TOOL_INPUT_MODELS, TRAVEL_CLASSES, WEEKDAYS,
+    AvailabilityOutput, Booking, BookingStatusOutput, BookTicketOutput, Cancellation, CancelTicketOutput, ConcessionFareOutput,
+    FareOutput, JoinWaitlistOutput, LiveStatusOutput, LiveStop, RefundQuoteOutput, ResolveStationOutput, SearchTrainsOutput,
+    StationCandidate, StopDetail, TimeWindow, ToolError, ToolResult, TrainDetailsOutput, TrainSummary, WaitlistEntry,
 )
 from .state import EnvState, normalize_name
 
@@ -33,6 +38,7 @@ TOOL_NAMES = tuple(TOOL_INPUT_MODELS)
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _TIME_RE = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
 _NAME_RE = re.compile(r"^[A-Za-z][A-Za-z .'\-]{1,59}$")
+_PNR_RE = re.compile(r"^\d{10}$")
 
 
 def _minutes(hhmm: str) -> int:
@@ -236,6 +242,185 @@ class RailwayEnv:
         self.state.bookings.append(booking)
         self.state.next_booking_seq = seq + 1
         return _ok(BookTicketOutput(**booking.model_dump()))
+
+    # ================================================================== benchmark 3.0 tools
+    def _lookup_pnr(self, pnr: str):
+        """(view dict, error). A view has the booking's fields plus 'source' (account | session | waitlist) and its CURRENT status."""
+        p = pnr.strip()
+        if not _PNR_RE.match(p):
+            return None, _err("INVALID_PNR", f"A PNR is exactly 10 digits, got {pnr!r}.")
+        cancelled = {c.pnr for c in self.state.cancellations}
+        for b in self.state.bookings:
+            if b.pnr == p:
+                return {**b.model_dump(), "journey_date": None, "waitlist_position": None, "source": "session",
+                        "status": "CONFIRMED"}, None
+        for w in self.state.waitlist:
+            if w.pnr == p:
+                return {**w.model_dump(), "booking_id": w.waitlist_id, "journey_date": None, "source": "waitlist",
+                        "status": "WAITLISTED"}, None
+        for c in self.state.cancellations:  # a session booking / waitlist entry cancelled earlier in this conversation
+            if c.pnr == p and p not in self.state.account_bookings:
+                return {**c.model_dump(), "fare_inr": c.refund_inr + c.cancellation_charge_inr, "journey_date": None,
+                        "waitlist_position": None, "source": "session", "status": "CANCELLED"}, None
+        a = self.state.account_bookings.get(p)
+        if a is None:
+            return None, _err("PNR_NOT_FOUND", f"No booking with PNR {p}.")
+        view = {**a.model_dump(), "source": "account"}
+        if p in cancelled:
+            view.update(status="CANCELLED", waitlist_position=None)
+        return view, None
+
+    def _origin_departure(self, view: dict[str, Any]) -> Optional[datetime]:
+        if not view.get("journey_date"):
+            return None
+        train = self.state.trains[view["train_id"]]
+        d = Date.fromisoformat(view["journey_date"])
+        return datetime.combine(d, datetime.min.time()) + timedelta(minutes=_minutes(train.stops[0].departure))
+
+    def _refund_terms(self, view: dict[str, Any]):
+        """(charge, refund, error) for cancelling `view` now."""
+        if view["status"] == "CANCELLED":
+            return None, None, _err("ALREADY_CANCELLED", f"PNR {view['pnr']} is already cancelled.")
+        dep = self._origin_departure(view)
+        if dep is not None and dep <= self._ref_naive:
+            return None, None, _err("JOURNEY_STARTED", f"Train {view['train_id']} has already left its origin for this booking; "
+                                                      "it can no longer be cancelled.")
+        key = "WAITLISTED" if view["status"] == "WAITLISTED" else view["travel_class"]
+        charge = self.state.cancellation_charge[key]
+        return charge, view["fare_inr"] - charge, None
+
+    # ------------------------------------------------------------------ tool 7
+    def get_booking_status(self, pnr: str) -> ToolResult:
+        view, error = self._lookup_pnr(pnr)
+        if error:
+            return error
+        return _ok(BookingStatusOutput(
+            pnr=view["pnr"], booking_id=view["booking_id"], train_id=view["train_id"],
+            train_name=self.state.trains[view["train_id"]].train_name, travel_class=view["travel_class"],
+            passenger=view["passenger"], journey_date=view["journey_date"], fare_inr=view["fare_inr"], status=view["status"],
+            waitlist_position=view["waitlist_position"] if view["status"] == "WAITLISTED" else None))
+
+    # ------------------------------------------------------------------ tool 8
+    def get_cancellation_refund(self, pnr: str) -> ToolResult:
+        view, error = self._lookup_pnr(pnr)
+        if error:
+            return error
+        charge, refund, error = self._refund_terms(view)
+        if error:
+            return error
+        return _ok(RefundQuoteOutput(pnr=view["pnr"], status=view["status"], fare_inr=view["fare_inr"],
+                                     cancellation_charge_inr=charge, refund_inr=refund))
+
+    # ------------------------------------------------------------------ tool 9 (STATE-CHANGING)
+    def cancel_ticket(self, pnr: str) -> ToolResult:
+        """On success: the booking becomes CANCELLED (recorded in `cancellations`); a session booking / waitlist entry is removed
+        from its list; a CONFIRMED ticket returns one seat to its (train, class). On any error NOTHING is mutated."""
+        view, error = self._lookup_pnr(pnr)
+        if error:
+            return error
+        charge, refund, error = self._refund_terms(view)
+        if error:
+            return error
+        prev = view["status"]
+        canc = Cancellation(pnr=view["pnr"], booking_id=view["booking_id"], train_id=view["train_id"],
+                            travel_class=view["travel_class"], passenger=view["passenger"], previous_status=prev,
+                            cancellation_charge_inr=charge, refund_inr=refund)
+        if view["source"] == "session":
+            self.state.bookings = [b for b in self.state.bookings if b.pnr != view["pnr"]]
+        elif view["source"] == "waitlist":
+            self.state.waitlist = [w for w in self.state.waitlist if w.pnr != view["pnr"]]
+        if prev == "CONFIRMED":
+            self.state.availability[(view["train_id"], view["travel_class"])] += 1
+        self.state.cancellations.append(canc)
+        return _ok(CancelTicketOutput(**canc.model_dump()))
+
+    # ------------------------------------------------------------------ tool 10 (STATE-CHANGING)
+    def join_waitlist(self, train_id: str, travel_class: str, passenger: str) -> ToolResult:
+        """Validation order: train -> class -> class offered -> passenger -> duplicate -> seats must be SOLD OUT.
+        Position = people already waiting (fixture) + entries added in this conversation + 1. On any error NOTHING is mutated."""
+        train, cls, error = self._train_and_class(train_id, travel_class)
+        if error:
+            return error
+        name = re.sub(r"\s+", " ", passenger).strip()
+        if not _NAME_RE.match(name):
+            return _err("INVALID_PASSENGER", "Passenger must be a full name in Latin letters (2-60 chars).")
+        key = name.casefold()
+        if any(x.train_id == train.train_id and x.travel_class == cls and x.passenger.casefold() == key
+               for x in [*self.state.bookings, *self.state.waitlist]):
+            return _err("DUPLICATE_BOOKING", f"{name} already has a booking or waitlist entry on train {train.train_id} in {cls}.")
+        if self.state.availability[(train.train_id, cls)] > 0:
+            return _err("SEATS_AVAILABLE", f"Train {train.train_id} has seats in class {cls}; the waitlist is only for sold-out classes.")
+        seq = self.state.next_waitlist_seq
+        position = (self.state.waitlist_baseline.get((train.train_id, cls), 0)
+                    + sum(1 for w in self.state.waitlist if (w.train_id, w.travel_class) == (train.train_id, cls)) + 1)
+        digest = hashlib.sha256(f"BTBWL|{train.train_id}|{cls}|{key}|{seq}".encode()).hexdigest()
+        entry = WaitlistEntry(waitlist_id=f"WL{seq:04d}", pnr=f"{int(digest, 16) % 10**10:010d}", train_id=train.train_id,
+                              travel_class=cls, passenger=name, fare_inr=train.classes[cls].fare_inr, waitlist_position=position)
+        self.state.waitlist.append(entry)
+        self.state.next_waitlist_seq = seq + 1
+        return _ok(JoinWaitlistOutput(**entry.model_dump()))
+
+    # ------------------------------------------------------------------ tool 11
+    def _run_times(self, train, start: Date, delay: int):
+        """Expected (arrival_dt, departure_dt) per stop for the run that leaves the origin on `start`."""
+        base = datetime.combine(start, datetime.min.time())
+        out = []
+        for st in train.stops:
+            arr = base + timedelta(days=st.arrival_day or 0, minutes=_minutes(st.arrival) + delay) if st.arrival else None
+            dep = base + timedelta(days=st.departure_day or 0, minutes=_minutes(st.departure) + delay) if st.departure else None
+            out.append((st, arr, dep))
+        return out
+
+    def get_live_train_status(self, train_id: str) -> ToolResult:
+        """The run in progress now (if any), else today's run, else NOT_RUNNING_TODAY. Delay is constant over a run (fixture)."""
+        train = self.state.trains.get(train_id.strip())
+        if train is None:
+            return _err("INVALID_TRAIN", f"Unknown train_id: {train_id!r}")
+        now = self._ref_naive
+        today = now.date()
+        chosen = None
+        max_days = max((s.arrival_day or 0) for s in train.stops)
+        for back in range(max_days, -1, -1):  # older runs first; a later RUNNING run replaces an earlier one
+            start = today - timedelta(days=back)
+            if WEEKDAYS[start.weekday()] not in train.operating_days:
+                continue
+            delay = self.state.live_delays.get((train.train_id, start.isoformat()), 0)
+            times = self._run_times(train, start, delay)
+            first_dep, last_arr = times[0][2], times[-1][1]
+            status = "NOT_STARTED" if now < first_dep else ("ARRIVED" if now >= last_arr else "RUNNING")
+            if status == "RUNNING" or (back == 0 and (chosen is None or chosen[1] != "RUNNING")):
+                chosen = (start, status, delay, times)
+        as_of = self.reference_datetime.isoformat()
+        if chosen is None:
+            return _ok(LiveStatusOutput(train_id=train.train_id, train_name=train.train_name, as_of=as_of, run_start_date=None,
+                                        status="NOT_RUNNING_TODAY", delay_minutes=None, last_station=None, next_station=None, stops=[]))
+        start, status, delay, times = chosen
+        reached = [st.station for st, arr, dep in times if (arr or dep) <= now]
+        last = reached[-1] if status != "NOT_STARTED" and reached else None
+        codes = [st.station for st, _, _ in times]
+        nxt = codes[codes.index(last) + 1] if last and status == "RUNNING" else None
+        hm = lambda dt: dt.strftime("%H:%M") if dt else None  # noqa: E731
+        stops = [LiveStop(station=st.station, scheduled_arrival=st.arrival, scheduled_departure=st.departure,
+                          expected_arrival=hm(arr), expected_departure=hm(dep), expected_date=(arr or dep).date().isoformat())
+                 for st, arr, dep in times]
+        return _ok(LiveStatusOutput(train_id=train.train_id, train_name=train.train_name, as_of=as_of,
+                                    run_start_date=start.isoformat(), status=status, delay_minutes=delay,
+                                    last_station=last, next_station=nxt, stops=stops))
+
+    # ------------------------------------------------------------------ tool 12
+    def get_concession_fare(self, train_id: str, travel_class: str, concession: str) -> ToolResult:
+        train, cls, error = self._train_and_class(train_id, travel_class)
+        if error:
+            return error
+        con = re.sub(r"[\s\-]+", "_", concession.strip().lower())
+        if con not in CONCESSIONS:
+            return _err("INVALID_CONCESSION", f"Unknown concession {concession!r}. Valid: {', '.join(CONCESSIONS)}")
+        pct = self.state.concession_percent.get(con, {}).get(cls)
+        if pct is None:
+            return _err("CONCESSION_NOT_AVAILABLE", f"No {con} concession in class {cls}.")
+        base = train.classes[cls].fare_inr
+        return _ok(ConcessionFareOutput(train_id=train.train_id, travel_class=cls, concession=con, base_fare_inr=base,
+                                        discount_percent=pct, concession_fare_inr=(base * (100 - pct) + 50) // 100))
 
 
 def tool_specs() -> list[dict[str, Any]]:

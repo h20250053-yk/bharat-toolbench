@@ -241,3 +241,12 @@ GU_IDS += GU_IDS_T51_T75
 QUERIES.update(_t51.QUERIES)
 MARKERS.update(_t51.MARKERS)
 FLAGS.update(_t51.FLAGS)
+
+# ------------------------------------------------------------------ T76-T100, benchmark 3.0 (benchmark/batch_gujarati_t76_t100.py)
+from . import batch_gujarati_t76_t100 as _t76  # noqa: E402
+
+GU_IDS_T76_T100 = list(_t76.IDS)
+GU_IDS += GU_IDS_T76_T100
+QUERIES.update(_t76.QUERIES)
+MARKERS.update(_t76.MARKERS)
+FLAGS.update(_t76.FLAGS)

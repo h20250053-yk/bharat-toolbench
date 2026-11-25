@@ -198,6 +198,132 @@ class BookTicketOutput(BaseModel):
     status: Literal["CONFIRMED"]
 
 
+# ----------------------------------------------------------------------------- benchmark 3.0: six more tools
+BOOKING_STATUSES = ("CONFIRMED", "WAITLISTED", "CANCELLED")
+CONCESSIONS = ("senior_citizen", "student")
+
+
+class AccountBooking(_Frozen):
+    """A booking the user made before the pinned 'now' (fixture environment/data/account.json)."""
+
+    pnr: str
+    booking_id: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    journey_date: str  # YYYY-MM-DD, the date the train leaves its ORIGIN station
+    fare_inr: int
+    status: Literal["CONFIRMED", "WAITLISTED", "CANCELLED"]
+    waitlist_position: Optional[int] = None
+
+
+class WaitlistEntry(BaseModel):
+    waitlist_id: str
+    pnr: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    fare_inr: int
+    waitlist_position: int
+    status: Literal["WAITLISTED"] = "WAITLISTED"
+
+
+class Cancellation(BaseModel):
+    pnr: str
+    booking_id: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    previous_status: Literal["CONFIRMED", "WAITLISTED"]
+    cancellation_charge_inr: int
+    refund_inr: int
+
+
+class PnrInput(_Input):
+    pnr: str  # 10-digit PNR
+
+
+class ConcessionFareInput(_Input):
+    train_id: str
+    travel_class: str
+    concession: str  # senior_citizen | student
+
+
+class BookingStatusOutput(BaseModel):
+    pnr: str
+    booking_id: str
+    train_id: str
+    train_name: str
+    travel_class: str
+    passenger: str
+    journey_date: Optional[str]
+    fare_inr: int
+    status: Literal["CONFIRMED", "WAITLISTED", "CANCELLED"]
+    waitlist_position: Optional[int]
+
+
+class RefundQuoteOutput(BaseModel):
+    pnr: str
+    status: Literal["CONFIRMED", "WAITLISTED"]
+    fare_inr: int
+    cancellation_charge_inr: int
+    refund_inr: int
+
+
+class CancelTicketOutput(BaseModel):
+    pnr: str
+    booking_id: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    previous_status: Literal["CONFIRMED", "WAITLISTED"]
+    status: Literal["CANCELLED"] = "CANCELLED"
+    cancellation_charge_inr: int
+    refund_inr: int
+
+
+class JoinWaitlistOutput(BaseModel):
+    waitlist_id: str
+    pnr: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    fare_inr: int
+    waitlist_position: int
+    status: Literal["WAITLISTED"]
+
+
+class LiveStop(BaseModel):
+    station: str
+    scheduled_arrival: Optional[str]
+    scheduled_departure: Optional[str]
+    expected_arrival: Optional[str]
+    expected_departure: Optional[str]
+    expected_date: str  # date of the expected arrival (departure at the origin) at this stop
+
+
+class LiveStatusOutput(BaseModel):
+    train_id: str
+    train_name: str
+    as_of: str
+    run_start_date: Optional[str]
+    status: Literal["RUNNING", "NOT_STARTED", "ARRIVED", "NOT_RUNNING_TODAY"]
+    delay_minutes: Optional[int]
+    last_station: Optional[str]  # last station the train has departed (RUNNING) or reached (ARRIVED)
+    next_station: Optional[str]
+    stops: list[LiveStop]
+
+
+class ConcessionFareOutput(BaseModel):
+    train_id: str
+    travel_class: str
+    concession: str
+    base_fare_inr: int
+    discount_percent: int
+    concession_fare_inr: int
+    currency: Literal["INR"] = "INR"
+
+
 TOOL_INPUT_MODELS: dict[str, type[BaseModel]] = {
     "resolve_station": ResolveStationInput,
     "search_trains": SearchTrainsInput,
@@ -205,6 +331,12 @@ TOOL_INPUT_MODELS: dict[str, type[BaseModel]] = {
     "check_availability": TrainClassInput,
     "get_fare": TrainClassInput,
     "book_ticket": BookTicketInput,
+    "get_booking_status": PnrInput,
+    "get_cancellation_refund": PnrInput,
+    "cancel_ticket": PnrInput,
+    "join_waitlist": BookTicketInput,
+    "get_live_train_status": TrainIdInput,
+    "get_concession_fare": ConcessionFareInput,
 }
 
 TOOL_OUTPUT_MODELS: dict[str, type[BaseModel]] = {
@@ -214,6 +346,12 @@ TOOL_OUTPUT_MODELS: dict[str, type[BaseModel]] = {
     "check_availability": AvailabilityOutput,
     "get_fare": FareOutput,
     "book_ticket": BookTicketOutput,
+    "get_booking_status": BookingStatusOutput,
+    "get_cancellation_refund": RefundQuoteOutput,
+    "cancel_ticket": CancelTicketOutput,
+    "join_waitlist": JoinWaitlistOutput,
+    "get_live_train_status": LiveStatusOutput,
+    "get_concession_fare": ConcessionFareOutput,
 }
 
 # Model-facing descriptions. These are part of the benchmark contract: change => new benchmark version.
@@ -227,4 +365,17 @@ TOOL_DESCRIPTIONS: dict[str, str] = {
     "check_availability": "Check seat availability of a train for a travel class (3A, 2A, SL or CC).",
     "get_fare": "Get the fare in INR of a train for a travel class (3A, 2A, SL or CC).",
     "book_ticket": "Book one ticket for a passenger on a train in a travel class. Changes booking state.",
+    # benchmark 3.0
+    "get_booking_status": "Look up an existing booking by its 10-digit PNR: train, class, passenger, journey date, fare, "
+    "and status (CONFIRMED, WAITLISTED or CANCELLED, with the waitlist position if waitlisted).",
+    "get_cancellation_refund": "Quote the cancellation charge and refund in INR for a booking (10-digit PNR) WITHOUT cancelling it. "
+    "Does not change anything.",
+    "cancel_ticket": "Cancel a booking by its 10-digit PNR and refund the fare minus the cancellation charge. "
+    "Changes booking state. A train that has already left its origin cannot be cancelled.",
+    "join_waitlist": "Put a passenger on the waitlist of a train for a travel class whose seats are sold out. "
+    "Only possible when no seats are available. Changes booking state.",
+    "get_live_train_status": "Get today's running status of a train (as of now): whether it is running, its delay in minutes, "
+    "the last station it left, and expected arrival/departure times at each stop.",
+    "get_concession_fare": "Get the discounted fare in INR of a train for a travel class for a concession "
+    "(senior_citizen or student), together with the normal fare and the discount percent.",
 }

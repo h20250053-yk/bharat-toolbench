@@ -1,10 +1,10 @@
 {
   "_meta": {
     "generator": "benchmark/build_gold.py (solver over the deterministic environment; no LLM)",
-    "benchmark_version": "2.1.0",
+    "benchmark_version": "3.0.0",
     "reference_datetime": "2026-10-05T09:00:00+05:30",
     "env_static_hash": "293eb39bd4134d7e0802a2d55475b61358537776c0986bd7a021cbf0604f625f",
-    "env_baseline_state_hash": "2ee9740c09fb7c81dd704a6c4f6b66d1641d41178ba0edc263212017d42a29e0"
+    "env_baseline_state_hash": "2584c4a8964d6d43460e8b3fef5e71c47dd3442e46d8d4b20506679df740bd84"
   },
   "T01": {
     "semantic_task_id": "T01",
@@ -6769,6 +6769,1305 @@
           25
         ]
       }
+    }
+  },
+  "T76": {
+    "semantic_task_id": "T76",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_booking_status",
+        "required_args": {
+          "pnr": "7302958146"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB101"
+      ],
+      "travel_class": "2A",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB101",
+      "travel_class": "2A",
+      "pnr": "7302958146",
+      "booking_status": "WAITLISTED",
+      "waitlist_position": 3
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T77": {
+    "semantic_task_id": "T77",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_cancellation_refund",
+        "required_args": {
+          "pnr": "4518203967"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB115"
+      ],
+      "travel_class": "3A",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB115",
+      "travel_class": "3A",
+      "pnr": "4518203967",
+      "refund_inr": 1620,
+      "cancellation_charge_inr": 180
+    },
+    "forbidden_tools": [
+      "cancel_ticket"
+    ],
+    "prohibited_actions": [
+      {
+        "tool": "cancel_ticket",
+        "match": {},
+        "prompt_phrase": "Don't cancel it yet",
+        "reason": "The user only asks how much would come back and explicitly says not to cancel yet."
+      }
+    ],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T78": {
+    "semantic_task_id": "T78",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "9157364820"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB120"
+      ],
+      "travel_class": "3A",
+      "expected_bookings": [],
+      "expected_cancellations": [
+        "9157364820"
+      ]
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB120",
+      "travel_class": "3A",
+      "pnr": "9157364820",
+      "refund_inr": 1280,
+      "booking_status": "CANCELLED"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {
+        "BTB120|3A": [
+          33,
+          34
+        ]
+      },
+      "cancellations": [
+        {
+          "pnr": "9157364820",
+          "booking_id": "BK9005",
+          "train_id": "BTB120",
+          "travel_class": "3A",
+          "passenger": "Sanjay Kulkarni",
+          "previous_status": "CONFIRMED",
+          "cancellation_charge_inr": 180,
+          "refund_inr": 1280
+        }
+      ]
+    }
+  },
+  "T79": {
+    "semantic_task_id": "T79",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_cancellation_refund",
+        "required_args": {
+          "pnr": "5079318462"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "train_id": "BTB122",
+      "pnr": "5079318462",
+      "refund_inr": 7360,
+      "min_refund_inr": 7400,
+      "reason": "refund_below_threshold"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T80": {
+    "semantic_task_id": "T80",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_cancellation_refund",
+        "required_args": {
+          "pnr": "6720483915"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "6720483915"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [
+      {
+        "before": "c1",
+        "after": "c2"
+      }
+    ],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB127"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": [],
+      "expected_cancellations": [
+        "6720483915"
+      ]
+    },
+    "min_calls": 2,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB127",
+      "travel_class": "SL",
+      "pnr": "6720483915",
+      "refund_inr": 495,
+      "min_refund_inr": 450,
+      "booking_status": "CANCELLED"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {
+        "BTB127|SL": [
+          33,
+          34
+        ]
+      },
+      "cancellations": [
+        {
+          "pnr": "6720483915",
+          "booking_id": "BK9010",
+          "train_id": "BTB127",
+          "travel_class": "SL",
+          "passenger": "Vikram Rao",
+          "previous_status": "CONFIRMED",
+          "cancellation_charge_inr": 120,
+          "refund_inr": 495
+        }
+      ]
+    }
+  },
+  "T81": {
+    "semantic_task_id": "T81",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_booking_status",
+        "required_args": {
+          "pnr": "5551234567"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {},
+        "expected_error": "PNR_NOT_FOUND"
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "pnr": "5551234567",
+      "reason": "pnr_not_found"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T82": {
+    "semantic_task_id": "T82",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "2894017356"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {},
+        "expected_error": "ALREADY_CANCELLED"
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "train_id": "BTB104",
+      "pnr": "2894017356",
+      "booking_status": "CANCELLED",
+      "reason": "already_cancelled"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T83": {
+    "semantic_task_id": "T83",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "8803164527"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {},
+        "expected_error": "JOURNEY_STARTED"
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "train_id": "BTB125",
+      "pnr": "8803164527",
+      "booking_status": "CONFIRMED",
+      "reason": "journey_started"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T84": {
+    "semantic_task_id": "T84",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "check_availability",
+        "required_args": {
+          "train_id": "BTB101",
+          "travel_class": "2A"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "join_waitlist",
+        "required_args": {
+          "train_id": "BTB101",
+          "travel_class": "2A",
+          "passenger": "Kiran Desai"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [
+      {
+        "before": "c1",
+        "after": "c2"
+      }
+    ],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB101"
+      ],
+      "travel_class": "2A",
+      "expected_bookings": [],
+      "expected_waitlist": [
+        {
+          "train_id": "BTB101",
+          "travel_class": "2A",
+          "passenger": "Kiran Desai"
+        }
+      ]
+    },
+    "min_calls": 2,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB101",
+      "travel_class": "2A",
+      "passenger": "Kiran Desai",
+      "booking_status": "WAITLISTED",
+      "waitlist_position": 4
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {},
+      "waitlist": [
+        {
+          "waitlist_id": "WL0001",
+          "pnr": "8496853822",
+          "train_id": "BTB101",
+          "travel_class": "2A",
+          "passenger": "Kiran Desai",
+          "fare_inr": 4490,
+          "waitlist_position": 4,
+          "status": "WAITLISTED"
+        }
+      ]
+    }
+  },
+  "T85": {
+    "semantic_task_id": "T85",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "check_availability",
+        "required_args": {
+          "train_id": "BTB109",
+          "travel_class": "3A"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": "3A",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "train_id": "BTB109",
+      "travel_class": "3A",
+      "requested_status": "SOLD_OUT",
+      "reason": "sold_out_waitlist_refused"
+    },
+    "forbidden_tools": [
+      "join_waitlist"
+    ],
+    "prohibited_actions": [
+      {
+        "tool": "join_waitlist",
+        "match": {},
+        "prompt_phrase": "don't put him on the waitlist",
+        "reason": "The user explicitly refuses the waitlist."
+      }
+    ],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T86": {
+    "semantic_task_id": "T86",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "book_ticket",
+        "required_args": {
+          "train_id": "BTB104",
+          "travel_class": "SL",
+          "passenger": "Asha Menon"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB104"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": [
+        {
+          "train_id": "BTB104",
+          "travel_class": "SL",
+          "passenger": "Asha Menon"
+        }
+      ]
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB104",
+      "travel_class": "SL",
+      "passenger": "Asha Menon",
+      "fare_inr": 1000,
+      "booking_id": "BK0001"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [
+        {
+          "booking_id": "BK0001",
+          "pnr": "5146165864",
+          "train_id": "BTB104",
+          "travel_class": "SL",
+          "passenger": "Asha Menon",
+          "fare_inr": 1000,
+          "status": "CONFIRMED"
+        }
+      ],
+      "availability_changes": {
+        "BTB104|SL": [
+          1,
+          0
+        ]
+      }
+    }
+  },
+  "T87": {
+    "semantic_task_id": "T87",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_live_train_status",
+        "required_args": {
+          "train_id": "BTB105"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB105"
+      ],
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB105",
+      "running_status": "RUNNING",
+      "delay_minutes": 25
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T88": {
+    "semantic_task_id": "T88",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_live_train_status",
+        "required_args": {
+          "train_id": "BTB103"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB103"
+      ],
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB103",
+      "station_code": "ADI",
+      "expected_arrival": "13:30",
+      "expected_date": "2026-10-05",
+      "delay_minutes": 120
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T89": {
+    "semantic_task_id": "T89",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_live_train_status",
+        "required_args": {
+          "train_id": "BTB111"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB111"
+      ],
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB111",
+      "runs_on_requested_weekday": false
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T90": {
+    "semantic_task_id": "T90",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_live_train_status",
+        "required_args": {
+          "train_id": "BTB125"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB125"
+      ],
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB125",
+      "station_code": "MMCT",
+      "expected_arrival": "14:55",
+      "expected_date": "2026-10-05",
+      "delay_minutes": 70,
+      "makes_connection": false
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T91": {
+    "semantic_task_id": "T91",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_concession_fare",
+        "required_args": {
+          "train_id": "BTB115",
+          "travel_class": "3A",
+          "concession": "senior_citizen"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB115"
+      ],
+      "travel_class": "3A",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB115",
+      "travel_class": "3A",
+      "concession_fare_inr": 1080,
+      "base_fare_inr": 1800
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T92": {
+    "semantic_task_id": "T92",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_concession_fare",
+        "required_args": {
+          "train_id": "BTB127",
+          "travel_class": "SL",
+          "concession": "senior_citizen"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "get_fare",
+        "required_args": {
+          "train_id": "BTB127",
+          "travel_class": "SL"
+        },
+        "args_from": {},
+        "optional": true,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB127"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB127",
+      "travel_class": "SL",
+      "total_fare_inr": 984,
+      "concession_fare_inr": 369,
+      "base_fare_inr": 615
+    },
+    "forbidden_tools": [
+      "book_ticket"
+    ],
+    "prohibited_actions": [
+      {
+        "tool": "book_ticket",
+        "match": {},
+        "prompt_phrase": "Don't book anything yet",
+        "reason": "The user asks for a price only."
+      }
+    ],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T93": {
+    "semantic_task_id": "T93",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_concession_fare",
+        "required_args": {
+          "train_id": "BTB117",
+          "travel_class": "CC",
+          "concession": "student"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {},
+        "expected_error": "CONCESSION_NOT_AVAILABLE"
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "cannot_complete",
+      "allowed_train_ids": null,
+      "travel_class": "CC",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "cannot_complete",
+      "selected_train_id": null,
+      "train_id": "BTB117",
+      "travel_class": "CC",
+      "reason": "concession_not_available"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T94": {
+    "semantic_task_id": "T94",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_concession_fare",
+        "required_args": {
+          "train_id": "BTB120",
+          "travel_class": "3A",
+          "concession": "student"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB120"
+      ],
+      "travel_class": "3A",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB120",
+      "travel_class": "3A",
+      "concession_fare_inr": 1095,
+      "affordable": true
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T95": {
+    "semantic_task_id": "T95",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_booking_status",
+        "required_args": {
+          "pnr": "4073819256"
+        },
+        "args_from": {},
+        "optional": true,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "4073819256"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c3",
+        "tool": "book_ticket",
+        "required_args": {
+          "train_id": "BTB112",
+          "travel_class": "SL",
+          "passenger": "Anita Das"
+        },
+        "args_from": {
+          "train_id": "c2.train_id",
+          "passenger": "c2.passenger"
+        },
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB112"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": [
+        {
+          "train_id": "BTB112",
+          "travel_class": "SL",
+          "passenger": "Anita Das"
+        }
+      ],
+      "expected_cancellations": [
+        "4073819256"
+      ]
+    },
+    "min_calls": 2,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB112",
+      "travel_class": "SL",
+      "pnr": "4073819256",
+      "previous_status": "CONFIRMED",
+      "refund_inr": 2360,
+      "passenger": "Anita Das",
+      "booking_id": "BK0001"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [
+        {
+          "booking_id": "BK0001",
+          "pnr": "8099064952",
+          "train_id": "BTB112",
+          "travel_class": "SL",
+          "passenger": "Anita Das",
+          "fare_inr": 1015,
+          "status": "CONFIRMED"
+        }
+      ],
+      "availability_changes": {
+        "BTB112|3A": [
+          13,
+          14
+        ],
+        "BTB112|SL": [
+          36,
+          35
+        ]
+      },
+      "cancellations": [
+        {
+          "pnr": "4073819256",
+          "booking_id": "BK9011",
+          "train_id": "BTB112",
+          "travel_class": "3A",
+          "passenger": "Anita Das",
+          "previous_status": "CONFIRMED",
+          "cancellation_charge_inr": 180,
+          "refund_inr": 2360
+        }
+      ]
+    }
+  },
+  "T96": {
+    "semantic_task_id": "T96",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_booking_status",
+        "required_args": {
+          "pnr": "1385672049"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "1385672049"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c3",
+        "tool": "book_ticket",
+        "required_args": {
+          "train_id": "BTB103",
+          "travel_class": "SL",
+          "passenger": "Pooja Sharma"
+        },
+        "args_from": {
+          "train_id": "c2.train_id",
+          "passenger": "c2.passenger"
+        },
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [
+      {
+        "before": "c1",
+        "after": "c2"
+      },
+      {
+        "before": "c1",
+        "after": "c3"
+      }
+    ],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB103"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": [
+        {
+          "train_id": "BTB103",
+          "travel_class": "SL",
+          "passenger": "Pooja Sharma"
+        }
+      ],
+      "expected_cancellations": [
+        "1385672049"
+      ]
+    },
+    "min_calls": 3,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB103",
+      "travel_class": "SL",
+      "pnr": "1385672049",
+      "previous_status": "WAITLISTED",
+      "refund_inr": 2435,
+      "passenger": "Pooja Sharma",
+      "booking_id": "BK0001"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [
+        {
+          "booking_id": "BK0001",
+          "pnr": "3778367338",
+          "train_id": "BTB103",
+          "travel_class": "SL",
+          "passenger": "Pooja Sharma",
+          "fare_inr": 1000,
+          "status": "CONFIRMED"
+        }
+      ],
+      "availability_changes": {
+        "BTB103|SL": [
+          9,
+          8
+        ]
+      },
+      "cancellations": [
+        {
+          "pnr": "1385672049",
+          "booking_id": "BK9009",
+          "train_id": "BTB103",
+          "travel_class": "3A",
+          "passenger": "Pooja Sharma",
+          "previous_status": "WAITLISTED",
+          "cancellation_charge_inr": 60,
+          "refund_inr": 2435
+        }
+      ]
+    }
+  },
+  "T97": {
+    "semantic_task_id": "T97",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "get_booking_status",
+        "required_args": {
+          "pnr": "6043721985"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB111"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": []
+    },
+    "min_calls": 1,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB111",
+      "travel_class": "SL",
+      "pnr": "6043721985",
+      "booking_status": "CONFIRMED"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T98": {
+    "semantic_task_id": "T98",
+    "required_calls": [],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "needs_clarification",
+      "allowed_train_ids": null,
+      "travel_class": null,
+      "expected_bookings": []
+    },
+    "min_calls": 0,
+    "final_answer": {
+      "status": "needs_clarification",
+      "selected_train_id": null,
+      "missing": "pnr"
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
+    }
+  },
+  "T99": {
+    "semantic_task_id": "T99",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "2951847306"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "cancel_ticket",
+        "required_args": {
+          "pnr": "2951847314"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB116"
+      ],
+      "travel_class": "SL",
+      "expected_bookings": [],
+      "expected_cancellations": [
+        "2951847306",
+        "2951847314"
+      ]
+    },
+    "min_calls": 2,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB116",
+      "travel_class": "SL",
+      "pnrs": [
+        "2951847306",
+        "2951847314"
+      ],
+      "refund_inr": 1200
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {
+        "BTB116|SL": [
+          28,
+          30
+        ]
+      },
+      "cancellations": [
+        {
+          "pnr": "2951847306",
+          "booking_id": "BK9012",
+          "train_id": "BTB116",
+          "travel_class": "SL",
+          "passenger": "Ramesh Pillai",
+          "previous_status": "CONFIRMED",
+          "cancellation_charge_inr": 120,
+          "refund_inr": 600
+        },
+        {
+          "pnr": "2951847314",
+          "booking_id": "BK9013",
+          "train_id": "BTB116",
+          "travel_class": "SL",
+          "passenger": "Sunita Pillai",
+          "previous_status": "CONFIRMED",
+          "cancellation_charge_inr": 120,
+          "refund_inr": 600
+        }
+      ]
+    }
+  },
+  "T100": {
+    "semantic_task_id": "T100",
+    "required_calls": [
+      {
+        "call_id": "c1",
+        "tool": "check_availability",
+        "required_args": {
+          "train_id": "BTB120",
+          "travel_class": "3A"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      },
+      {
+        "call_id": "c2",
+        "tool": "get_concession_fare",
+        "required_args": {
+          "train_id": "BTB120",
+          "travel_class": "3A",
+          "concession": "senior_citizen"
+        },
+        "args_from": {},
+        "optional": false,
+        "arg_alternatives": {}
+      }
+    ],
+    "dependency_edges": [],
+    "final_state": {
+      "status": "success",
+      "allowed_train_ids": [
+        "BTB120"
+      ],
+      "travel_class": "3A",
+      "expected_bookings": []
+    },
+    "min_calls": 2,
+    "final_answer": {
+      "status": "success",
+      "selected_train_id": "BTB120",
+      "travel_class": "3A",
+      "seats_available": 33,
+      "concession_fare_inr": 876
+    },
+    "forbidden_tools": [],
+    "prohibited_actions": [],
+    "expected_env_diff": {
+      "bookings": [],
+      "availability_changes": {}
     }
   }
 }

@@ -7,7 +7,7 @@ reasoning features, all derived from the spec + generated gold (nothing hand-lab
   * solver kind             - the reasoning procedure that produces the gold (must be unique per task)
   * expected status         - success / cannot_complete / needs_clarification
   * required tools          - set of tools in the non-optional gold calls
-  * mutation profile        - number of bookings expected (0, 1, 2+)
+  * mutation profile        - number of bookings expected (0, 1, 2+); since 3.0 also cancellations (1, 2+) and waitlist entries
   * expected tool errors    - e.g. CLASS_NOT_OFFERED
   * reasoning constraints   - constraint kinds with their operator / objective / condition, e.g.
                               'departure_time:>=', 'objective:latest departure', 'fallback_allowed:False'
@@ -54,7 +54,11 @@ def features(spec: Any, gold: dict[str, Any]) -> dict[str, Any]:
         "solver": spec.solver.kind,
         "status": gold["final_state"]["status"],
         "tools": frozenset(c["tool"] for c in req),
-        "mutation": "0" if n_book == 0 else ("1" if n_book == 1 else "2+"),
+        # 3.0: cancellations and waitlist entries are mutations too (absent for T01-T75, so their features are unchanged)
+        "mutation": ("0" if n_book == 0 else ("1" if n_book == 1 else "2+"))
+                    + (f"+cancel{min(len(gold['final_state'].get('expected_cancellations') or []), 2)}"
+                       if gold["final_state"].get("expected_cancellations") else "")
+                    + ("+waitlist" if gold["final_state"].get("expected_waitlist") else ""),
         "errors": frozenset(c["expected_error"] for c in gold["required_calls"] if c.get("expected_error")),
         "reasoning": frozenset(t for t in (_constraint_token(c) for c in spec.constraints) if t)
                      | ({"multi_passenger"} if any(c["kind"] == "passengers" and len(c["value"]) > 1 for c in spec.constraints) else set()),

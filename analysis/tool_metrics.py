@@ -20,7 +20,7 @@ try:  # numpy is only in the visualisation venv
 except ImportError:  # pragma: no cover - exercised in the project venv
     np = None
 
-TOOLS = ("resolve_station", "search_trains", "get_train_details", "check_availability", "get_fare", "book_ticket")
+from environment.railway_env import TOOL_NAMES as TOOLS  # noqa: E402  (twelve tools since benchmark 3.0)
 NOT_CALLED, NOT_REQUIRED = "(not called)", "(not required)"
 CALL_EVENTS = ("tool_call", "malformed_tool_call", "tool_not_allowed")
 INVALID_CODES = {"INVALID_ARGUMENTS", "MALFORMED_ARGUMENTS", "UNKNOWN_TOOL", "TOOL_NOT_ALLOWED", "INVALID_STATION", "INVALID_TRAIN", "INVALID_CLASS",

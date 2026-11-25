@@ -10,7 +10,7 @@ import re
 import pytest
 
 from evaluation.final_answer import CLOSE, OPEN
-from evaluation.scorer import STRUCTURED_VALUE_CHECKS, VALUE_CHECKS, score_both
+from evaluation.scorer import ALTERNATIVE_OUTCOMES, STRUCTURED_VALUE_CHECKS, VALUE_CHECKS, score_both
 from evaluation.selfcheck import execute, final_json, gold_calls, gold_for, ideal_result
 
 TASKS = sorted(k for k in json.load(open("benchmark/gold_labels.json", encoding="utf-8")) if not k.startswith("_"))
@@ -210,7 +210,10 @@ def correct_obj(tid):
 def wrong_variants(tid):
     """(label, obj mutator, expected label prefix) wrong DECISIONS for this task."""
     g = gold_for(tid)
-    out = [("status", lambda o: o.update(status="cannot_complete" if o["status"] != "cannot_complete" else "success"), "status:")]
+    wrong_status = "cannot_complete" if g["final_state"]["status"] != "cannot_complete" else "success"
+    alt = ALTERNATIVE_OUTCOMES.get(tid, {}).get("final_state", {}).get("status")
+    # a status that the spec accepts as an alternative outcome (T82: 'already cancelled' as success) is not a wrong decision
+    out = [] if wrong_status == alt else [("status", lambda o: o.update(status=wrong_status), "status:")]
     if g["final_state"]["status"] == "success":
         if g["final_state"].get("allowed_train_ids") or any(k in g["final_answer"] for k in ("first_leg_train_id", "outbound_train_id")):
             out.append(("train", lambda o: o.update(selected_train="BTB199"), "final_answer:"))

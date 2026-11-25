@@ -6,7 +6,7 @@ The model ends with a natural-language reply AND exactly one delimited JSON bloc
 {"status": "success" | "cannot_complete" | "needs_clarification",
  "selected_train": "BTBxxx" | ["BTBxxx", ...] | null,
  "selected_class": "3A" | "2A" | "SL" | "CC" | null,
- "booking_ids": ["BKxxxx", ...],
+ "booking_ids": ["BKxxxx", ...],             # only ids returned by book_ticket
  "requested_passengers": ["Name", ...],
  "notes": "short free text",
  "answer_values": {...}}          # optional; only the keys the user asked about (see ANSWER_VALUE_KEYS)
@@ -35,7 +35,10 @@ from typing import Any
 STATUSES = ("success", "cannot_complete", "needs_clarification")
 REQUIRED_KEYS = ("status", "selected_train", "selected_class", "booking_ids", "requested_passengers", "notes")
 ANSWER_VALUE_KEYS = ("operating_days", "runs_on_requested_day", "classes", "station_code", "station_name",
-                     "duration_minutes", "seats_available", "seats_remaining_at_end", "train_count")
+                     "duration_minutes", "seats_available", "seats_remaining_at_end", "train_count",
+                     # benchmark 3.0 (booking status, cancellation, waitlist, live status, concession)
+                     "booking_status", "waitlist_position", "refund_inr", "delay_minutes", "expected_arrival",
+                     "concession_fare_inr", "total_fare_inr")
 OPEN, CLOSE = "<FINAL_ANSWER_JSON>", "</FINAL_ANSWER_JSON>"
 
 CONTRACT_PROMPT = f"""Final answer format (required):
@@ -57,6 +60,7 @@ Rules for the block:
 - selected_train: the train you recommend, report on, or booked; a list in travel order if the answer is several trains; null if none.
 - selected_class: the travel class you recommend or booked; null if none.
 - booking_ids: exactly the booking ids returned by successful book_ticket calls in this conversation; [] if you booked nothing.
+  Waitlist entries and cancellations are not bookings: never put their ids or PNRs in booking_ids.
 - requested_passengers: the passenger names given in the request ([] if none).
 - answer_values: include ONLY the keys the user's question asks about, with values copied from tool results; values
   describe selected_train when one is selected. Keys: "operating_days" (list of weekdays the train departs, e.g. ["TUE"]),
@@ -64,7 +68,12 @@ Rules for the block:
   "station_name" (full official name), "duration_minutes" (journey time in minutes, integer),
   "seats_available" (integer: seats left on the train and class the user asked about),
   "seats_remaining_at_end" (integer: seats left in the booked class after all your bookings),
-  "train_count" (integer: how many trains run on the requested route and day). Omit answer_values or use {{}} if none apply.
+  "train_count" (integer: how many trains run on the requested route and day),
+  "booking_status" ("CONFIRMED", "WAITLISTED" or "CANCELLED": the status of the booking the user asked about, after your actions),
+  "waitlist_position" (integer), "refund_inr" (integer: refund for a cancellation, quoted or done; the sum if several),
+  "delay_minutes" (integer: how late the train is running now), "expected_arrival" (HH:MM, 24-hour: expected arrival at the
+  station the user asked about), "concession_fare_inr" (integer: one concession ticket),
+  "total_fare_inr" (integer: total the user asked for). Omit answer_values or use {{}} if none apply.
 - Use valid JSON (double quotes, no comments, no trailing commas).
 - The block is plain text inside your reply, not a tool call: never call a tool to give the final answer and never wrap the block in <tool_call> tags.
 Example of a complete reply (invented train, stations and values, only to show the shape; use the real facts from the tools and the user's language):

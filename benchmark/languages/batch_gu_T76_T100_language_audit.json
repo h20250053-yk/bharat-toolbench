@@ -1,0 +1,1060 @@
+{
+  "_meta": {
+    "stage": "gujarati_T76_T100_language_draft",
+    "items": 25,
+    "note": "Gujarati for the benchmark 3.0 batch T76-T100. Checks are automated keyword presence tests, NOT human verification. All review fields are pending_human_review. 'not_applicable' = the task has no such constraint.",
+    "back_translation": "not used as evidence"
+  },
+  "records": [
+    {
+      "semantic_task_id": "T76",
+      "language": "gu",
+      "task_id": "T76_gu",
+      "query": "મારી PNR 7302958146 વાળી ટિકિટનું હાલનું સ્ટેટસ શું છે? જો તે વેઇટિંગ લિસ્ટમાં હોય, તો વેઇટિંગ લિસ્ટમાં મારો નંબર કેટલો છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both questions (status AND waitlist position); PNR digits identical."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both questions (status AND waitlist position); PNR digits identical."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T77",
+      "language": "gu",
+      "task_id": "T77_gu",
+      "query": "જો હું મારી PNR 4518203967 વાળી ટિકિટ અત્યારે કેન્સલ કરું, તો મને કેટલા પૈસા પાછા મળશે? હમણાં કેન્સલ કરશો નહીં, મેં હજી નક્કી કર્યું નથી.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'હમણાં કેન્સલ કરશો નહીં' must stay an explicit prohibition."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'મેં હજી નક્કી કર્યું નથી' is gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'હમણાં કેન્સલ કરશો નહીં' must stay an explicit prohibition."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T78",
+      "language": "gu",
+      "task_id": "T78_gu",
+      "query": "મારી PNR 9157364820 વાળી ટિકિટ કેન્સલ કરો અને કેટલું રિફંડ મળશે તે જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two intents: cancel AND report the refund."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two intents: cancel AND report the refund."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T79",
+      "language": "gu",
+      "task_id": "T79_gu",
+      "query": "મારી PNR 5079318462 વાળી ટિકિટ કેન્સલ કરો, પણ ફક્ત ત્યારે જ જ્યારે ઓછામાં ઓછા ₹7,400 પાછા મળે. નહીંતર તેને એમ જ રહેવા દો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ઓછામાં ઓછા ₹7,400' (inclusive) is a CONDITION for cancelling; 'નહીંતર ... એમ જ રહેવા દો'."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ઓછામાં ઓછા ₹7,400' (inclusive) is a CONDITION for cancelling; 'નહીંતર ... એમ જ રહેવા દો'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T80",
+      "language": "gu",
+      "task_id": "T80_gu",
+      "query": "જો રિફંડ ઓછામાં ઓછું ₹450 હોય, તો મારી PNR 6720483915 વાળી ટિકિટ કેન્સલ કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ઓછામાં ઓછું ₹450' (inclusive) must stay a condition."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ઓછામાં ઓછું ₹450' (inclusive) must stay a condition."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T81",
+      "language": "gu",
+      "task_id": "T81_gu",
+      "query": "શું તમે મારી PNR 5551234567 વાળી ટિકિટનું સ્ટેટસ તપાસી શકો?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Only a status question."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Only a status question."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T82",
+      "language": "gu",
+      "task_id": "T82_gu",
+      "query": "મારી PNR 2894017356 વાળી ટિકિટ કેન્સલ કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "A plain cancellation request."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: A plain cancellation request."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T83",
+      "language": "gu",
+      "task_id": "T83_gu",
+      "query": "મારી PNR 8803164527 વાળી ટિકિટ કેન્સલ કરો અને રિફંડ જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Cancel + refund."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Cancel + refund."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T84",
+      "language": "gu",
+      "task_id": "T84_gu",
+      "query": "8 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીથી મુંબઈ માટે ટ્રેન BTB101 માં Kiran Desai ના નામે 2A ની ટિકિટ બુક કરો. જો 2A ભરાઈ ગયું હોય, તો તેમને વેઇટિંગ લિસ્ટમાં મૂકો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Fallback = the WAITLIST on the same train and class."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Fallback = the WAITLIST on the same train and class."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T85",
+      "language": "gu",
+      "task_id": "T85_gu",
+      "query": "7 ઓક્ટોબર 2026ના રોજ નવી દિલ્હીથી લખનઉ માટે ટ્રેન BTB109 માં Imran Qureshi ના નામે 3A ની ટિકિટ બુક કરો. જો 3A સોલ્ડ આઉટ હોય, તો તેમને વેઇટિંગ લિસ્ટમાં મૂકશો નહીં; ફક્ત મને જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'વેઇટિંગ લિસ્ટમાં મૂકશો નહીં' must keep its negative meaning."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'વેઇટિંગ લિસ્ટમાં મૂકશો નહીં' must keep its negative meaning."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T86",
+      "language": "gu",
+      "task_id": "T86_gu",
+      "query": "9 ઓક્ટોબર 2026ના રોજ મુંબઈથી નવી દિલ્હી માટે ટ્રેન BTB104 માં Asha Menon ના નામે સ્લીપર (SL) ટિકિટ બુક કરો. જો સ્લીપર સોલ્ડ આઉટ હોય, તો તેમને વેઇટિંગ લિસ્ટમાં મૂકો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": "not_applicable",
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": true,
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": true
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "The waitlist is only a fallback if sleeper is sold out."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: The waitlist is only a fallback if sleeper is sold out."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T87",
+      "language": "gu",
+      "task_id": "T87_gu",
+      "query": "શું ટ્રેન BTB105 અત્યારે મોડી ચાલી રહી છે? જો હા, તો કેટલી મિનિટ મોડી?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'અત્યારે' (right now); two questions."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'અત્યારે' (right now); two questions."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T88",
+      "language": "gu",
+      "task_id": "T88_gu",
+      "query": "મારાં મમ્મી ટ્રેન BTB103 માં મુસાફરી કરી રહ્યાં છે, જે ગઈ રાત્રે નવી દિલ્હીથી ઊપડી હતી. હવે તે અમદાવાદ કેટલા વાગ્યે પહોંચવાની અપેક્ષા છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'ગઈ રાત્રે' (last night) and the EXPECTED arrival at Ahmedabad."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "Honorific plural 'મારાં મમ્મી ... કરી રહ્યાં છે'."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'ગઈ રાત્રે' (last night) and the EXPECTED arrival at Ahmedabad."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T89",
+      "language": "gu",
+      "task_id": "T89_gu",
+      "query": "શું ટ્રેન BTB111 આજે ચાલી રહી છે? જો ચાલતી હોય, તો કેટલી મોડી છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'આજે' (today); the second question is conditional."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'આજે' (today); the second question is conditional."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T90",
+      "language": "gu",
+      "task_id": "T90_gu",
+      "query": "હું અત્યારે મુંબઈ જતી ટ્રેન BTB125 માં છું. મારે આજે બપોરે 2:05 વાગ્યે મુંબઈથી અમદાવાદ પાછી જતી ચેર કાર ટ્રેન પકડવાની છે. શું મારી ટ્રેન સમયસર મુંબઈ પહોંચશે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": true,
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'બપોરે 2:05' (14:05), 'આજે'; a yes/no question, not a booking."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'હું ... માં છું' avoids a gendered verb; 'પાછી જતી' agrees with ટ્રેન (feminine)."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'બપોરે 2:05' (14:05), 'આજે'; a yes/no question, not a booking."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T91",
+      "language": "gu",
+      "task_id": "T91_gu",
+      "query": "ટ્રેન BTB115 માં સિનિયર સિટીઝન માટે 3A ની ટિકિટ કેટલાની છે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Senior citizen concession, class 3A."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Senior citizen concession, class 3A."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T92",
+      "language": "gu",
+      "task_id": "T92_gu",
+      "query": "મારાં દાદી, જે સિનિયર સિટીઝન છે, અને મારે 9 ઓક્ટોબર 2026ના રોજ પુણેથી નાગપુર માટે ટ્રેન BTB127 માં સ્લીપર (SL) ટિકિટ લેવી છે. બંને ટિકિટનું કુલ ભાડું કેટલું થશે? હમણાં કંઈ પણ બુક કરશો નહીં.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": true,
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": "not_applicable",
+        "forbidden_action_preserved": true,
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "ONE senior + ONE normal ticket; 'હમણાં કંઈ પણ બુક કરશો નહીં'."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'મારાં દાદી ... અને મારે ... લેવી છે' keeps the speaker gender-neutral."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: ONE senior + ONE normal ticket; 'હમણાં કંઈ પણ બુક કરશો નહીં'."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T93",
+      "language": "gu",
+      "task_id": "T93_gu",
+      "query": "મારો દીકરો વિદ્યાર્થી છે. ટ્રેન BTB117 માં સ્ટુડન્ટ કન્સેશન સાથે ચેર કાર (CC) ની ટિકિટ કેટલાની પડશે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Student concession, class CC."
+        },
+        "unnatural_wording": {
+          "flag": true,
+          "detail": "'કન્સેશન' is the loan word railway users say; 'રાહત' would also be understood."
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Student concession, class CC."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T94",
+      "language": "gu",
+      "task_id": "T94_gu",
+      "query": "હું વિદ્યાર્થી છું અને મારી પાસે ₹1,100 છે. શું સ્ટુડન્ટ કન્સેશન સાથે ટ્રેન BTB120 ની 3A ટિકિટ મારા બજેટમાં આવી જશે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": true,
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Budget ₹1,100, STUDENT concession; yes/no."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Budget ₹1,100, STUDENT concession; yes/no."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T95",
+      "language": "gu",
+      "task_id": "T95_gu",
+      "query": "મારી PNR 4073819256 વાળી ટિકિટ કેન્સલ કરો અને એ જ મુસાફર માટે એ જ ટ્રેનમાં સ્લીપર (SL) ક્લાસની ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'એ જ મુસાફર ... એ જ ટ્રેનમાં' (same passenger, same train); class SL."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'એ જ મુસાફર ... એ જ ટ્રેનમાં' (same passenger, same train); class SL."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T96",
+      "language": "gu",
+      "task_id": "T96_gu",
+      "query": "જો મારી PNR 1385672049 વાળી ટિકિટ હજી પણ વેઇટિંગ લિસ્ટમાં હોય, તો તેને કેન્સલ કરો અને એ જ મુસાફર માટે એ જ ટ્રેનમાં સ્લીપર (SL) ટિકિટ બુક કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Condition 'હજી પણ વેઇટિંગ લિસ્ટમાં હોય' before both actions."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Condition 'હજી પણ વેઇટિંગ લિસ્ટમાં હોય' before both actions."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T97",
+      "language": "gu",
+      "task_id": "T97_gu",
+      "query": "મારી PNR 6043721985 વાળી ટિકિટ તપાસો: જો તે વેઇટિંગ લિસ્ટમાં હોય તો કેન્સલ કરો; જો કન્ફર્મ હોય તો તેને એમ જ રહેવા દો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both branches: waitlisted -> cancel, confirmed -> leave it."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both branches: waitlisted -> cancel, confirmed -> leave it."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T98",
+      "language": "gu",
+      "task_id": "T98_gu",
+      "query": "મારી આવતીકાલની ટ્રેન ટિકિટ કેન્સલ કરો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "'આવતીકાલની' only; no PNR, nothing invented."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: 'આવતીકાલની' only; no PNR, nothing invented."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T99",
+      "language": "gu",
+      "task_id": "T99_gu",
+      "query": "અમારી બંને ટિકિટ, PNR 2951847306 અને PNR 2951847314, કેન્સલ કરો અને કુલ રિફંડ જણાવો.",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": "not_applicable",
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": "not_applicable",
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": "not_applicable",
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Both PNRs and the TOTAL refund."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Both PNRs and the TOTAL refund."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    },
+    {
+      "semantic_task_id": "T100",
+      "language": "gu",
+      "task_id": "T100_gu",
+      "query": "શું ટ્રેન BTB120 માં હજી પણ 3A ની સીટો ઉપલબ્ધ છે, અને તેમાં સિનિયર સિટીઝને 3A માટે કેટલું ચૂકવવું પડશે?",
+      "review_status": "draft",
+      "checks": {
+        "intent_preserved": true,
+        "route_preserved": true,
+        "date_preserved": "not_applicable",
+        "time_preserved": "not_applicable",
+        "time_constraint_preserved": "not_applicable",
+        "class_preserved": true,
+        "fare_constraint_preserved": "not_applicable",
+        "availability_constraint_preserved": true,
+        "passenger_preserved": "not_applicable",
+        "booking_condition_preserved": true,
+        "forbidden_action_preserved": "not_applicable",
+        "fallback_condition_preserved": "not_applicable"
+      },
+      "human_review": "pending_human_review",
+      "fluency_review": "pending_human_review",
+      "equivalence_review": "pending_human_review",
+      "translation_flags": {
+        "potential_ambiguity": {
+          "flag": true,
+          "detail": "Two questions: 3A availability AND the senior citizen fare."
+        },
+        "unnatural_wording": {
+          "flag": false,
+          "detail": "none identified by the draft author (not a human judgement)"
+        },
+        "constraint_risk": {
+          "flag": true,
+          "detail": "Reviewer must confirm: Two questions: 3A availability AND the senior citizen fare."
+        },
+        "notes": {
+          "flag": false,
+          "detail": "PNRs, passenger names, train ids, class codes and amounts use ASCII digits / Latin letters, separated from Gujarati suffixes by a space; station names use the frozen Gujarati aliases."
+        }
+      }
+    }
+  ]
+}

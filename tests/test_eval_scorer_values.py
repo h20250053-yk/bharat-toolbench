@@ -43,7 +43,10 @@ def test_expected_values_come_from_gold_and_environment():
     assert gold_for("T06")["final_answer"]["operating_days"] == e.call("get_train_details", {"train_id": "BTB111"})["data"]["operating_days"]
     assert gold_for("T11")["final_answer"]["offered_classes"] == e.call("get_train_details", {"train_id": "BTB109"})["data"]["classes"]
     assert gold_for("T34")["final_answer"]["duration_minutes"] == env_durations("ADI", "MMCT", "2026-10-10")["BTB103"]
-    assert set(STRUCTURED_VALUE_CHECKS) == {"T06", "T11", "T16", "T34", "T02", "T26", "T50", "T51", "T58"}
+    assert set(STRUCTURED_VALUE_CHECKS) == {"T06", "T11", "T16", "T34", "T02", "T26", "T50", "T51", "T58",
+                                            # 3.0 batch
+                                            "T76", "T77", "T78", "T79", "T80", "T84", "T87", "T88", "T89", "T90", "T91", "T92", "T94",
+                                            "T97", "T99", "T100"}
 
 
 @pytest.mark.parametrize("tid", ["T06", "T11", "T16", "T34", "T02", "T26", "T50", "T51", "T58"])

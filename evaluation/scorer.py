@@ -17,7 +17,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from .canonical import (canon_bool, canon_booking_id, canon_class, canon_class_set, canon_duration_minutes, canon_int,
+from .canonical import (canon_bool, canon_booking_id, canon_class, canon_class_set, canon_duration_minutes, canon_hhmm, canon_int,
                         canon_passenger, canon_station_name, canon_tool_args, canon_train_ids, canon_weekday_set,
                         dates_in, numbers_in, station_codes_in, times_in)
 from .final_answer import parse_final_answer
@@ -77,7 +77,26 @@ STRUCTURED_VALUE_CHECKS: dict[str, list[tuple[str, str, str]]] = {
     "T50": [("seats_remaining_at_end", "seats_remaining_at_end", "int")],
     "T51": [("train_count", "train_count", "int")],
     "T58": [("seats_available", "seats_available", "int")],  # asked about BTB117 CC, not about the booked train
+    # benchmark 3.0 batch T76-T100 (booking status, refunds, waitlist, live status, concessions)
+    "T76": [("booking_status", "booking_status", "booking_status"), ("waitlist_position", "waitlist_position", "int")],
+    "T77": [("refund_inr", "refund_inr", "int")],
+    "T78": [("refund_inr", "refund_inr", "int")],
+    "T79": [("refund_inr", "refund_inr", "int")],
+    "T80": [("refund_inr", "refund_inr", "int")],
+    "T84": [("waitlist_position", "waitlist_position", "int")],
+    "T87": [("delay_minutes", "delay_minutes", "int")],
+    "T88": [("expected_arrival", "expected_arrival", "hhmm")],
+    "T89": [("runs_on_requested_weekday", "runs_on_requested_day", "bool")],
+    "T90": [("expected_arrival", "expected_arrival", "hhmm")],
+    "T91": [("concession_fare_inr", "concession_fare_inr", "int")],
+    "T92": [("total_fare_inr", "total_fare_inr", "int")],
+    "T94": [("concession_fare_inr", "concession_fare_inr", "int")],
+    "T97": [("booking_status", "booking_status", "booking_status")],
+    "T99": [("refund_inr", "refund_inr", "int")],
+    "T100": [("seats_available", "seats_available", "int"), ("concession_fare_inr", "concession_fare_inr", "int")],
 }
+_STATUS_SYNONYMS = {"CONFIRMED": "CONFIRMED", "CONFIRM": "CONFIRMED", "CNF": "CONFIRMED", "WAITLISTED": "WAITLISTED", "WAITLIST": "WAITLISTED",
+                    "WL": "WAITLISTED", "CANCELLED": "CANCELLED", "CANCELED": "CANCELLED", "CAN": "CANCELLED"}
 _STRUCTURED_CANON = {
     "weekday_set": lambda v: canon_weekday_set(v),
     "bool": canon_bool,
@@ -86,6 +105,8 @@ _STRUCTURED_CANON = {
     "station_name": canon_station_name,
     "duration": canon_duration_minutes,
     "int": canon_int,
+    "booking_status": lambda v: _STATUS_SYNONYMS.get(re.sub(r"[\s_\-]", "", v).upper()) if isinstance(v, str) else None,
+    "hhmm": lambda v: canon_hhmm(v) if isinstance(v, str) else None,
 }
 
 # Equivalent observations documented in the task specs (final_answer_requirements.equivalent_observations).
@@ -107,6 +128,16 @@ EQUIVALENT_PATHS: dict[tuple[str, str], list[list[dict[str, Any]]]] = {
     ("T73", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB101", "travel_class": "2A"}, "error": "SOLD_OUT"}]],
     # "A search New Delhi->Jaipur on 2026-10-09 listing BTB105 with classes ['CC'] shows the offered class as well as get_train_details."
     ("T75", "c2"): [[{"tool": "search_trains", "args": {"source": "NDLS", "destination": "JP", "date": "2026-10-09"}, "has_train": "BTB105"}]],
+    # benchmark 3.0 (spec final_answer_requirements.equivalent_observations of T81-T97)
+    ("T81", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "5551234567"}, "error": "PNR_NOT_FOUND"}],
+                    [{"tool": "cancel_ticket", "args": {"pnr": "5551234567"}, "error": "PNR_NOT_FOUND"}]],
+    ("T82", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "2894017356"}, "data_eq": {"status": "CANCELLED"}}],
+                    [{"tool": "get_cancellation_refund", "args": {"pnr": "2894017356"}, "error": "ALREADY_CANCELLED"}]],
+    ("T83", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "8803164527"}, "error": "JOURNEY_STARTED"}]],
+    ("T84", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB101", "travel_class": "2A"}, "error": "SOLD_OUT"}]],
+    ("T85", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB109", "travel_class": "3A"}, "error": "SOLD_OUT"}]],
+    ("T96", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "1385672049"}, "data_eq": {"status": "WAITLISTED"}}]],
+    ("T97", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "6043721985"}, "data_eq": {"status": "CONFIRMED"}}]],
 }
 
 
@@ -117,6 +148,13 @@ ALTERNATIVE_OUTCOMES: dict[str, dict[str, Any]] = {
     # "needs_clarification with NO booking: asking whether 'Anjali Rao' was listed twice by mistake ... is also correct."
     "T71": {"final_state": {"status": "needs_clarification", "allowed_train_ids": None, "travel_class": None, "expected_bookings": []},
             "required_calls": [], "dependency_edges": [], "final_answer": {}},
+    # Benchmark 3.0 (cancel_ticket exists, but works on a 10-digit PNR): T45 gives the booking ID 'BK0042', which matches no PNR or
+    # account booking. Saying it cannot be cancelled (gold) or asking the user for the PNR, cancelling nothing, are both correct.
+    "T45": {"final_state": {"status": "needs_clarification", "allowed_train_ids": None, "travel_class": None, "expected_bookings": []},
+            "required_calls": [], "dependency_edges": [], "final_answer": {}},
+    # "success with nothing changed: telling the user the ticket is already cancelled is also correct." (the check stays required)
+    "T82": {"final_state": {"status": "success", "allowed_train_ids": None, "travel_class": None, "expected_bookings": []},
+            "final_answer": {}},
 }
 
 
@@ -255,6 +293,8 @@ def _condition_met(event: dict[str, Any], cond: dict[str, Any]) -> bool:
         return (obs.get("error") or {}).get("code") == cond["error"]
     if obs.get("ok") is not True:
         return False
+    if any((obs.get("data") or {}).get(k) != v for k, v in (cond.get("data_eq") or {}).items()):  # 3.0: e.g. status CANCELLED
+        return False
     ids = [t.get("train_id") for t in ((obs.get("data") or {}).get("trains") or [])]
     if "lacks_train" in cond and cond["lacks_train"] in ids:
         return False
@@ -357,9 +397,18 @@ def _outcome(tid: str, gold: dict[str, Any], spec: dict[str, Any], final_text: s
                             "final_answer_recoveries": parsed.get("recoveries", [])}
     # environment state is authoritative and order-independent (multiset of train, class, passenger)
     actual = list(snapshot.get("bookings", []))
-    info["state_success"] = Counter(map(_booking_key, actual)) == Counter(map(_booking_key, fs.get("expected_bookings", [])))
-    if not info["state_success"]:
+    bookings_ok = Counter(map(_booking_key, actual)) == Counter(map(_booking_key, fs.get("expected_bookings", [])))
+    # 3.0: cancellations (set of PNRs) and waitlist entries (multiset) must match too; absent in gold = none may happen
+    cancel_ok = ({c["pnr"] for c in snapshot.get("cancellations", []) or []} == set(fs.get("expected_cancellations") or []))
+    waitlist_ok = (Counter(map(_booking_key, snapshot.get("waitlist", []) or []))
+                   == Counter(map(_booking_key, fs.get("expected_waitlist") or [])))
+    info["state_success"] = bookings_ok and cancel_ok and waitlist_ok
+    if not bookings_ok:
         fails.append("state:bookings_mismatch")
+    if not cancel_ok:
+        fails.append("state:cancellations_mismatch")
+    if not waitlist_ok:
+        fails.append("state:waitlist_mismatch")
     if not parsed["ok"]:
         kind = parsed["error"].split(":")[0]
         fails.append(f"final_answer:{kind}")
@@ -396,7 +445,10 @@ def _outcome(tid: str, gold: dict[str, Any], spec: dict[str, Any], final_text: s
             want = {canon_passenger(n) for n in requested_passengers(spec)}
             forms = accepted_passenger_forms(spec, language)  # the name as written in this language's query is accepted too
             got = {forms.get(canon_passenger(x), canon_passenger(x)) for x in (req if isinstance(req, list) else []) if isinstance(x, str)}
-            if not isinstance(req, list) or got != want:
+            same = spec["solver"]["params"].get("booking_passenger")  # 3.0 T95/T96: 'the same passenger', named by the booking only
+            if same and isinstance(req, list) and got in (set(), {canon_passenger(same)}):
+                pass
+            elif not isinstance(req, list) or got != want:
                 fails.append("final_answer:wrong_requested_passengers")
         for key, kind in VALUE_CHECKS.get(tid, []):
             if not _value_found(kind, fa[key], final_text or "", lenient):

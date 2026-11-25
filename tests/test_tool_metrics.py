@@ -95,7 +95,7 @@ def test_unwanted_booking_and_prohibited_attempt():
 
 def test_no_tool_tasks_only_measure_unneeded_tool_use():
     no_tool = [t for t in TASKS if not any(not c.get("optional") for c in GOLD[t]["required_calls"])]
-    assert len(no_tool) == 11
+    assert len(no_tool) == 12  # 3.0: + T98 (cancel without a PNR)
     m = M(no_tool[0], calls=[])
     assert not m["needed"] and m["recall"] is None and m["f1"] is None and m["funnel"] is None and not m["unneeded_tool_use"]
     m = M(no_tool[0], calls=[("get_fare", {"train_id": "BTB103", "travel_class": "2A"})], success=False)

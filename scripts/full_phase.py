@@ -1,4 +1,4 @@
-"""Full-run driver (MODEL_PLAN.md): for each model, in order: pre-run snapshot, the 375-item run (`--split full`, all five languages) into its own NEW run file,
+"""Full-run driver (MODEL_PLAN.md): for each model, in order: pre-run snapshot, the full run (`--split full`, all five languages: 500 items since benchmark 3.0, 375 in 2.x) into its own NEW run file,
 `--resume` on a byte copy while items are missing or provider/runner-error rows remain, completeness check, manifest, observe_run. Run it in tmux; it never edits
 tracked files. The Ollama server is restarted (same tmux session, same environment) if it is not answering.
 
@@ -23,8 +23,16 @@ SERVER_CMD = ("OLLAMA_MODELS=$HOME/FreeModel/models OLLAMA_HOST=127.0.0.1:11434 
               "ollama serve 2>&1 | tee -a $HOME/FreeModel/ollama-serve.log")
 
 
-def completeness(files: list[Path], expected: int = 375) -> dict:
+def expected_items() -> int:
+    """Items of `--split full` in all five languages (3.0: 100 tasks x 5 = 500)."""
+    sys.path.insert(0, str(ROOT))
+    from evaluation.splits import ALL_LANGUAGES, task_ids
+    return len(task_ids("full")) * len(ALL_LANGUAGES)
+
+
+def completeness(files: list[Path], expected: int | None = None) -> dict:
     """Latest row per task id across the files (the rule run_pilot --resume uses); complete = `expected` items, all with a model outcome status."""
+    expected = expected_items() if expected is None else expected
     latest: dict[str, dict] = {}
     for f in files:
         if f.exists():

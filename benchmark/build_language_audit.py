@@ -15,6 +15,7 @@ from environment.state import DATA_DIR
 from . import batch_t16_t25 as _b2
 from . import batch_t26_t50 as _b3
 from . import batch_t51_t75 as _b4
+from . import batch_t76_t100 as _b5
 from . import batch_gujarati as _gu
 from .batch_t06_t15 import BATCH_IDS, FLAGS as BATCH_FLAGS
 from .build_gold import load_specs
@@ -29,6 +30,8 @@ BATCH3_AUDIT_PATH = LANG_DIR / "batch_T26_T50_language_audit.json"
 BATCH4_AUDIT_PATH = LANG_DIR / "batch_T51_T75_language_audit.json"
 GU_AUDIT_PATH = LANG_DIR / "batch_gu_T01_T50_language_audit.json"
 GU2_AUDIT_PATH = LANG_DIR / "batch_gu_T51_T75_language_audit.json"
+BATCH5_AUDIT_PATH = LANG_DIR / "batch_T76_T100_language_audit.json"
+GU3_AUDIT_PATH = LANG_DIR / "batch_gu_T76_T100_language_audit.json"
 PILOT_IDS = ["T01", "T02", "T03", "T04", "T05"]
 PENDING = "pending_human_review"
 F = lambda flag, detail: {"flag": flag, "detail": detail}  # noqa: E731
@@ -141,6 +144,26 @@ def build_gujarati_t51_t75() -> dict:
             "records": recs}
 
 
+def build_batch5() -> dict:
+    recs = _records(_b5.BATCH_IDS, _b5.FLAGS)
+    return {"_meta": {"stage": "batch_T76_T100_language_draft", "items": len(recs),
+                      "note": "Benchmark 3.0 batch (the six new tools: booking status, refund quote, cancellation, waitlist, live status, "
+                              "concession). Checks are automated keyword presence tests, NOT human verification. All review fields are "
+                              "pending_human_review. Non-English variants are Claude-generated drafts. PNR digits are part of the intent "
+                              "markers. 'not_applicable' = the task has no such constraint (most tasks have no route or date).",
+                      "back_translation": "not used as evidence"},
+            "records": recs}
+
+
+def build_gujarati_t76_t100() -> dict:
+    recs = _records(_gu.GU_IDS_T76_T100, _gu.FLAGS, ["gu"])
+    return {"_meta": {"stage": "gujarati_T76_T100_language_draft", "items": len(recs),
+                      "note": "Gujarati for the benchmark 3.0 batch T76-T100. Checks are automated keyword presence tests, NOT human "
+                              "verification. All review fields are pending_human_review. 'not_applicable' = the task has no such constraint.",
+                      "back_translation": "not used as evidence"},
+            "records": recs}
+
+
 def build_gujarati() -> dict:
     recs = _records(_gu.GU_IDS_T01_T50, _gu.FLAGS, ["gu"])
     return {"_meta": {"stage": "gujarati_T01_T50_language_draft", "items": len(recs),
@@ -167,6 +190,10 @@ def main() -> None:
     print("wrote", GU_AUDIT_PATH)
     GU2_AUDIT_PATH.write_text(json.dumps(build_gujarati_t51_t75(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("wrote", GU2_AUDIT_PATH)
+    BATCH5_AUDIT_PATH.write_text(json.dumps(build_batch5(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("wrote", BATCH5_AUDIT_PATH)
+    GU3_AUDIT_PATH.write_text(json.dumps(build_gujarati_t76_t100(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("wrote", GU3_AUDIT_PATH)
 
 
 if __name__ == "__main__":

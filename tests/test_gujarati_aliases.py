@@ -19,7 +19,8 @@ OLD_LANGS = ("en", "hinglish", "hi", "mr")
 
 # Mutable-state fingerprint (seats + bookings) before the Gujarati aliases were added. Aliases are static data,
 # so it must not change; env_hash_before in all existing run files stays comparable.
-BASELINE_STATE_HASH = "2ee9740c09fb7c81dd704a6c4f6b66d1641d41178ba0edc263212017d42a29e0"
+# 3.0: the snapshot gained the (empty) cancellations / waitlist lists; bookings and seats are unchanged (2.x: 2ee9740c...a29e0)
+BASELINE_STATE_HASH = "2584c4a8964d6d43460e8b3fef5e71c47dd3442e46d8d4b20506679df740bd84"
 
 GU_EXPECTED = {
     "નવી દિલ્હી": ["NDLS"], "હઝરત નિઝામુદ્દીન": ["NZM"], "નિઝામુદ્દીન": ["NZM"], "જયપુર": ["JP"],

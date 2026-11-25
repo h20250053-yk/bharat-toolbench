@@ -143,7 +143,9 @@ def test_t29_and_t28_errors_and_no_cancel_tool_for_t45():
     e = fresh()
     assert call(e, "check_availability", train_id="BTB110", travel_class="1A")["error"]["code"] == "INVALID_CLASS"
     assert call(e, "get_train_details", train_id="BTB150")["error"]["code"] == "INVALID_TRAIN"
-    assert not any("cancel" in t for t in TOOL_NAMES) and gold("T45")["required_calls"] == []
+    # benchmark 3.0 added cancel_ticket (by 10-digit PNR); T45 gives a booking ID, which is no PNR, so its gold still needs no call
+    assert "cancel_ticket" in TOOL_NAMES and gold("T45")["required_calls"] == []
+    assert call(e, "get_booking_status", pnr="BK0042")["error"]["code"] == "INVALID_PNR"
 
 
 def test_t31_recovery_path():

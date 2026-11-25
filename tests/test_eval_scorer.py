@@ -8,7 +8,7 @@ import pytest
 from benchmark.build_gold import GOLD_PATH
 from evaluation.canonical import canon_class, canon_train_ids, dates_in, numbers_in, times_in
 from evaluation.final_answer import CLOSE, OPEN, parse_final_answer
-from evaluation.scorer import score
+from evaluation.scorer import ALTERNATIVE_OUTCOMES, score
 from evaluation.selfcheck import execute, final_json, final_text, gold_calls, gold_for, ideal_result
 
 TASKS = sorted(k for k in json.loads(GOLD_PATH.read_text(encoding="utf-8")) if not k.startswith("_"))  # every task (T01-T75)
@@ -239,7 +239,8 @@ def test_ideal_trajectory_passes(tid):
 def test_wrong_status_always_fails(tid):
     traj, snap = execute(gold_calls(tid))
     right = gold_for(tid)["final_state"]["status"]
-    wrong = {"success": "cannot_complete", "cannot_complete": "needs_clarification", "needs_clarification": "success"}[right]
+    alt = ALTERNATIVE_OUTCOMES.get(tid, {}).get("final_state", {}).get("status")  # an accepted alternative status is not wrong
+    wrong = next(w for w in ("cannot_complete", "needs_clarification", "success") if w not in (right, alt))
     obj = final_json(tid, snap, status=wrong)
     row = {"task_id": f"{tid}_en", "semantic_task_id": tid, "language": "en", "status": "completed",
            "trajectory": traj, "final_text": final_text(tid, obj), "state_snapshot": snap}

@@ -59,7 +59,7 @@ def test_existing_four_languages_untouched():
     """The four existing files keep 75 rows each; their T01-T50 rows stay hash-locked and no row mentions Gujarati."""
     for l in lc.LANGS:
         rs = rows(l)
-        assert len(rs) == 75 and all(r["language"] == l for r in rs)
+        assert len(rs) == 100 and all(r["language"] == l for r in rs)  # 3.0: T01-T100
         head = hr.draft_head_bytes(vt.LANG_DIR / f"{l}.jsonl", 50)  # review fields reset (benchmark/human_review.py)
         assert hashlib.sha256(head).hexdigest() == vt.FROZEN_T01_T50_LANG_SHA256[l]
         assert not any(re.search("[઀-૿]", r["query"]) for r in rs)
@@ -152,7 +152,7 @@ def test_detects_missing_row(tmp_path, monkeypatch):
     monkeypatch.setattr(vt, "AUDIT_PATH", d / "pilot_language_audit.json")
     monkeypatch.setattr(vt, "GU_AUDIT_PATH", d / vt.GU_AUDIT_PATH.name)
     monkeypatch.setattr(vt, "GU2_AUDIT_PATH", d / vt.GU2_AUDIT_PATH.name)
-    assert "gu.jsonl must hold exactly T01..T75 in order" in " | ".join(vt.validate())
+    assert "gu.jsonl must hold exactly T01..T100 in order" in " | ".join(vt.validate())
 
 
 def test_gujarati_audit_is_complete_and_pending():
