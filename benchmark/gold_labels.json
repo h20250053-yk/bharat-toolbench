@@ -11977,7 +11977,7 @@
           "pnr": "6620194835"
         },
         "args_from": {},
-        "optional": false,
+        "optional": true,
         "arg_alternatives": {}
       },
       {
@@ -11991,12 +11991,7 @@
         "arg_alternatives": {}
       }
     ],
-    "dependency_edges": [
-      {
-        "before": "c1",
-        "after": "c2"
-      }
-    ],
+    "dependency_edges": [],
     "final_state": {
       "status": "success",
       "allowed_train_ids": [
@@ -12012,7 +12007,7 @@
         ]
       }
     },
-    "min_calls": 2,
+    "min_calls": 1,
     "final_answer": {
       "status": "success",
       "selected_train_id": "BTB106",

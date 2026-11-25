@@ -406,7 +406,7 @@ def test_run_pilot_splits():
 # ---- T71: a clarifying question (no booking) is an accepted alternative outcome
 def test_t71_clarification_without_booking_is_accepted_but_not_with_a_booking():
     from evaluation.scorer import ALTERNATIVE_OUTCOMES
-    assert "accepted_alternative_outcomes" in spec("T71").final_answer_requirements and set(ALTERNATIVE_OUTCOMES) == {"T71", "T45", "T82"}  # 3.0 added T45 (ask for the PNR) and T82
+    assert "accepted_alternative_outcomes" in spec("T71").final_answer_requirements and set(ALTERNATIVE_OUTCOMES) == {"T71", "T45", "T82", "T151"}  # 3.0 added T45 (ask for the PNR), T82 and T151 (ask for another menu item)
     s = run("T71", [], status="needs_clarification", selected_train=None, selected_class=None, requested_passengers=[])
     assert s["task_success"] and s["accepted_via_alternative_outcome"] == "needs_clarification"
     one = [("book_ticket", {"train_id": "BTB115", "travel_class": "3A", "passenger": "Sunil Rao"})]

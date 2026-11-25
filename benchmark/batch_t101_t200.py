@@ -587,7 +587,7 @@ T("T143", "booking", ["booking", "meal_order", "quantity", "state_changing"], "m
   "PNR 5803917264 साठी नागपूरला दोन जैन थाळ्या ऑर्डर करा. एकूण किती झाले?",
   "PNR 5803917264 માટે નાગપુરમાં બે જૈન થાળી ઓર્ડર કરો. કુલ કેટલું થયું?",
   intent=join(ORDER, JAIN, W("two", "do", "दो", "दोन", "બે")), status="success", must=["quantity 2", "order_amount_inr 400"],
-  risk="'two' (quantity) and Jain.", note="One order with quantity 2 (the scorer compares the quantity of each order, so two orders of one are not the same state).")
+  risk="'two' (quantity) and Jain.", note="Two portions: one order with quantity 2 (gold) or two orders of one are the same state (the scorer counts portions).")
 T("T144", "booking", ["booking", "meal_order", "breakfast", "future_journey", "state_changing"], "meal_breakfast_future_journey",
   dict(pnr="4651082937", station_name="Lucknow", meal="breakfast"),
   "On my trip with PNR 4651082937, order breakfast to my seat at Lucknow and tell me what time it will be delivered.",
@@ -664,7 +664,8 @@ T("T151", "invalid_input", ["invalid_input", "meal_order", "not_on_menu"], "meal
   intent=join(ORDER, W("biryani", "biryani", "बिरयानी", "बिर्याणी", "બિરયાની")), status="cannot_complete",
   must=["biryani is not on the menu"], risk="The item must stay biryani (not translated into a thali).",
   note="Not on the menu (veg/non-veg/Jain thali, breakfast). The menu is in the tool description, so the rejected call is optional; "
-       "ordering a substitute without asking is wrong.")
+       "ordering a substitute without asking is wrong.",
+  alternatives=["needs_clarification: asking which menu item to order instead, ordering nothing (evaluation/scorer.ALTERNATIVE_OUTCOMES)"])
 T("T152", "constraint", ["constraint", "meal_order", "conditional", "live_status", "time_condition", "state_changing"],
   "meal_choice_by_expected_arrival",
   dict(pnr="5803917264", station_name="Nagpur", after_time="21:00", meal_if_after="veg_thali", meal_otherwise="nonveg_thali"),
@@ -865,7 +866,8 @@ T("T171", "constraint", ["constraint", "tdr", "cancellation", "comparison", "sta
   "PNR 6620194835 માટે ટિકિટ કેન્સલ કરું કે TDR ફાઇલ કરું? જેમાં વધુ પૈસા પાછા મળે, તે જ કરો.",
   intent=join(TDR, W("more money", "zyada paise", "ज़्यादा पैसे", "जास्त पैसे", "વધુ પૈસા")), status="success",
   must=["cancel refund 315", "TDR 495 (full fare)", "TDR filed, not cancelled"], risk="'whichever gives more' = compare, then ONE action.",
-  note="Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action.")
+  note="Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action. The quote is optional: a "
+       "TDR refunds the full fare while a cancellation always keeps a charge, so the TDR wins whenever it is allowed.")
 T("T172", "recovery", ["recovery", "tdr", "not_eligible"], "tdr_not_eligible_delay_too_small", dict(pnr="3875061294"),
   "File a TDR for my ticket PNR 3875061294, my train is late.",
   "Mere ticket PNR 3875061294 ke liye TDR file kar do, meri train late hai.",

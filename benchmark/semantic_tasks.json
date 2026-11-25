@@ -11316,7 +11316,7 @@
     {
       "semantic_task_id": "T143",
       "category": "booking",
-      "playbook_note": "3.0 20-tool batch. One order with quantity 2 (the scorer compares the quantity of each order, so two orders of one are not the same state).",
+      "playbook_note": "3.0 20-tool batch. Two portions: one order with quantity 2 (gold) or two orders of one are the same state (the scorer counts portions).",
       "task_goal": "Order two Jain thalis at Nagpur for PNR 5803917264. What is the total?",
       "constraints": [
         {
@@ -12049,6 +12049,9 @@
         ],
         "must_not": [
           "invent a value not returned by a tool"
+        ],
+        "accepted_alternative_outcomes": [
+          "needs_clarification: asking which menu item to order instead, ordering nothing (evaluation/scorer.ALTERNATIVE_OUTCOMES)"
         ]
       },
       "initial_state_assumptions": [
@@ -13531,7 +13534,7 @@
     {
       "semantic_task_id": "T171",
       "category": "constraint",
-      "playbook_note": "3.0 20-tool batch. Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action.",
+      "playbook_note": "3.0 20-tool batch. Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action. The quote is optional: a TDR refunds the full fare while a cancellation always keeps a charge, so the TDR wins whenever it is allowed.",
       "task_goal": "For PNR 6620194835, should I cancel the ticket or file a TDR? Do whichever gives me more money back.",
       "constraints": [
         {

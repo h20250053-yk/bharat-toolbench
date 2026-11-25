@@ -239,6 +239,10 @@ ALTERNATIVE_OUTCOMES: dict[str, dict[str, Any]] = {
     # "success with nothing changed: telling the user the ticket is already cancelled is also correct." (the check stays required)
     "T82": {"final_state": {"status": "success", "allowed_train_ids": None, "travel_class": None, "expected_bookings": []},
             "final_answer": {}},
+    # 20-tool stage: T151 asks for a biryani, which is not on the menu. Saying it cannot be ordered (gold) or asking which menu item
+    # to order instead, ordering nothing, are both correct.
+    "T151": {"final_state": {"status": "needs_clarification", "allowed_train_ids": None, "travel_class": None, "expected_bookings": []},
+             "required_calls": [], "dependency_edges": [], "final_answer": {}},
 }
 
 
@@ -448,6 +452,17 @@ def _effect_key(kind: str, fields: tuple[str, ...], e: dict[str, Any]) -> tuple:
     return tuple(canon_passenger(e[f]) if f == "passenger" else e.get(f) for f in fields)
 
 
+def _effect_counter(kind: str, fields: tuple[str, ...], items: list[dict[str, Any]] | None) -> Counter:
+    """Multiset of effects. Meal orders count portions per (pnr, station, meal): 'two Jain thalis' is the same whether ordered as
+    one order of 2 or two orders of 1."""
+    if kind == "meal_orders":
+        c: Counter = Counter()
+        for e in items or []:
+            c[(e.get("pnr"), e.get("station"), e.get("meal"))] += int(e.get("quantity") or 1)
+        return c
+    return Counter(_effect_key(kind, fields, e) for e in items or [])
+
+
 def _booking_key(b: dict[str, Any]) -> tuple[str, str, str]:
     return (b["train_id"], b["travel_class"], canon_passenger(b["passenger"]) or "")
 
@@ -498,8 +513,7 @@ def _outcome(tid: str, gold: dict[str, Any], spec: dict[str, Any], final_text: s
     exp_eff = fs.get("expected_effects") or {}
     effects_ok = True
     for kind, fields in EFFECT_FIELDS.items():
-        got = Counter(_effect_key(kind, fields, e) for e in snapshot.get(kind, []) or [])
-        want = Counter(_effect_key(kind, fields, e) for e in exp_eff.get(kind, []) or [])
+        got, want = _effect_counter(kind, fields, snapshot.get(kind)), _effect_counter(kind, fields, exp_eff.get(kind))
         if got != want:
             effects_ok = False
             fails.append(f"state:{kind}_mismatch")

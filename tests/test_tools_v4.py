@@ -191,3 +191,19 @@ def test_prohibited_action_and_wrong_branch_fail(env):
 def test_t01_t100_gold_has_no_effects():
     for t in (f"T{i:02d}" for i in range(1, 101)):
         assert "expected_effects" not in GOLD[t]["final_state"]
+
+
+def test_meal_portions_count_the_same_however_they_are_ordered(env):
+    """T143 'two Jain thalis': one order of 2 (gold) or two orders of 1 is the same state."""
+    call(env, "order_meal", pnr="5803917264", station="NGP", meal="jain_thali", quantity=1)
+    call(env, "order_meal", pnr="5803917264", station="NGP", meal="jain_thali", quantity=1)
+    s = score(_row("T143", env.snapshot(), ""), GOLD["T143"], env.snapshot())
+    assert s["state_success"], s["failure_labels"]
+    call(env, "order_meal", pnr="5803917264", station="NGP", meal="jain_thali", quantity=1)  # a third portion is wrong
+    assert "state:meal_orders_mismatch" in score(_row("T143", env.snapshot(), ""), GOLD["T143"], env.snapshot())["failure_labels"]
+
+
+def test_t171_quote_is_optional_and_t151_accepts_a_clarifying_question():
+    assert [c.get("optional", False) for c in GOLD["T171"]["required_calls"]] == [True, False]
+    from evaluation.scorer import ALTERNATIVE_OUTCOMES
+    assert ALTERNATIVE_OUTCOMES["T151"]["final_state"]["status"] == "needs_clarification"

@@ -684,8 +684,10 @@ def _t163(env, p, plan, after=None):
 @k("best_refund_is_tdr_not_cancel")
 def _t166(env, p, plan):
     q = _ok(env, "get_cancellation_refund", {"pnr": p["pnr"]})
-    c1 = plan.add("get_cancellation_refund", {"pnr": p["pnr"]})  # 'whichever gives more': the cancel quote is needed to compare
-    out = _t163(env, p, plan, after=[c1])
+    # 'whichever gives more': reading the cancel quote is the natural check, but optional: a TDR refunds the full fare and a
+    # cancellation always keeps a charge, so a model may decide without the quote. Cancelling instead is wrong (state check).
+    plan.add("get_cancellation_refund", {"pnr": p["pnr"]}, optional=True)
+    out = _t163(env, p, plan)
     assert out[0]["refund_inr"] > q["refund_inr"]
     out[0]["cancel_refund_inr"] = q["refund_inr"]
     return out

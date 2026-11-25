@@ -102,7 +102,7 @@ status, C concession, K Tatkal check, T Tatkal book, H berths, N platform, G boa
 | Task | Category | Gold calls | Status | What it tests |
 |---|---|---|---|---|
 | T142 | booking | M | success | Meal order on a running train (BTB103, 2 h late): the delivery time follows the LIVE arrival. |
-| T143 | booking | M | success | One order with quantity 2 (the scorer compares the quantity of each order, so two orders of one are not the same state). |
+| T143 | booking | M | success | Two portions: one order with quantity 2 (gold) or two orders of one are the same state (the scorer counts portions). |
 | T144 | booking | M | success | Future journey: Lucknow is reached on day 2 at 09:45, inside breakfast hours. |
 | T145 | recovery | M!ORDER_TOO_LATE | cannot_complete | BTB115 (40 min late) reaches Pune at 09:35; meals need 2 h notice: ORDER_TOO_LATE. |
 | T146 | recovery | M!STATION_ALREADY_PASSED | cannot_complete | BTB121 passed Nagpur in the night: STATION_ALREADY_PASSED. |
@@ -110,7 +110,7 @@ status, C concession, K Tatkal check, T Tatkal book, H berths, N platform, G boa
 | T148 | recovery | M!NOT_CONFIRMED | cannot_complete | Meals only for confirmed tickets: NOT_CONFIRMED. |
 | T149 | recovery | M!NOT_EN_ROUTE | cannot_complete | The passenger boards at Nagpur; meals are delivered on the way, not at the boarding station: NOT_EN_ROUTE. |
 | T150 | recovery | M!CATERING_NOT_AVAILABLE | cannot_complete | Jaipur has no e-catering: CATERING_NOT_AVAILABLE. |
-| T151 | invalid_input | M?!INVALID_MEAL | cannot_complete | Not on the menu (veg/non-veg/Jain thali, breakfast). The menu is in the tool description, so the rejected call is optional; ordering a substitute without asking is wrong. |
+| T151 | invalid_input | M?!INVALID_MEAL | cannot_complete | Not on the menu (veg/non-veg/Jain thali, breakfast). The menu is in the tool description, so the rejected call is optional; ordering a substitute without asking is wrong. Asking which menu item to order instead is accepted too. |
 | T152 | constraint | L M | success | Branch on the expected arrival (22:30): exactly one meal, the veg thali. |
 | T153 | constraint | L M | success | The answer value is the LIVE expected arrival (13:30), not the timetable time (11:30). |
 | T154 | booking | M E | success | Two independent state changes in one request. |
@@ -140,7 +140,7 @@ status, C concession, K Tatkal check, T Tatkal book, H berths, N platform, G boa
 | Task | Category | Gold calls | Status | What it tests |
 |---|---|---|---|---|
 | T170 | booking | Z | success | Eligible TDR: BTB106 is 200 min late and has not left Jaipur yet (15:40). |
-| T171 | constraint | Q Z | success | Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action. |
+| T171 | constraint | Q? Z | success | Compare the cancellation quote (315) with the TDR (full fare 495) and take only the better action. The quote is optional: a TDR refunds the full fare while a cancellation always keeps a charge. |
 | T172 | recovery | Z!TDR_NOT_ELIGIBLE | cannot_complete | Late, but not late enough (130 < 180 min): TDR_NOT_ELIGIBLE. |
 | T173 | recovery | Z!TDR_WINDOW_CLOSED | cannot_complete | Delay qualifies (200 min) but the TDR had to be filed before the train left Kolkata: TDR_WINDOW_CLOSED. |
 | T174 | recovery | Z!ALREADY_CANCELLED | cannot_complete | A cancelled ticket cannot get a TDR: ALREADY_CANCELLED. |
