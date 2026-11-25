@@ -1,0 +1,2776 @@
+{
+  "generated_by": "analysis/observe_run.py",
+  "analysis_git_commit": "662ecf463b4fa5913ebdc0dda847650e6caf0631",
+  "inputs": [
+    {
+      "file": "runs/local_qwen25_3b_v3_new_20261125T224932Z.jsonl",
+      "sha256": "8e01baabdfa086e26885bc2ba070108ede6ea033c3768db40c5691d556cac6f9",
+      "rows": 625,
+      "bytes": 28164418
+    },
+    {
+      "file": "runs/local_qwen25_3b_v3_new_20261125T224932Z_resume1.jsonl",
+      "sha256": "59bf405c80ac363e1d9ec47da8487940549312ec831ad80d437ad6b1ffba5c9c",
+      "rows": 626,
+      "bytes": 28230855
+    },
+    {
+      "file": "runs/local_qwen25_3b_v3_new_20261125T224932Z_resume2.jsonl",
+      "sha256": "6d09e69670fd470eb59820668d8c7d1d3d0c5d6d7d27617d42d22ed0a02215a0",
+      "rows": 627,
+      "bytes": 28299774
+    }
+  ],
+  "integrity": {
+    "rows_read": 1878,
+    "model_key": "local_qwen25_3b",
+    "expected_items": 625,
+    "unique_items_selected": 625,
+    "items_with_multiple_rows": [
+      "T100_en",
+      "T100_gu",
+      "T100_hi",
+      "T100_hinglish",
+      "T100_mr",
+      "T101_en",
+      "T101_gu",
+      "T101_hi",
+      "T101_hinglish",
+      "T101_mr",
+      "T102_en",
+      "T102_gu",
+      "T102_hi",
+      "T102_hinglish",
+      "T102_mr",
+      "T103_en",
+      "T103_gu",
+      "T103_hi",
+      "T103_hinglish",
+      "T103_mr",
+      "T104_en",
+      "T104_gu",
+      "T104_hi",
+      "T104_hinglish",
+      "T104_mr",
+      "T105_en",
+      "T105_gu",
+      "T105_hi",
+      "T105_hinglish",
+      "T105_mr",
+      "T106_en",
+      "T106_gu",
+      "T106_hi",
+      "T106_hinglish",
+      "T106_mr",
+      "T107_en",
+      "T107_gu",
+      "T107_hi",
+      "T107_hinglish",
+      "T107_mr",
+      "T108_en",
+      "T108_gu",
+      "T108_hi",
+      "T108_hinglish",
+      "T108_mr",
+      "T109_en",
+      "T109_gu",
+      "T109_hi",
+      "T109_hinglish",
+      "T109_mr",
+      "T110_en",
+      "T110_gu",
+      "T110_hi",
+      "T110_hinglish",
+      "T110_mr",
+      "T111_en",
+      "T111_gu",
+      "T111_hi",
+      "T111_hinglish",
+      "T111_mr",
+      "T112_en",
+      "T112_gu",
+      "T112_hi",
+      "T112_hinglish",
+      "T112_mr",
+      "T113_en",
+      "T113_gu",
+      "T113_hi",
+      "T113_hinglish",
+      "T113_mr",
+      "T114_en",
+      "T114_gu",
+      "T114_hi",
+      "T114_hinglish",
+      "T114_mr",
+      "T115_en",
+      "T115_gu",
+      "T115_hi",
+      "T115_hinglish",
+      "T115_mr",
+      "T116_en",
+      "T116_gu",
+      "T116_hi",
+      "T116_hinglish",
+      "T116_mr",
+      "T117_en",
+      "T117_gu",
+      "T117_hi",
+      "T117_hinglish",
+      "T117_mr",
+      "T118_en",
+      "T118_gu",
+      "T118_hi",
+      "T118_hinglish",
+      "T118_mr",
+      "T119_en",
+      "T119_gu",
+      "T119_hi",
+      "T119_hinglish",
+      "T119_mr",
+      "T120_en",
+      "T120_gu",
+      "T120_hi",
+      "T120_hinglish",
+      "T120_mr",
+      "T121_en",
+      "T121_gu",
+      "T121_hi",
+      "T121_hinglish",
+      "T121_mr",
+      "T122_en",
+      "T122_gu",
+      "T122_hi",
+      "T122_hinglish",
+      "T122_mr",
+      "T123_en",
+      "T123_gu",
+      "T123_hi",
+      "T123_hinglish",
+      "T123_mr",
+      "T124_en",
+      "T124_gu",
+      "T124_hi",
+      "T124_hinglish",
+      "T124_mr",
+      "T125_en",
+      "T125_gu",
+      "T125_hi",
+      "T125_hinglish",
+      "T125_mr",
+      "T126_en",
+      "T126_gu",
+      "T126_hi",
+      "T126_hinglish",
+      "T126_mr",
+      "T127_en",
+      "T127_gu",
+      "T127_hi",
+      "T127_hinglish",
+      "T127_mr",
+      "T128_en",
+      "T128_gu",
+      "T128_hi",
+      "T128_hinglish",
+      "T128_mr",
+      "T129_en",
+      "T129_gu",
+      "T129_hi",
+      "T129_hinglish",
+      "T129_mr",
+      "T130_en",
+      "T130_gu",
+      "T130_hi",
+      "T130_hinglish",
+      "T130_mr",
+      "T131_en",
+      "T131_gu",
+      "T131_hi",
+      "T131_hinglish",
+      "T131_mr",
+      "T132_en",
+      "T132_gu",
+      "T132_hi",
+      "T132_hinglish",
+      "T132_mr",
+      "T133_en",
+      "T133_gu",
+      "T133_hi",
+      "T133_hinglish",
+      "T133_mr",
+      "T134_en",
+      "T134_gu",
+      "T134_hi",
+      "T134_hinglish",
+      "T134_mr",
+      "T135_en",
+      "T135_gu",
+      "T135_hi",
+      "T135_hinglish",
+      "T135_mr",
+      "T136_en",
+      "T136_gu",
+      "T136_hi",
+      "T136_hinglish",
+      "T136_mr",
+      "T137_en",
+      "T137_gu",
+      "T137_hi",
+      "T137_hinglish",
+      "T137_mr",
+      "T138_en",
+      "T138_gu",
+      "T138_hi",
+      "T138_hinglish",
+      "T138_mr",
+      "T139_en",
+      "T139_gu",
+      "T139_hi",
+      "T139_hinglish",
+      "T139_mr",
+      "T140_en",
+      "T140_gu",
+      "T140_hi",
+      "T140_hinglish",
+      "T140_mr",
+      "T141_en",
+      "T141_gu",
+      "T141_hi",
+      "T141_hinglish",
+      "T141_mr",
+      "T142_en",
+      "T142_gu",
+      "T142_hi",
+      "T142_hinglish",
+      "T142_mr",
+      "T143_en",
+      "T143_gu",
+      "T143_hi",
+      "T143_hinglish",
+      "T143_mr",
+      "T144_en",
+      "T144_gu",
+      "T144_hi",
+      "T144_hinglish",
+      "T144_mr",
+      "T145_en",
+      "T145_gu",
+      "T145_hi",
+      "T145_hinglish",
+      "T145_mr",
+      "T146_en",
+      "T146_gu",
+      "T146_hi",
+      "T146_hinglish",
+      "T146_mr",
+      "T147_en",
+      "T147_gu",
+      "T147_hi",
+      "T147_hinglish",
+      "T147_mr",
+      "T148_en",
+      "T148_gu",
+      "T148_hi",
+      "T148_hinglish",
+      "T148_mr",
+      "T149_en",
+      "T149_gu",
+      "T149_hi",
+      "T149_hinglish",
+      "T149_mr",
+      "T150_en",
+      "T150_gu",
+      "T150_hi",
+      "T150_hinglish",
+      "T150_mr",
+      "T151_en",
+      "T151_gu",
+      "T151_hi",
+      "T151_hinglish",
+      "T151_mr",
+      "T152_en",
+      "T152_gu",
+      "T152_hi",
+      "T152_hinglish",
+      "T152_mr",
+      "T153_en",
+      "T153_gu",
+      "T153_hi",
+      "T153_hinglish",
+      "T153_mr",
+      "T154_en",
+      "T154_gu",
+      "T154_hi",
+      "T154_hinglish",
+      "T154_mr",
+      "T155_en",
+      "T155_gu",
+      "T155_hi",
+      "T155_hinglish",
+      "T155_mr",
+      "T156_en",
+      "T156_gu",
+      "T156_hi",
+      "T156_hinglish",
+      "T156_mr",
+      "T157_en",
+      "T157_gu",
+      "T157_hi",
+      "T157_hinglish",
+      "T157_mr",
+      "T158_en",
+      "T158_gu",
+      "T158_hi",
+      "T158_hinglish",
+      "T158_mr",
+      "T159_en",
+      "T159_gu",
+      "T159_hi",
+      "T159_hinglish",
+      "T159_mr",
+      "T160_en",
+      "T160_gu",
+      "T160_hi",
+      "T160_hinglish",
+      "T160_mr",
+      "T161_en",
+      "T161_gu",
+      "T161_hi",
+      "T161_hinglish",
+      "T161_mr",
+      "T162_en",
+      "T162_gu",
+      "T162_hi",
+      "T162_hinglish",
+      "T162_mr",
+      "T163_en",
+      "T163_gu",
+      "T163_hi",
+      "T163_hinglish",
+      "T163_mr",
+      "T164_en",
+      "T164_gu",
+      "T164_hi",
+      "T164_hinglish",
+      "T164_mr",
+      "T165_en",
+      "T165_gu",
+      "T165_hi",
+      "T165_hinglish",
+      "T165_mr",
+      "T166_en",
+      "T166_gu",
+      "T166_hi",
+      "T166_hinglish",
+      "T166_mr",
+      "T167_en",
+      "T167_gu",
+      "T167_hi",
+      "T167_hinglish",
+      "T167_mr",
+      "T168_en",
+      "T168_gu",
+      "T168_hi",
+      "T168_hinglish",
+      "T168_mr",
+      "T169_en",
+      "T169_gu",
+      "T169_hi",
+      "T169_hinglish",
+      "T169_mr",
+      "T170_en",
+      "T170_gu",
+      "T170_hi",
+      "T170_hinglish",
+      "T170_mr",
+      "T171_en",
+      "T171_gu",
+      "T171_hi",
+      "T171_hinglish",
+      "T171_mr",
+      "T172_en",
+      "T172_gu",
+      "T172_hi",
+      "T172_hinglish",
+      "T172_mr",
+      "T173_en",
+      "T173_gu",
+      "T173_hi",
+      "T173_hinglish",
+      "T173_mr",
+      "T174_en",
+      "T174_gu",
+      "T174_hi",
+      "T174_hinglish",
+      "T174_mr",
+      "T175_en",
+      "T175_gu",
+      "T175_hi",
+      "T175_hinglish",
+      "T175_mr",
+      "T176_en",
+      "T176_gu",
+      "T176_hi",
+      "T176_hinglish",
+      "T176_mr",
+      "T177_en",
+      "T177_gu",
+      "T177_hi",
+      "T177_hinglish",
+      "T177_mr",
+      "T178_en",
+      "T178_gu",
+      "T178_hi",
+      "T178_hinglish",
+      "T178_mr",
+      "T179_en",
+      "T179_gu",
+      "T179_hi",
+      "T179_hinglish",
+      "T179_mr",
+      "T180_en",
+      "T180_gu",
+      "T180_hi",
+      "T180_hinglish",
+      "T180_mr",
+      "T181_en",
+      "T181_gu",
+      "T181_hi",
+      "T181_hinglish",
+      "T181_mr",
+      "T182_en",
+      "T182_gu",
+      "T182_hi",
+      "T182_hinglish",
+      "T182_mr",
+      "T183_en",
+      "T183_gu",
+      "T183_hi",
+      "T183_hinglish",
+      "T183_mr",
+      "T184_en",
+      "T184_gu",
+      "T184_hi",
+      "T184_hinglish",
+      "T184_mr",
+      "T185_en",
+      "T185_gu",
+      "T185_hi",
+      "T185_hinglish",
+      "T185_mr",
+      "T186_en",
+      "T186_gu",
+      "T186_hi",
+      "T186_hinglish",
+      "T186_mr",
+      "T187_en",
+      "T187_gu",
+      "T187_hi",
+      "T187_hinglish",
+      "T187_mr",
+      "T188_en",
+      "T188_gu",
+      "T188_hi",
+      "T188_hinglish",
+      "T188_mr",
+      "T189_en",
+      "T189_gu",
+      "T189_hi",
+      "T189_hinglish",
+      "T189_mr",
+      "T190_en",
+      "T190_gu",
+      "T190_hi",
+      "T190_hinglish",
+      "T190_mr",
+      "T191_en",
+      "T191_gu",
+      "T191_hi",
+      "T191_hinglish",
+      "T191_mr",
+      "T192_en",
+      "T192_gu",
+      "T192_hi",
+      "T192_hinglish",
+      "T192_mr",
+      "T193_en",
+      "T193_gu",
+      "T193_hi",
+      "T193_hinglish",
+      "T193_mr",
+      "T194_en",
+      "T194_gu",
+      "T194_hi",
+      "T194_hinglish",
+      "T194_mr",
+      "T195_en",
+      "T195_gu",
+      "T195_hi",
+      "T195_hinglish",
+      "T195_mr",
+      "T196_en",
+      "T196_gu",
+      "T196_hi",
+      "T196_hinglish",
+      "T196_mr",
+      "T197_en",
+      "T197_gu",
+      "T197_hi",
+      "T197_hinglish",
+      "T197_mr",
+      "T198_en",
+      "T198_gu",
+      "T198_hi",
+      "T198_hinglish",
+      "T198_mr",
+      "T199_en",
+      "T199_gu",
+      "T199_hi",
+      "T199_hinglish",
+      "T199_mr",
+      "T200_en",
+      "T200_gu",
+      "T200_hi",
+      "T200_hinglish",
+      "T200_mr",
+      "T76_en",
+      "T76_gu",
+      "T76_hi",
+      "T76_hinglish",
+      "T76_mr",
+      "T77_en",
+      "T77_gu",
+      "T77_hi",
+      "T77_hinglish",
+      "T77_mr",
+      "T78_en",
+      "T78_gu",
+      "T78_hi",
+      "T78_hinglish",
+      "T78_mr",
+      "T79_en",
+      "T79_gu",
+      "T79_hi",
+      "T79_hinglish",
+      "T79_mr",
+      "T80_en",
+      "T80_gu",
+      "T80_hi",
+      "T80_hinglish",
+      "T80_mr",
+      "T81_en",
+      "T81_gu",
+      "T81_hi",
+      "T81_hinglish",
+      "T81_mr",
+      "T82_en",
+      "T82_gu",
+      "T82_hi",
+      "T82_hinglish",
+      "T82_mr",
+      "T83_en",
+      "T83_gu",
+      "T83_hi",
+      "T83_hinglish",
+      "T83_mr",
+      "T84_en",
+      "T84_gu",
+      "T84_hi",
+      "T84_hinglish",
+      "T84_mr",
+      "T85_en",
+      "T85_gu",
+      "T85_hi",
+      "T85_hinglish",
+      "T85_mr",
+      "T86_en",
+      "T86_gu",
+      "T86_hi",
+      "T86_hinglish",
+      "T86_mr",
+      "T87_en",
+      "T87_gu",
+      "T87_hi",
+      "T87_hinglish",
+      "T87_mr",
+      "T88_en",
+      "T88_gu",
+      "T88_hi",
+      "T88_hinglish",
+      "T88_mr",
+      "T89_en",
+      "T89_gu",
+      "T89_hi",
+      "T89_hinglish",
+      "T89_mr",
+      "T90_en",
+      "T90_gu",
+      "T90_hi",
+      "T90_hinglish",
+      "T90_mr",
+      "T91_en",
+      "T91_gu",
+      "T91_hi",
+      "T91_hinglish",
+      "T91_mr",
+      "T92_en",
+      "T92_gu",
+      "T92_hi",
+      "T92_hinglish",
+      "T92_mr",
+      "T93_en",
+      "T93_gu",
+      "T93_hi",
+      "T93_hinglish",
+      "T93_mr",
+      "T94_en",
+      "T94_gu",
+      "T94_hi",
+      "T94_hinglish",
+      "T94_mr",
+      "T95_en",
+      "T95_gu",
+      "T95_hi",
+      "T95_hinglish",
+      "T95_mr",
+      "T96_en",
+      "T96_gu",
+      "T96_hi",
+      "T96_hinglish",
+      "T96_mr",
+      "T97_en",
+      "T97_gu",
+      "T97_hi",
+      "T97_hinglish",
+      "T97_mr",
+      "T98_en",
+      "T98_gu",
+      "T98_hi",
+      "T98_hinglish",
+      "T98_mr",
+      "T99_en",
+      "T99_gu",
+      "T99_hi",
+      "T99_hinglish",
+      "T99_mr"
+    ],
+    "missing_items": [],
+    "unexpected_items": [],
+    "complete": true
+  },
+  "ollama_versions": [
+    "0.40.18"
+  ],
+  "model_key": "local_qwen25_3b",
+  "decoding_settings": [
+    {
+      "max_tokens": 2048,
+      "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "num_ctx": 16384,
+      "seed": 42,
+      "temperature": 0
+    }
+  ],
+  "benchmark_version": [
+    "3.0.0"
+  ],
+  "system_prompt_sha256": [
+    "ed8913f3f83e57537c97ee3cc57cc6077ae1db92abd9366b751d7646f3edd447"
+  ],
+  "tool_schema_sha256": [
+    "fe40f3678bac889746fd2f899ed40eb2e61faf3691a3e9abfef762a7870046d8"
+  ],
+  "dataset_sha256": {
+    "benchmark/semantic_tasks.json": "7387a2dc34b9ee45826bff3abac1d7dbdf904d07a79097c6ef1b55eeba45fb28",
+    "benchmark/gold_labels.json": "201eddeaea466c222db8e4919309d28c4a9df6843096533640a7f160ceac1cc6",
+    "benchmark/languages/en.jsonl": "50949469db5cc534a9bcd473ea1b05809bbcb320681a72a8d708f57ae9c7a096",
+    "benchmark/languages/hinglish.jsonl": "d67dd217700ffef12556c424956532306a0b16f3009b3e577834733e02d23c32",
+    "benchmark/languages/hi.jsonl": "3e75a9a2439c9f27e7b6a54ff51ee8117ec72104f528a31a2044b85081395c60",
+    "benchmark/languages/mr.jsonl": "8c97cc5d99f8ba79d66fdc647c4cf2c7296a3caab9ff78de77e821579506fea6",
+    "benchmark/languages/gu.jsonl": "24dc72628e074682e35cf78abae45d47a1e90760fba336fef9bb4c022a1d02a1",
+    "benchmark/languages/human_review.json": "3589a29af429b95c0dd9c2e24844370942f8ccc51e623e8800293d12483468a6",
+    "config/models.yaml": "1d5ff0907821103ed18338d1db9d6203acb31ab89e4148ac9051298e7ebc0159",
+    "evaluation/runner.py": "40cb38dcb0e7f99ba6de087b31bc910c0aabb3aba429b22ff0c1a1d1af5dd4ed",
+    "evaluation/scorer.py": "e9f28e246b08c5b5451326373744e37b4b88de85f440f38d47e3ad39922ae4ef",
+    "evaluation/final_answer.py": "efcb0efd72b5960a23bc85a50c76a5f34f66f53a0990049336294e970c5546b7",
+    "evaluation/canonical.py": "27e2bba67fbf01b99d0246bc6036dc0b25dfe63e6d3e383df699e5e796ce59c2",
+    "evaluation/tolerance.py": "d59330785a724db7f7ee74ff8464ba03b23c8eda7d70ca5991c15bf752c1ba27",
+    "agents/ollama_adapter.py": "e3f108c9d8842a00bb7c752ee35d68b3cb0698b130d1bc6f03e615c47a7441f2",
+    "evaluation/run_pilot.py": "9fbad1cfd5791c0a1cf820b3281994d81f17686bb37e03ba33973a39ba475670"
+  },
+  "official": {
+    "items": 625,
+    "scored": 625,
+    "not_scored": 0,
+    "task_success": 4,
+    "status": {
+      "completed": 464,
+      "output_truncated": 152,
+      "context_overflow": 2,
+      "malformed_output": 7
+    },
+    "failure_label_families": {
+      "process:missing_required_call": 614,
+      "final_answer:missing_block": 598,
+      "run:output_truncated": 152,
+      "state:meal_orders_mismatch": 45,
+      "state:tatkal_bookings_mismatch": 41,
+      "state:bookings_mismatch": 36,
+      "state:boarding_changes_mismatch": 23,
+      "state:cancellations_mismatch": 20,
+      "state:complaints_mismatch": 20,
+      "state:waitlist_mismatch": 16,
+      "process:prohibited_action": 12,
+      "state:tdr_claims_mismatch": 11,
+      "final_answer:booking_ids_do_not_match_state": 7,
+      "run:malformed_output": 7,
+      "status:expected_success_got_needs_clarification": 5,
+      "status:expected_cannot_complete_got_success": 4,
+      "answer_value:missing": 4,
+      "final_answer:wrong_selected_train": 4,
+      "final_answer:wrong_selected_class": 4,
+      "answer_value:wrong": 4,
+      "run:context_overflow": 2,
+      "status:expected_cannot_complete_got_needs_clarification": 1,
+      "status:expected_success_got_cannot_complete": 1,
+      "final_answer:booking_ids_invalid": 1
+    }
+  },
+  "rates": {
+    "parse_ok": 27,
+    "process_success": 195,
+    "state_success": 434,
+    "tool_calls": 1389,
+    "tool_calls_ok": 519,
+    "top_tool_error_codes": {
+      "INVALID_TRAIN": 403,
+      "INVALID_STATION": 174,
+      "INVALID_ARGUMENTS": 69,
+      "ALREADY_CANCELLED": 30,
+      "TDR_WINDOW_CLOSED": 30,
+      "INVALID_PNR": 23,
+      "SOLD_OUT": 21,
+      "STATION_NOT_FOUND": 19,
+      "PNR_NOT_FOUND": 16,
+      "JOURNEY_STARTED": 12
+    }
+  },
+  "null_baseline": {
+    "tool_required_tasks": {
+      "scored": 610,
+      "task_success": 4,
+      "rate": 0.0066
+    },
+    "no_tool_tasks": {
+      "scored": 15,
+      "task_success": 0,
+      "rate": 0.0
+    },
+    "always_needs_clarification_baseline": {
+      "task_ids": [
+        "T09",
+        "T151",
+        "T189",
+        "T19",
+        "T36",
+        "T37",
+        "T45",
+        "T46",
+        "T67",
+        "T69",
+        "T71",
+        "T74",
+        "T98"
+      ],
+      "passes_per_language": 13,
+      "rate_all_tasks": 0.065,
+      "languages_in_run": 5
+    }
+  },
+  "strict_vs_lenient": {
+    "definition": "lenient = scorer after recorded format recoveries (headline); strict = original scorer, lower bound when a run-time recovery was used",
+    "has_strict_scores": true,
+    "lenient": {
+      "scored": 625,
+      "task_success": 4
+    },
+    "strict": {
+      "scored": 625,
+      "task_success": 4
+    },
+    "items_with_recovery": 4,
+    "recovery_rules": {
+      "extra_args_dropped": 2,
+      "booking_ids_shape": 1,
+      "passenger_punctuation": 1
+    },
+    "items_with_recovery_by_language": {
+      "hinglish": 2,
+      "en": 1,
+      "mr": 1
+    },
+    "unparsed_model_output": {
+      "total": 7,
+      "by_language": {
+        "mr": 2,
+        "hi": 3,
+        "gu": 1,
+        "hinglish": 1
+      }
+    }
+  },
+  "by_language": {
+    "en": {
+      "items": 125,
+      "scored": 125,
+      "task_success": 2,
+      "parse_ok": 10,
+      "process_success": 66,
+      "state_success": 90,
+      "primary_failure": {
+        "format_only": 55,
+        "missing_booking": 25,
+        "unsafe_action": 9,
+        "wrong_answer": 5,
+        "missing_required_call": 9,
+        "tool_argument_error": 18,
+        "success": 2,
+        "output_truncated": 2
+      }
+    },
+    "gu": {
+      "items": 125,
+      "scored": 125,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 19,
+      "state_success": 81,
+      "primary_failure": {
+        "format_only": 16,
+        "output_truncated": 60,
+        "unsafe_action": 11,
+        "wrong_answer": 1,
+        "tool_argument_error": 20,
+        "missing_booking": 14,
+        "missing_required_call": 2,
+        "malformed_model_output": 1
+      }
+    },
+    "hi": {
+      "items": 125,
+      "scored": 125,
+      "task_success": 1,
+      "parse_ok": 9,
+      "process_success": 37,
+      "state_success": 87,
+      "primary_failure": {
+        "format_only": 32,
+        "unsafe_action": 8,
+        "output_truncated": 30,
+        "wrong_answer": 3,
+        "missing_required_call": 9,
+        "missing_booking": 21,
+        "context_overflow": 1,
+        "tool_argument_error": 17,
+        "malformed_model_output": 3,
+        "success": 1
+      }
+    },
+    "hinglish": {
+      "items": 125,
+      "scored": 125,
+      "task_success": 1,
+      "parse_ok": 6,
+      "process_success": 52,
+      "state_success": 93,
+      "primary_failure": {
+        "format_only": 46,
+        "missing_booking": 20,
+        "unsafe_action": 8,
+        "wrong_answer": 1,
+        "context_overflow": 1,
+        "output_truncated": 12,
+        "tool_argument_error": 24,
+        "missing_required_call": 11,
+        "success": 1,
+        "malformed_model_output": 1
+      }
+    },
+    "mr": {
+      "items": 125,
+      "scored": 125,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 21,
+      "state_success": 83,
+      "primary_failure": {
+        "format_only": 19,
+        "output_truncated": 48,
+        "unsafe_action": 7,
+        "missing_booking": 23,
+        "malformed_model_output": 2,
+        "tool_argument_error": 21,
+        "missing_required_call": 5
+      }
+    }
+  },
+  "by_task": {
+    "T100": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "missing_required_call": 1
+      }
+    },
+    "T101": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "tool_argument_error": 1,
+        "output_truncated": 1
+      }
+    },
+    "T102": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "tool_argument_error": 3,
+        "output_truncated": 1
+      }
+    },
+    "T103": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 2,
+        "output_truncated": 2,
+        "unsafe_action": 1
+      }
+    },
+    "T104": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 3,
+        "unsafe_action": 1,
+        "output_truncated": 1
+      }
+    },
+    "T105": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 1,
+        "missing_required_call": 1,
+        "output_truncated": 2,
+        "tool_argument_error": 1
+      }
+    },
+    "T106": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "tool_argument_error": 2,
+        "output_truncated": 2
+      }
+    },
+    "T107": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T108": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "format_only": 2,
+        "missing_booking": 1,
+        "output_truncated": 2
+      }
+    },
+    "T109": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "format_only": 2
+      }
+    },
+    "T110": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "success": 1,
+        "format_only": 1,
+        "missing_booking": 2,
+        "output_truncated": 1
+      }
+    },
+    "T111": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "format_only": 1,
+        "output_truncated": 2,
+        "missing_required_call": 1
+      }
+    },
+    "T112": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 4,
+      "primary_failure": {
+        "output_truncated": 4,
+        "missing_booking": 1
+      }
+    },
+    "T113": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 4,
+        "output_truncated": 1
+      }
+    },
+    "T114": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "tool_argument_error": 2,
+        "missing_required_call": 1,
+        "output_truncated": 1
+      }
+    },
+    "T115": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 2,
+      "primary_failure": {
+        "missing_booking": 1,
+        "success": 1,
+        "output_truncated": 2,
+        "unsafe_action": 1
+      }
+    },
+    "T116": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "tool_argument_error": 2,
+        "output_truncated": 1
+      }
+    },
+    "T117": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 2,
+        "tool_argument_error": 1
+      }
+    },
+    "T118": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "malformed_model_output": 2,
+        "output_truncated": 1
+      }
+    },
+    "T119": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T120": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T121": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "tool_argument_error": 3
+      }
+    },
+    "T122": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "success": 1,
+        "format_only": 1,
+        "output_truncated": 1,
+        "tool_argument_error": 2
+      }
+    },
+    "T123": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 2,
+      "primary_failure": {
+        "output_truncated": 3,
+        "unsafe_action": 1,
+        "tool_argument_error": 1
+      }
+    },
+    "T124": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 3,
+        "format_only": 1,
+        "output_truncated": 1
+      }
+    },
+    "T125": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 1,
+      "parse_ok": 1,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "success": 1
+      }
+    },
+    "T126": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T127": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "format_only": 2,
+        "missing_required_call": 1,
+        "output_truncated": 1
+      }
+    },
+    "T128": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "output_truncated": 4
+      }
+    },
+    "T129": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T130": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 1,
+        "missing_required_call": 4
+      }
+    },
+    "T131": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T132": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T133": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "format_only": 1,
+        "missing_booking": 4
+      }
+    },
+    "T134": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T135": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T136": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 3,
+        "output_truncated": 2
+      }
+    },
+    "T137": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "format_only": 1,
+        "output_truncated": 1
+      }
+    },
+    "T138": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 3,
+        "output_truncated": 2
+      }
+    },
+    "T139": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T140": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T141": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "format_only": 1,
+        "unsafe_action": 3,
+        "output_truncated": 1
+      }
+    },
+    "T142": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T143": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T144": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T145": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 4,
+      "primary_failure": {
+        "unsafe_action": 1,
+        "format_only": 3,
+        "tool_argument_error": 1
+      }
+    },
+    "T146": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T147": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 4,
+        "format_only": 1
+      }
+    },
+    "T148": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 2,
+        "output_truncated": 3
+      }
+    },
+    "T149": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T150": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 3,
+        "format_only": 1,
+        "output_truncated": 1
+      }
+    },
+    "T151": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T152": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T153": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T154": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 2,
+        "unsafe_action": 2,
+        "output_truncated": 1
+      }
+    },
+    "T155": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T156": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T157": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T158": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T159": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 3,
+        "tool_argument_error": 1,
+        "malformed_model_output": 1
+      }
+    },
+    "T160": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 4,
+        "output_truncated": 1
+      }
+    },
+    "T161": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 4,
+        "malformed_model_output": 1
+      }
+    },
+    "T162": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T163": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T164": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 3,
+        "output_truncated": 1,
+        "tool_argument_error": 1
+      }
+    },
+    "T165": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 2,
+        "missing_required_call": 1
+      }
+    },
+    "T166": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 2,
+        "output_truncated": 3
+      }
+    },
+    "T167": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "output_truncated": 4
+      }
+    },
+    "T168": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 3
+      }
+    },
+    "T169": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T170": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "format_only": 3,
+        "output_truncated": 1
+      }
+    },
+    "T171": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 2,
+        "output_truncated": 2,
+        "unsafe_action": 1
+      }
+    },
+    "T172": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "tool_argument_error": 1,
+        "output_truncated": 2
+      }
+    },
+    "T173": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 2,
+        "unsafe_action": 1,
+        "output_truncated": 2
+      }
+    },
+    "T174": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T175": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 2,
+      "primary_failure": {
+        "unsafe_action": 3,
+        "malformed_model_output": 1,
+        "output_truncated": 1
+      }
+    },
+    "T176": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "format_only": 3,
+        "output_truncated": 1
+      }
+    },
+    "T177": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 3
+      }
+    },
+    "T178": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 3,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "missing_required_call": 1,
+        "output_truncated": 2
+      }
+    },
+    "T179": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 3,
+      "primary_failure": {
+        "format_only": 2,
+        "tool_argument_error": 1,
+        "missing_booking": 2
+      }
+    },
+    "T180": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 2,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 2,
+        "missing_booking": 1
+      }
+    },
+    "T181": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 1,
+        "output_truncated": 4
+      }
+    },
+    "T182": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 3,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 2,
+        "wrong_answer": 1,
+        "output_truncated": 2
+      }
+    },
+    "T183": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "format_only": 1,
+        "unsafe_action": 2,
+        "output_truncated": 2
+      }
+    },
+    "T184": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T185": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 3,
+      "state_success": 3,
+      "primary_failure": {
+        "format_only": 2,
+        "wrong_answer": 1,
+        "output_truncated": 2
+      }
+    },
+    "T186": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 3,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 2,
+        "missing_booking": 1
+      }
+    },
+    "T187": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T188": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "missing_required_call": 1,
+        "output_truncated": 1,
+        "tool_argument_error": 1
+      }
+    },
+    "T189": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T190": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 3,
+      "primary_failure": {
+        "format_only": 1,
+        "missing_required_call": 2,
+        "output_truncated": 2
+      }
+    },
+    "T191": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T192": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 5
+      }
+    },
+    "T193": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "missing_required_call": 2,
+        "malformed_model_output": 1,
+        "output_truncated": 1
+      }
+    },
+    "T194": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T195": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 1,
+        "output_truncated": 4
+      }
+    },
+    "T196": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 3,
+      "primary_failure": {
+        "missing_required_call": 1,
+        "output_truncated": 3,
+        "unsafe_action": 1
+      }
+    },
+    "T197": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 5
+      }
+    },
+    "T198": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 2,
+      "primary_failure": {
+        "missing_required_call": 2,
+        "missing_booking": 3
+      }
+    },
+    "T199": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 1,
+        "tool_argument_error": 3,
+        "output_truncated": 1
+      }
+    },
+    "T200": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 2,
+        "output_truncated": 1,
+        "missing_booking": 2
+      }
+    },
+    "T76": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T77": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T78": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 2,
+        "format_only": 1,
+        "output_truncated": 2
+      }
+    },
+    "T79": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 4,
+      "process_success": 4,
+      "state_success": 0,
+      "primary_failure": {
+        "unsafe_action": 5
+      }
+    },
+    "T80": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "format_only": 1,
+        "output_truncated": 3
+      }
+    },
+    "T81": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T82": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T83": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 4,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T84": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 2,
+      "state_success": 3,
+      "primary_failure": {
+        "missing_booking": 1,
+        "wrong_answer": 2,
+        "output_truncated": 2
+      }
+    },
+    "T85": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 1,
+      "state_success": 1,
+      "primary_failure": {
+        "format_only": 1,
+        "unsafe_action": 4
+      }
+    },
+    "T86": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 2,
+        "context_overflow": 1,
+        "format_only": 1,
+        "unsafe_action": 1
+      }
+    },
+    "T87": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 3
+      }
+    },
+    "T88": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T89": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 5
+      }
+    },
+    "T90": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 2,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 2,
+        "output_truncated": 2,
+        "malformed_model_output": 1
+      }
+    },
+    "T91": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 1,
+      "state_success": 5,
+      "primary_failure": {
+        "missing_required_call": 2,
+        "format_only": 1,
+        "output_truncated": 2
+      }
+    },
+    "T92": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 5,
+      "primary_failure": {
+        "tool_argument_error": 2,
+        "output_truncated": 2,
+        "unsafe_action": 1
+      }
+    },
+    "T93": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T94": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 3,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 3,
+        "output_truncated": 2
+      }
+    },
+    "T95": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 0,
+      "state_success": 0,
+      "primary_failure": {
+        "missing_booking": 4,
+        "output_truncated": 1
+      }
+    },
+    "T96": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 0,
+      "state_success": 1,
+      "primary_failure": {
+        "missing_booking": 2,
+        "output_truncated": 2,
+        "context_overflow": 1
+      }
+    },
+    "T97": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 2,
+      "state_success": 4,
+      "primary_failure": {
+        "wrong_answer": 1,
+        "unsafe_action": 1,
+        "output_truncated": 3
+      }
+    },
+    "T98": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 5,
+      "state_success": 5,
+      "primary_failure": {
+        "format_only": 4,
+        "output_truncated": 1
+      }
+    },
+    "T99": {
+      "items": 5,
+      "scored": 5,
+      "task_success": 0,
+      "parse_ok": 2,
+      "process_success": 4,
+      "state_success": 4,
+      "primary_failure": {
+        "format_only": 3,
+        "missing_booking": 1,
+        "wrong_answer": 1
+      }
+    }
+  },
+  "by_category": {
+    "booking": {
+      "items": 135,
+      "scored": 135,
+      "task_success": 1,
+      "parse_ok": 11,
+      "process_success": 30,
+      "state_success": 43,
+      "primary_failure": {
+        "missing_booking": 63,
+        "format_only": 22,
+        "output_truncated": 32,
+        "wrong_answer": 6,
+        "context_overflow": 2,
+        "unsafe_action": 7,
+        "success": 1,
+        "missing_required_call": 2
+      }
+    },
+    "clarification": {
+      "items": 10,
+      "scored": 10,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 10,
+      "state_success": 10,
+      "primary_failure": {
+        "format_only": 9,
+        "output_truncated": 1
+      }
+    },
+    "constraint": {
+      "items": 130,
+      "scored": 130,
+      "task_success": 2,
+      "parse_ok": 10,
+      "process_success": 31,
+      "state_success": 56,
+      "primary_failure": {
+        "unsafe_action": 26,
+        "wrong_answer": 2,
+        "format_only": 19,
+        "output_truncated": 38,
+        "missing_booking": 29,
+        "success": 2,
+        "missing_required_call": 4,
+        "tool_argument_error": 10
+      }
+    },
+    "invalid_input": {
+      "items": 35,
+      "scored": 35,
+      "task_success": 0,
+      "parse_ok": 0,
+      "process_success": 22,
+      "state_success": 35,
+      "primary_failure": {
+        "format_only": 22,
+        "output_truncated": 5,
+        "tool_argument_error": 8
+      }
+    },
+    "recovery": {
+      "items": 105,
+      "scored": 105,
+      "task_success": 0,
+      "parse_ok": 1,
+      "process_success": 39,
+      "state_success": 97,
+      "primary_failure": {
+        "format_only": 35,
+        "output_truncated": 25,
+        "missing_required_call": 8,
+        "tool_argument_error": 31,
+        "unsafe_action": 3,
+        "wrong_answer": 1,
+        "missing_booking": 2
+      }
+    },
+    "sequential": {
+      "items": 120,
+      "scored": 120,
+      "task_success": 0,
+      "parse_ok": 3,
+      "process_success": 20,
+      "state_success": 103,
+      "primary_failure": {
+        "format_only": 19,
+        "output_truncated": 28,
+        "malformed_model_output": 5,
+        "tool_argument_error": 33,
+        "unsafe_action": 7,
+        "missing_required_call": 18,
+        "wrong_answer": 1,
+        "missing_booking": 9
+      }
+    },
+    "single_tool": {
+      "items": 90,
+      "scored": 90,
+      "task_success": 1,
+      "parse_ok": 2,
+      "process_success": 43,
+      "state_success": 90,
+      "primary_failure": {
+        "format_only": 42,
+        "output_truncated": 23,
+        "missing_required_call": 4,
+        "tool_argument_error": 18,
+        "malformed_model_output": 2,
+        "success": 1
+      }
+    }
+  },
+  "diagnostic": {
+    "primary_failure": {
+      "success": 4,
+      "context_overflow": 2,
+      "output_truncated": 152,
+      "malformed_model_output": 7,
+      "unsafe_action": 43,
+      "missing_booking": 103,
+      "tool_argument_error": 100,
+      "missing_required_call": 36,
+      "wrong_answer": 10,
+      "format_only": 168
+    },
+    "secondary_tags": {
+      "no_final_block": 598,
+      "empty_final_text": 161,
+      "reply_language_mismatch": 160,
+      "missing_expected_booking": 160,
+      "guessed_station_code": 135,
+      "invalid_train_id_format": 92,
+      "unexpected_booking": 55,
+      "unresolvable_station_name": 13,
+      "kind:unparsed_model_output": 7,
+      "ungrounded_train_id": 3,
+      "parallel_dependent_calls": 3
+    },
+    "format_only_items": [
+      "T100_en",
+      "T100_gu",
+      "T100_hinglish",
+      "T100_mr",
+      "T101_en",
+      "T101_hi",
+      "T101_hinglish",
+      "T102_en",
+      "T105_en",
+      "T107_en",
+      "T107_gu",
+      "T107_hinglish",
+      "T108_en",
+      "T108_hinglish",
+      "T109_gu",
+      "T109_hinglish",
+      "T110_hinglish",
+      "T111_hinglish",
+      "T114_en",
+      "T116_en",
+      "T116_gu",
+      "T117_en",
+      "T117_hinglish",
+      "T118_en",
+      "T118_hinglish",
+      "T121_en",
+      "T121_hi",
+      "T122_hinglish",
+      "T124_mr",
+      "T125_en",
+      "T125_gu",
+      "T125_hinglish",
+      "T125_mr",
+      "T126_en",
+      "T126_gu",
+      "T126_hi",
+      "T126_hinglish",
+      "T126_mr",
+      "T127_hi",
+      "T127_hinglish",
+      "T128_en",
+      "T129_en",
+      "T129_gu",
+      "T129_hi",
+      "T129_hinglish",
+      "T129_mr",
+      "T133_en",
+      "T134_en",
+      "T134_hi",
+      "T134_hinglish",
+      "T137_hi",
+      "T141_en",
+      "T145_hi",
+      "T145_hinglish",
+      "T145_mr",
+      "T147_hi",
+      "T150_mr",
+      "T151_en",
+      "T151_gu",
+      "T151_hi",
+      "T151_hinglish",
+      "T151_mr",
+      "T165_en",
+      "T165_hi",
+      "T168_en",
+      "T168_gu",
+      "T169_en",
+      "T169_hi",
+      "T169_hinglish",
+      "T169_mr",
+      "T170_gu",
+      "T170_hi",
+      "T170_hinglish",
+      "T172_en",
+      "T172_hinglish",
+      "T173_en",
+      "T173_hi",
+      "T174_en",
+      "T174_hi",
+      "T174_hinglish",
+      "T176_gu",
+      "T176_hi",
+      "T176_hinglish",
+      "T177_en",
+      "T177_hinglish",
+      "T179_en",
+      "T179_mr",
+      "T180_en",
+      "T180_hinglish",
+      "T181_en",
+      "T182_en",
+      "T182_hinglish",
+      "T183_en",
+      "T184_en",
+      "T184_hi",
+      "T184_hinglish",
+      "T185_en",
+      "T185_hinglish",
+      "T186_en",
+      "T186_hinglish",
+      "T187_en",
+      "T187_hi",
+      "T187_hinglish",
+      "T187_mr",
+      "T188_en",
+      "T188_hinglish",
+      "T189_en",
+      "T189_gu",
+      "T189_hi",
+      "T189_hinglish",
+      "T189_mr",
+      "T190_en",
+      "T193_en",
+      "T194_en",
+      "T194_hinglish",
+      "T194_mr",
+      "T199_en",
+      "T76_en",
+      "T76_gu",
+      "T76_hi",
+      "T76_hinglish",
+      "T76_mr",
+      "T77_en",
+      "T77_hi",
+      "T77_hinglish",
+      "T78_hi",
+      "T80_hinglish",
+      "T81_en",
+      "T81_gu",
+      "T81_hi",
+      "T81_hinglish",
+      "T81_mr",
+      "T82_en",
+      "T82_hi",
+      "T82_hinglish",
+      "T82_mr",
+      "T83_en",
+      "T83_gu",
+      "T83_hi",
+      "T83_hinglish",
+      "T85_en",
+      "T86_hi",
+      "T87_en",
+      "T87_hinglish",
+      "T88_en",
+      "T88_hi",
+      "T88_hinglish",
+      "T89_en",
+      "T89_gu",
+      "T89_hi",
+      "T89_hinglish",
+      "T89_mr",
+      "T90_en",
+      "T90_hi",
+      "T91_hinglish",
+      "T93_en",
+      "T93_hi",
+      "T93_hinglish",
+      "T94_en",
+      "T94_hi",
+      "T94_hinglish",
+      "T98_en",
+      "T98_hi",
+      "T98_hinglish",
+      "T98_mr",
+      "T99_en",
+      "T99_hinglish",
+      "T99_mr"
+    ]
+  },
+  "cost": {
+    "input_tokens": 4538824,
+    "output_tokens": 189007,
+    "cached_input_tokens": 4332092,
+    "attempts_gt_1": 0,
+    "sum_item_seconds": 3506.8,
+    "wall_seconds_first_start_to_last_finish": 3518.0
+  }
+}
