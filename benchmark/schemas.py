@@ -47,6 +47,8 @@ class FinalStatePredicate(BaseModel):
     # benchmark 3.0 (serialized only when set, so gold of tasks without them stays byte-identical):
     expected_cancellations: Optional[list[str]] = None  # PNRs that must end CANCELLED; None/absent => nothing may be cancelled
     expected_waitlist: Optional[list[dict[str, Any]]] = None  # waitlist entries (train, class, passenger); None/absent => none
+    # 20-tool stage: {"tatkal_bookings"|"boarding_changes"|"meal_orders"|"tdr_claims"|"complaints": [...]}; absent kind => none may happen
+    expected_effects: Optional[dict[str, list[dict[str, Any]]]] = None
 
 
 class ProhibitedAction(BaseModel):

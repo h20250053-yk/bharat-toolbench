@@ -17,10 +17,11 @@ from . import batch_t16_t25 as _b2
 from . import batch_t26_t50 as _b3
 from . import batch_t51_t75 as _b4
 from . import batch_t76_t100 as _b5
+from . import batch_t101_t200 as _b6
 from . import batch_gujarati as _gu
 from .batch_t06_t15 import BATCH_IDS, EN_AUTHOR as BATCH_EN_AUTHOR, EN_ITEMS as BATCH_EN_ITEMS, QUERIES as BATCH_QUERIES
 
-BATCHES = [_b1, _b2, _b3, _b4, _b5]  # appended in this order after the frozen pilot rows
+BATCHES = [_b1, _b2, _b3, _b4, _b5, _b6]  # appended in this order after the frozen pilot rows
 
 LANG_DIR = Path(__file__).resolve().parent / "languages"
 PILOT_IDS = ["T01", "T02", "T03", "T04", "T05"]
@@ -66,7 +67,7 @@ def write_english() -> None:
     pilot = [l for l in lines if json.loads(l)["semantic_task_id"] in PILOT_IDS]
     assert [json.loads(l)["semantic_task_id"] for l in pilot] == PILOT_IDS
     batch = [json.dumps({"task_id": f"{t}_en", "semantic_task_id": t, "language": "en", "query": b.EN_ITEMS[t]["query"],
-                         "category": b.EN_ITEMS[t]["category"], "allowed_tools": getattr(b, "ALL_TOOLS_V3", ALL_TOOLS), "tags": b.EN_ITEMS[t]["tags"],
+                         "category": b.EN_ITEMS[t]["category"], "allowed_tools": getattr(b, "ALL_TOOLS_V4", getattr(b, "ALL_TOOLS_V3", ALL_TOOLS)), "tags": b.EN_ITEMS[t]["tags"],
                          "author": b.EN_AUTHOR, "reviewer": None, "review_status": "draft"}, ensure_ascii=False) + "\n"
              for b in BATCHES for t in b.BATCH_IDS]
     (LANG_DIR / "en.jsonl").write_text("".join(pilot + batch), encoding="utf-8")

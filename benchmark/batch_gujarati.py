@@ -250,3 +250,12 @@ GU_IDS += GU_IDS_T76_T100
 QUERIES.update(_t76.QUERIES)
 MARKERS.update(_t76.MARKERS)
 FLAGS.update(_t76.FLAGS)
+
+# ------------------------------------------------------------------ T101-T200, 20-tool stage (benchmark/batch_gujarati_t101_t200.py)
+from . import batch_gujarati_t101_t200 as _t101  # noqa: E402
+
+GU_IDS_T101_T200 = list(_t101.IDS)
+GU_IDS += GU_IDS_T101_T200
+QUERIES.update(_t101.QUERIES)
+MARKERS.update(_t101.MARKERS)
+FLAGS.update(_t101.FLAGS)

@@ -87,7 +87,7 @@ def test_happy_path_provenance_usage_rawlog_and_score():
 
 def test_system_prompt_contains_contract_and_plan_rules():
     assert OPEN in SYSTEM_PROMPT and CLOSE in SYSTEM_PROMPT
-    assert "2026-10-05 09:00 IST (Monday)" in SYSTEM_PROMPT and "Only call book_ticket, cancel_ticket or join_waitlist when the user asked for that action." in SYSTEM_PROMPT
+    assert "2026-10-05 09:00 IST (Monday)" in SYSTEM_PROMPT and "Only call a tool that books, cancels, waitlists, changes, orders, files or registers something when the user asked for that action." in SYSTEM_PROMPT
 
 
 def test_retryable_provider_error_is_retried_with_retry_after():
@@ -160,7 +160,7 @@ def test_step_limit_is_exactly_8_turns_and_not_retried():
 def test_disallowed_tool_is_recorded():
     env, c = RailwayEnv(), cfg()
     item = {**ITEM, "allowed_tools": ["get_fare"]}
-    # 3.0: every item is offered all twelve tools (evaluation/runner.offered_tools), so only a name outside the toolset is refused
+    # 3.0: an item is offered the tools of its stage (its allowed_tools; evaluation/runner.offered_tools); a name outside them is refused
     f = factory([[turn(calls=[ToolCall(id="b", name="launch_rocket", arguments={})]), turn(calls=[FARE_CALL]), turn(text=FINAL)]])
     row = run_item(item, f, env, c)
     assert row["trajectory"][0]["event"] == "tool_not_allowed"

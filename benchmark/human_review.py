@@ -16,7 +16,7 @@ Re-recorded for T38_mr on 2026-11-24 after the author-approved wording fix (audi
 
 Scope as stated by the project author on 2026-11-24: Marathi and Gujarati for all 75 tasks were checked by a human.
 Hinglish and Hindi T51-T75 are not covered by this record (add them to REVIEWED once they are checked).
-The benchmark 3.0 batch T76-T100 is not reviewed in any language yet.
+The benchmark 3.0 batches T76-T100 and T101-T200 are not reviewed in any language yet.
 """
 
 from __future__ import annotations

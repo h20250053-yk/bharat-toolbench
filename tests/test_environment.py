@@ -20,12 +20,14 @@ def test_fixture_sizes_match_config(env):
     assert cfg["languages"] == ["en", "hinglish", "hi", "mr", "gu"]
 
 
-def test_exactly_twelve_tools_with_specs():
-    # the six tools of benchmark 1.0-2.1, then the six added in 3.0, in this order
+def test_exactly_twenty_tools_with_specs():
+    # the six tools of benchmark 1.0-2.1, the six added in 3.0 (T76-T100), then the eight of the 20-tool stage (T101-T200), in this order
     assert TOOL_NAMES == ("resolve_station", "search_trains", "get_train_details",
                           "check_availability", "get_fare", "book_ticket",
                           "get_booking_status", "get_cancellation_refund", "cancel_ticket", "join_waitlist",
-                          "get_live_train_status", "get_concession_fare")
+                          "get_live_train_status", "get_concession_fare",
+                          "check_tatkal_availability", "book_tatkal_ticket", "get_berth_availability", "get_platform_info",
+                          "change_boarding_point", "order_meal", "file_tdr", "raise_complaint")
     specs = tool_specs()
     assert [s["name"] for s in specs] == list(TOOL_NAMES)
     assert all(s["description"] and s["parameters"]["type"] == "object" for s in specs)

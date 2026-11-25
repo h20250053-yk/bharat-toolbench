@@ -1,4 +1,4 @@
-"""Coverage, tool-use and difficulty metrics for T01-T100 (benchmark 3.0). Run:  python -m benchmark.coverage_report
+"""Coverage, tool-use and difficulty metrics for T01-T200 (benchmark 3.0, three tool stages). Run:  python -m benchmark.coverage_report
 Writes benchmark/COVERAGE_REPORT.md (deterministic). Every number is COMPUTED from semantic_tasks.json, gold_labels.json and the
 language files, except the behaviour labels in LABELS, which are hand-assigned semantic labels (documented below) used
 only for reporting; they are not gold and never affect scoring.
@@ -21,7 +21,10 @@ CATS = ["single_tool", "sequential", "constraint", "booking", "recovery", "clari
 AB = {"resolve_station": "R", "search_trains": "S", "get_train_details": "D", "check_availability": "A", "get_fare": "F", "book_ticket": "B",
       # benchmark 3.0
       "get_booking_status": "P", "get_cancellation_refund": "Q", "cancel_ticket": "X", "join_waitlist": "W", "get_live_train_status": "L",
-      "get_concession_fare": "C"}
+      "get_concession_fare": "C",
+      # 20-tool stage
+      "check_tatkal_availability": "K", "book_tatkal_ticket": "T", "get_berth_availability": "H", "get_platform_info": "N",
+      "change_boarding_point": "G", "order_meal": "M", "file_tdr": "Z", "raise_complaint": "E"}
 
 # Hand-assigned behaviour labels (reporting only). Definitions:
 #   conditional     the user states an if/else, only-if or fallback policy the agent must follow
@@ -33,20 +36,27 @@ AB = {"resolve_station": "R", "search_trains": "S", "get_train_details": "D", "c
 LABELS: dict[str, set[str]] = {
     "conditional": {"T05", "T08", "T10", "T11", "T15", "T32", "T38", "T39", "T41", "T48", "T50",
                     "T61", "T70", "T73", "T75",
-                    "T79", "T80", "T84", "T85", "T86", "T96", "T97"},
+                    "T79", "T80", "T84", "T85", "T86", "T96", "T97",
+                    "T108", "T109", "T110", "T111", "T112", "T113", "T116", "T122", "T123", "T124", "T129", "T139", "T141", "T152", "T153",
+                    "T165", "T171", "T176", "T179", "T180", "T190", "T191", "T195", "T196", "T200"},
     "comparison": {"T04", "T08", "T12", "T14", "T22", "T31", "T33", "T34", "T38", "T40",
-                   "T51", "T52", "T53", "T57", "T60", "T64", "T65"},
+                   "T51", "T52", "T53", "T57", "T60", "T64", "T65",
+                   "T127", "T171", "T178", "T194"},
     "temporal": {"T03", "T06", "T07", "T08", "T12", "T13", "T25", "T30", "T35", "T39", "T40", "T43", "T44",
                  "T52", "T55", "T56", "T57", "T60", "T62", "T63", "T65", "T66", "T67", "T73",
-                 "T83", "T87", "T88", "T89", "T90"},
-    "multi_passenger": {"T13", "T15", "T33", "T42", "T46", "T48", "T50", "T61", "T65", "T68", "T71", "T92", "T99"},
+                 "T83", "T87", "T88", "T89", "T90",
+                 "T102", "T105", "T106", "T107", "T120", "T134", "T145", "T146", "T147", "T152", "T153", "T159", "T165", "T166", "T167",
+                 "T168", "T170", "T172", "T173", "T176", "T179", "T188", "T193", "T199"},
+    "multi_passenger": {"T13", "T15", "T33", "T42", "T46", "T48", "T50", "T61", "T65", "T68", "T71", "T92", "T99", "T115", "T116", "T124"},
     "multi_leg": {"T23", "T40", "T41"},
     "booking_request": {"T04", "T05", "T09", "T10", "T13", "T15", "T19", "T20", "T21", "T22", "T23", "T27", "T29", "T30", "T32", "T33",
                         "T35", "T36", "T38", "T39", "T41", "T42", "T43", "T46", "T47", "T48", "T49", "T50",
                         "T54", "T58", "T59", "T61", "T65", "T66", "T67", "T69", "T70", "T71", "T72", "T73", "T74", "T75",
-                        "T84", "T85", "T86", "T95", "T96"},
+                        "T84", "T85", "T86", "T95", "T96",
+                        "T103", "T104", "T105", "T106", "T108", "T109", "T110", "T111", "T112", "T113", "T115", "T116", "T119", "T122", "T123",
+                        "T124", "T180", "T195", "T197", "T198", "T200"},
 }
-GROUPS = [("T01-T25", 1, 25), ("T26-T50", 26, 50), ("T51-T75", 51, 75), ("T76-T100", 76, 100)]  # design batches, reported side by side
+GROUPS = [("T01-T25", 1, 25), ("T26-T50", 26, 50), ("T51-T75", 51, 75), ("T76-T100", 76, 100), ("T101-T200", 101, 200)]  # design batches, reported side by side
 DIFF_LABELS = ("conditional", "comparison", "temporal", "multi_passenger", "multi_leg")
 
 
@@ -68,8 +78,10 @@ def compute() -> dict:
         req = [c for c in g["required_calls"] if not c.get("optional")]
         seq = "".join(AB[c["tool"]] for c in req)
         labels = {k for k, v in LABELS.items() if t in v}
-        n_book = len(g["final_state"]["expected_bookings"])
-        lvl, pts = difficulty(len(req), n_book, g["final_state"]["status"], labels)
+        n_book = len(g["final_state"]["expected_bookings"]) + len((g["final_state"].get("expected_effects") or {}).get("tatkal_bookings", []))
+        n_mut = (len(g["final_state"]["expected_bookings"]) + len(g["final_state"].get("expected_cancellations") or []) + len(g["final_state"].get("expected_waitlist") or [])
+                 + sum(len(v) for v in (g["final_state"].get("expected_effects") or {}).values()))  # any state change counts
+        lvl, pts = difficulty(len(req), n_mut, g["final_state"]["status"], labels)
         tasks[t] = {"category": s.category, "seq": seq, "collapsed": "".join(ch for i, ch in enumerate(seq) if i == 0 or seq[i - 1] != ch),
                     "n_calls": len(req), "n_optional": len(g["required_calls"]) - len(req), "n_book": n_book, "status": g["final_state"]["status"],
                     "forbidden": g["forbidden_tools"], "errors": sorted({c["expected_error"] for c in g["required_calls"] if c.get("expected_error")}),

@@ -2,21 +2,100 @@
  "_comment": "SYNTHETIC running status for BharatToolBench 3.0, frozen at the pinned 'now' (2026-10-05 09:00 IST). Each entry is one run of a train, identified by the date it left its ORIGIN station, with a constant delay (minutes) applied to every stop of that run. Runs not listed are on time (delay 0). Not real Indian Railways data. Hand-authored fixture; changing it changes the benchmark.",
  "as_of": "2026-10-05T09:00:00+05:30",
  "runs": [
-  {"train_id": "BTB101", "run_start_date": "2026-10-04", "delay_minutes": 35},
-  {"train_id": "BTB103", "run_start_date": "2026-10-04", "delay_minutes": 120},
-  {"train_id": "BTB104", "run_start_date": "2026-10-04", "delay_minutes": 20},
-  {"train_id": "BTB105", "run_start_date": "2026-10-05", "delay_minutes": 25},
-  {"train_id": "BTB107", "run_start_date": "2026-10-04", "delay_minutes": 15},
-  {"train_id": "BTB108", "run_start_date": "2026-10-04", "delay_minutes": 20},
-  {"train_id": "BTB109", "run_start_date": "2026-10-04", "delay_minutes": 90},
-  {"train_id": "BTB112", "run_start_date": "2026-10-04", "delay_minutes": 45},
-  {"train_id": "BTB115", "run_start_date": "2026-10-05", "delay_minutes": 40},
-  {"train_id": "BTB116", "run_start_date": "2026-10-05", "delay_minutes": 15},
-  {"train_id": "BTB117", "run_start_date": "2026-10-05", "delay_minutes": 10},
-  {"train_id": "BTB121", "run_start_date": "2026-10-04", "delay_minutes": 30},
-  {"train_id": "BTB123", "run_start_date": "2026-10-04", "delay_minutes": 50},
-  {"train_id": "BTB124", "run_start_date": "2026-10-04", "delay_minutes": 40},
-  {"train_id": "BTB125", "run_start_date": "2026-10-05", "delay_minutes": 70},
-  {"train_id": "BTB129", "run_start_date": "2026-10-05", "delay_minutes": 55}
+  {
+   "train_id": "BTB101",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 35
+  },
+  {
+   "train_id": "BTB103",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 120
+  },
+  {
+   "train_id": "BTB104",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 20
+  },
+  {
+   "train_id": "BTB105",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 25
+  },
+  {
+   "train_id": "BTB106",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 200
+  },
+  {
+   "train_id": "BTB107",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 15
+  },
+  {
+   "train_id": "BTB108",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 20
+  },
+  {
+   "train_id": "BTB109",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 90
+  },
+  {
+   "train_id": "BTB110",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 200
+  },
+  {
+   "train_id": "BTB112",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 45
+  },
+  {
+   "train_id": "BTB115",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 40
+  },
+  {
+   "train_id": "BTB116",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 15
+  },
+  {
+   "train_id": "BTB117",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 10
+  },
+  {
+   "train_id": "BTB121",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 30
+  },
+  {
+   "train_id": "BTB123",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 50
+  },
+  {
+   "train_id": "BTB124",
+   "run_start_date": "2026-10-04",
+   "delay_minutes": 40
+  },
+  {
+   "train_id": "BTB125",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 70
+  },
+  {
+   "train_id": "BTB126",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 130
+  },
+  {
+   "train_id": "BTB129",
+   "run_start_date": "2026-10-05",
+   "delay_minutes": 55
+  }
  ]
 }

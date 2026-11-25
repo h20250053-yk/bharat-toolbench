@@ -11,7 +11,7 @@ def _items_line(capsys, argv):
 
 def test_full_split_defaults_to_375_items(tmp_path, capsys):
     line = _items_line(capsys, ["--model", "local_qwen25_3b", "--split", "full", "--run-file", str(tmp_path / "r.jsonl"), "--max-requests", "0"])
-    assert "items: 500" in line and "gu" in line  # 3.0: 100 tasks x 5 languages
+    assert "items: 1000" in line and "gu" in line  # 3.0: 200 tasks x 5 languages
 
 
 def test_midsem_four_languages_still_selectable(tmp_path, capsys):
@@ -21,7 +21,7 @@ def test_midsem_four_languages_still_selectable(tmp_path, capsys):
 
 
 def test_language_constants():
-    assert ALL_LANGUAGES == ["en", "hinglish", "hi", "mr", "gu"] and len(task_ids("full")) == 100
+    assert ALL_LANGUAGES == ["en", "hinglish", "hi", "mr", "gu"] and len(task_ids("full")) == 200 and len(task_ids("v3_new")) == 125
 
 
 def test_model_choices_come_from_models_yaml(tmp_path, capsys):

@@ -89,8 +89,12 @@ def canon_tool_args(tool: str, args: dict[str, Any]) -> dict[str, Any]:
             out[k] = canon_class(v) or v
         elif k == "passenger":
             out[k] = canon_passenger(v) or v
-        elif k in ("source", "destination") and isinstance(v, str):
+        elif k in ("source", "destination", "station") and isinstance(v, str):
             out[k] = v.strip().upper()
+        elif k in ("meal", "category", "concession") and isinstance(v, str):  # 3.0 enum arguments
+            out[k] = re.sub(r"[\s\-]+", "_", v.strip().lower())
+        elif k == "pnr" and isinstance(v, str):
+            out[k] = re.sub(r"[\s\-]", "", v)
         elif k == "date" and isinstance(v, str):
             out[k] = v.strip()
         elif k == "time_window":

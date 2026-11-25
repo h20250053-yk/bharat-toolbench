@@ -1,4 +1,4 @@
-"""Full-run driver (MODEL_PLAN.md): for each model, in order: pre-run snapshot, the full run (`--split full`, all five languages: 500 items since benchmark 3.0, 375 in 2.x) into its own NEW run file,
+"""Full-run driver (MODEL_PLAN.md): for each model, in order: pre-run snapshot, the run (`--split full` by default, all five languages: 1000 items since the 20-tool stage, 375 in 2.x; `--split v3_new` = the 625 items added after the 2.1.0 runs) into its own NEW run file,
 `--resume` on a byte copy while items are missing or provider/runner-error rows remain, completeness check, manifest, observe_run. Run it in tmux; it never edits
 tracked files. The Ollama server is restarted (same tmux session, same environment) if it is not answering.
 
@@ -23,11 +23,14 @@ SERVER_CMD = ("OLLAMA_MODELS=$HOME/FreeModel/models OLLAMA_HOST=127.0.0.1:11434 
               "ollama serve 2>&1 | tee -a $HOME/FreeModel/ollama-serve.log")
 
 
-def expected_items() -> int:
-    """Items of `--split full` in all five languages (3.0: 100 tasks x 5 = 500)."""
+SPLIT = "full"  # set by --split
+
+
+def expected_items(split: str | None = None) -> int:
+    """Items of the split in all five languages (3.0: v3_new = 125 tasks x 5 = 625; full = 200 x 5 = 1000)."""
     sys.path.insert(0, str(ROOT))
     from evaluation.splits import ALL_LANGUAGES, task_ids
-    return len(task_ids("full")) * len(ALL_LANGUAGES)
+    return len(task_ids(split or SPLIT)) * len(ALL_LANGUAGES)
 
 
 def completeness(files: list[Path], expected: int | None = None) -> dict:
@@ -72,7 +75,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--ts", required=True)
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--max-resumes", type=int, default=3)
+    ap.add_argument("--split", default="full", help="evaluation split (3.0: v3_new = T76-T200, the tasks added after the 2.1.0 runs)")
     args = ap.parse_args(argv)
+    global SPLIT
+    SPLIT = args.split
     sys.path.insert(0, str(ROOT))
     from agents.registry import load_model_config
     cfg = load_model_config()
@@ -89,12 +95,12 @@ def main(argv: list[str] | None = None) -> int:
     py = sys.executable
     for key in args.models:
         st = status["models"].setdefault(key, {"model": cfg[key]["model"]})
-        stem = f"{key}_full_{args.ts}"
+        stem = f"{key}_{'full' if args.split == 'full' else args.split}_{args.ts}"
         run_file = RUNS / f"{stem}.jsonl"
         files = [run_file]
         ensure_server()
-        cmd = [py, "-m", "evaluation.run_pilot", "--model", key, "--split", "full", "--max-attempts", "2", "--run-file", f"runs/{stem}.jsonl"]
-        rc = sh([py, "-m", "analysis.prerun_snapshot", "--model", key, "--split", "full", "--run-file", f"runs/{stem}.jsonl", "--command", " ".join(cmd[1:])],
+        cmd = [py, "-m", "evaluation.run_pilot", "--model", key, "--split", args.split, "--max-attempts", "2", "--run-file", f"runs/{stem}.jsonl"]
+        rc = sh([py, "-m", "analysis.prerun_snapshot", "--model", key, "--split", args.split, "--run-file", f"runs/{stem}.jsonl", "--command", " ".join(cmd[1:])],
                 RUNS / f"{stem}.prerun.console.txt")
         st["snapshot_rc"] = rc
         if rc != 0:
@@ -124,7 +130,7 @@ def main(argv: list[str] | None = None) -> int:
         for f in files:
             mcmd += ["--run-file", f"runs/{f.name}"]
         sh(mcmd, RUNS / f"{stem}.manifest.console.txt")
-        ocmd = [py, "-m", "analysis.observe_run", "--split", "full", "--manifest", f"runs/{stem}.manifest.json", "--out", f"analysis/results/{stem}"]
+        ocmd = [py, "-m", "analysis.observe_run", "--split", args.split, "--manifest", f"runs/{stem}.manifest.json", "--out", f"analysis/results/{stem}"]
         for f in files:
             ocmd += ["--run-file", f"runs/{f.name}"]
         sh(ocmd, RUNS / f"{stem}.observe.console.txt")

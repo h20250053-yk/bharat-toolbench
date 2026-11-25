@@ -1821,13 +1821,23 @@ SOLVERS_V3 = {
 }
 SOLVERS.update(SOLVERS_V3)
 
+from .solvers_t101_t200 import SOLVERS_V4  # noqa: E402  (20-tool stage, T101-T200; imports helpers from this module)
+
+SOLVERS.update(SOLVERS_V4)
+
 
 # ----------------------------------------------------------------------------------------- driver
+# 20-tool stage: state lists compared by the scorer, and the fields that identify one entry (ids, amounts and times are derived)
+EFFECT_KEYS = ("tatkal_bookings", "boarding_changes", "meal_orders", "tdr_claims", "complaints")
+EFFECT_FIELDS = {"tatkal_bookings": ("train_id", "travel_class", "passenger", "journey_date"), "boarding_changes": ("pnr", "station"),
+                 "meal_orders": ("pnr", "station", "meal", "quantity"), "tdr_claims": ("pnr",), "complaints": ("pnr", "category")}
+
+
 def env_diff(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
     changes = {k: [before["availability"][k], after["availability"][k]]
                for k in before["availability"] if before["availability"][k] != after["availability"][k]}
     out = {"bookings": after["bookings"], "availability_changes": changes}
-    for key in ("cancellations", "waitlist"):  # 3.0: only when something happened (keeps earlier gold byte-identical)
+    for key in ("cancellations", "waitlist", *EFFECT_KEYS):  # 3.0: only when something happened (keeps earlier gold byte-identical)
         if after.get(key):
             out[key] = after[key]
     return out
@@ -1849,16 +1859,18 @@ def build_task_gold(spec: SemanticTaskSpec) -> dict[str, Any]:
     diff = env_diff(base, fresh.snapshot())
     bookings = [{k: b[k] for k in ("train_id", "travel_class", "passenger")} for b in diff["bookings"]]
     if "booking_id" in answer:  # derived from the replayed booking, never typed in
-        answer["booking_id"] = diff["bookings"][0]["booking_id"]
+        answer["booking_id"] = (diff["bookings"] or diff.get("tatkal_bookings"))[0]["booking_id"]
     if "booking_ids" in answer:  # multi-booking tasks: ids in the gold replay order (ids are order-dependent)
-        answer["booking_ids"] = [b["booking_id"] for b in diff["bookings"]]
+        answer["booking_ids"] = [b["booking_id"] for b in diff["bookings"] or diff.get("tatkal_bookings", [])]
     gold = GoldSpec(
         semantic_task_id=spec.semantic_task_id, required_calls=plan.calls, dependency_edges=plan.edges,
         final_state=FinalStatePredicate(status=answer["status"], allowed_train_ids=allowed,
                                         travel_class=answer.get("travel_class"), expected_bookings=bookings,
                                         expected_cancellations=[c["pnr"] for c in diff.get("cancellations", [])] or None,
                                         expected_waitlist=[{k: w[k] for k in ("train_id", "travel_class", "passenger")}
-                                                           for w in diff.get("waitlist", [])] or None),
+                                                           for w in diff.get("waitlist", [])] or None,
+                                        expected_effects={k: [{f: e[f] for f in EFFECT_FIELDS[k]} for e in diff[k]]
+                                                          for k in EFFECT_KEYS if diff.get(k)} or None),
         min_calls=sum(1 for c in plan.calls if not c.optional), final_answer=answer, expected_env_diff=diff,
         forbidden_tools=sorted({a.tool for a in spec.prohibited_actions if not a.match}),
         prohibited_actions=spec.prohibited_actions)
@@ -1867,7 +1879,7 @@ def build_task_gold(spec: SemanticTaskSpec) -> dict[str, Any]:
             if c.tool == a.tool and all(c.required_args.get(k) == v for k, v in a.match.items()):
                 raise ValueError(f"{spec.semantic_task_id}: gold call {c.call_id} violates prohibition {a.tool}{a.match}")
     out = gold.model_dump(mode="json")
-    for k in ("expected_cancellations", "expected_waitlist"):  # 3.0 fields: serialized only when set
+    for k in ("expected_cancellations", "expected_waitlist", "expected_effects"):  # 3.0 fields: serialized only when set
         if out["final_state"][k] is None:
             del out["final_state"][k]
     for c in out["required_calls"]:  # serialize expected_error only when set (keeps earlier gold byte-identical)

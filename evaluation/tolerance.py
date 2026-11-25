@@ -325,7 +325,13 @@ def normalize_answer(obj: dict[str, Any]) -> tuple[dict[str, Any], list[Recovery
                 if n is not None:
                     recs.append(_rec("final_answer", "integer_form", v, n))
                     v = n
-            elif k in ("waitlist_position", "refund_inr", "concession_fare_inr", "total_fare_inr") and isinstance(v, (float, str)):  # 3.0
+            elif k in ("tatkal_seats", "lower_berths", "upper_berths", "side_lower_berths", "platform", "coach_position") and isinstance(v, (float, str)):
+                n = _int_like(v, _SEAT_UNITS)  # 20-tool stage: counts and numbers without a currency
+                if n is not None:
+                    recs.append(_rec("final_answer", "integer_form", v, n))
+                    v = n
+            elif k in ("waitlist_position", "refund_inr", "concession_fare_inr", "total_fare_inr",  # 3.0
+                       "tatkal_fare_inr", "order_amount_inr", "fare_difference_inr", "tdr_refund_inr") and isinstance(v, (float, str)):
                 n = _int_like(re.sub(r"^\s*(?:₹|rs\.?|inr)\s*", "", v.replace(",", ""), flags=re.I) if isinstance(v, str) else v, _RUPEE_UNITS)
                 if n is not None:
                     recs.append(_rec("final_answer", "integer_form", v, n))

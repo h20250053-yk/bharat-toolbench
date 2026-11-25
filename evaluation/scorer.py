@@ -94,6 +94,52 @@ STRUCTURED_VALUE_CHECKS: dict[str, list[tuple[str, str, str]]] = {
     "T97": [("booking_status", "booking_status", "booking_status")],
     "T99": [("refund_inr", "refund_inr", "int")],
     "T100": [("seats_available", "seats_available", "int"), ("concession_fare_inr", "concession_fare_inr", "int")],
+    # 20-tool batch T101-T200 (Tatkal, berths, platforms, boarding change, meals, TDR, complaints); mirrors batch_t101_t200.STRUCTURED
+    "T101": [("tatkal_status", "tatkal_status", "enum"), ("tatkal_seats", "tatkal_seats", "int")],
+    "T102": [("opens_at", "opens_at", "hhmm")],
+    "T105": [("opens_at", "opens_at", "hhmm")],
+    "T112": [("waitlist_position", "waitlist_position", "int")],
+    "T114": [("tatkal_fare_inr", "tatkal_fare_inr", "int"), ("tatkal_seats", "tatkal_seats", "int")],
+    "T117": [("fare_difference_inr", "fare_difference_inr", "int")],
+    "T118": [("tatkal_fare_inr", "tatkal_fare_inr", "int")],
+    "T120": [("tatkal_status", "tatkal_status", "enum"), ("opens_at", "opens_at", "hhmm")],
+    "T121": [("lower_berths", "lower_berths", "int")],
+    "T125": [("side_lower_berths", "side_lower_berths", "int")],
+    "T127": [("lower_berths", "lower_berths", "int")],
+    "T128": [("lower_berths", "lower_berths", "int"), ("concession_fare_inr", "concession_fare_inr", "int")],
+    "T129": [("lower_berths", "lower_berths", "int"), ("upper_berths", "upper_berths", "int")],
+    "T130": [("seats_available", "seats_available", "int"), ("lower_berths", "lower_berths", "int")],
+    "T132": [("boarding_time", "boarding_time", "hhmm")],
+    "T133": [("platform", "platform", "int")],
+    "T140": [("boarding_time", "boarding_time", "hhmm")],
+    "T142": [("order_amount_inr", "order_amount_inr", "int")],
+    "T143": [("order_amount_inr", "order_amount_inr", "int")],
+    "T144": [("delivery_time", "delivery_time", "hhmm")],
+    "T153": [("expected_arrival", "expected_arrival", "hhmm")],
+    "T156": [("platform", "platform", "int")],
+    "T157": [("order_amount_inr", "order_amount_inr", "int")],
+    "T158": [("platform", "platform", "int")],
+    "T159": [("platform", "platform", "int"), ("expected_arrival", "expected_arrival", "hhmm")],
+    "T160": [("coach_position", "coach_position", "int")],
+    "T161": [("coach_position", "coach_position", "int")],
+    "T163": [("platform", "platform", "int")],
+    "T164": [("platform", "platform", "int"), ("delay_minutes", "delay_minutes", "int")],
+    "T165": [("platform", "platform", "int")],
+    "T166": [("expected_arrival", "expected_arrival", "hhmm"), ("platform", "platform", "int")],
+    "T167": [("scheduled_arrival", "scheduled_arrival", "hhmm")],
+    "T168": [("expected_arrival", "expected_arrival", "hhmm"), ("delay_minutes", "delay_minutes", "int")],
+    "T169": [("delay_minutes", "delay_minutes", "int"), ("station_code", "station_code", "code")],
+    "T170": [("refund_inr", "refund_inr", "int")],
+    "T175": [("tdr_eligible", "tdr_eligible", "bool")],
+    "T177": [("tdr_eligible", "tdr_eligible", "bool"), ("delay_minutes", "delay_minutes", "int")],
+    "T178": [("refund_inr", "refund_inr", "int"), ("tdr_refund_inr", "tdr_refund_inr", "int")],
+    "T191": [("booking_status", "booking_status", "booking_status")],
+    "T192": [("seats_available", "seats_available", "int"), ("platform", "platform", "int")],
+    "T193": [("tatkal_status", "tatkal_status", "enum"), ("lower_berths", "lower_berths", "int")],
+    "T194": [("confirmed_pnr", "confirmed_pnr", "pnr")],
+    "T196": [("booking_status", "booking_status", "booking_status"), ("tatkal_fare_inr", "tatkal_fare_inr", "int")],
+    "T198": [("platform", "platform", "int")],
+    "T199": [("opens_at_by_class", "opens_at_by_class", "hhmm_by_class")],
 }
 _STATUS_SYNONYMS = {"CONFIRMED": "CONFIRMED", "CONFIRM": "CONFIRMED", "CNF": "CONFIRMED", "WAITLISTED": "WAITLISTED", "WAITLIST": "WAITLISTED",
                     "WL": "WAITLISTED", "CANCELLED": "CANCELLED", "CANCELED": "CANCELLED", "CAN": "CANCELLED"}
@@ -107,6 +153,11 @@ _STRUCTURED_CANON = {
     "int": canon_int,
     "booking_status": lambda v: _STATUS_SYNONYMS.get(re.sub(r"[\s_\-]", "", v).upper()) if isinstance(v, str) else None,
     "hhmm": lambda v: canon_hhmm(v) if isinstance(v, str) else None,
+    # 20-tool stage
+    "enum": lambda v: re.sub(r"[\s\-]+", "_", v.strip()).upper() if isinstance(v, str) and v.strip() else None,  # 'not yet open' == NOT_YET_OPEN
+    "pnr": lambda v: re.sub(r"[\s\-]", "", str(v)) if isinstance(v, (str, int)) and re.fullmatch(r"\d{10}", re.sub(r"[\s\-]", "", str(v))) else None,
+    "hhmm_by_class": lambda v: ({canon_class(k): canon_hhmm(x) for k, x in v.items()} if isinstance(v, dict) and v
+                                and all(canon_class(k) and isinstance(x, str) and canon_hhmm(x) for k, x in v.items()) else None),
 }
 
 # Equivalent observations documented in the task specs (final_answer_requirements.equivalent_observations).
@@ -138,6 +189,39 @@ EQUIVALENT_PATHS: dict[tuple[str, str], list[list[dict[str, Any]]]] = {
     ("T85", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB109", "travel_class": "3A"}, "error": "SOLD_OUT"}]],
     ("T96", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "1385672049"}, "data_eq": {"status": "WAITLISTED"}}]],
     ("T97", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "6043721985"}, "data_eq": {"status": "CONFIRMED"}}]],
+    # 20-tool batch (spec final_answer_requirements.equivalent_observations of T105-T188)
+    ("T105", "c1"): [[{"tool": "check_tatkal_availability", "args": {"train_id": "BTB110", "travel_class": "3A", "date": "2026-10-06"}, "data_eq": {"status": "NOT_YET_OPEN"}}]],
+    ("T106", "c1"): [[{"tool": "check_tatkal_availability", "args": {"train_id": "BTB105", "travel_class": "CC", "date": "2026-10-05"}, "data_eq": {"status": "DEPARTED"}}]],
+    ("T107", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB111"}}]],
+    ("T108", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB109", "travel_class": "3A"}, "error": "SOLD_OUT"}]],
+    ("T109", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB103", "travel_class": "3A"}, "error": "SOLD_OUT"}]],
+    ("T109", "c2"): [[{"tool": "book_tatkal_ticket", "args": {"train_id": "BTB103", "travel_class": "3A", "date": "2026-10-05"}, "error": "TATKAL_SOLD_OUT"}]],
+    ("T110", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB119", "travel_class": "SL"}, "error": "SOLD_OUT"}]],
+    ("T111", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB114", "travel_class": "CC"}, "error": "SOLD_OUT"}]],
+    ("T112", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB103", "travel_class": "3A"}, "error": "SOLD_OUT"}]],
+    ("T112", "c2"): [[{"tool": "book_tatkal_ticket", "args": {"train_id": "BTB103", "travel_class": "3A", "date": "2026-10-05"}, "error": "TATKAL_SOLD_OUT"}]],
+    ("T113", "c1"): [[{"tool": "book_ticket", "args": {"train_id": "BTB121", "travel_class": "2A"}, "error": "SOLD_OUT"}]],
+    ("T135", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "3398217604"}}, {"tool": "get_train_details", "args": {"train_id": "BTB127"}}]],
+    ("T136", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "7302958146"}, "data_eq": {"status": "WAITLISTED"}}]],
+    ("T137", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "4651082937"}}, {"tool": "get_train_details", "args": {"train_id": "BTB112"}}]],
+    ("T138", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "2894017356"}, "data_eq": {"status": "CANCELLED"}}]],
+    ("T145", "c1"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB115"}}]],
+    ("T146", "c1"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB121"}}]],
+    ("T147", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB101"}}]],
+    ("T148", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "1937406528"}, "data_eq": {"status": "WAITLISTED"}}]],
+    ("T149", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "9157364820"}, "data_eq": {"boarding_station": "NGP"}}]],
+    ("T152", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB122"}}]],
+    ("T155", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB122"}}]],
+    ("T156", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB103"}}]],
+    ("T162", "c1"): [[{"tool": "get_train_details", "args": {"train_id": "BTB127"}}]],
+    ("T172", "c1"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB126"}}]],
+    ("T173", "c1"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB110"}, "data_eq": {"status": "RUNNING"}}]],
+    ("T174", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "2894017356"}, "data_eq": {"status": "CANCELLED"}}]],
+    ("T176", "c1"): [[{"tool": "get_cancellation_refund", "args": {"pnr": "9045127368"}, "error": "JOURNEY_STARTED"}]],
+    ("T176", "c2"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB110"}, "data_eq": {"status": "RUNNING"}}]],
+    ("T179", "c1"): [[{"tool": "get_live_train_status", "args": {"train_id": "BTB110"}, "data_eq": {"status": "RUNNING"}}]],
+    ("T187", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "2289016475"}, "data_eq": {"travel_class": "SL"}}]],
+    ("T188", "c1"): [[{"tool": "get_booking_status", "args": {"pnr": "3051962847"}, "data_eq": {"journey_date": "2026-10-08"}}]],
 }
 
 
@@ -356,6 +440,14 @@ def _prohibition_violations(gold: dict[str, Any], trajectory: list[dict[str, Any
 
 
 # --------------------------------------------------------------------------------------------- outcome checks
+EFFECT_FIELDS = {"tatkal_bookings": ("train_id", "travel_class", "passenger", "journey_date"), "boarding_changes": ("pnr", "station"),
+                 "meal_orders": ("pnr", "station", "meal", "quantity"), "tdr_claims": ("pnr",), "complaints": ("pnr", "category")}
+
+
+def _effect_key(kind: str, fields: tuple[str, ...], e: dict[str, Any]) -> tuple:
+    return tuple(canon_passenger(e[f]) if f == "passenger" else e.get(f) for f in fields)
+
+
 def _booking_key(b: dict[str, Any]) -> tuple[str, str, str]:
     return (b["train_id"], b["travel_class"], canon_passenger(b["passenger"]) or "")
 
@@ -402,7 +494,16 @@ def _outcome(tid: str, gold: dict[str, Any], spec: dict[str, Any], final_text: s
     cancel_ok = ({c["pnr"] for c in snapshot.get("cancellations", []) or []} == set(fs.get("expected_cancellations") or []))
     waitlist_ok = (Counter(map(_booking_key, snapshot.get("waitlist", []) or []))
                    == Counter(map(_booking_key, fs.get("expected_waitlist") or [])))
-    info["state_success"] = bookings_ok and cancel_ok and waitlist_ok
+    # 20-tool stage: Tatkal bookings, boarding changes, meal orders, TDR claims, complaints (multisets of their identifying fields)
+    exp_eff = fs.get("expected_effects") or {}
+    effects_ok = True
+    for kind, fields in EFFECT_FIELDS.items():
+        got = Counter(_effect_key(kind, fields, e) for e in snapshot.get(kind, []) or [])
+        want = Counter(_effect_key(kind, fields, e) for e in exp_eff.get(kind, []) or [])
+        if got != want:
+            effects_ok = False
+            fails.append(f"state:{kind}_mismatch")
+    info["state_success"] = bookings_ok and cancel_ok and waitlist_ok and effects_ok
     if not bookings_ok:
         fails.append("state:bookings_mismatch")
     if not cancel_ok:
@@ -422,7 +523,7 @@ def _outcome(tid: str, gold: dict[str, Any], spec: dict[str, Any], final_text: s
     raw_ids = ans.get("booking_ids")
     if not isinstance(raw_ids, list) or any(canon_booking_id(x) is None for x in raw_ids):
         fails.append("final_answer:booking_ids_invalid")
-    elif {canon_booking_id(x) for x in raw_ids} != {b["booking_id"] for b in actual}:
+    elif {canon_booking_id(x) for x in raw_ids} != {b["booking_id"] for b in actual + list(snapshot.get("tatkal_bookings", []) or [])}:
         fails.append("final_answer:booking_ids_do_not_match_state")
     trains = canon_train_ids(ans.get("selected_train"))
     if trains is None:

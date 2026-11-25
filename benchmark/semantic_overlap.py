@@ -32,7 +32,8 @@ from itertools import combinations
 from typing import Any
 
 ENTITY_KINDS = {"route", "date", "train_id", "travel_class", "passenger", "passengers", "boarding_station"}
-VALUE_KINDS = {"objective", "condition", "fallback_allowed", "fallback_rule"}  # here the VALUE is the reasoning
+VALUE_KINDS = {"objective", "condition", "fallback_allowed", "fallback_rule",  # here the VALUE is the reasoning
+               "asks", "complaint_category"}  # 20-tool batch: which facts are asked for; which complaint category the text maps to
 MAX_JACCARD = 0.75
 
 
@@ -58,7 +59,8 @@ def features(spec: Any, gold: dict[str, Any]) -> dict[str, Any]:
         "mutation": ("0" if n_book == 0 else ("1" if n_book == 1 else "2+"))
                     + (f"+cancel{min(len(gold['final_state'].get('expected_cancellations') or []), 2)}"
                        if gold["final_state"].get("expected_cancellations") else "")
-                    + ("+waitlist" if gold["final_state"].get("expected_waitlist") else ""),
+                    + ("+waitlist" if gold["final_state"].get("expected_waitlist") else "")
+                    + "".join(f"+{k}{min(len(v), 2)}" for k, v in sorted((gold["final_state"].get("expected_effects") or {}).items())),
         "errors": frozenset(c["expected_error"] for c in gold["required_calls"] if c.get("expected_error")),
         "reasoning": frozenset(t for t in (_constraint_token(c) for c in spec.constraints) if t)
                      | ({"multi_passenger"} if any(c["kind"] == "passengers" and len(c["value"]) > 1 for c in spec.constraints) else set()),

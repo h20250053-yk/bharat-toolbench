@@ -544,9 +544,9 @@ def write_specs(path: Path | None = None) -> None:
     path = path or Path(__file__).resolve().parent / "semantic_tasks.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     keep = [t for t in data["tasks"] if int(t["semantic_task_id"][1:]) <= 75]
+    later = [t for t in data["tasks"] if int(t["semantic_task_id"][1:]) > 100]  # the 20-tool batch (batch_t101_t200.py) is kept
     data["benchmark_version"] = "3.0.0"
-    data["stage"] = "frozen_T01_T75_plus_draft_T76_T100_five_languages"
-    data["tasks"] = keep + SPECS
+    data["tasks"] = keep + SPECS + later
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {path} ({len(keep)} frozen + {len(SPECS)} batch-5 tasks)")
 

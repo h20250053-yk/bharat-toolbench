@@ -1,6 +1,6 @@
 """Offline smoke test (no model, no API key, no network):
   1. every non-optional gold call is executable in a fresh environment and returns the expected ok/error
-  2. the scorer accepts an IDEAL trajectory + contract-conformant final answer for every task (T01-T75)
+  2. the scorer accepts an IDEAL trajectory + contract-conformant final answer for every task (T01-T200)
 """
 from __future__ import annotations
 

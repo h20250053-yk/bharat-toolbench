@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .schemas import AccountBooking, Booking, Cancellation, Station, Train, WaitlistEntry
+from .schemas import AccountBooking, Booking, Cancellation, Complaint, MealOrder, Station, TatkalBooking, TdrClaim, Train, WaitlistEntry
 
 DATA_DIR = Path(__file__).parent / "data"
 
@@ -57,6 +57,15 @@ class EnvState:
     cancellations: list[Cancellation] = field(default_factory=list)
     waitlist: list[WaitlistEntry] = field(default_factory=list)
     next_waitlist_seq: int = 1
+    # 20-tool stage: services.json (immutable) and what the eight tools change
+    services: dict[str, Any] = field(default_factory=dict)
+    tatkal_seats: dict[tuple[str, str], int] = field(default_factory=dict)
+    tatkal_bookings: list[TatkalBooking] = field(default_factory=list)
+    boarding_changes: dict[str, str] = field(default_factory=dict)  # pnr -> new boarding station
+    meal_orders: list[MealOrder] = field(default_factory=list)
+    tdr_claims: list[TdrClaim] = field(default_factory=list)
+    complaints: list[Complaint] = field(default_factory=list)
+    next_service_seq: int = 1
 
     @classmethod
     def load(cls, data_dir: Path = DATA_DIR) -> "EnvState":
@@ -78,13 +87,15 @@ class EnvState:
         alias_index = {k: sorted(v) for k, v in index.items()}
         acct = json.loads((data_dir / "account.json").read_text(encoding="utf-8"))
         live = json.loads((data_dir / "live_status.json").read_text(encoding="utf-8"))
+        services = json.loads((data_dir / "services.json").read_text(encoding="utf-8"))
         account = {b["pnr"]: AccountBooking(**b) for b in acct["account_bookings"]}
         for b in account.values():
             if b.train_id not in trains or b.travel_class not in trains[b.train_id].classes:
                 raise ValueError(f"account booking {b.pnr} references an unknown train/class")
         state = cls(stations=stations, trains=trains, alias_index=alias_index,
                     static_hash=_sha(_canonical_json({"stations": raw_st, "trains": raw_tr})),
-                    operations_hash=_sha(_canonical_json({"account": acct, "live": live})),
+                    operations_hash=_sha(_canonical_json({"account": acct, "live": live, "services": services})),
+                    services=services,
                     account_bookings=account,
                     waitlist_baseline={tuple(k.split("|")): v for k, v in acct["waitlist_baseline"].items()},
                     cancellation_charge=dict(acct["cancellation_charge_inr"]),
@@ -102,6 +113,13 @@ class EnvState:
         self.cancellations = []
         self.waitlist = []
         self.next_waitlist_seq = 1
+        self.tatkal_seats = {tuple(k.split("|")): v for k, v in self.services.get("tatkal", {}).get("seats", {}).items()}
+        self.tatkal_bookings = []
+        self.boarding_changes = {}
+        self.meal_orders = []
+        self.tdr_claims = []
+        self.complaints = []
+        self.next_service_seq = 1
 
     def snapshot(self) -> dict[str, Any]:
         """JSON-serializable view of the mutable state (for tests, debugging, gold state predicates)."""
@@ -112,6 +130,13 @@ class EnvState:
             "cancellations": [c.model_dump() for c in self.cancellations],
             "waitlist": [w.model_dump() for w in self.waitlist],
             "next_waitlist_seq": self.next_waitlist_seq,
+            "tatkal_seats": {f"{t}|{c}": n for (t, c), n in sorted(self.tatkal_seats.items())},
+            "tatkal_bookings": [b.model_dump() for b in self.tatkal_bookings],
+            "boarding_changes": [{"pnr": p, "station": st} for p, st in sorted(self.boarding_changes.items())],
+            "meal_orders": [m.model_dump() for m in self.meal_orders],
+            "tdr_claims": [t.model_dump() for t in self.tdr_claims],
+            "complaints": [c.model_dump() for c in self.complaints],
+            "next_service_seq": self.next_service_seq,
         }
 
     def state_hash(self) -> str:

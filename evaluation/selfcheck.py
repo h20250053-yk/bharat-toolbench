@@ -62,7 +62,7 @@ def final_json(tid: str, snapshot: dict[str, Any], **override: Any) -> dict[str,
     else:
         sel = None
     obj = {"status": fs["status"], "selected_train": sel, "selected_class": fs.get("travel_class") if fs["status"] == "success" else None,
-           "booking_ids": [b["booking_id"] for b in snapshot.get("bookings", [])],
+           "booking_ids": [b["booking_id"] for b in [*snapshot.get("bookings", []), *(snapshot.get("tatkal_bookings") or [])]],
            "requested_passengers": requested_passengers(spec_for(tid)), "notes": "ideal answer"}
     if tid in STRUCTURED_VALUE_CHECKS:  # requested facts, copied from gold (= tool results)
         obj["answer_values"] = {key: fa[gold_key] for gold_key, key, _ in STRUCTURED_VALUE_CHECKS[tid]}

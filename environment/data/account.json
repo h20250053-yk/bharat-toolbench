@@ -1,22 +1,383 @@
 {
- "_comment": "SYNTHETIC account data for BharatToolBench 3.0 (bookings the user made BEFORE the pinned 'now', 2026-10-05 09:00 IST). Not real PNRs, not real passengers, not Indian Railways data. journey_date = the date the train leaves its ORIGIN station. These seats are already counted in the baseline seats of trains.json. Hand-authored fixture; changing it changes the benchmark.",
+ "_comment": "SYNTHETIC account data for BharatToolBench 3.0 (bookings the user made BEFORE the pinned 'now', 2026-10-05 09:00 IST). Not real PNRs, not real passengers, not Indian Railways data. journey_date = the date the train leaves its ORIGIN station. These seats are already counted in the baseline seats of trains.json. Bookings BK9015-BK9032 were added for the 20-tool stage (T101-T200). Hand-authored fixture; changing it changes the benchmark.",
  "account_bookings": [
-  {"pnr": "4518203967", "booking_id": "BK9001", "train_id": "BTB115", "travel_class": "3A", "passenger": "Meera Iyer", "journey_date": "2026-10-08", "fare_inr": 1800, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "7302958146", "booking_id": "BK9002", "train_id": "BTB101", "travel_class": "2A", "passenger": "Arjun Malhotra", "journey_date": "2026-10-07", "fare_inr": 4490, "status": "WAITLISTED", "waitlist_position": 3},
-  {"pnr": "6043721985", "booking_id": "BK9003", "train_id": "BTB111", "travel_class": "SL", "passenger": "Kavita Joshi", "journey_date": "2026-10-06", "fare_inr": 1015, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "2894017356", "booking_id": "BK9004", "train_id": "BTB104", "travel_class": "2A", "passenger": "Rohit Bansal", "journey_date": "2026-10-09", "fare_inr": 3565, "status": "CANCELLED", "waitlist_position": null},
-  {"pnr": "9157364820", "booking_id": "BK9005", "train_id": "BTB120", "travel_class": "3A", "passenger": "Sanjay Kulkarni", "journey_date": "2026-10-10", "fare_inr": 1460, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "3610592874", "booking_id": "BK9006", "train_id": "BTB109", "travel_class": "3A", "passenger": "Neha Gupta", "journey_date": "2026-10-06", "fare_inr": 3190, "status": "WAITLISTED", "waitlist_position": 5},
-  {"pnr": "5079318462", "booking_id": "BK9007", "train_id": "BTB122", "travel_class": "2A", "passenger": "Lakshmi Narayan", "journey_date": "2026-10-12", "fare_inr": 7560, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "8246105739", "booking_id": "BK9008", "train_id": "BTB126", "travel_class": "CC", "passenger": "Farhan Sheikh", "journey_date": "2026-10-07", "fare_inr": 785, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "1385672049", "booking_id": "BK9009", "train_id": "BTB103", "travel_class": "3A", "passenger": "Pooja Sharma", "journey_date": "2026-10-06", "fare_inr": 2495, "status": "WAITLISTED", "waitlist_position": 2},
-  {"pnr": "6720483915", "booking_id": "BK9010", "train_id": "BTB127", "travel_class": "SL", "passenger": "Vikram Rao", "journey_date": "2026-10-08", "fare_inr": 615, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "4073819256", "booking_id": "BK9011", "train_id": "BTB112", "travel_class": "3A", "passenger": "Anita Das", "journey_date": "2026-10-11", "fare_inr": 2540, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "2951847306", "booking_id": "BK9012", "train_id": "BTB116", "travel_class": "SL", "passenger": "Ramesh Pillai", "journey_date": "2026-10-09", "fare_inr": 720, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "2951847314", "booking_id": "BK9013", "train_id": "BTB116", "travel_class": "SL", "passenger": "Sunita Pillai", "journey_date": "2026-10-09", "fare_inr": 720, "status": "CONFIRMED", "waitlist_position": null},
-  {"pnr": "8803164527", "booking_id": "BK9014", "train_id": "BTB125", "travel_class": "CC", "passenger": "Harsh Vora", "journey_date": "2026-10-05", "fare_inr": 785, "status": "CONFIRMED", "waitlist_position": null}
+  {
+   "pnr": "4518203967",
+   "booking_id": "BK9001",
+   "train_id": "BTB115",
+   "travel_class": "3A",
+   "passenger": "Meera Iyer",
+   "journey_date": "2026-10-08",
+   "fare_inr": 1800,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "7302958146",
+   "booking_id": "BK9002",
+   "train_id": "BTB101",
+   "travel_class": "2A",
+   "passenger": "Arjun Malhotra",
+   "journey_date": "2026-10-07",
+   "fare_inr": 4490,
+   "status": "WAITLISTED",
+   "waitlist_position": 3
+  },
+  {
+   "pnr": "6043721985",
+   "booking_id": "BK9003",
+   "train_id": "BTB111",
+   "travel_class": "SL",
+   "passenger": "Kavita Joshi",
+   "journey_date": "2026-10-06",
+   "fare_inr": 1015,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "2894017356",
+   "booking_id": "BK9004",
+   "train_id": "BTB104",
+   "travel_class": "2A",
+   "passenger": "Rohit Bansal",
+   "journey_date": "2026-10-09",
+   "fare_inr": 3565,
+   "status": "CANCELLED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "9157364820",
+   "booking_id": "BK9005",
+   "train_id": "BTB120",
+   "travel_class": "3A",
+   "passenger": "Sanjay Kulkarni",
+   "journey_date": "2026-10-10",
+   "fare_inr": 1460,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "3610592874",
+   "booking_id": "BK9006",
+   "train_id": "BTB109",
+   "travel_class": "3A",
+   "passenger": "Neha Gupta",
+   "journey_date": "2026-10-06",
+   "fare_inr": 3190,
+   "status": "WAITLISTED",
+   "waitlist_position": 5
+  },
+  {
+   "pnr": "5079318462",
+   "booking_id": "BK9007",
+   "train_id": "BTB122",
+   "travel_class": "2A",
+   "passenger": "Lakshmi Narayan",
+   "journey_date": "2026-10-12",
+   "fare_inr": 7560,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "8246105739",
+   "booking_id": "BK9008",
+   "train_id": "BTB126",
+   "travel_class": "CC",
+   "passenger": "Farhan Sheikh",
+   "journey_date": "2026-10-07",
+   "fare_inr": 785,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "1385672049",
+   "booking_id": "BK9009",
+   "train_id": "BTB103",
+   "travel_class": "3A",
+   "passenger": "Pooja Sharma",
+   "journey_date": "2026-10-06",
+   "fare_inr": 2495,
+   "status": "WAITLISTED",
+   "waitlist_position": 2
+  },
+  {
+   "pnr": "6720483915",
+   "booking_id": "BK9010",
+   "train_id": "BTB127",
+   "travel_class": "SL",
+   "passenger": "Vikram Rao",
+   "journey_date": "2026-10-08",
+   "fare_inr": 615,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "4073819256",
+   "booking_id": "BK9011",
+   "train_id": "BTB112",
+   "travel_class": "3A",
+   "passenger": "Anita Das",
+   "journey_date": "2026-10-11",
+   "fare_inr": 2540,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "2951847306",
+   "booking_id": "BK9012",
+   "train_id": "BTB116",
+   "travel_class": "SL",
+   "passenger": "Ramesh Pillai",
+   "journey_date": "2026-10-09",
+   "fare_inr": 720,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "2951847314",
+   "booking_id": "BK9013",
+   "train_id": "BTB116",
+   "travel_class": "SL",
+   "passenger": "Sunita Pillai",
+   "journey_date": "2026-10-09",
+   "fare_inr": 720,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "8803164527",
+   "booking_id": "BK9014",
+   "train_id": "BTB125",
+   "travel_class": "CC",
+   "passenger": "Harsh Vora",
+   "journey_date": "2026-10-05",
+   "fare_inr": 785,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "3051962847",
+   "booking_id": "BK9015",
+   "train_id": "BTB101",
+   "travel_class": "3A",
+   "passenger": "Suresh Menon",
+   "journey_date": "2026-10-08",
+   "fare_inr": 3135,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "7718203546",
+   "booking_id": "BK9016",
+   "train_id": "BTB109",
+   "travel_class": "2A",
+   "passenger": "Farida Khan",
+   "journey_date": "2026-10-07",
+   "fare_inr": 4570,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "4429610385",
+   "booking_id": "BK9017",
+   "train_id": "BTB115",
+   "travel_class": "SL",
+   "passenger": "Gopal Iyer",
+   "journey_date": "2026-10-06",
+   "fare_inr": 720,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "6187340925",
+   "booking_id": "BK9018",
+   "train_id": "BTB103",
+   "travel_class": "3A",
+   "passenger": "Rekha Nair",
+   "journey_date": "2026-10-04",
+   "fare_inr": 2495,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "9045127368",
+   "booking_id": "BK9019",
+   "train_id": "BTB110",
+   "travel_class": "2A",
+   "passenger": "Aditya Rao",
+   "journey_date": "2026-10-04",
+   "fare_inr": 4570,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "2370495816",
+   "booking_id": "BK9020",
+   "train_id": "BTB115",
+   "travel_class": "2A",
+   "passenger": "Anil Menon",
+   "journey_date": "2026-10-05",
+   "fare_inr": 2575,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "5803917264",
+   "booking_id": "BK9021",
+   "train_id": "BTB122",
+   "travel_class": "3A",
+   "passenger": "Shalini Rao",
+   "journey_date": "2026-10-05",
+   "fare_inr": 5280,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "8162039475",
+   "booking_id": "BK9022",
+   "train_id": "BTB121",
+   "travel_class": "3A",
+   "passenger": "Mohan Das",
+   "journey_date": "2026-10-04",
+   "fare_inr": 5280,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "1937406528",
+   "booking_id": "BK9023",
+   "train_id": "BTB119",
+   "travel_class": "SL",
+   "passenger": "Lata Joshi",
+   "journey_date": "2026-10-05",
+   "fare_inr": 585,
+   "status": "WAITLISTED",
+   "waitlist_position": 6
+  },
+  {
+   "pnr": "4651082937",
+   "booking_id": "BK9024",
+   "train_id": "BTB112",
+   "travel_class": "SL",
+   "passenger": "Kiran Pawar",
+   "journey_date": "2026-10-12",
+   "fare_inr": 1015,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "3398217604",
+   "booking_id": "BK9025",
+   "train_id": "BTB127",
+   "travel_class": "3A",
+   "passenger": "Nisha Kulkarni",
+   "journey_date": "2026-10-07",
+   "fare_inr": 1540,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "7520648193",
+   "booking_id": "BK9026",
+   "train_id": "BTB107",
+   "travel_class": "SL",
+   "passenger": "Dinesh Patel",
+   "journey_date": "2026-10-04",
+   "fare_inr": 415,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "6034719285",
+   "booking_id": "BK9027",
+   "train_id": "BTB109",
+   "travel_class": "3A",
+   "passenger": "Prakash Jain",
+   "journey_date": "2026-10-04",
+   "fare_inr": 3190,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "8741203659",
+   "booking_id": "BK9028",
+   "train_id": "BTB102",
+   "travel_class": "2A",
+   "passenger": "Sameer Khan",
+   "journey_date": "2026-10-04",
+   "fare_inr": 4490,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "2289016475",
+   "booking_id": "BK9029",
+   "train_id": "BTB112",
+   "travel_class": "SL",
+   "passenger": "Ramya Shetty",
+   "journey_date": "2026-10-04",
+   "fare_inr": 1015,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "5146290837",
+   "booking_id": "BK9030",
+   "train_id": "BTB124",
+   "travel_class": "3A",
+   "passenger": "Pooja Bhatt",
+   "journey_date": "2026-10-04",
+   "fare_inr": 1125,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "6620194835",
+   "booking_id": "BK9031",
+   "train_id": "BTB106",
+   "travel_class": "CC",
+   "passenger": "Vinod Sharma",
+   "journey_date": "2026-10-05",
+   "fare_inr": 495,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  },
+  {
+   "pnr": "3875061294",
+   "booking_id": "BK9032",
+   "train_id": "BTB126",
+   "travel_class": "CC",
+   "passenger": "Asha Kulkarni",
+   "journey_date": "2026-10-05",
+   "fare_inr": 785,
+   "status": "CONFIRMED",
+   "waitlist_position": null
+  }
  ],
- "waitlist_baseline": {"BTB101|2A": 3, "BTB103|3A": 4, "BTB109|3A": 6, "BTB114|CC": 2, "BTB119|SL": 9, "BTB121|2A": 5},
- "cancellation_charge_inr": {"2A": 200, "3A": 180, "CC": 180, "SL": 120, "WAITLISTED": 60},
- "concession_percent": {"senior_citizen": {"2A": 40, "3A": 40, "SL": 40}, "student": {"3A": 25, "SL": 25}}
+ "waitlist_baseline": {
+  "BTB101|2A": 3,
+  "BTB103|3A": 4,
+  "BTB109|3A": 6,
+  "BTB114|CC": 2,
+  "BTB119|SL": 9,
+  "BTB121|2A": 5
+ },
+ "cancellation_charge_inr": {
+  "2A": 200,
+  "3A": 180,
+  "CC": 180,
+  "SL": 120,
+  "WAITLISTED": 60
+ },
+ "concession_percent": {
+  "senior_citizen": {
+   "2A": 40,
+   "3A": 40,
+   "SL": 40
+  },
+  "student": {
+   "3A": 25,
+   "SL": 25
+  }
+ }
 }

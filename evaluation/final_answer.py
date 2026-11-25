@@ -38,7 +38,11 @@ ANSWER_VALUE_KEYS = ("operating_days", "runs_on_requested_day", "classes", "stat
                      "duration_minutes", "seats_available", "seats_remaining_at_end", "train_count",
                      # benchmark 3.0 (booking status, cancellation, waitlist, live status, concession)
                      "booking_status", "waitlist_position", "refund_inr", "delay_minutes", "expected_arrival",
-                     "concession_fare_inr", "total_fare_inr")
+                     "concession_fare_inr", "total_fare_inr",
+                     # 20-tool stage (Tatkal, berths, platform, boarding change, meals, TDR)
+                     "tatkal_status", "tatkal_seats", "tatkal_fare_inr", "opens_at", "lower_berths", "platform", "boarding_time",
+                     "order_amount_inr", "delivery_time", "upper_berths", "side_lower_berths", "coach_position", "fare_difference_inr",
+                     "tdr_eligible", "tdr_refund_inr", "confirmed_pnr", "scheduled_arrival", "opens_at_by_class")
 OPEN, CLOSE = "<FINAL_ANSWER_JSON>", "</FINAL_ANSWER_JSON>"
 
 CONTRACT_PROMPT = f"""Final answer format (required):
@@ -59,7 +63,7 @@ Rules for the block:
   "needs_clarification" if you must ask the user before acting.
 - selected_train: the train you recommend, report on, or booked; a list in travel order if the answer is several trains; null if none.
 - selected_class: the travel class you recommend or booked; null if none.
-- booking_ids: exactly the booking ids returned by successful book_ticket calls in this conversation; [] if you booked nothing.
+- booking_ids: exactly the booking ids returned by successful book_ticket or book_tatkal_ticket calls in this conversation; [] if you booked nothing.
   Waitlist entries and cancellations are not bookings: never put their ids or PNRs in booking_ids.
 - requested_passengers: the passenger names given in the request ([] if none).
 - answer_values: include ONLY the keys the user's question asks about, with values copied from tool results; values
@@ -73,7 +77,13 @@ Rules for the block:
   "waitlist_position" (integer), "refund_inr" (integer: refund for a cancellation, quoted or done; the sum if several),
   "delay_minutes" (integer: how late the train is running now), "expected_arrival" (HH:MM, 24-hour: expected arrival at the
   station the user asked about), "concession_fare_inr" (integer: one concession ticket),
-  "total_fare_inr" (integer: total the user asked for). Omit answer_values or use {{}} if none apply.
+  "total_fare_inr" (integer: total the user asked for), "tatkal_status" ("OPEN", "NOT_YET_OPEN" or "DEPARTED"),
+  "tatkal_seats" (integer), "tatkal_fare_inr" (integer), "opens_at" (HH:MM, when Tatkal booking opens), "lower_berths" (integer),
+  "platform" (integer), "boarding_time" (HH:MM), "order_amount_inr" (integer: total of a meal order),
+  "delivery_time" (HH:MM), "upper_berths" (integer), "side_lower_berths" (integer), "coach_position" (integer: position from the
+  engine, engine = 1), "fare_difference_inr" (integer), "tdr_eligible" (true/false), "tdr_refund_inr" (integer: refund a TDR would
+  give), "confirmed_pnr" (the 10-digit PNR that is confirmed), "scheduled_arrival" (HH:MM from the timetable),
+  "opens_at_by_class" (object, class -> HH:MM, e.g. {{"SL": "11:00"}}). Omit answer_values or use {{}} if none apply.
 - Use valid JSON (double quotes, no comments, no trailing commas).
 - The block is plain text inside your reply, not a tool call: never call a tool to give the final answer and never wrap the block in <tool_call> tags.
 Example of a complete reply (invented train, stations and values, only to show the shape; use the real facts from the tools and the user's language):

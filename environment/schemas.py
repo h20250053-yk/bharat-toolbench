@@ -257,6 +257,7 @@ class BookingStatusOutput(BaseModel):
     travel_class: str
     passenger: str
     journey_date: Optional[str]
+    boarding_station: str  # the origin unless changed with change_boarding_point
     fare_inr: int
     status: Literal["CONFIRMED", "WAITLISTED", "CANCELLED"]
     waitlist_position: Optional[int]
@@ -324,6 +325,144 @@ class ConcessionFareOutput(BaseModel):
     currency: Literal["INR"] = "INR"
 
 
+# ----------------------------------------------------------------------------- benchmark 3.0, 20-tool stage: eight more tools
+MEALS = ("veg_thali", "nonveg_thali", "jain_thali", "breakfast")
+COMPLAINT_CATEGORIES = ("cleanliness", "ac_not_working", "water_shortage", "catering", "security", "punctuality", "other")
+
+
+class TatkalBooking(BaseModel):
+    """A Tatkal-quota booking (kept apart from `Booking`, whose shape is frozen in the 2.x gold)."""
+
+    booking_id: str
+    pnr: str
+    train_id: str
+    travel_class: str
+    passenger: str
+    fare_inr: int
+    journey_date: str
+    quota: Literal["TATKAL"] = "TATKAL"
+    status: Literal["CONFIRMED"] = "CONFIRMED"
+
+
+class MealOrder(BaseModel):
+    order_id: str
+    pnr: str
+    station: str
+    meal: str
+    quantity: int
+    amount_inr: int
+    delivery_date: str
+    delivery_time: str
+
+
+class TdrClaim(BaseModel):
+    tdr_id: str
+    pnr: str
+    reason: Literal["TRAIN_LATE_OVER_3_HOURS"] = "TRAIN_LATE_OVER_3_HOURS"
+    delay_minutes: int
+    refund_inr: int
+    status: Literal["FILED"] = "FILED"
+
+
+class Complaint(BaseModel):
+    complaint_id: str
+    pnr: str
+    train_id: str
+    category: str
+    description: str
+    status: Literal["REGISTERED"] = "REGISTERED"
+
+
+class TatkalInput(_Input):
+    train_id: str
+    travel_class: str
+    date: str  # YYYY-MM-DD, the date the train leaves its origin station
+
+
+class TatkalBookInput(_Input):
+    train_id: str
+    travel_class: str
+    passenger: str
+    date: str
+
+
+class PnrStationInput(_Input):
+    pnr: str
+    station: str  # canonical station code
+
+
+class TrainStationInput(_Input):
+    train_id: str
+    station: str  # canonical station code
+
+
+class MealInput(_Input):
+    pnr: str
+    station: str
+    meal: str  # veg_thali | nonveg_thali | jain_thali | breakfast
+    quantity: int = 1
+
+
+class ComplaintInput(_Input):
+    pnr: str
+    category: str  # cleanliness | ac_not_working | water_shortage | catering | security | punctuality | other
+    description: str = ""  # optional free text
+
+
+class TatkalAvailabilityOutput(BaseModel):
+    train_id: str
+    travel_class: str
+    date: str
+    status: Literal["OPEN", "NOT_YET_OPEN", "DEPARTED"]
+    opens_at: str  # YYYY-MM-DD HH:MM
+    tatkal_seats: int
+    tatkal_fare_inr: int
+    concessions_allowed: bool
+
+
+class TatkalBookOutput(TatkalBooking):
+    pass
+
+
+class BerthOutput(BaseModel):
+    train_id: str
+    travel_class: str
+    lower: int
+    middle: Optional[int]  # None in 2A (no middle berths)
+    upper: int
+    side_lower: int
+    side_upper: int
+    total: int
+
+
+class PlatformOutput(BaseModel):
+    train_id: str
+    station: str
+    platform: int
+    coach_order: list[str]  # from the engine end
+
+
+class BoardingChangeOutput(BaseModel):
+    pnr: str
+    train_id: str
+    previous_boarding: str
+    new_boarding: str
+    boarding_date: str
+    boarding_time: str
+
+
+class MealOutput(MealOrder):
+    pass
+
+
+class TdrOutput(TdrClaim):
+    pass
+
+
+class ComplaintOutput(Complaint):
+    pass
+
+
 TOOL_INPUT_MODELS: dict[str, type[BaseModel]] = {
     "resolve_station": ResolveStationInput,
     "search_trains": SearchTrainsInput,
@@ -337,6 +476,15 @@ TOOL_INPUT_MODELS: dict[str, type[BaseModel]] = {
     "join_waitlist": BookTicketInput,
     "get_live_train_status": TrainIdInput,
     "get_concession_fare": ConcessionFareInput,
+    # 20-tool stage
+    "check_tatkal_availability": TatkalInput,
+    "book_tatkal_ticket": TatkalBookInput,
+    "get_berth_availability": TrainClassInput,
+    "get_platform_info": TrainStationInput,
+    "change_boarding_point": PnrStationInput,
+    "order_meal": MealInput,
+    "file_tdr": PnrInput,
+    "raise_complaint": ComplaintInput,
 }
 
 TOOL_OUTPUT_MODELS: dict[str, type[BaseModel]] = {
@@ -352,6 +500,14 @@ TOOL_OUTPUT_MODELS: dict[str, type[BaseModel]] = {
     "join_waitlist": JoinWaitlistOutput,
     "get_live_train_status": LiveStatusOutput,
     "get_concession_fare": ConcessionFareOutput,
+    "check_tatkal_availability": TatkalAvailabilityOutput,
+    "book_tatkal_ticket": TatkalBookOutput,
+    "get_berth_availability": BerthOutput,
+    "get_platform_info": PlatformOutput,
+    "change_boarding_point": BoardingChangeOutput,
+    "order_meal": MealOutput,
+    "file_tdr": TdrOutput,
+    "raise_complaint": ComplaintOutput,
 }
 
 # Model-facing descriptions. These are part of the benchmark contract: change => new benchmark version.
@@ -378,4 +534,21 @@ TOOL_DESCRIPTIONS: dict[str, str] = {
     "the last station it left, and expected arrival/departure times at each stop.",
     "get_concession_fare": "Get the discounted fare in INR of a train for a travel class for a concession "
     "(senior_citizen or student), together with the normal fare and the discount percent.",
+    # 20-tool stage
+    "check_tatkal_availability": "Check the Tatkal (urgent-travel) quota of a train for a travel class on a date (the day the train leaves its "
+    "origin, YYYY-MM-DD): whether Tatkal booking is OPEN, NOT_YET_OPEN or the train has DEPARTED, when it opens, seats left and the Tatkal fare.",
+    "book_tatkal_ticket": "Book one Tatkal-quota ticket (higher fare, no concessions) for a passenger on a train, class and date. Only while "
+    "Tatkal booking is open for that date. Changes booking state.",
+    "get_berth_availability": "Get the free berths of a train in a sleeper class (SL, 3A or 2A) by type: lower, middle, upper, side lower, "
+    "side upper.",
+    "get_platform_info": "Get the platform number of a train at one of its stations (canonical station code) and the order of its coaches "
+    "from the engine.",
+    "change_boarding_point": "Change the boarding station of a confirmed booking (10-digit PNR) to a later stop of the same train. Allowed until "
+    "24 hours before the train leaves its origin. Changes booking state.",
+    "order_meal": "Order a meal (veg_thali, nonveg_thali, jain_thali or breakfast; quantity 1-6) for a confirmed booking (PNR), delivered to "
+    "the seat at a station on the way. Must be ordered at least 2 hours before the train reaches that station. Changes state.",
+    "file_tdr": "File a TDR (refund claim) for a confirmed booking (PNR) whose train is running at least 3 hours late; it must be filed before "
+    "the train actually leaves the boarding station. Refunds the full fare. Changes state.",
+    "raise_complaint": "Register a complaint (category: cleanliness, ac_not_working, water_shortage, catering, security, punctuality or other, "
+    "plus an optional short description) for a booking (PNR) whose train journey is in progress now. Changes state.",
 }

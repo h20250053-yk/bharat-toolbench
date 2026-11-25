@@ -36,17 +36,22 @@ from . import batch_t16_t25 as _b2
 from . import batch_t26_t50 as _b3
 from . import batch_t51_t75 as _b4
 from . import batch_t76_t100 as _b5
+from . import batch_t101_t200 as _b6
+from .oracle_t101_t200 import Oracle6
 from . import batch_gujarati as _gu
 import hashlib
 from .batch_t06_t15 import BATCH_IDS, EN_AUTHOR as BATCH_EN_AUTHOR, EN_ITEMS as BATCH_EN_ITEMS, QUERIES as BATCH_QUERIES
-from .build_gold import GOLD_PATH, SPEC_PATH, build_all, env_diff, load_specs, render
+from .build_gold import EFFECT_FIELDS, GOLD_PATH, SPEC_PATH, build_all, env_diff, load_specs, render
 from .language_checks import CHECKS, EXTRA_LANGS, LANGS, NA, numeric_signature, parse_dates as parse_dates_lang, run_checks
 from .schemas import BenchmarkItem, GoldSpec
 
 LANG_DIR = Path(__file__).resolve().parent / "languages"
 V2_TOOLS = ("resolve_station", "search_trains", "get_train_details", "check_availability", "get_fare", "book_ticket")
+V3_TOOLS = tuple(_b5.ALL_TOOLS_V3)  # T76-T100 (12 tools); T101-T200 list all 20 (TOOL_NAMES)
 PILOT_IDS = ["T01", "T02", "T03", "T04", "T05"]
-BATCHES = [_b1, _b2, _b3, _b4, _b5]
+BATCHES = [_b1, _b2, _b3, _b4, _b5, _b6]
+BATCH5_AUDIT_PATH = LANG_DIR / "batch_T76_T100_language_audit.json"
+BATCH6_AUDIT_PATH = LANG_DIR / "batch_T101_T200_language_audit.json"
 BATCH3_AUDIT_PATH = LANG_DIR / "batch_T26_T50_language_audit.json"
 BATCH4_AUDIT_PATH = LANG_DIR / "batch_T51_T75_language_audit.json"
 # Freeze of T01-T50 when T51-T75 were added (end-sem batch): spec, gold, first 50 lines of each language file, T26-T50 audit.
@@ -573,6 +578,8 @@ class RawOracle:
             return self.answer_batch4(kind, p)
         if kind in BATCH5_KINDS:
             return self.answer_batch5(kind, p)
+        if kind in BATCH6_KINDS:  # T101-T200: benchmark/oracle_t101_t200.py (raw JSON only, rules restated there)
+            return Oracle6().answer(kind, p)
         T = {t["train_id"]: t for t in self.trains}
         one = lambda n: next(iter(self.codes_for(n))) if len(self.codes_for(n)) == 1 else None  # noqa: E731
         if kind == "operating_days_lookup":
@@ -684,6 +691,7 @@ BATCH5_KINDS = {"pnr_status_lookup", "refund_quote_no_cancel", "cancel_pnr", "co
                 "live_running_today", "concession_fare", "concession_party_total", "concession_not_available", "concession_budget_check",
                 "cancel_and_rebook_class", "conditional_waitlisted_cancel_rebook", "conditional_waitlisted_noop",
                 "cancel_without_pnr_clarification", "cancel_multiple_total_refund", "availability_and_concession"}
+BATCH6_KINDS = {s["solver"]["kind"] for s in _b6.SPECS}
 INTENTIONALLY_INVALID_KINDS = {"invalid_train_id", "unsupported_class", "past_date_booking"}  # prompts that must contain invalid values
 
 
@@ -749,9 +757,9 @@ def validate() -> list[str]:
         GoldSpec(**gold)  # schema-valid
         p, kind = spec.solver.params, spec.solver.kind
         _check(spec.category == item.category == EXPECTED_CATEGORY[tid], f"{tid}: category mismatch", errors)
-        # T01-T75 were written for the six tools of 2.x (their rows keep that list; the 3.0 runner offers all twelve, see
-        # evaluation/runner.offered_tools); tasks from T76 on list all twelve tools.
-        want_tools = V2_TOOLS if int(tid[1:]) <= 75 else TOOL_NAMES
+        # Three tool stages, each offered only its own tools (evaluation/runner.offered_tools): T01-T75 the six tools of 2.x,
+        # T76-T100 twelve, T101-T200 all twenty.
+        want_tools = V2_TOOLS if int(tid[1:]) <= 75 else V3_TOOLS if int(tid[1:]) <= 100 else TOOL_NAMES
         _check(set(spec.allowed_tools) == set(want_tools) and item.allowed_tools == spec.allowed_tools, f"{tid}: allowed_tools", errors)
 
         # 3. initial state assumptions
@@ -819,6 +827,9 @@ def validate() -> list[str]:
         if "waitlist" in o:
             _check(sorted(o["waitlist"]) == sorted((w["train_id"], w["travel_class"], w["passenger"])
                                                    for w in gold["final_state"].get("expected_waitlist") or []), f"{tid}: oracle waitlist != gold", errors)
+        want_eff = {k: sorted(v) for k, v in o.get("effects", {}).items()}  # 20-tool stage: Tatkal, boarding, meals, TDR, complaints
+        got_eff = {k: sorted(tuple(e[f] for f in EFFECT_FIELDS[k]) for e in v) for k, v in (gold["final_state"].get("expected_effects") or {}).items()}
+        _check(want_eff == got_eff, f"{tid}: oracle effects {want_eff} != gold {got_eff}", errors)
         if "bookings" in o:
             _check(sorted(o["bookings"]) == sorted((b["train_id"], b["travel_class"], b["passenger"]) for b in gold["final_state"]["expected_bookings"]),
                    f"{tid}: oracle bookings {o['bookings']} != gold", errors)
@@ -1036,7 +1047,8 @@ def validate_languages(specs: dict, gold_file: dict, oracle: "RawOracle", ref_da
     # audit files: the automated drafting audits (query text in sync with the language files; they record the draft stage and
     # stay review_status="draft" / pending_human_review - the human review itself is recorded in languages/human_review.json)
     for path, ids in ((AUDIT_PATH, PILOT_IDS), (LANG_DIR / BATCH_AUDIT_PATH.name, BATCH_IDS), (LANG_DIR / BATCH2_AUDIT_PATH.name, _b2.BATCH_IDS),
-                       (LANG_DIR / BATCH3_AUDIT_PATH.name, _b3.BATCH_IDS), (LANG_DIR / BATCH4_AUDIT_PATH.name, _b4.BATCH_IDS)):
+                       (LANG_DIR / BATCH3_AUDIT_PATH.name, _b3.BATCH_IDS), (LANG_DIR / BATCH4_AUDIT_PATH.name, _b4.BATCH_IDS),
+                       (BATCH5_AUDIT_PATH, _b5.BATCH_IDS), (BATCH6_AUDIT_PATH, _b6.BATCH_IDS)):
         _validate_audit(path, ids, flat, errors)
     f = LANG_DIR / BATCH_AUDIT_PATH.name
     _check(f.exists() and hashlib.sha256(f.read_bytes()).hexdigest() == FROZEN_T06_T15_AUDIT_SHA256, "T06-T15 audit file changed (frozen)", errors)
@@ -1110,7 +1122,9 @@ def validate_gujarati(specs: dict, oracle: "RawOracle", ref_date: Date, errors: 
     if GU_AUDIT_PATH.exists():
         _check(hashlib.sha256(GU_AUDIT_PATH.read_bytes()).hexdigest() == FROZEN_GU_T01_T50_AUDIT_SHA256, "Gujarati T01-T50 audit file changed (frozen)", errors)
     by_id = {r["task_id"]: r for r in rows}
-    for path, part in ((GU_AUDIT_PATH, _gu.GU_IDS_T01_T50), (GU2_AUDIT_PATH, _gu.GU_IDS_T51_T75)):
+    for path, part in ((GU_AUDIT_PATH, _gu.GU_IDS_T01_T50), (GU2_AUDIT_PATH, _gu.GU_IDS_T51_T75),
+                       (LANG_DIR / "batch_gu_T76_T100_language_audit.json", _gu.GU_IDS_T76_T100),
+                       (LANG_DIR / "batch_gu_T101_T200_language_audit.json", _gu.GU_IDS_T101_T200)):
         _validate_gu_audit(path, part, by_id, errors)
 
 
@@ -1138,7 +1152,7 @@ def _validate_audit(path: Path, ids: list[str], flat: list[dict[str, Any]], erro
     audit = json.loads(path.read_text(encoding="utf-8"))["records"]
     n = len(ids) * len(LANGS)
     _check(len(audit) == n, f"audit must have {n} records, has {len(audit)} ({path.name})", errors)
-    _check(sorted({a["semantic_task_id"] for a in audit}) == ids, f"{path.name}: covers {sorted({a['semantic_task_id'] for a in audit})}, expected {ids}", errors)
+    _check(sorted({a["semantic_task_id"] for a in audit}, key=_tnum) == ids, f"{path.name}: covers {sorted({a['semantic_task_id'] for a in audit})}, expected {ids}", errors)
     by_id = {r["task_id"]: r for r in flat}
     for a in audit:
         r = by_id.get(a["task_id"])
@@ -1155,7 +1169,9 @@ def _validate_audit(path: Path, ids: list[str], flat: list[dict[str, Any]], erro
 
 EXPECT_PROHIBITIONS = {"T03", "T05", "T15", "T39", "T41",  # the only prompts (T01-T75) in which the user explicitly forbids something
                        "T59", "T60", "T72",
-                       "T77", "T85", "T92"}  # 3.0 batch: 'Don't cancel it yet', 'don't put him on the waitlist', 'Don't book anything yet'
+                       "T77", "T85", "T92",  # 3.0 batch: 'Don't cancel it yet', 'don't put him on the waitlist', 'Don't book anything yet'
+                       "T104", "T109", "T140", "T175", "T196"}  # 20-tool batch: 'not the general quota', 'don't put her on the waitlist',
+#                        "don't change the booking", "Don't file it yet", "Don't book anything"
 
 
 def norm_quotes(t: str) -> str:

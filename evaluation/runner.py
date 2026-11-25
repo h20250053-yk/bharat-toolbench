@@ -44,7 +44,7 @@ Current date and time: 2026-10-05 09:00 IST (Monday). Bookings are only for futu
 Rules: Use tools for facts; never invent train IDs, fares, availability or booking IDs.
 Station names may be in any language; use resolve_station when you need a code.
 If essential information is missing or ambiguous, ask the user instead of guessing.
-Only call book_ticket, cancel_ticket or join_waitlist when the user asked for that action.
+Only call a tool that books, cancels, waitlists, changes, orders, files or registers something when the user asked for that action.
 Follow the user's constraints exactly. If a condition fails, do not substitute a different action unless the user explicitly allowed that fallback.
 """ + CONTRACT_PROMPT
 
@@ -62,11 +62,10 @@ def benchmark_version() -> str:
 
 
 def offered_tools(item: dict[str, Any]) -> list[str]:
-    """Tools the model is given for this item. Benchmark 3.0 (config offer_all_tools: true) gives EVERY item all twelve tools,
-    including the frozen T01-T75 items whose rows still list the six tools that existed when they were written: choosing among
-    all tools is part of the test. Older configs give exactly the item's allowed_tools."""
+    """Tools the model is given for this item: its row's allowed_tools (the tool stage it belongs to: T01-T75 six tools, T76-T100
+    twelve, T101-T200 twenty), in the environment's order. With config offer_all_tools: true every item gets all twenty instead."""
     cfg = yaml.safe_load((ROOT / "config" / "benchmark.yaml").read_text(encoding="utf-8"))
-    return list(TOOL_NAMES) if cfg.get("offer_all_tools") else list(item["allowed_tools"])
+    return list(TOOL_NAMES) if cfg.get("offer_all_tools") else [t for t in TOOL_NAMES if t in item["allowed_tools"]]
 
 
 def _now() -> str:
@@ -286,7 +285,8 @@ def run_item(item: dict[str, Any], adapter_factory: Callable[[], ModelAdapter], 
         # outcome
         "status": outcome["status"], "error": outcome.get("error"), "error_kind": outcome.get("error_kind"),
         "attempts": attempt, "retries": retries, "turns": outcome.get("turns"),
-        "query": item["query"], "trajectory": outcome.get("trajectory", []), "final_text": outcome.get("final_text", ""),
+        "query": item["query"], "offered_tools": offered_tools(item),
+        "trajectory": outcome.get("trajectory", []), "final_text": outcome.get("final_text", ""),
         # diagnostic only (never scored): tool calls the final attempt executed before it ended in malformed_output /
         # provider_error / runner_error. `trajectory` stays [] for those statuses, exactly as before.
         "partial_trajectory": list(attempt_trajectory) if outcome.get("status") in ("malformed_output", "context_overflow", "output_truncated", "provider_error", "runner_error") else [],
