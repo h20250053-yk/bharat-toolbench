@@ -210,7 +210,67 @@ def tables(D: Data) -> dict[str, Any]:
                                     "recall": hit[tool] / need[tool] if need[tool] else float("nan"),
                                     "not_needed_items": items_without[tool], "called_when_not_needed": spurious[tool]} for tool in NEW_TOOLS}
     T["rescoring"] = {k: {"changed": len(v), "items": v} for k, v in D.rescore_changes.items()}
+    T["lang_gap"], T["lang_tools"], T["lang_pooled"] = language_view(D)
     return T
+
+
+# ================================================================================================ language view
+INDIC = ["hinglish", "hi", "mr", "gu"]
+STATION_ERRORS = {"INVALID_STATION", "STATION_NOT_FOUND"}
+BOOT_SEED, BOOT_B = 20261126, 4000
+
+
+def _boot(values_by_task: list[float]) -> tuple[float, float, float]:
+    """Mean of per-task values with a 95% bootstrap interval over tasks (tasks resampled; a task's five languages stay together)."""
+    import random
+    n = len(values_by_task)
+    if not n:
+        return (float("nan"),) * 3
+    rng = random.Random(BOOT_SEED)
+    m = sum(values_by_task) / n
+    sims = sorted(sum(values_by_task[rng.randrange(n)] for _ in range(n)) / n for _ in range(BOOT_B))
+    return m, sims[int(0.025 * BOOT_B)], sims[int(0.975 * BOOT_B) - 1]
+
+
+def language_view(D: Data) -> tuple[dict, dict, dict]:
+    """Does the language matter more when there are more tools?
+    gap  = per task, English success minus the mean success of the four Indian-language versions (Hinglish, Hindi, Marathi, Gujarati),
+           averaged over the stage's tasks: PAIRED (same task, same gold), bootstrap 95% interval over tasks;
+           spread = best minus worst language; change = stage-3 gap minus stage-1 gap (independent task sets: intervals combined).
+    tools per language and stage: selection recall, argument accuracy, and the share of items with a station-name error
+           (INVALID_STATION / STATION_NOT_FOUND: the word-ending problem of round one).
+    pooled: each language's success per stage over all models not flagged unreliable."""
+    from analysis.observe_run import _error_code
+    gap, tools = {}, {}
+    for k in D.models:
+        gap[k], tools[k] = {}, {}
+        for s, *_ in STAGES:
+            ids = D.ids(k, s)
+            by_task: dict[str, dict[str, bool]] = defaultdict(dict)
+            for t in ids:
+                r = D.rows[k][t]
+                by_task[r["semantic_task_id"]][r["language"]] = bool(r["score"].get("task_success"))
+            diffs = [float(v["en"]) - sum(float(v[l]) for l in INDIC) / 4 for v in by_task.values() if len(v) == 5]
+            m, lo, hi = _boot(diffs)
+            rates = {l: D.rate(k, D.ids(k, s, l))["rate"] for l in LANGS}
+            gap[k][s] = {"gap": m, "lo": lo, "hi": hi, "tasks": len(diffs), "spread": max(rates.values()) - min(rates.values()),
+                         "best": max(rates, key=rates.get), "worst": min(rates, key=rates.get)}
+            tools[k][s] = {}
+            for l in LANGS:
+                items = [D.items[k][t] for t in D.ids(k, s, l)]
+                summ = D.TM.summarize(items)
+                st_err = sum(any(_error_code(e) in STATION_ERRORS for e in D.TM.calls_of(D.rows[k][t])) for t in D.ids(k, s, l))
+                tools[k][s][l] = {"selection_recall": summ["selection_recall"]["value"], "argument_accuracy": summ["argument_accuracy"]["value"],
+                                  "station_error_items": st_err, "items": len(items)}
+        a, b = gap[k]["S1"], gap[k]["S3"]
+        half = math.sqrt(((a["hi"] - a["lo"]) / 2) ** 2 + ((b["hi"] - b["lo"]) / 2) ** 2)
+        gap[k]["change_S3_vs_S1"] = {"diff": b["gap"] - a["gap"], "lo": b["gap"] - a["gap"] - half, "hi": b["gap"] - a["gap"] + half}
+    reliable = [k for k in D.models if k not in D.flagged] or D.models
+    pooled = {s: {l: (lambda kk, nn: {"k": kk, "n": nn, "rate": kk / nn if nn else float("nan"), "lo": wilson(kk, nn)[0], "hi": wilson(kk, nn)[1]})(
+        sum(D.rate(k, D.ids(k, s, l))["k"] for k in reliable), sum(D.rate(k, D.ids(k, s, l))["n"] for k in reliable)) for l in LANGS}
+        for s, *_ in STAGES}
+    pooled["models"] = reliable
+    return gap, tools, pooled
 
 
 # ================================================================================================ files
@@ -257,6 +317,13 @@ def write_tables(D: Data, T: dict[str, Any], out: Path) -> None:
     write_csv(out / "stage3_new_tools.csv", ["model", "tool", "required_items", "called_when_required", "not_needed_items", "called_when_not_needed"],
               [[k, tool, v["required_items"], v["called_when_required"], v["not_needed_items"], v["called_when_not_needed"]]
                for k in D.models for tool, v in T["new_tools"][k].items()])
+    write_csv(out / "language_gap_by_stage.csv", ["model", "stage", "tasks", "english_minus_indic_pp", "ci_lo", "ci_hi", "spread_pp", "best", "worst"],
+              [[k, s, g["tasks"], round(100 * g["gap"], 2), round(100 * g["lo"], 2), round(100 * g["hi"], 2), round(100 * g["spread"], 2), g["best"], g["worst"]]
+               for k in D.models for s in S for g in [T["lang_gap"][k][s]]])
+    write_csv(out / "language_tools_by_stage.csv", ["model", "stage", "language", "items", "selection_recall", "argument_accuracy", "station_error_items"],
+              [[k, s, l, v["items"], round(v["selection_recall"], 4) if v["selection_recall"] == v["selection_recall"] else "",
+                round(v["argument_accuracy"], 4) if v["argument_accuracy"] == v["argument_accuracy"] else "", v["station_error_items"]]
+               for k in D.models for s in S for l, v in T["lang_tools"][k][s].items()])
     (out / "stages.json").write_text(json.dumps(T, ensure_ascii=False, indent=1, default=float) + "\n", encoding="utf-8")
     (out / "rescoring.json").write_text(json.dumps(T["rescoring"], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -402,6 +469,39 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
     ax.set_title("What happened, by stage (all reliable models pooled)")
     save(fig, "figS5_outcomes_by_stage", "Primary outcome of every item (first matching class of analysis/observe_run.classify), pooled over the "
          f"models not flagged as unreliable ({len(reliable)} models). " + note)
+    # 6. English vs Indian languages, by stage
+    fig, ax = plt.subplots(figsize=(7.5, 4))
+    xs = np.arange(3)
+    for i, k in enumerate(ms):
+        g = [T["lang_gap"][k][s] for s in S]
+        off = (i - (len(ms) - 1) / 2) * 0.05
+        ax.errorbar(xs + off, [100 * x["gap"] for x in g], yerr=[[max(0, 100 * (x["gap"] - x["lo"])) for x in g], [max(0, 100 * (x["hi"] - x["gap"])) for x in g]],
+                    marker="o", color=COLOR[k], label=D.name(k), capsize=2, lw=1.4)
+    ax.axhline(0, color="black", lw=0.8)
+    ax.set_xticks(xs)
+    ax.set_xticklabels([STAGE_LABEL[s] for s in S], fontsize=8)
+    ax.set_ylabel("English minus Indian-language success (pp)")
+    ax.set_title("Does the language matter more with more tools?")
+    ax.legend(frameon=False, fontsize=7, bbox_to_anchor=(1.01, 1), loc="upper left")
+    save(fig, "figS6_language_gap_by_stage", "Per model and stage, English success minus the mean success of the Hinglish, Hindi, Marathi and Gujarati "
+         "versions of the SAME tasks (paired by task), with 95% bootstrap intervals over tasks. Above zero = English does better. " + note)
+
+    # 7. phone: each language per stage, pooled over reliable models
+    P = T["lang_pooled"]
+    fig, ax = plt.subplots(figsize=(5.2, 4.6))
+    y = np.arange(len(LANGS))[::-1]
+    for j, s in enumerate(S):
+        v = [P[s][l] for l in LANGS]
+        ax.barh(y + (1 - j) * 0.26, [100 * x["rate"] for x in v], 0.26, color=STAGE_COLOR[s], edgecolor="black", lw=0.4, label=f"{STAGE_LABEL[s]}")
+        for yy, x in zip(y, v):
+            ax.text(100 * x["rate"] + 1, yy + (1 - j) * 0.26, f"{100 * x['rate']:.0f}", va="center", fontsize=10)
+    ax.set_yticks(y)
+    ax.set_yticklabels([LANG_NAME[l] for l in LANGS], fontsize=12)
+    ax.set_xlim(0, 105)
+    ax.set_xlabel("task success (%), all reliable models", fontsize=11)
+    ax.legend(frameon=False, fontsize=9, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=1)
+    save(fig, "figS7_blog_languages_by_stage", f"Each language's task success per stage, pooled over the {len(P['models'])} models not flagged unreliable "
+         "(phone-sized). " + note)
     (out / "captions.md").write_text("# Captions (generated by analysis/stage_comparison.py)\n\n" + "\n".join(caps), encoding="utf-8")
     return sorted(p.name for p in out.iterdir())
 
@@ -452,7 +552,23 @@ def results_md(D: Data, T: dict[str, Any]) -> str:
     rows = [[D.name(k)] + [f"{v['called_when_required']}/{v['required_items']} · {v['called_when_not_needed']}/{v['not_needed_items']}"
                            for v in T["new_tools"][k].values()] for k in D.models]
     L.append(md_table(["model"] + NEW_TOOLS, rows))
-    L += ["", "## 8. Re-scoring check", "",
+    L += ["", "## 8. Language across the stages", "",
+          "Gap = per task, English success minus the mean of the Hinglish, Hindi, Marathi and Gujarati versions of the same task (paired), in "
+          "percentage points, with a 95% bootstrap interval over tasks. Spread = best minus worst language. Change = stage-3 gap minus stage-1 gap "
+          "(different tasks, so read it with the difficulty table).", ""]
+    rows = [[D.name(k)] + [f"{100 * T['lang_gap'][k][s]['gap']:+.1f} [{100 * T['lang_gap'][k][s]['lo']:+.1f}, {100 * T['lang_gap'][k][s]['hi']:+.1f}]; "
+                           f"spread {100 * T['lang_gap'][k][s]['spread']:.0f} ({LANG_NAME[T['lang_gap'][k][s]['worst']]} lowest)" for s in S]
+            + [f"{100 * T['lang_gap'][k]['change_S3_vs_S1']['diff']:+.1f} [{100 * T['lang_gap'][k]['change_S3_vs_S1']['lo']:+.1f}, "
+               f"{100 * T['lang_gap'][k]['change_S3_vs_S1']['hi']:+.1f}]"] for k in D.models]
+    L.append(md_table(["model"] + [STAGE_LABEL[s] for s in S] + ["gap change S3 - S1"], rows))
+    P = T["lang_pooled"]
+    L += ["", f"All reliable models pooled ({len(P['models'])}): success per language and stage.", ""]
+    L.append(md_table(["stage"] + [LANG_NAME[l] for l in LANGS], [[STAGE_LABEL[s]] + [ci(P[s][l]) for l in LANGS] for s in S]))
+    L += ["", "Station-name errors (INVALID_STATION / STATION_NOT_FOUND, the word-ending problem of round one): items with at least one, per language.", ""]
+    L.append(md_table(["model", "stage"] + [LANG_NAME[l] for l in LANGS],
+                      [[D.name(k), STAGE_LABEL[s]] + [f"{T['lang_tools'][k][s][l]['station_error_items']}/{T['lang_tools'][k][s][l]['items']}" for l in LANGS]
+                       for k in D.models for s in S]))
+    L += ["", "## 9. Re-scoring check", "",
           "Stored run-time scores vs the current scorer (the 2.1.0 rows were scored by the 2.1.0 scorer when they ran):", ""]
     L.append(md_table(["model", "items whose success changed"], [[D.name(k), T["rescoring"][k]["changed"]] for k in D.models]))
     L += ["", "Figures: `analysis/figures_v3/` (captions in `captions.md`). Tables: `analysis/results_v3/`.", ""]
