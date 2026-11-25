@@ -42,7 +42,9 @@ ARG_ERROR_CODES = {"INVALID_TRAIN", "INVALID_STATION", "STATION_NOT_FOUND", "INV
 PARSE_ERRORS = ("missing_block", "malformed_json", "not_an_object", "missing_keys", "invalid_status")
 TRAIN_ID_RE = re.compile(r"^BTB\d{3}$")
 # a tool call written into the reply text (outside the answer block) that the serving layer did not convert
-TOOL_CALL_TEXT_RE = re.compile(r'\{\s*"name"\s*:\s*"(resolve_station|search_trains|get_train_details|check_availability|get_fare|book_ticket)"')
+from environment.railway_env import TOOL_NAMES as _TOOLS  # noqa: E402  (all twenty tools since the 20-tool stage)
+TOOL_CALL_TEXT_RE = re.compile(r'\{\s*"name"\s*:\s*"(' + "|".join(_TOOLS) + r')"')
+GUJARATI_RE = re.compile(r"[\u0A80-\u0AFF]")
 DEVANAGARI_RE = re.compile(r"[ऀ-ॿ]")
 LATIN_RE = re.compile(r"[A-Za-z]")
 
@@ -110,6 +112,19 @@ def _booking_key(b: dict[str, Any]) -> tuple[str, str, str]:
     return (str(b.get("train_id", "")).upper(), str(b.get("travel_class", "")).upper(), " ".join(str(b.get("passenger", "")).lower().split()))
 
 
+def _other_changes(row: dict[str, Any], gold_task: dict[str, Any]) -> list[tuple[str, collections.Counter, collections.Counter]]:
+    from evaluation.scorer import EFFECT_FIELDS, _effect_counter
+    snap, fs = row.get("state_snapshot") or {}, gold_task["final_state"]
+    out = [("cancellation", collections.Counter((c.get("pnr"),) for c in snap.get("cancellations") or []),
+            collections.Counter((p,) for p in fs.get("expected_cancellations") or [])),
+           ("waitlist", collections.Counter(map(_booking_key, snap.get("waitlist") or [])),
+            collections.Counter(map(_booking_key, fs.get("expected_waitlist") or [])))]
+    eff = fs.get("expected_effects") or {}
+    for kind, fields in EFFECT_FIELDS.items():
+        out.append((kind, _effect_counter(kind, fields, snap.get(kind)), _effect_counter(kind, fields, eff.get(kind))))  # meals: portions
+    return out
+
+
 def _gold_expected_errors(gold_task: dict[str, Any]) -> set[str]:
     return {c["expected_error"] for c in gold_task.get("required_calls", []) if c.get("expected_error")}
 
@@ -133,7 +148,7 @@ def _last_done_reason(row: dict[str, Any]) -> str | None:
 
 
 def _script(text: str) -> str:
-    dev, lat = len(DEVANAGARI_RE.findall(text)), len(LATIN_RE.findall(text))
+    dev, lat = len(DEVANAGARI_RE.findall(text)) + len(GUJARATI_RE.findall(text)), len(LATIN_RE.findall(text))  # Indic script (Devanagari or Gujarati)
     if dev + lat == 0:
         return "none"
     share = dev / (dev + lat)
@@ -155,6 +170,11 @@ def classify(row: dict[str, Any], gold_task: dict[str, Any]) -> tuple[str, list[
     actual = collections.Counter(map(_booking_key, (row.get("state_snapshot") or {}).get("bookings", [])))
     wanted = collections.Counter(map(_booking_key, gold_task["final_state"].get("expected_bookings", [])))
     extra, missing = actual - wanted, wanted - actual
+    # 3.0: every other state change (cancellations, waitlist, and the 20-tool stage's Tatkal bookings, boarding changes, meals, TDRs,
+    # complaints) counts the same way: one the gold does not expect is an unwanted action, one it expects but is absent is missing
+    for kind, got_c, want_c in _other_changes(row, gold_task):
+        extra += collections.Counter((kind, *k) for k in (got_c - want_c).elements())
+        missing += collections.Counter((kind, *k) for k in (want_c - got_c).elements())
     evidence = {"argument_errors": arg_errors, "extra_bookings": sorted(extra.elements()), "missing_bookings": sorted(missing.elements())}
 
     # ---- secondary tags (heuristic, independent of primary)
