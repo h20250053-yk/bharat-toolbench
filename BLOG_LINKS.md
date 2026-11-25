@@ -22,3 +22,19 @@ Links point at the tag `blog-v1`, which marks the published snapshot, with line 
 | Figure 7, phone version | The tool-use funnel (uses a tool, right tools, right arguments, right order, success) for four models. | [analysis/build_figures.py `fig7_blog`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v1/analysis/build_figures.py#L389-L411) |
 | Figure 10, phone version | Share of tool-needed items lost at tool selection versus at arguments, per language. | [analysis/build_figures.py `fig10_blog`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v1/analysis/build_figures.py#L414-L435) |
 | Figure 11, phone version | Task success per language for the three models well above the floor. | [analysis/build_figures.py `fig11_blog`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v1/analysis/build_figures.py#L520-L541) |
+
+## Blog v2 visuals (tag `blog-v2`)
+
+The final blog post uses the plain-language visuals in `blog_media/` and three phone-sized charts. All of them are rebuilt from the run files; see [`blog_media/README.md`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/README.md).
+
+| Visual | Code |
+|---|---|
+| Opening example card (Qwen2.5-3B, Marathi) | [blog_media/hook_card.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/hook_card.html) |
+| How one request is tested (diagram) | [blog_media/pipeline_plain.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/pipeline_plain.html) |
+| Walkthrough GIF | [blog_media/gif_frame_0..8.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media) · [blog_media/make_media.js](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/make_media.js#L11-L15) · [blog_media/make_gif.py](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/make_gif.py) |
+| Chart: models differ, languages barely move them | [analysis/blog_v2_figures.py `model_language_chart`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/analysis/blog_v2_figures.py#L50-L83) |
+| Same task in English and Marathi | [blog_media/trace_en_vs_mr.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/trace_en_vs_mr.html) |
+| Comic | [blog_media/comic.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/comic.html) |
+| Chart: tool-use funnel, four models | [analysis/blog_v2_figures.py `funnel_chart`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/analysis/blog_v2_figures.py#L86-L110) |
+| Llama-3.1-8B skips the station finder | [blog_media/station_skip.html](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/blog_media/station_skip.html) |
+| Chart: unwanted bookings | [analysis/blog_v2_figures.py `unwanted_chart`](https://github.com/h20250053-yk/bharat-toolbench/blob/blog-v2/analysis/blog_v2_figures.py#L113-L128) |

@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body><div class="wrap">
+<h1>Skipping the station finder</h1>
+<div class="sub">Llama-3.1-8B, Hindi request. The task needs the station finder first; the model goes straight to the train search.</div>
+<div class="card bad"><span class="tag">HINDI · FAILURE</span>
+<div class="q">8 अक्टूबर 2026 को मेरी हज़रत निज़ामुद्दीन से बेंगलुरु की ट्रेन है। … ट्रेन नागपुर कितने बजे पहुँचेगी?<br><i>(My train from Hazrat Nizamuddin to Bengaluru is on 8 October 2026. When does it reach Nagpur?)</i></div>
+<div class="step"><span class="n">–</span><span class="call note">needed first: <code>resolve_station("हज़रत निज़ामुद्दीन")</code> → NZM</span><span class="res err">never called</span></div>
+<div class="step"><span class="n">1</span><span class="call"><code>search_trains("हज़रत निज़ामुद्दीन", "Bengaluru")</code></span><span class="res err">unknown station</span></div>
+<div class="reply">Reply: «मुझे खेद है, लेकिन मैं आपके द्वारा दिए गए स्टेशन कोड को नहीं समझ पाया। कृपया स्टेशन कोड को सही तरीके से दें…» <i>("Sorry, I couldn't understand the station code you gave. Please give the station code properly…")</i></div>
+</div></div></body></html>

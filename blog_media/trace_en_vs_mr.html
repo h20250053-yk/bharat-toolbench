@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body><div class="wrap">
+<h1>Same model, same task, two languages</h1>
+<div class="sub">Qwen2.5-14B is asked to book a chair-car ticket from Mumbai to Ahmedabad for Ravi Patel.</div>
+<div class="card ok"><span class="tag">ENGLISH · SUCCESS</span>
+<div class="q">"Book a chair car (CC) ticket from Mumbai to Ahmedabad on 9 October 2026 for Ravi Patel."</div>
+<div class="step"><span class="n">1</span><span class="call"><code>resolve_station("Mumbai")</code></span><span class="res good">MMCT</span></div>
+<div class="step"><span class="n">2</span><span class="call"><code>resolve_station("Ahmedabad")</code></span><span class="res good">ADI</span></div>
+<div class="step"><span class="n">3</span><span class="call"><code>search_trains("MUMBAI", "AHMEDABAD")</code></span><span class="res" style="color:#b26a00">names, not codes<br>(fixed next step)</span></div>
+<div class="step"><span class="n">4</span><span class="call"><code>search_trains(MMCT → ADI, 9 Oct)</code></span><span class="res good">4 trains</span></div>
+<div class="step"><span class="n">5</span><span class="call"><code>check_availability(BTB126, CC)</code></span><span class="res good">29 seats</span></div>
+<div class="step"><span class="n">6</span><span class="call"><code>get_fare(BTB126, CC)</code></span><span class="res good">₹785</span></div>
+<div class="step"><span class="n">7</span><span class="call"><code>book_ticket(Ravi Patel, BTB126, CC)</code></span><span class="res good">booked ✓</span></div>
+<div class="step"><span class="n">8</span><span class="call"><code>get_train_details(BTB126)</code></span><span class="res good">details</span></div>
+<div class="reply">"The CC ticket for Ravi Patel on the Topaz Coastal Day Link (BTB126) has been booked successfully."</div>
+</div>
+<div class="card bad"><span class="tag">MARATHI · FAILURE</span>
+<div class="q">9 ऑक्टोबर 2026 रोजी मुंबईहून <b>अहमदाबादला</b> जाण्यासाठी रवी पटेल यांच्या नावाने चेअर कार (CC) तिकीट बुक करा.<br><i>«अहमदाबादला» = "to Ahmedabad": the ending «-ला» is glued to the name</i></div>
+<div class="step"><span class="n">1</span><span class="call"><code>resolve_station("मुंबई")</code></span><span class="res good">MMCT</span></div>
+<div class="step"><span class="n">2</span><span class="call"><code>resolve_station("अहमदाबादला")</code></span><span class="res err">not found</span></div>
+<div class="step"><span class="n">3</span><span class="call"><code>search_trains("MUM", "AGC")</code></span><span class="res err">guessed codes</span></div>
+<div class="step"><span class="n">4–7</span><span class="call">&nbsp;details, seats, fare, booking on train <code>"12615"</code></span><span class="res err">invented train</span></div>
+<div class="reply">Reply, in Thai: «ขออภัยค่ะ, สถานี "अहमदाबादला" ไม่ได้รับการระบุในระบบของเรา …» <i>("Sorry, the station 'अहमदाबादला' is not in our system.")</i></div>
+</div></div></body></html>

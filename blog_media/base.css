@@ -1,0 +1,23 @@
+@font-face{font-family:S;src:url(fonts/noto-sans-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:S;src:url(fonts/noto-sans-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(fonts/noto-sans-devanagari-devanagari-400-normal.woff2);font-weight:400}
+@font-face{font-family:I;src:url(fonts/noto-sans-devanagari-devanagari-700-normal.woff2);font-weight:700}
+@font-face{font-family:G;src:url(fonts/noto-sans-gujarati-gujarati-400-normal.woff2);font-weight:400}
+@font-face{font-family:G;src:url(fonts/noto-sans-gujarati-gujarati-700-normal.woff2);font-weight:700}
+@font-face{font-family:T;src:url(fonts/noto-sans-thai-thai-400-normal.woff2)}
+body{margin:0;background:#fff;font-family:S,I,G,T,sans-serif;color:#1d2230}
+.wrap{padding:22px;width:556px}
+h1{font-size:28px;margin:0 0 6px;color:#10233f}
+.sub{font-size:20px;color:#5b6475;margin-bottom:18px;line-height:1.35}
+code{font-family:"DejaVu Sans Mono",I,monospace;font-size:17px}
+.card{border-radius:14px;padding:18px 22px;margin-bottom:18px;border:3px solid}
+.ok{border-color:#2e8b57;background:#f1faf4}.bad{border-color:#c0392b;background:#fdf2f1}
+.tag{display:inline-block;font-weight:700;font-size:20px;padding:3px 12px;border-radius:8px;color:#fff;margin-bottom:10px}
+.ok .tag{background:#2e8b57}.bad .tag{background:#c0392b}
+.q{font-size:21px;margin:4px 0 12px;line-height:1.4}
+.q i,.note{color:#5b6475;font-style:normal;font-size:19px}
+.step{display:flex;font-size:19px;line-height:1.35;margin:5px 0}
+.n{width:40px;flex:none;color:#5b6475;font-weight:700}
+.call{flex:1}.res{flex:none;margin-left:10px;font-weight:700}
+.good{color:#2e8b57}.err{color:#c0392b}.warn{color:#b26a00}
+.reply{margin-top:10px;font-size:20px;background:#fff;border-radius:8px;padding:8px 12px;border:1px solid #d9dee7;line-height:1.4}

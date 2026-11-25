@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.box{border:2.5px solid #3a4a5c;border-radius:14px;padding:14px 20px;font-size:22px;line-height:1.35}
+.box b{font-size:23px}.arrow{text-align:center;font-size:30px;color:#3a4a5c;line-height:1.1;margin:4px 0}
+.row{display:flex;gap:16px;align-items:stretch}.row .box{flex:1}
+.side{font-size:18px;color:#5b6475;text-align:center;margin:-2px 0 2px}
+</style></head><body><div class="wrap">
+<h1>How one request is tested</h1>
+<div class="box" style="background:#e8f1fb"><b>1 · The request</b><br>The same task, asked in English, Hinglish, Hindi, Marathi or Gujarati</div>
+<div class="arrow">↓</div>
+<div class="row">
+ <div class="box" style="background:#eaf7ee"><b>2 · The AI model</b><br>reads the request and the list of six tools, and picks a tool</div>
+ <div class="box" style="background:#f3ecfa"><b>3 · The pretend railway</b><br>runs the tool and sends back the result</div>
+</div>
+<div class="side">↔ back and forth, up to 8 turns, until the model gives its final answer</div>
+<div class="arrow">↓</div>
+<div class="box" style="background:#fdeeee"><b>4 · The automatic checker</b> (no AI judge)<br>✓ the right bookings, and no extra ones<br>✓ a correct summary<br>✓ the right tools, with the right details, in a sensible order</div>
+<div class="arrow">↓</div>
+<div class="box" style="background:#e9f6f7"><b>5 · The result</b><br>success or failure, plus a label saying what went wrong</div>
+</div></body></html>
