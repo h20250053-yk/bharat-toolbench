@@ -13,9 +13,11 @@ both. The difficulty-level table (same Easy/Medium/Hard/Very Hard rule for all 2
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import json
 import math
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -217,6 +219,51 @@ def tables(D: Data) -> dict[str, Any]:
 # ================================================================================================ language view
 INDIC = ["hinglish", "hi", "mr", "gu"]
 STATION_ERRORS = {"INVALID_STATION", "STATION_NOT_FOUND"}
+# station-error buckets (an item can be in more than one):
+#   not_resolved   resolve_station -> STATION_NOT_FOUND: the model's name for the place could not be mapped (the word-ending / spelling test)
+#   name_not_code  another tool -> station error with a real-looking value: a city name, a made-up or wrong code (resolve_station skipped)
+#   placeholder    the value sent was empty or a placeholder / unfilled template ("next_stop", "resolve_station_result.Mumbai", "<code>")
+# A call is not counted when the gold expects exactly that error from that tool (a deliberate trap).
+STATION_BUCKETS = ("not_resolved", "name_not_code", "placeholder")
+_PLACEHOLDER_RE = re.compile(r"[{}<>$]|^[a-z_]+\.\S|\bresult\b|_result\b|\b(next|previous|prev|current|last|first)[ _-]?(stop|station)\b"
+                             r"|^(unknown|null|none|n/?a|tbd|x+|station|station[ _]?code|code|city|source|destination)$", re.I)
+_STATION_KEYS = ("station", "source", "destination", "name")
+
+
+def _station_value(e: dict[str, Any]) -> Any:
+    """The station value behind a station error: quoted in the environment's message, else the first station-like argument."""
+    msg = str(((e.get("observation") or {}).get("error") or {}).get("message") or "")
+    m = re.search(r"(?:Unknown station code: |No station matches )(.+?)\.?$", msg)
+    if m:
+        try:
+            return ast.literal_eval(m.group(1))
+        except (ValueError, SyntaxError):
+            pass
+    args = e.get("arguments") if isinstance(e.get("arguments"), dict) else {}
+    return next((args[k] for k in _STATION_KEYS if k in args), None)
+
+
+def is_placeholder(value: Any) -> bool:
+    return not isinstance(value, str) or not value.strip() or bool(_PLACEHOLDER_RE.search(value.strip()))
+
+
+def station_error_buckets(calls: list[dict[str, Any]], gold_task: dict[str, Any], error_code) -> set[str]:
+    """Which station-error buckets an item's calls fall into (see STATION_BUCKETS); traps the gold expects are not counted."""
+    traps = {(c["tool"], c["expected_error"]) for c in gold_task.get("required_calls", []) if c.get("expected_error")}
+    out: set[str] = set()
+    for e in calls:
+        code = error_code(e)
+        if code not in STATION_ERRORS or (e.get("tool"), code) in traps:
+            continue
+        if is_placeholder(_station_value(e)):
+            out.add("placeholder")
+        elif e.get("tool") == "resolve_station" and code == "STATION_NOT_FOUND":
+            out.add("not_resolved")
+        else:
+            out.add("name_not_code")
+    return out
+
+
 BOOT_SEED, BOOT_B = 20261126, 4000
 
 
@@ -237,8 +284,9 @@ def language_view(D: Data) -> tuple[dict, dict, dict]:
     gap  = per task, English success minus the mean success of the four Indian-language versions (Hinglish, Hindi, Marathi, Gujarati),
            averaged over the stage's tasks: PAIRED (same task, same gold), bootstrap 95% interval over tasks;
            spread = best minus worst language; change = stage-3 gap minus stage-1 gap (independent task sets: intervals combined).
-    tools per language and stage: selection recall, argument accuracy, and the share of items with a station-name error
-           (INVALID_STATION / STATION_NOT_FOUND: the word-ending problem of round one).
+    tools per language and stage: selection recall, argument accuracy, and the items with a station error (INVALID_STATION /
+           STATION_NOT_FOUND), split into STATION_BUCKETS; only not_resolved is the word-ending / spelling problem of round one,
+           and errors the gold expects (traps) are not counted.
     pooled: each language's success per stage over all models not flagged unreliable."""
     from analysis.observe_run import _error_code
     gap, tools = {}, {}
@@ -259,9 +307,10 @@ def language_view(D: Data) -> tuple[dict, dict, dict]:
             for l in LANGS:
                 items = [D.items[k][t] for t in D.ids(k, s, l)]
                 summ = D.TM.summarize(items)
-                st_err = sum(any(_error_code(e) in STATION_ERRORS for e in D.TM.calls_of(D.rows[k][t])) for t in D.ids(k, s, l))
+                bk = [station_error_buckets(D.TM.calls_of(D.rows[k][t]), D.gold[D.rows[k][t]["semantic_task_id"]], _error_code) for t in D.ids(k, s, l)]
                 tools[k][s][l] = {"selection_recall": summ["selection_recall"]["value"], "argument_accuracy": summ["argument_accuracy"]["value"],
-                                  "station_error_items": st_err, "items": len(items)}
+                                  "station_error_items": sum(bool(b) for b in bk), "items": len(items),
+                                  **{f"station_{b}_items": sum(b in x for x in bk) for b in STATION_BUCKETS}}
         a, b = gap[k]["S1"], gap[k]["S3"]
         half = math.sqrt(((a["hi"] - a["lo"]) / 2) ** 2 + ((b["hi"] - b["lo"]) / 2) ** 2)
         gap[k]["change_S3_vs_S1"] = {"diff": b["gap"] - a["gap"], "lo": b["gap"] - a["gap"] - half, "hi": b["gap"] - a["gap"] + half}
@@ -320,9 +369,11 @@ def write_tables(D: Data, T: dict[str, Any], out: Path) -> None:
     write_csv(out / "language_gap_by_stage.csv", ["model", "stage", "tasks", "english_minus_indic_pp", "ci_lo", "ci_hi", "spread_pp", "best", "worst"],
               [[k, s, g["tasks"], round(100 * g["gap"], 2), round(100 * g["lo"], 2), round(100 * g["hi"], 2), round(100 * g["spread"], 2), g["best"], g["worst"]]
                for k in D.models for s in S for g in [T["lang_gap"][k][s]]])
-    write_csv(out / "language_tools_by_stage.csv", ["model", "stage", "language", "items", "selection_recall", "argument_accuracy", "station_error_items"],
+    write_csv(out / "language_tools_by_stage.csv", ["model", "stage", "language", "items", "selection_recall", "argument_accuracy", "station_error_items"]
+              + [f"station_{b}_items" for b in STATION_BUCKETS],
               [[k, s, l, v["items"], round(v["selection_recall"], 4) if v["selection_recall"] == v["selection_recall"] else "",
                 round(v["argument_accuracy"], 4) if v["argument_accuracy"] == v["argument_accuracy"] else "", v["station_error_items"]]
+               + [v[f"station_{b}_items"] for b in STATION_BUCKETS]
                for k in D.models for s in S for l, v in T["lang_tools"][k][s].items()])
     (out / "stages.json").write_text(json.dumps(T, ensure_ascii=False, indent=1, default=float) + "\n", encoding="utf-8")
     (out / "rescoring.json").write_text(json.dumps(T["rescoring"], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -564,9 +615,14 @@ def results_md(D: Data, T: dict[str, Any]) -> str:
     P = T["lang_pooled"]
     L += ["", f"All reliable models pooled ({len(P['models'])}): success per language and stage.", ""]
     L.append(md_table(["stage"] + [LANG_NAME[l] for l in LANGS], [[STAGE_LABEL[s]] + [ci(P[s][l]) for l in LANGS] for s in S]))
-    L += ["", "Station-name errors (INVALID_STATION / STATION_NOT_FOUND, the word-ending problem of round one): items with at least one, per language.", ""]
+    L += ["", "Station errors (INVALID_STATION / STATION_NOT_FOUND), items with at least one, per language, split by cause: "
+          "**not resolved** = resolve_station could not map the model's name (the word-ending / spelling problem of round one); "
+          "**name, not code** = another tool was given a city name or a made-up / wrong code instead of a resolved code; "
+          "**placeholder** = an empty, placeholder or unfilled template value. Cell = not resolved / name, not code / placeholder "
+          "(of n items); an item can count in more than one. Errors the gold expects (deliberate traps) are not counted.", ""]
     L.append(md_table(["model", "stage"] + [LANG_NAME[l] for l in LANGS],
-                      [[D.name(k), STAGE_LABEL[s]] + [f"{T['lang_tools'][k][s][l]['station_error_items']}/{T['lang_tools'][k][s][l]['items']}" for l in LANGS]
+                      [[D.name(k), STAGE_LABEL[s]] + [" / ".join(str(T['lang_tools'][k][s][l][f"station_{b}_items"]) for b in STATION_BUCKETS)
+                                                      + f" (of {T['lang_tools'][k][s][l]['items']})" for l in LANGS]
                        for k in D.models for s in S]))
     L += ["", "## 9. Re-scoring check", "",
           "Stored run-time scores vs the current scorer (the 2.1.0 rows were scored by the 2.1.0 scorer when they ran):", ""]
