@@ -1,0 +1,153 @@
+{
+  "manifest_version": 1,
+  "written_at": "2026-11-26T00:48:25.762901+00:00",
+  "prerun": {
+    "captured_at": "2026-11-26T00:12:26.924239+00:00",
+    "git_commit": "4cfe68fabd701115e23344590ebd156ac32bfb95",
+    "git_tracked_changes": "",
+    "command": "-m evaluation.run_pilot --model local_llama31_8b --split v3_new --max-attempts 2 --run-file runs/local_llama31_8b_v3_new_20261125T224932Z.jsonl",
+    "model_key": "local_llama31_8b",
+    "model_config": {
+      "provider": "ollama",
+      "model": "llama3.1:8b",
+      "base_url": "http://127.0.0.1:11434",
+      "temperature": 0,
+      "seed": 42,
+      "max_tokens": 2048,
+      "num_ctx": 16384,
+      "timeout_seconds": 300,
+      "keep_alive": "10m",
+      "think": false
+    },
+    "ollama_version": "0.40.18",
+    "ollama_min_version": "0.40.18",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "model_details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+        "llama"
+      ],
+      "parameter_size": "8.0B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 131072,
+      "embedding_length": 4096,
+      "runner": "ggml"
+    },
+    "capabilities": [
+      "completion",
+      "tools"
+    ],
+    "thinking_capable": false,
+    "think_config": false,
+    "think_effective": null,
+    "split": "v3_new",
+    "languages": [
+      "en",
+      "hinglish",
+      "hi",
+      "mr",
+      "gu"
+    ],
+    "expected_items": 625,
+    "run_file": "runs/local_llama31_8b_v3_new_20261125T224932Z.jsonl",
+    "benchmark_version": "3.0.0",
+    "system_prompt_sha256": "ed8913f3f83e57537c97ee3cc57cc6077ae1db92abd9366b751d7646f3edd447",
+    "tool_schema_sha256": "fe40f3678bac889746fd2f899ed40eb2e61faf3691a3e9abfef762a7870046d8",
+    "server_env": {
+      "log": "/home/kalp/FreeModel/ollama-serve.log",
+      "logged_at": "2026-11-24T15:57:13.818+05:30",
+      "OLLAMA_NUM_PARALLEL": "1",
+      "OLLAMA_MAX_LOADED_MODELS": "1",
+      "OLLAMA_FLASH_ATTENTION": "false",
+      "OLLAMA_KV_CACHE_TYPE": "",
+      "OLLAMA_CONTEXT_LENGTH": "0",
+      "OLLAMA_KEEP_ALIVE": "5m0s",
+      "OLLAMA_GPU_OVERHEAD": "0",
+      "OLLAMA_MAX_QUEUE": "512",
+      "planned_ok": true
+    },
+    "file_sha256": {
+      "benchmark/semantic_tasks.json": "7387a2dc34b9ee45826bff3abac1d7dbdf904d07a79097c6ef1b55eeba45fb28",
+      "benchmark/gold_labels.json": "201eddeaea466c222db8e4919309d28c4a9df6843096533640a7f160ceac1cc6",
+      "benchmark/languages/en.jsonl": "50949469db5cc534a9bcd473ea1b05809bbcb320681a72a8d708f57ae9c7a096",
+      "benchmark/languages/hinglish.jsonl": "d67dd217700ffef12556c424956532306a0b16f3009b3e577834733e02d23c32",
+      "benchmark/languages/hi.jsonl": "3e75a9a2439c9f27e7b6a54ff51ee8117ec72104f528a31a2044b85081395c60",
+      "benchmark/languages/mr.jsonl": "8c97cc5d99f8ba79d66fdc647c4cf2c7296a3caab9ff78de77e821579506fea6",
+      "benchmark/languages/gu.jsonl": "24dc72628e074682e35cf78abae45d47a1e90760fba336fef9bb4c022a1d02a1",
+      "benchmark/languages/human_review.json": "3589a29af429b95c0dd9c2e24844370942f8ccc51e623e8800293d12483468a6",
+      "config/models.yaml": "1d5ff0907821103ed18338d1db9d6203acb31ab89e4148ac9051298e7ebc0159",
+      "evaluation/runner.py": "40cb38dcb0e7f99ba6de087b31bc910c0aabb3aba429b22ff0c1a1d1af5dd4ed",
+      "evaluation/scorer.py": "e9f28e246b08c5b5451326373744e37b4b88de85f440f38d47e3ad39922ae4ef",
+      "evaluation/final_answer.py": "efcb0efd72b5960a23bc85a50c76a5f34f66f53a0990049336294e970c5546b7",
+      "evaluation/canonical.py": "27e2bba67fbf01b99d0246bc6036dc0b25dfe63e6d3e383df699e5e796ce59c2",
+      "evaluation/tolerance.py": "d59330785a724db7f7ee74ff8464ba03b23c8eda7d70ca5991c15bf752c1ba27",
+      "agents/ollama_adapter.py": "e3f108c9d8842a00bb7c752ee35d68b3cb0698b130d1bc6f03e615c47a7441f2",
+      "evaluation/run_pilot.py": "9fbad1cfd5791c0a1cf820b3281994d81f17686bb37e03ba33973a39ba475670"
+    },
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  },
+  "run_files": [
+    {
+      "file": "runs/local_llama31_8b_v3_new_20261125T224932Z.jsonl",
+      "sha256": "4419b1baea54e6439177a3acceebbcd6b48c8035a380d19e3f5d5b2041dcb101",
+      "bytes": 26033347,
+      "rows": 625,
+      "unique_task_ids": 625,
+      "status": {
+        "completed": 619,
+        "output_truncated": 6
+      },
+      "first_started_at": "2026-11-26T00:12:27.381604+00:00",
+      "last_finished_at": "2026-11-26T00:48:24.056637+00:00"
+    },
+    {
+      "file": "runs/local_llama31_8b_v3_new_20261125T224932Z.quota.json",
+      "sha256": "3f8d5e3f009445653b0b9481c08b44e377733f467642f4804131dcf83968849f",
+      "bytes": 357,
+      "quota": {
+        "requests": 1243,
+        "input_tokens": 3014938,
+        "output_tokens": 121713,
+        "total_tokens": 3136651,
+        "retries": 0,
+        "provider_errors": 0,
+        "by_provider": {
+          "ollama": {
+            "requests": 1243,
+            "input_tokens": 3014938,
+            "output_tokens": 121713,
+            "total_tokens": 3136651
+          }
+        },
+        "updated_at": "2026-11-26T00:48:24.063435+00:00"
+      }
+    }
+  ],
+  "ollama_version": "0.40.18",
+  "ollama_versions_in_rows": {
+    "0.40.18": 625
+  },
+  "ollama_server_env": {
+    "log": "/home/kalp/FreeModel/ollama-serve.log",
+    "logged_at": "2026-11-24T15:57:13.818+05:30",
+    "OLLAMA_NUM_PARALLEL": "1",
+    "OLLAMA_MAX_LOADED_MODELS": "1",
+    "OLLAMA_FLASH_ATTENTION": "false",
+    "OLLAMA_KV_CACHE_TYPE": "",
+    "OLLAMA_CONTEXT_LENGTH": "0",
+    "OLLAMA_KEEP_ALIVE": "5m0s",
+    "OLLAMA_GPU_OVERHEAD": "0",
+    "OLLAMA_MAX_QUEUE": "512",
+    "planned_ok": true
+  },
+  "ollama_version_consistent": true,
+  "benchmark_files_unchanged_since_prerun": true,
+  "changed_since_prerun": [],
+  "analysis_platform": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39"
+  }
+}
