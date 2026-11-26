@@ -33,6 +33,11 @@ NEW_TOOLS = ["check_tatkal_availability", "book_tatkal_ticket", "get_berth_avail
              "order_meal", "file_tdr", "raise_complaint"]
 STATUSES = ["completed", "output_truncated", "malformed_output", "step_limit_exceeded", "context_overflow"]
 UNRELIABLE_SHARE = 0.5   # same rule as results_data: more than half of the replies unusable (malformed) => flagged, not ranked
+# Flags (all flagged models stay in every per-model table, marked; pooled numbers are given with and without them):
+#   §  never calls a tool in any stage: it answers without the tools, so its scores are a do-nothing baseline   (whole model)
+#   †  more than UNRELIABLE_SHARE of ALL its replies malformed                                                  (whole model)
+#   ‡  more than UNRELIABLE_SHARE of its replies malformed in a stage                                           (that stage only)
+POOLS = [("all", "all models"), ("reliable", "without flagged model-stages"), ("no_flag", "only models with no flag in any stage")]
 TM_SHOW = [("tool_use_rate", "uses tools"), ("selection_recall", "selection recall"), ("selection_precision", "selection precision"),
            ("first_call_accuracy", "first call right"), ("argument_accuracy", "argument accuracy"), ("sequence_accuracy", "order respected"),
            ("unwanted_action", "unwanted state change"), ("prohibited_attempt", "forbidden action tried")]
@@ -136,8 +141,21 @@ class Data:
             self.items[k] = {t: TM.item_metrics(r, self.gold[r["semantic_task_id"]]) for t, r in rows.items()}
         self.TM = TM
         self.null_pass = set(null_baseline("needs_clarification", {t: g for t, g in self.gold.items() if not t.startswith("_")}))
-        self.flagged = {k for k in self.models
-                        if sum(r.get("status") == "malformed_output" for r in self.rows[k].values()) / max(1, len(self.rows[k])) > UNRELIABLE_SHARE}
+        self.flags = {k: model_flags(self.rows[k], TM.calls_of) for k in self.models}
+        # whole-model flags (§ never calls a tool, † mostly malformed overall); ‡ stage flags are in self.flags[k]["malformed_stages"]
+        self.flagged = {k for k, f in self.flags.items() if f["no_tools"] or f["malformed_overall"] > UNRELIABLE_SHARE}
+
+    def flagged_in(self, k: str, stage: str) -> bool:
+        """Is model k flagged in this stage (a whole-model flag, or more than half malformed in the stage)?"""
+        return k in self.flagged or stage in self.flags[k]["malformed_stages"]
+
+    def any_flag(self, k: str) -> bool:
+        return k in self.flagged or bool(self.flags[k]["malformed_stages"])
+
+    def pool_models(self, pool: str, stage: str) -> list[str]:
+        """The models pooled in one stage: 'all'; 'reliable' = not flagged in that stage; 'no_flag' = no flag in any stage."""
+        keep = {"all": lambda k: True, "reliable": lambda k: not self.flagged_in(k, stage), "no_flag": lambda k: not self.any_flag(k)}[pool]
+        return [k for k in self.models if keep(k)]
 
     def ids(self, k: str, stage: str | None = None, lang: str | None = None, lo: int | None = None, hi: int | None = None) -> list[str]:
         out = []
@@ -155,7 +173,35 @@ class Data:
         return {"k": s, "n": n, "rate": s / n if n else float("nan"), "lo": lo, "hi": hi}
 
     def name(self, k: str) -> str:
-        return DISPLAY[k] + (" †" if k in self.flagged else "")
+        f = self.flags[k]
+        return DISPLAY[k] + (" §" if f["no_tools"] else "") + (" †" if f["malformed_overall"] > UNRELIABLE_SHARE else "") \
+            + (" ‡" if f["malformed_stages"] else "")
+
+    def flag_notes(self) -> list[str]:
+        """One line per flagged model, saying which flag and why (for the report and captions)."""
+        out = []
+        for k in self.models:
+            f = self.flags[k]
+            if f["no_tools"]:
+                out.append(f"§ {DISPLAY[k]}: never calls a tool in any stage (answers without the tools; its scores are a do-nothing baseline).")
+            if f["malformed_overall"] > UNRELIABLE_SHARE:
+                out.append(f"† {DISPLAY[k]}: {100 * f['malformed_overall']:.0f}% of all replies malformed.")
+            if f["malformed_stages"]:
+                out.append(f"‡ {DISPLAY[k]}: more than {int(100 * UNRELIABLE_SHARE)}% of replies malformed in "
+                           + ", ".join(f"{STAGE_LABEL[s]} ({100 * f['malformed_by_stage'][s]:.0f}%)" for s in f["malformed_stages"])
+                           + "; flagged in that stage only.")
+        return out
+
+
+def model_flags(rows: dict[str, dict[str, Any]], calls_of) -> dict[str, Any]:
+    """Flags of one model from its rows (see the flag rules above): no_tools, malformed share overall and per stage, flagged stages."""
+    by_stage: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for r in rows.values():
+        by_stage[stage_of(r["semantic_task_id"])].append(r)
+    share = {s: sum(r.get("status") == "malformed_output" for r in rs) / len(rs) for s, rs in by_stage.items() if rs}
+    overall = sum(r.get("status") == "malformed_output" for r in rows.values()) / max(1, len(rows))
+    return {"no_tools": bool(rows) and not any(calls_of(r) for r in rows.values()), "malformed_overall": overall,
+            "malformed_by_stage": share, "malformed_stages": sorted(s for s, v in share.items() if v > UNRELIABLE_SHARE)}
 
 
 PLAN_ORDER = ["local_qwen25_3b", "local_llama32_3b", "local_llama31_8b", "local_deepseek_r1_8b", "local_qwen25_14b", "local_gpt_oss_20b",
@@ -170,7 +216,7 @@ STAGE_COLOR = {"S1": "#9ecae1", "S2": "#4292c6", "S3": "#08306b"}
 
 # ================================================================================================ tables
 def tables(D: Data) -> dict[str, Any]:
-    T: dict[str, Any] = {"models": D.models, "flagged": sorted(D.flagged), "stages": {s: {"tasks": r, "tools": n} for s, r, _, _, n in STAGES}}
+    T: dict[str, Any] = {"models": D.models, "flagged": sorted(D.flagged), "flags": D.flags, "stages": {s: {"tasks": r, "tools": n} for s, r, _, _, n in STAGES}}
     T["null_baseline"] = {s: {"pass": sum(1 for t in D.null_pass if stage_of(t) == s), "tasks": b - a + 1} for s, _, a, b, _ in STAGES}
     T["success"], T["language"], T["status"], T["failures"], T["tools"], T["groups"], T["difficulty"], T["category"] = {}, {}, {}, {}, {}, {}, {}, {}
     T["diff_vs_s1"], T["new_tools"] = {}, {}
@@ -287,7 +333,8 @@ def language_view(D: Data) -> tuple[dict, dict, dict]:
     tools per language and stage: selection recall, argument accuracy, and the items with a station error (INVALID_STATION /
            STATION_NOT_FOUND), split into STATION_BUCKETS; only not_resolved is the word-ending / spelling problem of round one,
            and errors the gold expects (traps) are not counted.
-    pooled: each language's success per stage over all models not flagged unreliable."""
+    pooled: each language's success per stage, in three versions (POOLS): all models; without the model-stages that are flagged
+           (Data.flagged_in); only the models with no flag in any stage."""
     from analysis.observe_run import _error_code
     gap, tools = {}, {}
     for k in D.models:
@@ -314,11 +361,19 @@ def language_view(D: Data) -> tuple[dict, dict, dict]:
         a, b = gap[k]["S1"], gap[k]["S3"]
         half = math.sqrt(((a["hi"] - a["lo"]) / 2) ** 2 + ((b["hi"] - b["lo"]) / 2) ** 2)
         gap[k]["change_S3_vs_S1"] = {"diff": b["gap"] - a["gap"], "lo": b["gap"] - a["gap"] - half, "hi": b["gap"] - a["gap"] + half}
-    reliable = [k for k in D.models if k not in D.flagged] or D.models
-    pooled = {s: {l: (lambda kk, nn: {"k": kk, "n": nn, "rate": kk / nn if nn else float("nan"), "lo": wilson(kk, nn)[0], "hi": wilson(kk, nn)[1]})(
-        sum(D.rate(k, D.ids(k, s, l))["k"] for k in reliable), sum(D.rate(k, D.ids(k, s, l))["n"] for k in reliable)) for l in LANGS}
-        for s, *_ in STAGES}
-    pooled["models"] = reliable
+    pooled: dict[str, Any] = {}
+    for pool, _ in POOLS:
+        pooled[pool] = {}
+        for s, *_ in STAGES:
+            ks = D.pool_models(pool, s)
+            cell: dict[str, Any] = {}
+            for l in LANGS:
+                kk, nn = sum(D.rate(k, D.ids(k, s, l))["k"] for k in ks), sum(D.rate(k, D.ids(k, s, l))["n"] for k in ks)
+                lo, hi = wilson(kk, nn)
+                cell[l] = {"k": kk, "n": nn, "rate": kk / nn if nn else float("nan"), "lo": lo, "hi": hi}
+            cell["en_minus_indic"] = cell["en"]["rate"] - sum(cell[l]["rate"] for l in INDIC) / len(INDIC)
+            cell["models"] = ks
+            pooled[pool][s] = cell
     return gap, tools, pooled
 
 
@@ -375,6 +430,9 @@ def write_tables(D: Data, T: dict[str, Any], out: Path) -> None:
                 round(v["argument_accuracy"], 4) if v["argument_accuracy"] == v["argument_accuracy"] else "", v["station_error_items"]]
                + [v[f"station_{b}_items"] for b in STATION_BUCKETS]
                for k in D.models for s in S for l, v in T["lang_tools"][k][s].items()])
+    write_csv(out / "language_pooled_by_stage.csv", ["pool", "stage", "models", "language", "successes", "items", "rate", "ci_lo", "ci_hi"],
+              [[pool, s, " ".join(T["lang_pooled"][pool][s]["models"]), l, v["k"], v["n"], round(v["rate"], 4), round(v["lo"], 4), round(v["hi"], 4)]
+               for pool, _ in POOLS for s in S for l in LANGS for v in [T["lang_pooled"][pool][s][l]]])
     (out / "stages.json").write_text(json.dumps(T, ensure_ascii=False, indent=1, default=float) + "\n", encoding="utf-8")
     (out / "rescoring.json").write_text(json.dumps(T["rescoring"], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -493,8 +551,8 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
     save(fig, "figS4_stage3_services", "Task success in the 20-tool stage (T101-T200, all five languages) per service group: Tatkal, berths, "
          "boarding-point change, meals, platform and live status, TDR, complaints, and mixed tasks.")
 
-    # 5. outcome mix per stage (pooled over reliable models)
-    reliable = [k for k in ms if k not in D.flagged] or ms
+    # 5. outcome mix per stage (pooled over the models not flagged in that stage)
+    rel = {s: D.pool_models("reliable", s) or ms for s in S}
     order = ["success", "wrong_answer", "missing_required_call", "tool_argument_error", "missing_booking", "unsafe_action", "format_only",
              "output_truncated", "malformed_model_output", "step_limit", "context_overflow", "infra_error", "other"]
     colors = {"success": "#2E7D32", "wrong_answer": "#EF6C00", "format_only": "#F9A825", "tool_argument_error": "#C62828",
@@ -506,9 +564,9 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
               "context_overflow": "context overflow", "infra_error": "infrastructure error", "other": "other"}
     fig, ax = plt.subplots(figsize=(7, 3.4))
     left = np.zeros(3)
-    tot = [sum(sum(T["failures"][k][s].values()) for k in reliable) for s in S]
+    tot = [sum(sum(T["failures"][k][s].values()) for k in rel[s]) for s in S]
     for p in order:
-        v = np.array([100 * sum(T["failures"][k][s].get(p, 0) for k in reliable) / max(1, tot[i]) for i, s in enumerate(S)])
+        v = np.array([100 * sum(T["failures"][k][s].get(p, 0) for k in rel[s]) / max(1, tot[i]) for i, s in enumerate(S)])
         if v.any():
             ax.barh(range(3), v, left=left, color=colors[p], label=labels[p], edgecolor="white", lw=0.4)
             left += v
@@ -517,9 +575,10 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
     ax.invert_yaxis()
     ax.set_xlabel("share of items (%)")
     ax.legend(frameon=False, fontsize=7, bbox_to_anchor=(1.01, 1), loc="upper left")
-    ax.set_title("What happened, by stage (all reliable models pooled)")
-    save(fig, "figS5_outcomes_by_stage", "Primary outcome of every item (first matching class of analysis/observe_run.classify), pooled over the "
-         f"models not flagged as unreliable ({len(reliable)} models). " + note)
+    ax.set_title("What happened, by stage (models not flagged in the stage)")
+    save(fig, "figS5_outcomes_by_stage", "Primary outcome of every item (first matching class of analysis/observe_run.classify), pooled per stage "
+         "over the models not flagged in that stage (" + "; ".join(f"{STAGE_LABEL[s]}: {len(rel[s])} models" for s in S) + "). "
+         + " ".join(D.flag_notes()) + " " + note)
     # 6. English vs Indian languages, by stage
     fig, ax = plt.subplots(figsize=(7.5, 4))
     xs = np.arange(3)
@@ -538,7 +597,7 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
          "versions of the SAME tasks (paired by task), with 95% bootstrap intervals over tasks. Above zero = English does better. " + note)
 
     # 7. phone: each language per stage, pooled over reliable models
-    P = T["lang_pooled"]
+    P = T["lang_pooled"]["reliable"]
     fig, ax = plt.subplots(figsize=(5.2, 4.6))
     y = np.arange(len(LANGS))[::-1]
     for j, s in enumerate(S):
@@ -549,15 +608,22 @@ def figures(D: Data, T: dict[str, Any], out: Path) -> list[str]:
     ax.set_yticks(y)
     ax.set_yticklabels([LANG_NAME[l] for l in LANGS], fontsize=12)
     ax.set_xlim(0, 105)
-    ax.set_xlabel("task success (%), all reliable models", fontsize=11)
+    ax.set_xlabel("task success (%), models not flagged in the stage", fontsize=11)
     ax.legend(frameon=False, fontsize=9, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=1)
-    save(fig, "figS7_blog_languages_by_stage", f"Each language's task success per stage, pooled over the {len(P['models'])} models not flagged unreliable "
-         "(phone-sized). " + note)
+    save(fig, "figS7_blog_languages_by_stage", "Each language's task success per stage, pooled over the models not flagged in that stage ("
+         + "; ".join(f"{STAGE_LABEL[s]}: {len(P[s]['models'])} models" for s in S) + "; phone-sized). " + " ".join(D.flag_notes())
+         + " All-model and no-flag versions: RESULTS_V3.md sections 3 and 8, analysis/results_v3/language_pooled_by_stage.csv. " + note)
     (out / "captions.md").write_text("# Captions (generated by analysis/stage_comparison.py)\n\n" + "\n".join(caps), encoding="utf-8")
     return sorted(p.name for p in out.iterdir())
 
 
 # ================================================================================================ RESULTS_V3.md
+def pool_desc(D: Data, ks: list[str]) -> str:
+    """'n of N' plus the models left out, for the pooled tables."""
+    out = [DISPLAY[k] for k in D.models if k not in ks]
+    return f"{len(ks)} of {len(D.models)}" + (f" (without {', '.join(out)})" if out else "")
+
+
 def results_md(D: Data, T: dict[str, Any]) -> str:
     S = [s for s, *_ in STAGES]
     nb = T["null_baseline"]
@@ -566,8 +632,12 @@ def results_md(D: Data, T: dict[str, Any]) -> str:
          "stage 2 = T76-T100 with 12 tools, stage 3 = T101-T200 with 20 tools (the 3.0 `v3_new` runs). Each item is offered only its stage's tools. "
          "All rows are re-scored with the current scorer; success = lenient scorer (format recoveries recorded), strict in brackets. "
          "Intervals: 95% Wilson. Every task appears in all five languages.", "",
-         f"Models included so far: {len(D.models)} of 8 ({', '.join(D.name(k) for k in D.models)})." + (
-             f" † = flagged unreliable (more than {int(100 * UNRELIABLE_SHARE)}% of replies malformed): not ranked." if D.flagged else ""), "",
+         f"Models included so far: {len(D.models)} of 8 ({', '.join(D.name(k) for k in D.models)}).", "",
+         "**Flags.** § = never calls a tool in any stage (whole model); † = more than "
+         f"{int(100 * UNRELIABLE_SHARE)}% of all replies malformed (whole model); ‡ = more than {int(100 * UNRELIABLE_SHARE)}% of replies malformed in "
+         "a stage (that stage only). Flagged models stay in every per-model table, marked. Pooled numbers (sections 3 and 8) are given three ways: "
+         f"**all models**; **without flagged model-stages** (a model is left out only in the stages where it is flagged); **only models with no flag "
+         "in any stage**.", ""] + ([f"- {x}" for x in D.flag_notes()] + [""] if D.flag_notes() else []) + [
          "**Read the stage differences with care:** the stages differ in their tasks (stage 2 and 3 tasks involve PNRs, refunds, waitlists, Tatkal, "
          "meals, TDRs and complaints) as well as in the number of tools, so a drop from stage 1 to stage 3 is the joint effect of harder tasks and a "
          "larger toolset. The difficulty-level table below compares like with like.", "",
@@ -590,6 +660,12 @@ def results_md(D: Data, T: dict[str, Any]) -> str:
     L += ["", "## 3. Success by language and stage", ""]
     rows = [[D.name(k), STAGE_LABEL[s]] + [pc(T["language"][k][s][l]["rate"]) for l in LANGS] for k in D.models for s in S]
     L.append(md_table(["model", "stage"] + [LANG_NAME[l] for l in LANGS], rows))
+    L += ["", "Pooled over models, three ways (see Flags above; the models in each pool are listed per stage). "
+          "English - Indic = English minus the mean of the four Indian-language rates, in percentage points.", ""]
+    L.append(md_table(["pool", "stage", "models"] + [LANG_NAME[l] for l in LANGS] + ["English - Indic (pp)"],
+                      [[lab, STAGE_LABEL[s], pool_desc(D, T["lang_pooled"][pool][s]["models"])]
+                       + [pc(T["lang_pooled"][pool][s][l]["rate"]) for l in LANGS] + [f"{100 * T['lang_pooled'][pool][s]['en_minus_indic']:+.1f}"]
+                       for pool, lab in POOLS for s in S]))
     L += ["", "## 4. Tool use by stage", ""]
     rows = [[D.name(k), STAGE_LABEL[s]] + [pc(T["tools"][k][s][m]["value"]) if m in T["tools"][k][s] else "n/a" for m, _ in TM_SHOW] for k in D.models for s in S]
     L.append(md_table(["model", "stage"] + [lab for _, lab in TM_SHOW], rows))
@@ -612,9 +688,12 @@ def results_md(D: Data, T: dict[str, Any]) -> str:
             + [f"{100 * T['lang_gap'][k]['change_S3_vs_S1']['diff']:+.1f} [{100 * T['lang_gap'][k]['change_S3_vs_S1']['lo']:+.1f}, "
                f"{100 * T['lang_gap'][k]['change_S3_vs_S1']['hi']:+.1f}]"] for k in D.models]
     L.append(md_table(["model"] + [STAGE_LABEL[s] for s in S] + ["gap change S3 - S1"], rows))
-    P = T["lang_pooled"]
-    L += ["", f"All reliable models pooled ({len(P['models'])}): success per language and stage.", ""]
-    L.append(md_table(["stage"] + [LANG_NAME[l] for l in LANGS], [[STAGE_LABEL[s]] + [ci(P[s][l]) for l in LANGS] for s in S]))
+    for pool, lab in POOLS:
+        P = T["lang_pooled"][pool]
+        L += ["", f"Pooled, **{lab}**: success per language and stage (95% Wilson intervals).", ""]
+        L.append(md_table(["stage", "models"] + [LANG_NAME[l] for l in LANGS] + ["English - Indic (pp)"],
+                          [[STAGE_LABEL[s], pool_desc(D, P[s]["models"])] + [ci(P[s][l]) for l in LANGS] + [f"{100 * P[s]['en_minus_indic']:+.1f}"]
+                           for s in S]))
     L += ["", "Station errors (INVALID_STATION / STATION_NOT_FOUND), items with at least one, per language, split by cause: "
           "**not resolved** = resolve_station could not map the model's name (the word-ending / spelling problem of round one); "
           "**name, not code** = another tool was given a city name or a made-up / wrong code instead of a resolved code; "

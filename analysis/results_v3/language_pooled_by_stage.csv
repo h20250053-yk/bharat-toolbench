@@ -1,0 +1,46 @@
+pool,stage,models,language,successes,items,rate,ci_lo,ci_hi
+all,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,en,145,600,0.2417,0.2091,0.2775
+all,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hinglish,145,600,0.2417,0.2091,0.2775
+all,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hi,153,600,0.255,0.2218,0.2914
+all,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,mr,141,600,0.235,0.2028,0.2705
+all,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,gu,145,600,0.2417,0.2091,0.2775
+all,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,en,47,200,0.235,0.1816,0.2984
+all,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hinglish,57,200,0.285,0.227,0.3512
+all,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hi,60,200,0.3,0.2407,0.3668
+all,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,mr,51,200,0.255,0.1996,0.3196
+all,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,gu,58,200,0.29,0.2315,0.3564
+all,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,en,194,800,0.2425,0.2141,0.2734
+all,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hinglish,155,800,0.1938,0.1679,0.2226
+all,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hi,184,800,0.23,0.2022,0.2604
+all,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,mr,162,800,0.2025,0.1761,0.2317
+all,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_deepseek_r1_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,gu,167,800,0.2087,0.182,0.2383
+reliable,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,en,140,450,0.3111,0.2701,0.3553
+reliable,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hinglish,135,450,0.3,0.2595,0.3439
+reliable,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hi,143,450,0.3178,0.2765,0.3622
+reliable,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,mr,132,450,0.2933,0.2532,0.337
+reliable,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,gu,134,450,0.2978,0.2574,0.3416
+reliable,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,en,47,175,0.2686,0.2084,0.3387
+reliable,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hinglish,56,175,0.32,0.2554,0.3923
+reliable,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hi,59,175,0.3371,0.2713,0.41
+reliable,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,mr,50,175,0.2857,0.2239,0.3567
+reliable,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,gu,57,175,0.3257,0.2607,0.3982
+reliable,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,en,192,700,0.2743,0.2425,0.3085
+reliable,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hinglish,153,700,0.2186,0.1895,0.2507
+reliable,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,hi,182,700,0.26,0.2289,0.2937
+reliable,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,mr,161,700,0.23,0.2003,0.2626
+reliable,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b local_mistral_small32_24b,gu,165,700,0.2357,0.2058,0.2685
+no_flag,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,en,140,450,0.3111,0.2701,0.3553
+no_flag,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hinglish,135,450,0.3,0.2595,0.3439
+no_flag,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hi,143,450,0.3178,0.2765,0.3622
+no_flag,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,mr,132,450,0.2933,0.2532,0.337
+no_flag,S1,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,gu,134,450,0.2978,0.2574,0.3416
+no_flag,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,en,41,150,0.2733,0.2083,0.3496
+no_flag,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hinglish,51,150,0.34,0.269,0.419
+no_flag,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hi,53,150,0.3533,0.2814,0.4326
+no_flag,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,mr,44,150,0.2933,0.2264,0.3706
+no_flag,S2,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,gu,49,150,0.3267,0.2568,0.4052
+no_flag,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,en,178,600,0.2967,0.2615,0.3344
+no_flag,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hinglish,145,600,0.2417,0.2091,0.2775
+no_flag,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,hi,170,600,0.2833,0.2487,0.3207
+no_flag,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,mr,157,600,0.2617,0.2281,0.2983
+no_flag,S3,local_qwen25_3b local_llama32_3b local_llama31_8b local_qwen25_14b local_gpt_oss_20b local_gemma4_26b,gu,157,600,0.2617,0.2281,0.2983

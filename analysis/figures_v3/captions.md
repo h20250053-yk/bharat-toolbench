@@ -22,7 +22,7 @@ Task success in the 20-tool stage (T101-T200, all five languages) per service gr
 
 ## figS5_outcomes_by_stage
 
-Primary outcome of every item (first matching class of analysis/observe_run.classify), pooled over the models not flagged as unreliable (8 models). Stages differ in tasks as well as in the number of tools; error bars = 95% Wilson intervals.
+Primary outcome of every item (first matching class of analysis/observe_run.classify), pooled per stage over the models not flagged in that stage (T01-T75 (6 tools): 6 models; T76-T100 (12 tools): 7 models; T101-T200 (20 tools): 7 models). § DeepSeek-R1-8B: never calls a tool in any stage (answers without the tools; its scores are a do-nothing baseline). ‡ Mistral-Small-3.2-24B: more than 50% of replies malformed in T01-T75 (6 tools) (61%); flagged in that stage only. Stages differ in tasks as well as in the number of tools; error bars = 95% Wilson intervals.
 
 ## figS6_language_gap_by_stage
 
@@ -30,4 +30,4 @@ Per model and stage, English success minus the mean success of the Hinglish, Hin
 
 ## figS7_blog_languages_by_stage
 
-Each language's task success per stage, pooled over the 8 models not flagged unreliable (phone-sized). Stages differ in tasks as well as in the number of tools; error bars = 95% Wilson intervals.
+Each language's task success per stage, pooled over the models not flagged in that stage (T01-T75 (6 tools): 6 models; T76-T100 (12 tools): 7 models; T101-T200 (20 tools): 7 models; phone-sized). § DeepSeek-R1-8B: never calls a tool in any stage (answers without the tools; its scores are a do-nothing baseline). ‡ Mistral-Small-3.2-24B: more than 50% of replies malformed in T01-T75 (6 tools) (61%); flagged in that stage only. All-model and no-flag versions: RESULTS_V3.md sections 3 and 8, analysis/results_v3/language_pooled_by_stage.csv. Stages differ in tasks as well as in the number of tools; error bars = 95% Wilson intervals.

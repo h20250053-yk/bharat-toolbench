@@ -54,3 +54,39 @@ def test_station_error_expected_by_the_gold_is_not_counted():
     gold = {"required_calls": [{"tool": "resolve_station", "expected_error": "STATION_NOT_FOUND"}]}
     calls = [_call("resolve_station", "STATION_NOT_FOUND", "Atlantis", key="name"), _call("get_platform_info", "INVALID_STATION", "Mumbai")]
     assert SC.station_error_buckets(calls, gold, _code) == {"name_not_code"}
+
+
+def _rows(spec):
+    """spec: {task_id: (status, n_calls)} -> rows keyed by task_id (only the fields model_flags reads)."""
+    return {t: {"semantic_task_id": t.split("_")[0], "status": st, "trajectory": [{"event": "tool_call"}] * n} for t, (st, n) in spec.items()}
+
+
+def _calls(r):
+    return r["trajectory"]
+
+
+def test_model_that_never_calls_a_tool_is_flagged_for_the_whole_model():
+    f = SC.model_flags(_rows({"T01_en": ("completed", 0), "T80_en": ("completed", 0), "T150_en": ("completed", 0)}), _calls)
+    assert f["no_tools"] and f["malformed_stages"] == []
+    assert not SC.model_flags(_rows({"T01_en": ("completed", 0), "T150_en": ("completed", 1)}), _calls)["no_tools"]
+
+
+def test_more_than_half_malformed_is_flagged_per_stage():
+    # stage 1: 2 of 3 malformed (flagged); stage 3: 1 of 3 (not flagged); overall 3 of 6 = 50% (not more than half)
+    f = SC.model_flags(_rows({"T01_en": ("malformed_output", 0), "T02_en": ("malformed_output", 0), "T03_en": ("completed", 1),
+                              "T150_en": ("malformed_output", 0), "T151_en": ("completed", 1), "T152_en": ("completed", 1)}), _calls)
+    assert f["malformed_stages"] == ["S1"] and abs(f["malformed_overall"] - 0.5) < 1e-9 and not f["no_tools"]
+
+
+def test_pools_leave_out_flagged_model_stages():
+    class D:  # the three pool rules on a stub with one clean model, one no-tool model and one stage-1 malformed model
+        models = ["a", "b", "c"]
+        flagged = {"b"}
+        flags = {"a": {"malformed_stages": []}, "b": {"malformed_stages": []}, "c": {"malformed_stages": ["S1"]}}
+        flagged_in = SC.Data.flagged_in
+        any_flag = SC.Data.any_flag
+        pool_models = SC.Data.pool_models
+    d = D()
+    assert d.pool_models("all", "S1") == ["a", "b", "c"]
+    assert d.pool_models("reliable", "S1") == ["a"] and d.pool_models("reliable", "S3") == ["a", "c"]
+    assert d.pool_models("no_flag", "S3") == ["a"]
