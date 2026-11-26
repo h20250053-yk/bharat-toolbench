@@ -1,0 +1,17 @@
+{
+  "requests": 1103,
+  "input_tokens": 2827875,
+  "output_tokens": 80775,
+  "total_tokens": 2908650,
+  "retries": 0,
+  "provider_errors": 0,
+  "by_provider": {
+    "ollama": {
+      "requests": 1103,
+      "input_tokens": 2827875,
+      "output_tokens": 80775,
+      "total_tokens": 2908650
+    }
+  },
+  "updated_at": "2026-11-26T06:01:47.647757+00:00"
+}
