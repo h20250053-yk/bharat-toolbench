@@ -1,0 +1,65 @@
+model,group,items,successes,rate
+local_qwen25_3b,Tatkal,100,2,0.02
+local_qwen25_3b,Berths,50,2,0.04
+local_qwen25_3b,Boarding change,55,0,0.0
+local_qwen25_3b,Meals,80,0,0.0
+local_qwen25_3b,Platform & live,60,0,0.0
+local_qwen25_3b,TDR,55,0,0.0
+local_qwen25_3b,Complaints,50,0,0.0
+local_qwen25_3b,Mixed,50,0,0.0
+local_llama32_3b,Tatkal,100,1,0.01
+local_llama32_3b,Berths,50,1,0.02
+local_llama32_3b,Boarding change,55,0,0.0
+local_llama32_3b,Meals,80,0,0.0
+local_llama32_3b,Platform & live,60,1,0.0167
+local_llama32_3b,TDR,55,2,0.0364
+local_llama32_3b,Complaints,50,0,0.0
+local_llama32_3b,Mixed,50,0,0.0
+local_llama31_8b,Tatkal,100,36,0.36
+local_llama31_8b,Berths,50,6,0.12
+local_llama31_8b,Boarding change,55,5,0.0909
+local_llama31_8b,Meals,80,5,0.0625
+local_llama31_8b,Platform & live,60,6,0.1
+local_llama31_8b,TDR,55,15,0.2727
+local_llama31_8b,Complaints,50,10,0.2
+local_llama31_8b,Mixed,50,3,0.06
+local_deepseek_r1_8b,Tatkal,100,0,0.0
+local_deepseek_r1_8b,Berths,50,0,0.0
+local_deepseek_r1_8b,Boarding change,55,0,0.0
+local_deepseek_r1_8b,Meals,80,4,0.05
+local_deepseek_r1_8b,Platform & live,60,0,0.0
+local_deepseek_r1_8b,TDR,55,0,0.0
+local_deepseek_r1_8b,Complaints,50,5,0.1
+local_deepseek_r1_8b,Mixed,50,0,0.0
+local_qwen25_14b,Tatkal,100,37,0.37
+local_qwen25_14b,Berths,50,24,0.48
+local_qwen25_14b,Boarding change,55,13,0.2364
+local_qwen25_14b,Meals,80,7,0.0875
+local_qwen25_14b,Platform & live,60,3,0.05
+local_qwen25_14b,TDR,55,10,0.1818
+local_qwen25_14b,Complaints,50,2,0.04
+local_qwen25_14b,Mixed,50,14,0.28
+local_gpt_oss_20b,Tatkal,100,66,0.66
+local_gpt_oss_20b,Berths,50,42,0.84
+local_gpt_oss_20b,Boarding change,55,24,0.4364
+local_gpt_oss_20b,Meals,80,30,0.375
+local_gpt_oss_20b,Platform & live,60,17,0.2833
+local_gpt_oss_20b,TDR,55,28,0.5091
+local_gpt_oss_20b,Complaints,50,28,0.56
+local_gpt_oss_20b,Mixed,50,19,0.38
+local_gemma4_26b,Tatkal,100,91,0.91
+local_gemma4_26b,Berths,50,38,0.76
+local_gemma4_26b,Boarding change,55,33,0.6
+local_gemma4_26b,Meals,80,61,0.7625
+local_gemma4_26b,Platform & live,60,37,0.6167
+local_gemma4_26b,TDR,55,37,0.6727
+local_gemma4_26b,Complaints,50,13,0.26
+local_gemma4_26b,Mixed,50,38,0.76
+local_mistral_small32_24b,Tatkal,100,3,0.03
+local_mistral_small32_24b,Berths,50,0,0.0
+local_mistral_small32_24b,Boarding change,55,8,0.1455
+local_mistral_small32_24b,Meals,80,15,0.1875
+local_mistral_small32_24b,Platform & live,60,0,0.0
+local_mistral_small32_24b,TDR,55,13,0.2364
+local_mistral_small32_24b,Complaints,50,5,0.1
+local_mistral_small32_24b,Mixed,50,2,0.04

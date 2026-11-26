@@ -1,0 +1,97 @@
+model,stage,level,items,successes,rate
+local_qwen25_3b,S1,Easy,90,3,0.0333
+local_qwen25_3b,S1,Medium,205,10,0.0488
+local_qwen25_3b,S1,Hard,65,0,0.0
+local_qwen25_3b,S1,Very Hard,15,0,0.0
+local_qwen25_3b,S2,Easy,80,0,0.0
+local_qwen25_3b,S2,Medium,45,0,0.0
+local_qwen25_3b,S2,Hard,0,0,
+local_qwen25_3b,S2,Very Hard,0,0,
+local_qwen25_3b,S3,Easy,240,1,0.0042
+local_qwen25_3b,S3,Medium,235,3,0.0128
+local_qwen25_3b,S3,Hard,25,0,0.0
+local_qwen25_3b,S3,Very Hard,0,0,
+local_llama32_3b,S1,Easy,90,17,0.1889
+local_llama32_3b,S1,Medium,205,12,0.0585
+local_llama32_3b,S1,Hard,65,0,0.0
+local_llama32_3b,S1,Very Hard,15,0,0.0
+local_llama32_3b,S2,Easy,80,2,0.025
+local_llama32_3b,S2,Medium,45,2,0.0444
+local_llama32_3b,S2,Hard,0,0,
+local_llama32_3b,S2,Very Hard,0,0,
+local_llama32_3b,S3,Easy,240,3,0.0125
+local_llama32_3b,S3,Medium,235,2,0.0085
+local_llama32_3b,S3,Hard,25,0,0.0
+local_llama32_3b,S3,Very Hard,0,0,
+local_llama31_8b,S1,Easy,90,28,0.3111
+local_llama31_8b,S1,Medium,205,14,0.0683
+local_llama31_8b,S1,Hard,65,0,0.0
+local_llama31_8b,S1,Very Hard,15,0,0.0
+local_llama31_8b,S2,Easy,80,27,0.3375
+local_llama31_8b,S2,Medium,45,13,0.2889
+local_llama31_8b,S2,Hard,0,0,
+local_llama31_8b,S2,Very Hard,0,0,
+local_llama31_8b,S3,Easy,240,52,0.2167
+local_llama31_8b,S3,Medium,235,34,0.1447
+local_llama31_8b,S3,Hard,25,0,0.0
+local_llama31_8b,S3,Very Hard,0,0,
+local_deepseek_r1_8b,S1,Easy,90,18,0.2
+local_deepseek_r1_8b,S1,Medium,205,8,0.039
+local_deepseek_r1_8b,S1,Hard,65,0,0.0
+local_deepseek_r1_8b,S1,Very Hard,15,0,0.0
+local_deepseek_r1_8b,S2,Easy,80,4,0.05
+local_deepseek_r1_8b,S2,Medium,45,0,0.0
+local_deepseek_r1_8b,S2,Hard,0,0,
+local_deepseek_r1_8b,S2,Very Hard,0,0,
+local_deepseek_r1_8b,S3,Easy,240,9,0.0375
+local_deepseek_r1_8b,S3,Medium,235,0,0.0
+local_deepseek_r1_8b,S3,Hard,25,0,0.0
+local_deepseek_r1_8b,S3,Very Hard,0,0,
+local_qwen25_14b,S1,Easy,90,31,0.3444
+local_qwen25_14b,S1,Medium,205,60,0.2927
+local_qwen25_14b,S1,Hard,65,9,0.1385
+local_qwen25_14b,S1,Very Hard,15,1,0.0667
+local_qwen25_14b,S2,Easy,80,23,0.2875
+local_qwen25_14b,S2,Medium,45,8,0.1778
+local_qwen25_14b,S2,Hard,0,0,
+local_qwen25_14b,S2,Very Hard,0,0,
+local_qwen25_14b,S3,Easy,240,52,0.2167
+local_qwen25_14b,S3,Medium,235,52,0.2213
+local_qwen25_14b,S3,Hard,25,6,0.24
+local_qwen25_14b,S3,Very Hard,0,0,
+local_gpt_oss_20b,S1,Easy,90,49,0.5444
+local_gpt_oss_20b,S1,Medium,205,131,0.639
+local_gpt_oss_20b,S1,Hard,65,32,0.4923
+local_gpt_oss_20b,S1,Very Hard,15,1,0.0667
+local_gpt_oss_20b,S2,Easy,80,60,0.75
+local_gpt_oss_20b,S2,Medium,45,31,0.6889
+local_gpt_oss_20b,S2,Hard,0,0,
+local_gpt_oss_20b,S2,Very Hard,0,0,
+local_gpt_oss_20b,S3,Easy,240,118,0.4917
+local_gpt_oss_20b,S3,Medium,235,118,0.5021
+local_gpt_oss_20b,S3,Hard,25,18,0.72
+local_gpt_oss_20b,S3,Very Hard,0,0,
+local_gemma4_26b,S1,Easy,90,59,0.6556
+local_gemma4_26b,S1,Medium,205,167,0.8146
+local_gemma4_26b,S1,Hard,65,50,0.7692
+local_gemma4_26b,S1,Very Hard,15,10,0.6667
+local_gemma4_26b,S2,Easy,80,37,0.4625
+local_gemma4_26b,S2,Medium,45,35,0.7778
+local_gemma4_26b,S2,Hard,0,0,
+local_gemma4_26b,S2,Very Hard,0,0,
+local_gemma4_26b,S3,Easy,240,142,0.5917
+local_gemma4_26b,S3,Medium,235,182,0.7745
+local_gemma4_26b,S3,Hard,25,24,0.96
+local_gemma4_26b,S3,Very Hard,0,0,
+local_mistral_small32_24b,S1,Easy,90,11,0.1222
+local_mistral_small32_24b,S1,Medium,205,8,0.039
+local_mistral_small32_24b,S1,Hard,65,0,0.0
+local_mistral_small32_24b,S1,Very Hard,15,0,0.0
+local_mistral_small32_24b,S2,Easy,80,19,0.2375
+local_mistral_small32_24b,S2,Medium,45,12,0.2667
+local_mistral_small32_24b,S2,Hard,0,0,
+local_mistral_small32_24b,S2,Very Hard,0,0,
+local_mistral_small32_24b,S3,Easy,240,16,0.0667
+local_mistral_small32_24b,S3,Medium,235,30,0.1277
+local_mistral_small32_24b,S3,Hard,25,0,0.0
+local_mistral_small32_24b,S3,Very Hard,0,0,

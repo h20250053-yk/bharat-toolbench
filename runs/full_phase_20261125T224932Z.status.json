@@ -1,0 +1,201 @@
+{
+  "ts": "20261125T224932Z",
+  "started": "2026-11-25T22:49:33.006056+00:00",
+  "models": {
+    "local_qwen25_3b": {
+      "model": "qwen2.5:3b",
+      "snapshot_rc": 0,
+      "started": "2026-11-25T22:49:33.626922+00:00",
+      "run_rc": 0,
+      "resume1_rc": 0,
+      "resume2_rc": 0,
+      "seconds": 3519.6,
+      "resumes": 2,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 464,
+          "output_truncated": 152,
+          "context_overflow": 2,
+          "malformed_output": 7
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_qwen25_3b_v3_new_20261125T224932Z.jsonl",
+        "runs/local_qwen25_3b_v3_new_20261125T224932Z_resume1.jsonl",
+        "runs/local_qwen25_3b_v3_new_20261125T224932Z_resume2.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_qwen25_3b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_llama32_3b": {
+      "model": "llama3.2:3b",
+      "snapshot_rc": 0,
+      "started": "2026-11-25T23:48:17.980410+00:00",
+      "run_rc": 0,
+      "seconds": 1447.2,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 597,
+          "output_truncated": 27,
+          "step_limit_exceeded": 1
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_llama32_3b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_llama32_3b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_llama31_8b": {
+      "model": "llama3.1:8b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T00:12:27.097534+00:00",
+      "run_rc": 0,
+      "seconds": 2157.6,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 619,
+          "output_truncated": 6
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_llama31_8b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_llama31_8b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_deepseek_r1_8b": {
+      "model": "deepseek-r1:8b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T00:48:27.486726+00:00",
+      "run_rc": 0,
+      "seconds": 5954.2,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 548,
+          "output_truncated": 77
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_deepseek_r1_8b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_deepseek_r1_8b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_qwen25_14b": {
+      "model": "qwen2.5:14b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T02:27:43.390059+00:00",
+      "run_rc": 0,
+      "seconds": 5458.9,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 615,
+          "output_truncated": 9,
+          "step_limit_exceeded": 1
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_qwen25_14b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_qwen25_14b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_gpt_oss_20b": {
+      "model": "gpt-oss:20b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T03:58:45.302331+00:00",
+      "run_rc": 0,
+      "seconds": 1687.9,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 623,
+          "step_limit_exceeded": 2
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_gpt_oss_20b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_gpt_oss_20b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_gemma4_26b": {
+      "model": "gemma4:26b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T04:26:56.026190+00:00",
+      "run_rc": 0,
+      "seconds": 1538.7,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 623,
+          "malformed_output": 2
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_gemma4_26b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_gemma4_26b_v3_new_20261125T224932Z",
+      "done": true
+    },
+    "local_mistral_small32_24b": {
+      "model": "mistral-small3.2:24b",
+      "snapshot_rc": 0,
+      "started": "2026-11-26T04:52:38.324486+00:00",
+      "run_rc": 0,
+      "seconds": 4149.7,
+      "resumes": 0,
+      "completeness": {
+        "items": 625,
+        "expected": 625,
+        "unresolved": [],
+        "statuses": {
+          "completed": 481,
+          "malformed_output": 138,
+          "step_limit_exceeded": 4,
+          "output_truncated": 2
+        },
+        "complete": true
+      },
+      "run_files": [
+        "runs/local_mistral_small32_24b_v3_new_20261125T224932Z.jsonl"
+      ],
+      "observe_dir": "analysis/results/local_mistral_small32_24b_v3_new_20261125T224932Z",
+      "done": true
+    }
+  },
+  "finished": "2026-11-26T06:01:49.645276+00:00"
+}
